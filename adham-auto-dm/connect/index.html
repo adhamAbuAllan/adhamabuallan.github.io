@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connect Instagram – Adham Auto DM</title>
+<meta name="description" content="Reply to Instagram comments automatically: people comment a keyword, get your link in DM, optionally after following you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#f6f6f4; --surface:#fff; --line:#e4e2dd; --text:#1b1b19; --muted:#6b6a66; --accent:#d6336c; --accent-2:#f76707; color-scheme: light; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#121212; --surface:#1b1b1b; --line:#2e2e2e; --text:#ececea; --muted:#a3a29e; --accent:#f06595; --accent-2:#ff922b; color-scheme: dark; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.6 Inter, "IBM Plex Sans Arabic", system-ui, sans-serif; }
+  main { max-width: 640px; margin: 0 auto; padding: 48px 16px 64px; }
+  .logo { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, var(--accent-2), var(--accent)); display:grid; place-items:center; color:#fff; font-size:22px; }
+  h1 { font-size: clamp(26px, 6vw, 34px); line-height: 1.15; letter-spacing: -.02em; margin: 18px 0 10px; }
+  p.lead { color: var(--muted); font-size: 17px; margin: 0 0 24px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin: 16px 0; }
+  ol { margin: 0; padding-inline-start: 22px; } ol li + li { margin-top: 8px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--accent-2), var(--accent)); color: #fff; text-decoration: none; font-weight: 600; padding: 14px 22px; border-radius: 12px; font-size: 17px; }
+  .muted { color: var(--muted); } .small { font-size: 14px; }
+  .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; text-align: center; font-size: 13px; }
+  .flow div { background: var(--bg); border-radius: 12px; padding: 12px 6px; }
+  .flow b { display:block; font-size: 22px; }
+  @media (max-width: 480px) { .flow { grid-template-columns: repeat(2, 1fr); } }
+  [dir=rtl] { font-family: "IBM Plex Sans Arabic", Inter, sans-serif; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <img src="../icon-1024.png" alt="" width="44" height="44" style="border-radius:12px;display:block">
+  <h1>Turn Instagram comments into followers and clicks</h1>
+  <p class="lead">People comment a keyword on your Reel → they get your link in a DM, after following you if you want. Everything runs through Instagram's official API.</p>
+
+  <div class="flow card">
+    <div><b>💬</b>They comment<br>“link”</div>
+    <div><b>📩</b>They get<br>a DM</div>
+    <div><b>➕</b>They follow<br>(optional)</div>
+    <div><b>🔗</b>They get<br>your link</div>
+  </div>
+
+  <div class="card">
+    <strong>Before you connect</strong>
+    <ol class="small" style="margin-top:10px">
+      <li>Your Instagram account must be <b>Professional</b> (Creator or Business).</li>
+      <li>In the Instagram app: <b>Settings → Messages and story replies → Message controls → Connected tools → Allow access to messages</b>: ON.</li>
+    </ol>
+  </div>
+
+  <p><a class="btn" href="https://alfhdieorygvgrmhypea.supabase.co/functions/v1/ig-dm/connect">Connect with Instagram →</a></p>
+  <p class="small muted">You'll log in on Instagram's own page and see exactly what's shared. You can disconnect any time from Instagram → Settings → Apps and websites, and your data is deleted.</p>
+
+  <div class="card" dir="rtl" lang="ar">
+    <strong>بالعربي</strong>
+    <p class="small" style="margin:8px 0 0">لما حدا يكتب كلمة معيّنة بالتعليقات على الريل تبعك، بيوصله الرابط برسالة خاصة، وممكن تطلب منه يتابعك أول. اربط حسابك المهني من الزر فوق، وبتاخد لوحة تحكم تضيف منها الحملات وتشوف الأرقام.</p>
+  </div>
+
+  <p class="small muted">Operated by Adham Abu Allan · <a href="../">Privacy policy</a> · <a href="../terms.html">Terms</a> · <a href="../data-deletion.html">Data deletion</a> · <a href="mailto:adhamallan4@gmail.com">adhamallan4@gmail.com</a></p>
+</main>
+</body>
+</html>

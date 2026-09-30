@@ -1,0 +1,52 @@
+# --- Claude default ignore ---
+.claude-ship/
+.DS_Store
+Thumbs.db
+
+# secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.keystore
+*.jks
+google-services.json
+GoogleService-Info.plist
+
+# node
+node_modules/
+dist/
+build/
+.next/
+.vercel/
+npm-debug.log*
+yarn-error.log*
+
+# flutter / dart
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/android/.gradle/
+**/android/local.properties
+**/android/key.properties
+*.iml
+
+# xcode
+xcuserdata/
+DerivedData/
+
+# python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# editors
+.idea/
+.vscode/

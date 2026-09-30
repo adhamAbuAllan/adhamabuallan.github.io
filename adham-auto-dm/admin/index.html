@@ -1,0 +1,990 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Auto DM Dashboard</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f6f6f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Auto DM">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f6f4; --surface: #ffffff; --surface-2: #f0efec; --line: #e4e2dd;
+    --text: #1b1b19; --muted: #6b6a66; --faint: #9a9893;
+    --accent: #d6336c; --accent-2: #f76707; --accent-ink: #ffffff;
+    --ok: #2b8a3e; --ok-bg: #e6f4ea; --warn: #b35c00; --warn-bg: #fff1e0; --bad: #c92a2a; --bad-bg: #fdecec;
+    --radius: 14px; --shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 16px rgba(0,0,0,.04);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121212; --surface: #1b1b1b; --surface-2: #242424; --line: #2e2e2e;
+      --text: #ececea; --muted: #a3a29e; --faint: #74736f;
+      --accent: #f06595; --accent-2: #ff922b; --accent-ink: #1a0a10;
+      --ok: #69db7c; --ok-bg: #16301d; --warn: #ffa94d; --warn-bg: #33230f; --bad: #ff8787; --bad-bg: #3a1717;
+      --shadow: none; color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font: 15px/1.5 Inter, "IBM Plex Sans Arabic", system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  [dir="rtl"], .ar { font-family: "IBM Plex Sans Arabic", Inter, system-ui, sans-serif; }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  a { color: var(--accent); }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+  .hidden { display: none !important; }
+
+  /* top bar */
+  header.top { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .top .wrap { display: flex; align-items: center; gap: 12px; height: 58px; }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 700; letter-spacing: -.01em; white-space: nowrap; }
+  .logo { width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, var(--accent-2), var(--accent)); display: grid; place-items: center; color: #fff; font-size: 15px; }
+  .top .spacer { flex: 1; }
+  select.account { width: auto; max-width: 46vw; padding: 7px 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); }
+  .icon-btn { border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: 7px 10px; cursor: pointer; }
+
+  nav.tabs { display: flex; gap: 4px; overflow-x: auto; padding: 10px 0 0; scrollbar-width: none; }
+  nav.tabs::-webkit-scrollbar { display: none; }
+  nav.tabs button { border: 0; background: transparent; padding: 8px 14px; border-radius: 999px; cursor: pointer; color: var(--muted); font-weight: 500; white-space: nowrap; }
+  nav.tabs button[aria-selected="true"] { background: var(--text); color: var(--bg); }
+
+  main { padding: 18px 0 80px; }
+  h2 { font-size: 20px; margin: 6px 0 14px; letter-spacing: -.01em; }
+  h3 { font-size: 15px; margin: 0 0 10px; }
+  .muted { color: var(--muted); } .faint { color: var(--faint); } .small { font-size: 13px; }
+  .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .between { justify-content: space-between; }
+
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); }
+  .stack > * + * { margin-top: 12px; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; border: 1px solid var(--line); background: var(--surface); padding: 9px 14px; border-radius: 10px; cursor: pointer; font-weight: 500; text-decoration: none; color: var(--text); min-height: 40px; }
+  .btn.primary { background: linear-gradient(135deg, var(--accent-2), var(--accent)); color: #fff; border: 0; }
+  .btn.danger { color: var(--bad); }
+  .btn.small { padding: 5px 10px; min-height: 32px; font-size: 13px; }
+  .btn:disabled { opacity: .5; cursor: default; }
+
+  .seg { display: inline-flex; background: var(--surface-2); border-radius: 10px; padding: 3px; }
+  .seg button { border: 0; background: transparent; padding: 6px 12px; border-radius: 8px; cursor: pointer; color: var(--muted); font-size: 13px; font-weight: 500; }
+  .seg button[aria-pressed="true"] { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+
+  /* KPIs */
+  .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  @media (max-width: 640px) { .kpis { grid-template-columns: repeat(2, 1fr); } }
+  .kpi { padding: 14px; }
+  .kpi .label { font-size: 13px; color: var(--muted); }
+  .kpi .value { font-size: 28px; font-weight: 700; letter-spacing: -.02em; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .kpi .sub { font-size: 12px; color: var(--faint); }
+
+  .funnel { display: grid; gap: 8px; }
+  .funnel .bar-row { display: grid; grid-template-columns: 130px 1fr 52px; align-items: center; gap: 10px; font-size: 13px; }
+  .funnel .track { height: 10px; background: var(--surface-2); border-radius: 99px; overflow: hidden; }
+  .funnel .fill { height: 100%; background: linear-gradient(90deg, var(--accent-2), var(--accent)); border-radius: 99px; min-width: 2px; }
+  .funnel .n { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+
+  /* campaigns */
+  .campaign { display: grid; grid-template-columns: 64px 1fr; gap: 14px; }
+  .thumb { width: 64px; height: 84px; border-radius: 10px; background: var(--surface-2); object-fit: cover; display: grid; place-items: center; color: var(--faint); font-size: 12px; text-align: center; overflow: hidden; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { background: var(--surface-2); border-radius: 999px; padding: 2px 10px; font-size: 13px; }
+  .pill { font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 999px; }
+  .pill.live { background: var(--ok-bg); color: var(--ok); }
+  .pill.paused { background: var(--surface-2); color: var(--muted); }
+  .pill.warn { background: var(--warn-bg); color: var(--warn); }
+  .nums { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13px; color: var(--muted); }
+  .nums b { color: var(--text); font-variant-numeric: tabular-nums; }
+
+  /* posts */
+  .post-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  @media (min-width: 760px) { .post-grid { grid-template-columns: 1fr 1fr; } }
+  .post { display: grid; grid-template-columns: 64px 1fr; gap: 12px; padding: 12px; }
+  .post.is-muted .thumb { opacity: .45; filter: grayscale(1); }
+  .status { font-size: 13px; line-height: 1.45; overflow-wrap: anywhere; }
+  .status b { font-weight: 600; }
+  .status.on b { color: var(--ok); }
+  .next-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: space-between; padding: 10px 0; border-top: 1px solid var(--line); }
+  .next-row:first-of-type { border-top: 0; padding-top: 0; }
+  .next-row .what { min-width: 0; flex: 1 1 220px; font-size: 14px; overflow-wrap: anywhere; }
+
+  /* forms */
+  label.f { display: block; font-size: 13px; font-weight: 600; margin-bottom: 5px; }
+  .hint { font-size: 12px; color: var(--faint); margin-top: 4px; }
+  input[type=text], input[type=url], input[type=number], input[type=password], select, textarea {
+    width: 100%; border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: 10px 12px; outline: none;
+  }
+  textarea { min-height: 84px; resize: vertical; line-height: 1.55; }
+  input:focus, select:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
+  .switch { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+  .switch input { width: 20px; height: 20px; margin-top: 1px; accent-color: var(--accent); }
+  details.adv { border-top: 1px solid var(--line); padding-top: 12px; }
+  details.adv summary { cursor: pointer; font-weight: 600; }
+
+  /* media picker */
+  .media-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 8px; max-height: 330px; overflow-y: auto; padding: 2px; }
+  .media-grid button { position: relative; padding: 0; border: 2px solid transparent; border-radius: 10px; overflow: hidden; background: var(--surface-2); cursor: pointer; aspect-ratio: 9/14; }
+  .media-grid button img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .media-grid button[aria-pressed="true"] { border-color: var(--accent); }
+  .media-grid .any { display: grid; place-items: center; font-size: 13px; font-weight: 600; color: var(--muted); }
+  .media-grid .badge { position: absolute; left: 4px; bottom: 4px; background: rgba(0,0,0,.6); color: #fff; font-size: 10px; padding: 1px 6px; border-radius: 6px; }
+
+  /* sheet (editor) */
+  .sheet-bg { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 40; display: flex; justify-content: center; align-items: flex-end; }
+  .sheet { background: var(--bg); width: 100%; max-width: 760px; max-height: 94vh; overflow-y: auto; border-radius: 18px 18px 0 0; padding: 0 16px 24px; }
+  @media (min-width: 800px) { .sheet-bg { align-items: center; } .sheet { border-radius: 18px; max-height: 90vh; } }
+  .sheet-head { position: sticky; top: 0; background: var(--bg); padding: 14px 0 10px; display: flex; align-items: center; gap: 10px; z-index: 2; border-bottom: 1px solid var(--line); margin-bottom: 14px; }
+  .sheet-head h3 { margin: 0; flex: 1; font-size: 17px; }
+
+  /* tables / lists */
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12px; color: var(--muted); font-weight: 600; }
+  .table-wrap { overflow-x: auto; }
+  .feed { list-style: none; margin: 0; padding: 0; }
+  .feed li { display: grid; grid-template-columns: 28px 1fr auto; gap: 8px; padding: 10px 2px; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .feed .ic { font-size: 16px; line-height: 1.4; }
+  .feed .when { font-size: 12px; color: var(--faint); white-space: nowrap; }
+  .feed li.err { color: var(--bad); }
+
+  .empty { text-align: center; padding: 36px 16px; color: var(--muted); }
+  .toast { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); background: var(--text); color: var(--bg); padding: 10px 16px; border-radius: 12px; font-size: 14px; z-index: 60; max-width: calc(100vw - 32px); box-shadow: 0 6px 24px rgba(0,0,0,.2); }
+  .toast.bad { background: var(--bad); color: #fff; }
+  .login { max-width: 420px; margin: 12vh auto 0; }
+  code.key { font-size: 12px; word-break: break-all; background: var(--surface-2); padding: 2px 6px; border-radius: 6px; }
+  .spin { width: 18px; height: 18px; border: 2px solid var(--line); border-top-color: var(--accent); border-radius: 50%; animation: spin .7s linear infinite; display: inline-block; vertical-align: middle; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .spin { animation-duration: 2s; } }
+</style>
+</head>
+<body>
+
+<!-- Login -->
+<section id="login" class="wrap hidden">
+  <div class="login card stack">
+    <div class="brand"><div class="logo">✦</div> Auto DM</div>
+    <p class="muted" style="margin:0">Paste your dashboard key. You got it when you connected your Instagram account.</p>
+    <form id="loginForm" class="stack">
+      <input id="keyInput" type="password" autocomplete="current-password" placeholder="Dashboard key" required>
+      <button class="btn primary" style="width:100%">Open dashboard</button>
+      <p id="loginErr" class="small" style="color:var(--bad);margin:0"></p>
+    </form>
+  </div>
+</section>
+
+<!-- App -->
+<div id="app" class="hidden">
+  <header class="top">
+    <div class="wrap">
+      <div class="brand"><div class="logo">✦</div><span>Auto DM</span></div>
+      <div class="spacer"></div>
+      <button id="installBtn" class="btn small primary hidden" type="button">⤓ Install app</button>
+      <select id="accountSel" class="account" aria-label="Instagram account"></select>
+      <button id="logout" class="icon-btn" title="Log out" aria-label="Log out"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg></button>
+    </div>
+    <div class="wrap">
+      <nav class="tabs" role="tablist">
+        <button role="tab" data-tab="overview" aria-selected="true">Overview</button>
+        <button role="tab" data-tab="posts">Posts</button>
+        <button role="tab" data-tab="campaigns">Campaigns</button>
+        <button role="tab" data-tab="leads">Emails</button>
+        <button role="tab" data-tab="activity">Activity</button>
+        <button role="tab" data-tab="accounts" class="owner-only">Accounts</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Overview -->
+    <section data-panel="overview" class="stack">
+      <div class="row between">
+        <h2 style="margin:0">Overview</h2>
+        <div class="seg" id="rangeSeg">
+          <button data-range="today" aria-pressed="true">Today</button>
+          <button data-range="7d">7 days</button>
+          <button data-range="30d">30 days</button>
+          <button data-range="all">All time</button>
+        </div>
+      </div>
+      <div class="kpis" id="kpis"></div>
+      <div class="card">
+        <h3>Funnel</h3>
+        <div class="funnel" id="funnel"></div>
+      </div>
+      <p class="small faint" id="overviewNote"></p>
+    </section>
+
+    <!-- Posts -->
+    <section data-panel="posts" class="stack hidden">
+      <div class="row between">
+        <h2 style="margin:0">Posts</h2>
+        <button class="btn small" id="refreshPosts">↻ Refresh</button>
+      </div>
+      <div class="card stack" id="nextCard"></div>
+      <div id="postList" class="post-grid"></div>
+    </section>
+
+    <!-- Campaigns -->
+    <section data-panel="campaigns" class="stack hidden">
+      <div class="row between">
+        <h2 style="margin:0">Campaigns</h2>
+        <button class="btn primary" id="newCampaign">＋ New campaign</button>
+      </div>
+      <div id="campaignList" class="stack"></div>
+    </section>
+
+    <!-- Leads -->
+    <section data-panel="leads" class="stack hidden">
+      <div class="row between">
+        <h2 style="margin:0">Emails collected</h2>
+        <button class="btn" id="csvBtn">⬇ Download CSV</button>
+      </div>
+      <div class="card table-wrap" id="leadsBox"></div>
+    </section>
+
+    <!-- Activity -->
+    <section data-panel="activity" class="stack hidden">
+      <div class="row between">
+        <h2 style="margin:0">Activity</h2>
+        <button class="btn small" id="refreshActivity">↻ Refresh</button>
+      </div>
+      <div class="card"><ul class="feed" id="feed"></ul></div>
+    </section>
+
+    <!-- Accounts (owner) -->
+    <section data-panel="accounts" class="stack hidden">
+      <h2 style="margin:0">Accounts</h2>
+      <div class="card stack">
+        <h3 style="margin:0">Add a client</h3>
+        <p class="small muted" style="margin:0">Send this link to a client. They log in with Instagram, and their account appears below with its own dashboard key.</p>
+        <div class="row"><code class="key" id="connectUrl"></code><button class="btn small" id="copyConnect">Copy link</button></div>
+        <label class="switch"><input type="checkbox" id="openSignup"><span><b>New accounts start live</b><br><span class="small muted">Off = new accounts wait until you switch them on here.</span></span></label>
+      </div>
+      <div id="accountList" class="stack"></div>
+    </section>
+  </main>
+</div>
+
+<!-- Campaign editor -->
+<div id="editorBg" class="sheet-bg hidden" role="dialog" aria-modal="true" aria-labelledby="editorTitle">
+  <form class="sheet" id="editor" novalidate>
+    <div class="sheet-head">
+      <button type="button" class="icon-btn" id="closeEditor" aria-label="Close">✕</button>
+      <h3 id="editorTitle">New campaign</h3>
+      <button class="btn primary" id="saveBtn">Save</button>
+    </div>
+    <div class="stack">
+      <div class="card stack">
+        <div>
+          <label class="f" for="f_name">Name</label>
+          <input type="text" id="f_name" name="name" placeholder="e.g. Free guide Reel" required maxlength="80" dir="auto">
+        </div>
+        <div>
+          <label class="switch" style="margin-bottom:10px"><input type="checkbox" id="f_any"><span><b>Reply to every comment</b><br><span class="small muted">No keyword needed — anyone who comments gets the DM (once a day per person). Needs a specific Reel below.</span></span></label>
+          <div id="kwBox">
+            <label class="f" for="f_keywords">Keywords people comment</label>
+            <input type="text" id="f_keywords" name="keywords" placeholder="رابط, لينك, link" dir="auto">
+            <div class="hint">Separate with commas. Arabic spelling variants (ال، هـ/ة، أ/ا، stretched letters) are matched automatically.</div>
+          </div>
+        </div>
+        <div>
+          <label class="f">Which post?</label>
+          <div id="mediaGrid" class="media-grid"><div class="muted small"><span class="spin"></span> Loading your posts…</div></div>
+          <div class="hint">"Next Reel I post" = attaches by itself to the first Reel you publish after saving (or after switching it back on). Several of them are used in order, one per Reel. A specific post wins over "Any post".</div>
+        </div>
+        <div class="grid2">
+          <div>
+            <label class="f" for="f_link_url">Link to send</label>
+            <input type="url" id="f_link_url" name="link_url" placeholder="https://…" required>
+          </div>
+          <div>
+            <label class="f" for="f_link_title">Link button text</label>
+            <input type="text" id="f_link_title" name="link_title" maxlength="20" placeholder="افتح الرابط 🔗" dir="auto">
+            <div class="hint">Max 20 characters.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card stack">
+        <h3 style="margin:0">Rules</h3>
+        <label class="switch"><input type="checkbox" id="f_require_follow" checked><span><b>Only send to followers</b><br><span class="small muted">Asks people to follow first, then checks with Instagram.</span></span></label>
+        <div class="grid2">
+          <div>
+            <label class="f" for="f_reminder">Reminder if they don't follow</label>
+            <select id="f_reminder">
+              <option value="0">No reminder</option>
+              <option value="60">After 1 hour</option>
+              <option value="120">After 2 hours</option>
+              <option value="180">After 3 hours</option>
+              <option value="360">After 6 hours</option>
+              <option value="720">After 12 hours</option>
+              <option value="1200">After 20 hours</option>
+            </select>
+            <div class="hint">One friendly nudge, inside Instagram's 24-hour window.</div>
+          </div>
+          <div>
+            <label class="f" for="f_fail_open">Send anyway after</label>
+            <select id="f_fail_open">
+              <option value="0">Never (followers only)</option>
+              <option value="2">2 failed checks</option>
+              <option value="3">3 failed checks</option>
+              <option value="5">5 failed checks</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid2">
+          <div>
+            <label class="f" for="f_email_mode">Ask for email</label>
+            <select id="f_email_mode">
+              <option value="off">Don't ask</option>
+              <option value="optional">Ask (they can skip)</option>
+              <option value="required">Required before the link</option>
+            </select>
+            <div class="hint">Emails appear in the Emails tab.</div>
+          </div>
+          <div>
+            <label class="f">&nbsp;</label>
+            <label class="switch"><input type="checkbox" id="f_track_clicks" checked><span><b>Count link clicks</b><br><span class="small muted">The link goes through a short redirect.</span></span></label>
+          </div>
+        </div>
+        <label class="switch"><input type="checkbox" id="f_active" checked><span><b>Live</b><br><span class="small muted">Off = paused. Old buttons reply with the "finished" message.</span></span></label>
+      </div>
+
+      <div class="card stack" id="messagesCard">
+        <details class="adv" id="msgDetails" style="border:0;padding:0">
+          <summary>Messages <span class="small muted">(optional — defaults are already written)</span></summary>
+          <div class="stack" style="margin-top:12px">
+            <p class="small muted" style="margin:0">Write several versions of any message, separated by a line with only <code>---</code>. Each person gets one at random. <code>{name}</code> becomes the person's first name.</p>
+            <div id="msgFields" class="stack"></div>
+          </div>
+        </details>
+        <p class="small muted hidden" id="newMsgNote" style="margin:0">Messages use friendly default wording (Palestinian Arabic, with several versions each). You can edit them after saving.</p>
+      </div>
+
+      <div id="dangerZone" class="row between hidden">
+        <span class="small faint" id="campaignIdNote"></span>
+        <button type="button" class="btn danger small" id="deleteBtn">Delete campaign</button>
+      </div>
+      <p id="editorErr" class="small" style="color:var(--bad)"></p>
+    </div>
+  </form>
+</div>
+
+<!-- Quick link for one Reel -->
+<div id="linkBg" class="sheet-bg hidden" role="dialog" aria-modal="true" aria-labelledby="linkTitle">
+  <form class="sheet" id="linkForm" novalidate style="max-width:520px">
+    <div class="sheet-head">
+      <button type="button" class="icon-btn" id="closeLink" aria-label="Close">✕</button>
+      <h3 id="linkTitle">Link for this Reel</h3>
+      <button class="btn primary" id="linkSave">Save</button>
+    </div>
+    <div class="stack">
+      <div id="linkWhat" class="row" style="gap:12px;align-items:flex-start"></div>
+      <div>
+        <label class="f" for="l_url">Link to send</label>
+        <input type="url" id="l_url" placeholder="https://…" required inputmode="url" autocomplete="off">
+      </div>
+      <p class="small muted" style="margin:0" id="linkNote"></p>
+      <p id="linkErr" class="small" style="color:var(--bad);margin:0"></p>
+    </div>
+  </form>
+</div>
+
+<div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  const API = "https://alfhdieorygvgrmhypea.supabase.co/functions/v1/ig-dm/admin";
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const fmt = (n) => Number(n ?? 0).toLocaleString("en-US");
+  const store = {
+    get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+    del(k) { try { localStorage.removeItem(k); } catch {} },
+  };
+
+  const state = { key: null, me: null, accountId: null, range: "today", campaigns: [], media: null, editing: null, selectedMedia: null, leads: [] };
+
+  function toast(msg, bad = false) {
+    const t = $("#toast");
+    t.textContent = msg; t.className = "toast" + (bad ? " bad" : "");
+    clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.add("hidden"), 3200);
+  }
+
+  async function api(path, opts = {}) {
+    const res = await fetch(API + path, {
+      method: opts.method || "GET",
+      headers: { "x-admin-key": state.key, ...(opts.body ? { "content-type": "application/json" } : {}) },
+      body: opts.body ? JSON.stringify(opts.body) : undefined,
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      const err = new Error(data.error || "Request failed (" + res.status + ")");
+      err.status = res.status; throw err;
+    }
+    return data;
+  }
+  const acct = () => (state.accountId ? "account_id=" + encodeURIComponent(state.accountId) : "");
+
+  // ---------- auth ----------
+  async function start() {
+    const hash = new URLSearchParams(location.hash.slice(1));
+    if (hash.get("k")) { store.set("autodm_key", hash.get("k")); history.replaceState(null, "", location.pathname); }
+    state.key = store.get("autodm_key");
+    if (!state.key) return showLogin();
+    try {
+      state.me = await api("/me");
+    } catch (e) {
+      if (e.status === 401) { store.del("autodm_key"); return showLogin("That key didn't work."); }
+      return showLogin("Couldn't reach the server. Check your connection and try again.");
+    }
+    $("#login").classList.add("hidden");
+    $("#app").classList.remove("hidden");
+    setupAccounts();
+    $$(".owner-only").forEach((el) => el.classList.toggle("hidden", state.me.role !== "owner"));
+    openTab(store.get("autodm_tab") || "overview");
+  }
+  function showLogin(msg = "") {
+    $("#app").classList.add("hidden");
+    $("#login").classList.remove("hidden");
+    $("#loginErr").textContent = msg;
+  }
+  $("#loginForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    store.set("autodm_key", $("#keyInput").value.trim());
+    start();
+  });
+  $("#logout").addEventListener("click", () => { store.del("autodm_key"); state.key = null; showLogin(); });
+
+  function setupAccounts() {
+    const sel = $("#accountSel");
+    const accounts = state.me.accounts;
+    sel.innerHTML = accounts.map((a) => `<option value="${esc(a.id)}">@${esc(a.ig_username || a.name || a.ig_user_id)}${a.active ? "" : " (paused)"}</option>`).join("");
+    const saved = store.get("autodm_account");
+    state.accountId = accounts.some((a) => a.id === saved) ? saved : accounts[0]?.id ?? null;
+    sel.value = state.accountId || "";
+    sel.classList.toggle("hidden", accounts.length < 2);
+    sel.onchange = () => { state.accountId = sel.value; store.set("autodm_account", sel.value); state.media = null; openTab(currentTab); };
+  }
+
+  // ---------- tabs ----------
+  let currentTab = "overview";
+  function openTab(tab) {
+    if (tab === "accounts" && state.me.role !== "owner") tab = "overview";
+    currentTab = tab; store.set("autodm_tab", tab);
+    $$("nav.tabs button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === tab)));
+    $$("[data-panel]").forEach((p) => p.classList.toggle("hidden", p.dataset.panel !== tab));
+    ({ overview: loadOverview, posts: loadPosts, campaigns: loadCampaigns, leads: loadLeads, activity: loadActivity, accounts: loadAccounts })[tab]();
+  }
+  $$("nav.tabs button").forEach((b) => b.addEventListener("click", () => openTab(b.dataset.tab)));
+
+  // ---------- overview ----------
+  function rangeFrom(r) {
+    const d = new Date();
+    if (r === "today") { d.setHours(0, 0, 0, 0); return d.toISOString(); }
+    if (r === "7d") return new Date(Date.now() - 7 * 864e5).toISOString();
+    if (r === "30d") return new Date(Date.now() - 30 * 864e5).toISOString();
+    return "2020-01-01T00:00:00Z";
+  }
+  $$("#rangeSeg button").forEach((b) => b.addEventListener("click", () => {
+    state.range = b.dataset.range;
+    $$("#rangeSeg button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    loadOverview();
+  }));
+  async function loadOverview() {
+    $("#kpis").innerHTML = `<div class="card kpi"><span class="spin"></span></div>`;
+    try {
+      const s = await api(`/stats?${acct()}&from=${encodeURIComponent(rangeFrom(state.range))}`);
+      const pct = (a, b) => (b > 0 ? Math.round((a / b) * 100) + "%" : "—");
+      const tiles = [
+        ["Comments", s.comments, "matched a keyword"],
+        ["Links sent", s.links_delivered, pct(s.links_delivered, s.comments) + " of comments"],
+        ["New followers", s.new_followers, "followed after being asked"],
+        ["People who clicked", s.clickers, pct(s.clickers, s.links_delivered) + " of links sent"],
+        ["Emails", s.leads, "people shared their email"],
+        ["Reminders", s.reminders_sent, "sent inside 24h"],
+      ];
+      $("#kpis").innerHTML = tiles.map(([l, v, sub]) => `<div class="card kpi"><div class="label">${l}</div><div class="value">${fmt(v)}</div><div class="sub">${sub}</div></div>`).join("");
+      const steps = [["Commented", s.comments], ["Got the first DM", s.dms_opened], ["Asked to follow", s.asked_to_follow], ["Got the link", s.links_delivered], ["Opened the link", s.clickers]];
+      const max = Math.max(1, ...steps.map((x) => x[1] || 0));
+      $("#funnel").innerHTML = steps.map(([l, v]) => `<div class="bar-row"><span class="muted">${l}</span><div class="track"><div class="fill" style="width:${((v || 0) / max) * 100}%"></div></div><span class="n">${fmt(v)}</span></div>`).join("");
+      $("#overviewNote").textContent = "Click counts start from today's update — older links weren't tracked.";
+    } catch (e) { $("#kpis").innerHTML = `<div class="card">${esc(e.message)}</div>`; }
+  }
+
+  // ---------- campaigns ----------
+  async function loadMedia() {
+    if (state.media) return state.media;
+    try { state.media = await api(`/media?${acct()}`); } catch (e) { state.media = []; state.mediaError = e.message; }
+    return state.media;
+  }
+  function mediaById(id) { return (state.media || []).find((m) => m.id === id); }
+
+  async function loadCampaigns() {
+    const box = $("#campaignList");
+    box.innerHTML = `<div class="card"><span class="spin"></span></div>`;
+    try {
+      const [list] = await Promise.all([api(`/campaigns?${acct()}`), loadMedia()]);
+      state.campaigns = list;
+      if (!list.length) {
+        box.innerHTML = `<div class="card empty">No campaigns yet.<br><br><button class="btn primary" onclick="document.getElementById('newCampaign').click()">＋ Create your first campaign</button></div>`;
+        return;
+      }
+      box.innerHTML = list.map((c) => {
+        const m = c.media_id ? mediaById(c.media_id) : null;
+        const img = m?.thumbnail_url || m?.media_url;
+        const s = c.stats || {};
+        const thumb = c.media_id === "next"
+          ? `<div class="thumb">Next<br>Reel</div>`
+          : c.media_id
+          ? (img ? `<img class="thumb" src="${esc(img)}" alt="" referrerpolicy="no-referrer" loading="lazy">` : `<div class="thumb">Post</div>`)
+          : `<div class="thumb">Any<br>post</div>`;
+        return `<div class="card campaign">
+          ${thumb}
+          <div class="stack" style="min-width:0">
+            <div class="row between" style="gap:8px">
+              <div class="row" style="gap:8px;min-width:0"><b dir="auto" style="overflow:hidden;text-overflow:ellipsis">${esc(c.name)}</b>
+                <span class="pill ${c.active ? "live" : "paused"}">${c.active ? "Live" : "Paused"}</span></div>
+              <div class="row" style="gap:6px">
+                <button class="btn small" data-toggle="${c.id}">${c.active ? "Pause" : "Resume"}</button>
+                <button class="btn small" data-edit="${c.id}">Edit</button>
+              </div>
+            </div>
+            <div class="chips">${c.keywords.includes("*") ? `<span class="chip">Every comment</span>` : c.keywords.map((k) => `<span class="chip" dir="auto">${esc(k)}</span>`).join("")}${c.media_id === "next" && c.active ? `<span class="pill warn">Waiting for your next Reel</span>` : ""}</div>
+            <div class="nums">
+              <span><b>${fmt(s.comments)}</b> comments</span>
+              <span><b>${fmt(s.links_delivered)}</b> links sent</span>
+              <span><b>${fmt(s.new_followers)}</b> new followers</span>
+              ${c.track_clicks ? `<span><b>${fmt(s.clickers)}</b> clicked</span>` : ""}
+              ${c.email_mode !== "off" ? `<span><b>${fmt(s.leads)}</b> emails</span>` : ""}
+            </div>
+            <div class="small faint" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">→ ${esc(c.link_url)}</div>
+          </div>
+        </div>`;
+      }).join("");
+      $$("[data-edit]", box).forEach((b) => b.addEventListener("click", () => openEditor(state.campaigns.find((c) => c.id === b.dataset.edit))));
+      $$("[data-toggle]", box).forEach((b) => b.addEventListener("click", async () => {
+        const c = state.campaigns.find((x) => x.id === b.dataset.toggle);
+        b.disabled = true;
+        try { await api(`/campaigns/${c.id}`, { method: "PATCH", body: { active: !c.active } }); toast(c.active ? "Paused" : "Live again"); loadCampaigns(); }
+        catch (e) { toast(e.message, true); b.disabled = false; }
+      }));
+    } catch (e) { box.innerHTML = `<div class="card">${esc(e.message)}</div>`; }
+  }
+
+  const MSG_FIELDS = [
+    ["opening_text", "First DM (sent as a reply to the comment)", "long"],
+    ["opening_button", "First DM button", "btn"],
+    ["follow_text", "Ask to follow", "long"],
+    ["profile_button", "Button: open your profile", "btn"],
+    ["follow_button", "Button: I followed", "btn"],
+    ["not_yet_text", "Still not following", "long"],
+    ["reminder_text", "Reminder", "long"],
+    ["delivered_text", "Message with the link", "long"],
+    ["email_text", "Ask for email", "long"],
+    ["email_invalid_text", "Email looks wrong", "long"],
+    ["email_skip_button", "Button: skip email", "btn"],
+    ["expired_text", "Campaign finished", "long"],
+    ["public_replies", "Public replies under the comment (one per line, picked at random)", "lines"],
+  ];
+
+  function renderMediaGrid() {
+    const grid = $("#mediaGrid");
+    const items = state.media || [];
+    const sel = state.selectedMedia;
+    let html = `<button type="button" class="any" data-media="" aria-pressed="${sel ? "false" : "true"}">Any post</button>`;
+    html += `<button type="button" class="any" data-media="next" aria-pressed="${sel === "next"}">Next Reel<br>I post</button>`;
+    html += items.map((m) => {
+      const img = m.thumbnail_url || m.media_url;
+      const kind = m.media_product_type === "REELS" ? "Reel" : m.media_type === "CAROUSEL_ALBUM" ? "Album" : "Post";
+      return `<button type="button" data-media="${esc(m.id)}" aria-pressed="${m.id === sel}" title="${esc((m.caption || "").slice(0, 120))}">
+        ${img ? `<img src="${esc(img)}" alt="${esc((m.caption || kind).slice(0, 60))}" referrerpolicy="no-referrer" loading="lazy">` : `<span class="any">${kind}</span>`}
+        <span class="badge">${kind}</span></button>`;
+    }).join("");
+    if (sel && sel !== "next" && !items.some((m) => m.id === sel)) html += `<button type="button" class="any" data-media="${esc(sel)}" aria-pressed="true">Older post</button>`;
+    grid.innerHTML = html + (state.mediaError ? `<div class="small muted" style="grid-column:1/-1">Couldn't load posts: ${esc(state.mediaError)}</div>` : "");
+    $$("[data-media]", grid).forEach((b) => b.addEventListener("click", () => { state.selectedMedia = b.dataset.media || null; renderMediaGrid(); }));
+  }
+
+  async function openEditor(c) {
+    state.editing = c || null;
+    state.selectedMedia = c?.media_id || null;
+    $("#editorTitle").textContent = c ? "Edit campaign" : "New campaign";
+    $("#editorErr").textContent = "";
+    $("#f_name").value = c?.name || "";
+    const anyComment = !!c?.keywords?.includes("*");
+    $("#f_any").checked = anyComment;
+    $("#f_keywords").value = anyComment ? "" : (c?.keywords || []).join(", ");
+    $("#kwBox").classList.toggle("hidden", anyComment);
+    $("#f_link_url").value = c?.link_url || "";
+    $("#f_link_title").value = c?.link_title || "";
+    $("#f_require_follow").checked = c ? c.require_follow : true;
+    const rem = String(c ? c.reminder_after_minutes : 180);
+    if (![...$("#f_reminder").options].some((o) => o.value === rem)) $("#f_reminder").add(new Option(`After ${rem} minutes`, rem));
+    $("#f_reminder").value = rem;
+    const fo = String(c ? c.fail_open_after : 0);
+    if (![...$("#f_fail_open").options].some((o) => o.value === fo)) $("#f_fail_open").add(new Option(`${fo} failed checks`, fo));
+    $("#f_fail_open").value = fo;
+    $("#f_email_mode").value = c?.email_mode || "off";
+    $("#f_track_clicks").checked = c ? c.track_clicks : true;
+    $("#f_active").checked = c ? c.active : true;
+    $("#msgDetails").classList.toggle("hidden", !c);
+    $("#newMsgNote").classList.toggle("hidden", !!c);
+    $("#msgDetails").open = false;
+    $("#msgFields").innerHTML = c ? MSG_FIELDS.map(([k, label, kind]) => {
+      const v = kind === "lines" ? (c[k] || []).join("\n") : c[k] || "";
+      return `<div><label class="f" for="m_${k}">${label}</label>${kind === "btn"
+        ? `<input type="text" id="m_${k}" data-msg="${k}" data-kind="${kind}" maxlength="20" value="${esc(v)}" dir="auto">`
+        : `<textarea id="m_${k}" data-msg="${k}" data-kind="${kind}" dir="auto" rows="${Math.min(8, Math.max(3, v.split("\n").length + 1))}">${esc(v)}</textarea>`}</div>`;
+    }).join("") : "";
+    $("#dangerZone").classList.toggle("hidden", !c);
+    $("#campaignIdNote").textContent = c ? "Created " + new Date(c.created_at).toLocaleDateString() : "";
+    $("#editorBg").classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    renderMediaGrid();
+    if (!state.media) { await loadMedia(); renderMediaGrid(); }
+    setTimeout(() => $("#f_name").focus(), 50);
+  }
+  function closeEditor() { $("#editorBg").classList.add("hidden"); document.body.style.overflow = ""; }
+  $("#closeEditor").addEventListener("click", closeEditor);
+  $("#editorBg").addEventListener("click", (e) => { if (e.target.id === "editorBg") closeEditor(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("#editorBg").classList.contains("hidden")) closeEditor(); });
+  $("#newCampaign").addEventListener("click", () => openEditor(null));
+  $("#f_any").addEventListener("change", (e) => $("#kwBox").classList.toggle("hidden", e.target.checked));
+
+  $("#editor").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const body = {
+      name: $("#f_name").value,
+      keywords: $("#f_any").checked ? ["*"] : $("#f_keywords").value,
+      media_id: state.selectedMedia || null,
+      link_url: $("#f_link_url").value,
+      require_follow: $("#f_require_follow").checked,
+      reminder_after_minutes: Number($("#f_reminder").value),
+      fail_open_after: Number($("#f_fail_open").value),
+      email_mode: $("#f_email_mode").value,
+      track_clicks: $("#f_track_clicks").checked,
+      active: $("#f_active").checked,
+    };
+    if ($("#f_link_title").value.trim()) body.link_title = $("#f_link_title").value;
+    $$("[data-msg]").forEach((el) => { body[el.dataset.msg] = el.value; });
+    if (!state.editing) body.account_id = state.accountId;
+    const btn = $("#saveBtn"); btn.disabled = true; $("#editorErr").textContent = "";
+    try {
+      if (state.editing) await api(`/campaigns/${state.editing.id}`, { method: "PATCH", body });
+      else await api(`/campaigns`, { method: "POST", body });
+      closeEditor(); toast("Saved ✓"); loadCampaigns();
+    } catch (err) { $("#editorErr").textContent = err.message; }
+    finally { btn.disabled = false; }
+  });
+  $("#deleteBtn").addEventListener("click", async () => {
+    const c = state.editing;
+    if (!c || !confirm(`Delete "${c.name}"? Its history and stats are removed (emails already collected are kept). To just stop it, use Pause instead.`)) return;
+    try { await api(`/campaigns/${c.id}`, { method: "DELETE" }); closeEditor(); toast("Deleted"); loadCampaigns(); }
+    catch (e) { toast(e.message, true); }
+  });
+
+
+  // ---------- posts ----------
+  const isAny = (c) => (c.keywords || []).includes("*");
+  const kwList = (c) => c.keywords.map((k) => `<bdi>${esc(k)}</bdi>`).join(", ");
+  function shortLink(u) {
+    try { const x = new URL(u); const t = x.hostname.replace(/^www\./, "") + (x.pathname === "/" ? "" : x.pathname); return t.length > 42 ? t.slice(0, 41) + "…" : t; }
+    catch { return u; }
+  }
+  const linkA = (u) => `<a href="${esc(u)}" target="_blank" rel="noopener" dir="ltr">${esc(shortLink(u))}</a>`;
+  const kindOf = (m) => (m.media_product_type === "REELS" ? "Reel" : m.media_type === "CAROUSEL_ALBUM" ? "Album" : "Post");
+  function whenPosted(iso) {
+    if (!iso) return "";
+    const d = (Date.now() - new Date(iso)) / 864e5;
+    return d < 1 ? "today" : d < 2 ? "yesterday" : d < 30 ? Math.floor(d) + " days ago" : new Date(iso).toLocaleDateString();
+  }
+  /** Which campaign answers comments on this post (same order as the server: this post first, then all posts). */
+  function coverage(m) {
+    const live = state.campaigns.filter((c) => c.active);
+    const own = live.filter((c) => c.media_id === m.id).sort((a, b) => (isAny(a) ? 1 : 0) - (isAny(b) ? 1 : 0));
+    const all = live.filter((c) => c.media_id === null);
+    return { own, all };
+  }
+  function statusHtml(m) {
+    if (m.muted) return `<div class="status"><b>🔕 Bot off</b> <span class="muted">— no replies or DMs on this post</span></div>`;
+    const { own, all } = coverage(m);
+    const lines = [];
+    for (const c of own) lines.push(`<div class="status on"><b>${isAny(c) ? "💬 Every comment" : "🔑 " + kwList(c)}</b> → ${linkA(c.link_url)}</div>`);
+    for (const c of all) lines.push(`<div class="status ${own.length ? "muted" : "on"}"><b>🔑 ${kwList(c)}</b> → ${linkA(c.link_url)} <span class="faint">(all posts)</span></div>`);
+    return lines.join("") || `<div class="status muted">No bot on this post</div>`;
+  }
+
+  async function loadPosts(force = false) {
+    const list = $("#postList");
+    list.innerHTML = `<div class="card"><span class="spin"></span> Loading your posts…</div>`;
+    $("#nextCard").innerHTML = `<span class="spin"></span>`;
+    if (force) state.media = null;
+    try {
+      const [camps] = await Promise.all([api(`/campaigns?${acct()}`), loadMedia()]);
+      state.campaigns = camps;
+    } catch (e) { list.innerHTML = `<div class="card">${esc(e.message)}</div>`; $("#nextCard").innerHTML = ""; return; }
+    renderNextCard();
+    const media = state.media || [];
+    if (!media.length) {
+      list.innerHTML = `<div class="card empty">${state.mediaError ? "Couldn't load your posts: " + esc(state.mediaError) : "No posts yet."}</div>`;
+      return;
+    }
+    list.innerHTML = media.map((m) => {
+      const img = m.thumbnail_url || m.media_url;
+      const { own } = coverage(m);
+      const cap = (m.caption || "").replace(/\s+/g, " ").trim();
+      return `<div class="card post ${m.muted ? "is-muted" : ""}">
+        ${img ? `<img class="thumb" src="${esc(img)}" alt="" referrerpolicy="no-referrer" loading="lazy">` : `<div class="thumb">${kindOf(m)}</div>`}
+        <div class="stack" style="min-width:0">
+          <div class="small muted" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><b style="color:var(--text)">${kindOf(m)}</b> · ${whenPosted(m.timestamp)}${cap ? ` · <span dir="auto">${esc(cap.slice(0, 80))}</span>` : ""}</div>
+          ${statusHtml(m)}
+          <div class="row" style="gap:6px">
+            <button class="btn small" data-setlink="${esc(m.id)}">${own.length ? "Change link" : "Set link"}</button>
+            <button class="btn small" data-mute="${esc(m.id)}" data-muted="${m.muted ? "1" : ""}">${m.muted ? "Turn bot on" : "Bot off"}</button>
+          </div>
+        </div>
+      </div>`;
+    }).join("");
+    $$("[data-setlink]", list).forEach((b) => b.addEventListener("click", () => openLinkSheet({ media: mediaById(b.dataset.setlink) })));
+    $$("[data-mute]", list).forEach((b) => b.addEventListener("click", () => setMuted(b.dataset.mute, !b.dataset.muted, b)));
+  }
+  $("#refreshPosts").addEventListener("click", () => loadPosts(true));
+
+  async function setMuted(id, muted, btn) {
+    if (btn) btn.disabled = true;
+    try {
+      await api(`/media/${id}/mute`, { method: "POST", body: { muted, account_id: state.accountId } });
+      const m = mediaById(id); if (m) m.muted = muted;
+      toast(muted ? "Bot is off on this post" : "Bot is back on for this post");
+      loadPosts();
+    } catch (e) { toast(e.message, true); if (btn) btn.disabled = false; }
+  }
+
+  function renderNextCard() {
+    const box = $("#nextCard");
+    const armed = (c) => new Date(c.armed_at || c.created_at).getTime();
+    const waiting = state.campaigns.filter((c) => c.media_id === "next").sort((a, b) => armed(a) - armed(b));
+    const live = waiting.filter((c) => c.active), paused = waiting.filter((c) => !c.active);
+    const label = (i) => (i === 0 ? "Your next Reel" : i === 1 ? "The Reel after that" : `Reel #${i + 1} from now`);
+    let html = `<div class="row between"><h3 style="margin:0">Upcoming Reels</h3></div>`;
+    if (!live.length) html += `<p class="small muted" style="margin:0">No bot on your next Reel. Add a link and it attaches to the next Reel you post — every comment gets the link in DM.</p>`;
+    html += `<div>${live.map((c, i) => `<div class="next-row"><div class="what"><b>${label(i)}</b><br>${isAny(c) ? "💬 Every comment" : "🔑 " + kwList(c)} → ${linkA(c.link_url)}</div>
+      <div class="row" style="gap:6px"><button class="btn small" data-nlink="${c.id}">Change link</button><button class="btn small" data-npause="${c.id}">Pause</button></div></div>`).join("")}
+      ${paused.map((c) => `<div class="next-row"><div class="what"><span class="pill paused">Paused</span> <span class="muted">won't attach to any Reel</span><br>${linkA(c.link_url)}</div>
+      <div class="row" style="gap:6px"><button class="btn small" data-nresume="${c.id}">Turn on</button></div></div>`).join("")}</div>`;
+    html += `<div class="row"><button class="btn small primary" id="addNext">＋ ${live.length ? "Link for the Reel after" : "Link for my next Reel"}</button></div>`;
+    html += `<p class="small faint" style="margin:0">Posting a Reel you don't want the bot on? Tap <b>Pause</b> first, then <b>Turn on</b> before the Reel you want it on — it only attaches to Reels posted after that. Already posted? Use <b>Bot off</b> on it below.</p>`;
+    box.innerHTML = html;
+    $("#addNext").addEventListener("click", () => openLinkSheet({ next: true }));
+    $$("[data-nlink]", box).forEach((b) => b.addEventListener("click", () => openLinkSheet({ campaign: state.campaigns.find((c) => c.id === b.dataset.nlink) })));
+    $$("[data-npause], [data-nresume]", box).forEach((b) => b.addEventListener("click", async () => {
+      const id = b.dataset.npause || b.dataset.nresume, on = !!b.dataset.nresume;
+      b.disabled = true;
+      try { await api(`/campaigns/${id}`, { method: "PATCH", body: { active: on } }); toast(on ? "On — waiting for your next Reel" : "Paused — your next Reel won't have the bot"); loadPosts(); }
+      catch (e) { toast(e.message, true); b.disabled = false; }
+    }));
+  }
+
+  // Quick link sheet: { media } for a posted Reel, { next: true } for an upcoming one, { campaign } to change a link.
+  let linkCtx = null;
+  function openLinkSheet(ctx) {
+    const m = ctx.media || null;
+    const own = m ? coverage(m).own[0] : null;
+    linkCtx = { ...ctx, campaign: ctx.campaign || own || null };
+    const c = linkCtx.campaign;
+    $("#linkTitle").textContent = c ? "Change link" : m ? `Link for this ${kindOf(m)}` : "Link for an upcoming Reel";
+    const img = m && (m.thumbnail_url || m.media_url);
+    $("#linkWhat").innerHTML = m
+      ? `${img ? `<img class="thumb" src="${esc(img)}" alt="" referrerpolicy="no-referrer" style="width:48px;height:64px">` : ""}<div class="small muted" dir="auto" style="min-width:0">${esc((m.caption || kindOf(m)).slice(0, 140))}</div>`
+      : `<div class="small muted">${c && c.media_id !== "next" ? esc(c.name) : "It attaches by itself to the next Reel you publish."}</div>`;
+    $("#l_url").value = c?.link_url || "";
+    $("#linkNote").textContent = c
+      ? "Only the link changes. Wording and rules stay as they are (Campaigns → Edit)."
+      : "Everyone who comments gets this link in DM (followers only, one DM per person a day). You can change the wording and rules later in Campaigns → Edit."
+        + (m?.muted ? " Saving also turns the bot back on for this post." : "");
+    $("#linkErr").textContent = "";
+    $("#linkBg").classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    setTimeout(() => $("#l_url").focus(), 50);
+  }
+  function closeLinkSheet() { $("#linkBg").classList.add("hidden"); document.body.style.overflow = ""; }
+  $("#closeLink").addEventListener("click", closeLinkSheet);
+  $("#linkBg").addEventListener("click", (e) => { if (e.target.id === "linkBg") closeLinkSheet(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("#linkBg").classList.contains("hidden")) closeLinkSheet(); });
+  $("#linkForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    let url = $("#l_url").value.trim();
+    if (url && !/^https?:\/\//i.test(url)) url = "https://" + url;
+    const btn = $("#linkSave"); btn.disabled = true; $("#linkErr").textContent = "";
+    try {
+      const { media: m, next, campaign: c } = linkCtx;
+      if (c) {
+        await api(`/campaigns/${c.id}`, { method: "PATCH", body: { link_url: url } });
+      } else {
+        const today = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric" });
+        const cap = (m?.caption || "").replace(/\s+/g, " ").trim().slice(0, 40);
+        await api(`/campaigns`, { method: "POST", body: {
+          account_id: state.accountId,
+          name: next ? `Upcoming Reel · added ${today}` : `${kindOf(m)} · ${cap || new Date(m.timestamp || Date.now()).toLocaleDateString()}`,
+          keywords: ["*"],
+          media_id: next ? "next" : m.id,
+          link_url: url,
+        } });
+      }
+      if (m?.muted) await api(`/media/${m.id}/mute`, { method: "POST", body: { muted: false, account_id: state.accountId } });
+      closeLinkSheet(); toast("Saved ✓"); loadPosts(!!m?.muted);
+    } catch (err) { $("#linkErr").textContent = err.message; }
+    finally { btn.disabled = false; }
+  });
+
+  // ---------- leads ----------
+  async function loadLeads() {
+    const box = $("#leadsBox");
+    box.innerHTML = `<span class="spin"></span>`;
+    try {
+      state.leads = await api(`/leads?${acct()}`);
+      if (!state.leads.length) { box.innerHTML = `<div class="empty">No emails yet. Turn on "Ask for email" in a campaign to start collecting them.</div>`; return; }
+      box.innerHTML = `<table><thead><tr><th>Email</th><th>Person</th><th>Campaign</th><th>Date</th></tr></thead><tbody>${
+        state.leads.map((l) => `<tr><td>${esc(l.email)}</td><td dir="auto">${esc(l.name || "")} ${l.username ? `<span class="muted">@${esc(l.username)}</span>` : ""}</td><td dir="auto">${esc(l.campaigns?.name || "—")}</td><td class="muted">${new Date(l.created_at).toLocaleDateString()}</td></tr>`).join("")
+      }</tbody></table>`;
+    } catch (e) { box.textContent = e.message; }
+  }
+  $("#csvBtn").addEventListener("click", async () => {
+    if (!state.leads.length) await loadLeads();
+    const q = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+    const rows = [["email", "name", "username", "campaign", "date"], ...state.leads.map((l) => [l.email, l.name, l.username, l.campaigns?.name, l.created_at])];
+    const csv = String.fromCharCode(0xfeff) + rows.map((r) => r.map(q).join(",")).join("\r\n");
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+    a.download = `emails-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  });
+
+  // ---------- activity ----------
+  function ago(iso) {
+    const s = (Date.now() - new Date(iso).getTime()) / 1000;
+    if (s < 60) return "now";
+    if (s < 3600) return Math.floor(s / 60) + "m";
+    if (s < 86400) return Math.floor(s / 3600) + "h";
+    return Math.floor(s / 86400) + "d";
+  }
+  function describe(e) {
+    const who = e.username ? (e.name ? `${esc(e.name)} <span class="muted">@${esc(e.username)}</span>` : `@${esc(e.username)}`) : "someone";
+    const d = e.detail || {};
+    const map = {
+      comment_matched: ["💬", `${who} commented “<bdi>${esc(d.text || "")}</bdi>”`],
+      dm_opened: ["📩", `First DM sent to ${who}`],
+      follow_prompted: ["🙏", `Asked ${who} to follow`],
+      follow_confirmed_after_prompt: ["➕", `${who} followed you`],
+      link_delivered: ["🔗", `Link sent to ${who}`],
+      link_clicked: ["👆", `${who} opened the link`],
+      reminder_sent: ["⏰", `Reminder sent to ${who}`],
+      lead_captured: ["✉️", `${who} shared their email`],
+      email_requested: ["✉️", `Asked ${who} for their email`],
+      email_skipped: ["⏭️", `${who} skipped the email`],
+      email_invalid: ["✉️", `${who} sent something that isn't an email`],
+      follow_check_unknown: ["⚠️", `Instagram didn't confirm follow status for ${who} yet`],
+      send_fallback: ["↩️", `Used a simpler message style for ${who}`],
+      private_reply_fallback: ["↩️", `Used a simpler first message for ${who}`],
+      send_failed: ["❌", `A message to ${who} failed`, true],
+      private_reply_failed: ["❌", `Couldn't send the first DM to ${who}`, true],
+      public_reply_failed: ["⚠️", `Public reply to ${who}'s comment failed`],
+      token_refreshed: ["🔑", "Instagram connection renewed"],
+      token_refresh_failed: ["❌", "Instagram connection renewal failed — reconnect the account", true],
+      account_connected: ["🔌", `@${esc(d.username || "")} connected`],
+      campaign_attached: ["📌", "Campaign attached to your new Reel"],
+      account_deauthorized: ["🔌", "The account removed the app", true],
+    };
+    const [ic, text, err] = map[e.type] || ["•", esc(e.type)];
+    return { ic, text, err };
+  }
+  async function loadActivity() {
+    const feed = $("#feed");
+    feed.innerHTML = `<li><span></span><span class="spin"></span></li>`;
+    try {
+      const list = await api(`/activity?${acct()}&limit=80`);
+      if (!list.length) { feed.innerHTML = `<li class="empty" style="display:block">Nothing yet. When someone comments a keyword, it shows up here.</li>`; return; }
+      feed.innerHTML = list.map((e) => {
+        const { ic, text, err } = describe(e);
+        return `<li class="${err ? "err" : ""}"><span class="ic">${ic}</span><span>${text}${e.campaigns?.name ? ` <span class="small faint" dir="auto">· ${esc(e.campaigns.name)}</span>` : ""}</span><span class="when" title="${esc(new Date(e.created_at).toLocaleString())}">${ago(e.created_at)}</span></li>`;
+      }).join("");
+    } catch (e) { feed.innerHTML = `<li>${esc(e.message)}</li>`; }
+  }
+  $("#refreshActivity").addEventListener("click", loadActivity);
+
+  // ---------- accounts (owner) ----------
+  async function loadAccounts() {
+    state.me = await api("/me");
+    $("#connectUrl").textContent = state.me.connect_url;
+    $("#openSignup").checked = !!state.me.settings?.open_signup;
+    const dash = location.origin + location.pathname;
+    $("#accountList").innerHTML = state.me.accounts.map((a) => {
+      const days = a.token_refreshed_at ? Math.floor((Date.now() - new Date(a.token_refreshed_at)) / 864e5) : null;
+      return `<div class="card stack">
+        <div class="row between">
+          <div><b>@${esc(a.ig_username || a.ig_user_id)}</b> <span class="muted small" dir="auto">${esc(a.name || "")}</span></div>
+          <span class="pill ${a.deauthorized_at ? "warn" : a.active ? "live" : "paused"}">${a.deauthorized_at ? "Removed the app" : a.active ? "Live" : "Paused"}</span>
+        </div>
+        <div class="small muted">Connected ${new Date(a.created_at).toLocaleDateString()} · Instagram token renewed ${days === null ? "never" : days === 0 ? "today" : days + " days ago"} (auto every 7 days)</div>
+        <div class="row">
+          <button class="btn small" data-acc-toggle="${a.id}" data-active="${a.active}">${a.active ? "Pause" : "Switch on"}</button>
+          <button class="btn small" data-copy="${esc(dash + "#k=" + a.admin_key)}">Copy client dashboard link</button>
+          <button class="btn small" data-rotate="${a.id}">New key</button>
+        </div>
+      </div>`;
+    }).join("") || `<div class="card empty">No accounts yet.</div>`;
+    $$("[data-copy]").forEach((b) => b.addEventListener("click", () => copy(b.dataset.copy, "Link copied — it logs in to that account only")));
+    $$("[data-acc-toggle]").forEach((b) => b.addEventListener("click", async () => {
+      try { await api(`/accounts/${b.dataset.accToggle}`, { method: "PATCH", body: { active: b.dataset.active !== "true" } }); toast("Updated"); loadAccounts(); setupAccountsLater(); }
+      catch (e) { toast(e.message, true); }
+    }));
+    $$("[data-rotate]").forEach((b) => b.addEventListener("click", async () => {
+      if (!confirm("Make a new key for this account? The old dashboard link stops working.")) return;
+      try { await api(`/accounts/${b.dataset.rotate}/rotate-key`, { method: "POST", body: {} }); toast("New key made"); loadAccounts(); }
+      catch (e) { toast(e.message, true); }
+    }));
+  }
+  function setupAccountsLater() { api("/me").then((me) => { state.me = me; setupAccounts(); }).catch(() => {}); }
+  $("#copyConnect").addEventListener("click", () => copy($("#connectUrl").textContent, "Connect link copied"));
+  $("#openSignup").addEventListener("change", async (e) => {
+    try { await api("/settings", { method: "PATCH", body: { open_signup: e.target.checked } }); toast("Saved"); }
+    catch (err) { toast(err.message, true); e.target.checked = !e.target.checked; }
+  });
+  async function copy(text, msg) {
+    try { await navigator.clipboard.writeText(text); toast(msg); }
+    catch { prompt("Copy this:", text); }
+  }
+
+  // ---------- install as an app (home screen / dock) ----------
+  if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js").catch(() => {});
+  let installEvt = null;
+  window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); installEvt = e; $("#installBtn").classList.remove("hidden"); });
+  window.addEventListener("appinstalled", () => { $("#installBtn").classList.add("hidden"); toast("Installed — open Auto DM from your home screen"); });
+  $("#installBtn").addEventListener("click", async () => {
+    if (!installEvt) return;
+    installEvt.prompt();
+    await installEvt.userChoice.catch(() => {});
+    installEvt = null; $("#installBtn").classList.add("hidden");
+  });
+
+  start();
+})();
+</script>
+</body>
+</html>
