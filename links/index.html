@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>أدهم أبو علان · Adham Abu Allan</title>
+<meta name="description" content="ببني مواقع وتطبيقات وأتمتة بالذكاء الاصطناعي بتجيبلك زباين. I build websites, apps & AI automations that bring you clients.">
+<meta name="theme-color" content="#0A0D0B">
+<meta property="og:title" content="Adham Abu Allan · أدهم أبو علان">
+<meta property="og:description" content="Websites, apps & AI automations that bring you clients · مواقع وتطبيقات وأتمتة بتجيبلك زباين">
+<meta property="og:image" content="https://adhamabuallan.github.io/links/avatar.jpg">
+<meta property="og:url" content="https://adhamabuallan.github.io/links/">
+<meta property="og:type" content="website">
+<link rel="icon" href="avatar.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Readex+Pro:wght@500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one narrow phone column (thumb-first), intent fork at the top, sticky WhatsApp bar at the bottom. Single dark look by choice. */
+:root{
+  --bg:#0A0D0B;         /* near-black, faint green bias */
+  --surface:#121815;
+  --surface-2:#18201C;
+  --line:#24302A;
+  --fg:#F2F5F3;
+  --muted:#93A39A;
+  --accent:#22C55E;     /* emerald */
+  --accent-ink:#04150A;
+  --accent-soft:rgba(34,197,94,.12);
+  --note:#F5C451;       /* strategy-annotation colour only */
+  --display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --body:"IBM Plex Sans Arabic","Readex Pro",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --r:18px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+html{padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.65;padding-inline:16px;padding-block:0 120px}
+.wrap{max-width:460px;margin-inline:auto;display:flex;flex-direction:column;gap:28px;padding-block:20px 0}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.25}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:10px}
+
+/* top bar */
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.chip-btn{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;cursor:pointer;color:var(--muted)}
+.chip-btn[aria-pressed="true"]{border-color:var(--note);color:var(--note)}
+
+/* hero */
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px}
+.avatar{width:104px;height:104px;border-radius:50%;object-fit:cover;object-position:50% 30%;box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--accent),0 10px 40px rgba(34,197,94,.28)}
+.hero h1{font-size:26px}
+.handle{font-family:var(--mono);font-size:13px;color:var(--muted);direction:ltr}
+.tagline{font-size:17px;max-width:34ch}
+.tagline b{color:var(--accent);font-weight:600}
+.proof-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.pill{font-size:13px;padding:5px 11px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--muted)}
+
+/* fork */
+.fork{display:flex;flex-direction:column;gap:10px}
+.fork-q{font-family:var(--display);font-size:15px;color:var(--muted);text-align:center}
+.fork-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fork-btn{min-height:84px;border-radius:var(--r);border:1px solid var(--line);background:var(--surface);padding:14px 12px;text-align:start;cursor:pointer;display:flex;flex-direction:column;gap:4px;transition:border-color .2s,background .2s}
+.fork-btn strong{font-family:var(--display);font-size:16px;font-weight:700}
+.fork-btn span{font-size:13px;color:var(--muted);line-height:1.4}
+.fork-btn[aria-selected="true"]{border-color:var(--accent);background:var(--accent-soft)}
+
+section{display:flex;flex-direction:column;gap:14px}
+.sec-h{display:flex;flex-direction:column;gap:4px}
+.sec-h h2{font-size:20px}
+.sec-h p{color:var(--muted);font-size:14px}
+
+/* resources */
+.res{display:flex;gap:12px;align-items:center;padding:14px;border-radius:var(--r);background:var(--surface);border:1px solid var(--line);text-decoration:none}
+.res-ico{flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--surface-2);font-size:22px}
+.res-txt{min-width:0;display:flex;flex-direction:column}
+.res-txt strong{font-family:var(--display);font-weight:500;font-size:15px}
+.res-txt span{font-size:13px;color:var(--muted)}
+.res-kw{margin-inline-start:auto;flex:none;font-family:var(--mono);font-size:12px;color:var(--accent);direction:ltr}
+.example-tag{font-size:11px;color:var(--note);border:1px dashed var(--note);border-radius:6px;padding:1px 6px;align-self:flex-start}
+
+.bridge{padding:18px;border-radius:var(--r);background:linear-gradient(160deg,#143022,#0f1713);border:1px solid #1f4a33;display:flex;flex-direction:column;gap:10px}
+.bridge h3{font-size:18px}
+.bridge p{font-size:14px;color:#c9d6cf}
+
+/* buttons */
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:54px;border-radius:14px;border:0;padding:0 18px;font-family:var(--display);font-weight:700;font-size:16px;cursor:pointer;text-decoration:none}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--fg)}
+
+/* offer */
+.offer{padding:20px;border-radius:var(--r);border:1px solid var(--accent);background:var(--accent-soft);display:flex;flex-direction:column;gap:10px}
+.offer .eyebrow{font-size:12px;letter-spacing:.04em;color:var(--accent);font-family:var(--mono);direction:ltr;text-align:end}
+.offer h2{font-size:22px}
+.offer ul{margin:0;padding-inline-start:18px;display:flex;flex-direction:column;gap:4px;font-size:14px;color:#c9d6cf}
+
+/* quiz */
+.quiz{padding:18px;border-radius:var(--r);background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;gap:14px}
+.progress{display:flex;flex-direction:column;gap:6px}
+.progress-label{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{height:6px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .35s ease}
+.q h3{font-size:18px;margin-block-end:10px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.opt{min-height:52px;border-radius:12px;border:1px solid var(--line);background:var(--surface-2);padding:10px;cursor:pointer;text-align:start;font-size:14px;line-height:1.35}
+.opt:hover{border-color:#3a5245}
+.opt[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.back{align-self:flex-start;background:none;border:0;color:var(--muted);font-size:13px;cursor:pointer;padding:4px 0}
+
+.result{display:flex;flex-direction:column;gap:12px}
+.plan{padding:16px;border-radius:14px;background:var(--surface-2);border:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.plan-name{font-family:var(--display);font-size:18px;font-weight:700}
+.plan-price{font-family:var(--display);font-size:28px;color:var(--accent);font-variant-numeric:tabular-nums}
+.plan-price small{font-size:14px;color:var(--muted);font-family:var(--body)}
+.plan p{font-size:14px;color:var(--muted)}
+.msg{font-size:14px;background:#0d1310;border:1px dashed var(--line);border-radius:12px;padding:12px;white-space:pre-wrap}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.row .btn{flex:1 1 160px}
+
+/* work */
+.work{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.w{padding:14px;border-radius:var(--r);background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;gap:4px;text-decoration:none;min-width:0}
+.w strong{font-family:var(--display);font-weight:500;font-size:15px}
+.w span{font-size:12.5px;color:var(--muted);line-height:1.45}
+.w.wide{grid-column:1/-1}
+
+/* steps */
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.steps li{display:flex;gap:12px;align-items:flex-start}
+.steps b{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--surface-2);border:1px solid var(--line);font-family:var(--mono);font-size:13px;color:var(--accent)}
+.steps div{min-width:0}
+.steps strong{font-family:var(--display);font-weight:500}
+.steps p{font-size:14px;color:var(--muted)}
+
+/* prices */
+.prices{display:flex;flex-direction:column;gap:8px}
+.price-toggle{display:flex;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px;align-self:flex-start}
+.price-toggle button{border:0;background:none;border-radius:999px;padding:6px 12px;font-size:13px;cursor:pointer;color:var(--muted)}
+.price-toggle button[aria-pressed="true"]{background:var(--surface-2);color:var(--fg)}
+.pr{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 14px;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+.pr span{font-size:14px}
+.pr b{font-family:var(--display);font-variant-numeric:tabular-nums;color:var(--fg);white-space:nowrap}
+.note{font-size:13.5px;color:var(--muted)}
+.pr.custom b{color:var(--muted);font-weight:500}
+
+details{border-radius:12px;background:var(--surface);border:1px solid var(--line);padding:12px 14px}
+summary{cursor:pointer;font-family:var(--display);font-weight:500}
+details p{font-size:14px;color:var(--muted);margin-block-start:8px}
+
+footer{display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--muted);font-size:13px;text-align:center}
+.links{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.links a,.links button{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 14px;text-decoration:none;font-size:13px;cursor:pointer}
+
+/* sticky WhatsApp */
+.dock{position:fixed;inset-inline:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:linear-gradient(to top,var(--bg) 70%,transparent);display:flex;justify-content:center;z-index:5}
+.dock .btn{width:100%;max-width:460px;box-shadow:0 8px 30px rgba(34,197,94,.3)}
+
+/* strategy annotations */
+.why{display:none;font-size:12.5px;line-height:1.5;color:var(--note);border-inline-start:2px solid var(--note);padding-inline-start:10px;background:rgba(245,196,81,.06);padding-block:6px;border-radius:4px}
+.explain .why{display:block}
+.why b{font-family:var(--mono);font-weight:500;direction:ltr;unicode-bidi:isolate}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<div class="wrap" id="app" dir="rtl" lang="ar">
+  <div class="top">
+    <span></span>
+    <button class="chip-btn" id="langBtn">EN</button>
+  </div>
+
+  <header class="hero">
+    <img class="avatar" src="avatar.jpg" alt="Adham Abu Allan" width="104" height="104">
+    <div>
+      <h1>أدهم أبو علان</h1>
+      <div class="handle">@adham_abu_allan</div>
+    </div>
+    <p class="tagline">ببني مواقع وتطبيقات وأتمتة بالذكاء الاصطناعي <b>بتجيبلك زباين</b></p>
+    <div class="proof-row">
+      <span class="pill">📱 تطبيقين منشورين على Google Play</span>
+      <span class="pill">🇵🇸 من فلسطين</span>
+    </div>
+  </header>
+
+  <div class="fork">
+    <p class="fork-q">شو جابك لهون؟</p>
+    <div class="fork-btns" role="tablist">
+      <button class="fork-btn" role="tab" id="tabTools" aria-selected="true" aria-controls="pathTools">
+        <strong>🎁 بدي الأداة من الفيديو</strong>
+        <span>الأدوات والملفات المجانية</span>
+      </button>
+      <button class="fork-btn" role="tab" id="tabBiz" aria-selected="false" aria-controls="pathBiz">
+        <strong>📈 عندي بزنس</strong>
+        <span>بدي زباين أكثر ووقت أقل</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- PATH A: followers who came for a tool -->
+  <div id="pathTools" role="tabpanel" aria-labelledby="tabTools" style="display:flex;flex-direction:column;gap:28px">
+    <section>
+      <div class="sec-h">
+        <h2>الأدوات المجانية</h2>
+        <p>كل أداة حكيت عنها بالريلز، برابطها وشرحها.</p>
+      </div>
+      <a class="res" href="https://instagram.com/adham_abu_allan" target="_blank" rel="noopener">
+        <span class="res-ico">💬</span>
+        <span class="res-txt"><strong>علّق الكلمة تحت أي ريل</strong><span>وبوصلك رابط الأداة عالخاص فوراً</span></span>
+        <span class="res-kw">DM</span>
+      </a>
+      <a class="res" href="https://instagram.com/adham_abu_allan" target="_blank" rel="noopener">
+        <span class="res-ico">🎬</span>
+        <span class="res-txt"><strong>كل الأدوات بالريلز</strong><span>شوف آخر الفيديوهات عالانستغرام</span></span>
+        <span class="res-kw">REELS</span>
+      </a>
+    </section>
+
+    <div class="bridge">
+      <h3>بتستعمل هالأدوات لشغلك؟</h3>
+      <p>أنا ببنيها كاملة لأصحاب المشاريع: موقع، حجوزات، ردود أوتوماتيك عالواتساب. أنت بتركّز على زباينك.</p>
+      <button class="btn btn-primary" data-go="biz">شوف شو بقدر أعملك ←</button>
+    </div>
+  </div>
+
+  <!-- PATH B: business owners -->
+  <div id="pathBiz" role="tabpanel" aria-labelledby="tabBiz" hidden style="display:flex;flex-direction:column;gap:28px">
+
+    <div class="offer">
+      <span class="eyebrow">FREE · NO PAYMENT</span>
+      <h2>بصمّملك شكل صفحتك مجاناً، قبل ما تدفع إشي</h2>
+      <ul>
+        <li>جاوب على 3 أسئلة (أقل من دقيقة)</li>
+        <li>ببعتلك تصميم مبدئي لبزنسك عالواتساب</li>
+        <li>إذا عجبك منكمل، وإذا لا ما خسرت إشي</li>
+      </ul>
+    </div>
+
+    <div class="quiz" id="quiz" aria-live="polite">
+      <div class="progress">
+        <span class="progress-label" id="progLabel">الخطوة 1 من 4 · اخترت "عندي بزنس" ✓</span>
+        <div class="bar"><i id="progBar" style="width:25%"></i></div>
+      </div>
+
+      <div class="q" data-step="1">
+        <h3>شو نوع البزنس؟</h3>
+        <div class="opts">
+          <button class="opt" data-k="type" data-v="مطعم أو كافيه" data-demo="مطعم">🍽️ مطعم / كافيه</button>
+          <button class="opt" data-k="type" data-v="صالون أو حلاق" data-demo="حلاق">💈 صالون / حلاق</button>
+          <button class="opt" data-k="type" data-v="عيادة" data-demo="عيادة أسنان">🦷 عيادة</button>
+          <button class="opt" data-k="type" data-v="متجر أو براند منتجات" data-demo="براند">🛍️ متجر / براند</button>
+          <button class="opt" data-k="type" data-v="جيم أو نادي" data-demo="جيم">🏋️ جيم / نادي</button>
+          <button class="opt" data-k="type" data-v="بزنس من نوع تاني" data-demo="">✳️ إشي تاني</button>
+        </div>
+      </div>
+
+      <div class="q" data-step="2" hidden>
+        <h3>شو أكثر إشي بدك إياه هلأ؟</h3>
+        <div class="opts">
+          <button class="opt" data-k="goal" data-v="زباين جدد من الإنترنت" data-plan="landing">🎯 زباين جدد من الإنترنت</button>
+          <button class="opt" data-k="goal" data-v="حجوزات أوتوماتيك" data-plan="web">📅 حجوزات أوتوماتيك</button>
+          <button class="opt" data-k="goal" data-v="تطبيق لزبايني" data-plan="app">📱 تطبيق لزبايني</button>
+          <button class="opt" data-k="goal" data-v="ردود أوتوماتيك عالواتساب" data-plan="auto">💬 ردود أوتوماتيك عالواتساب</button>
+        </div>
+        <button class="back" data-back="1">→ رجوع</button>
+      </div>
+
+      <div class="q" data-step="3" hidden>
+        <h3>وين بزنسك؟</h3>
+        <div class="opts">
+          <button class="opt" data-k="market" data-v="الضفة" data-cur="usd">الضفة الغربية</button>
+          <button class="opt" data-k="market" data-v="الداخل" data-cur="ils">الداخل (48)</button>
+          <button class="opt" data-k="market" data-v="غزة" data-cur="usd">غزة</button>
+          <button class="opt" data-k="market" data-v="برّا البلاد" data-cur="usd">برّا البلاد</button>
+        </div>
+        <button class="back" data-back="2">→ رجوع</button>
+      </div>
+
+      <div class="result" data-step="4" hidden>
+        <h3 style="font-size:18px">هاد اللي بنصحك فيه 👇</h3>
+        <div class="plan">
+          <span class="plan-name" id="planName"></span>
+          <span class="plan-price" id="planPrice"></span>
+          <p id="planWhy"></p>
+        </div>
+        <p style="font-size:14px;color:var(--muted)">جهّزتلك الرسالة، بس ابعتها:</p>
+        <div class="msg" id="msg"></div>
+        <div class="row">
+          <a class="btn btn-primary" id="waResult" href="https://wa.me/972595376623" target="_blank" rel="noopener">ابعتها عالواتساب</a>
+          <button class="btn btn-ghost" id="copyMsg">انسخ الرسالة</button>
+        </div>
+        <a class="btn btn-ghost" id="demoLink" href="https://adham-abu-allan.vercel.app" target="_blank" rel="noopener">شوف مثال جاهز</a>
+        <button class="back" id="restart">↺ ابدأ من جديد</button>
+      </div>
+    </div>
+
+    <section>
+      <div class="sec-h"><h2>شغلي</h2><p>مشاريع حقيقية، مش صور من الإنترنت.</p></div>
+      <div class="work">
+        <a class="w" href="https://mta-3jl.pages.dev/" target="_blank" rel="noopener"><strong>MTA</strong><span>سوق قطع غيار سيارات · iOS و Android · 4 لغات</span></a>
+        <a class="w" href="https://play.google.com/store/apps/details?id=com.weenbalaqee.weenbalaqee" target="_blank" rel="noopener"><strong>وين بلاقي</strong><span>تطبيق إيجار شقق · على Google Play</span></a>
+        <a class="w" href="https://lunel-ashes.com" target="_blank" rel="noopener"><strong>Luné Lashes</strong><span>موقع براند رموش مغناطيسية</span></a>
+        <a class="w" href="https://adham-abu-allan.vercel.app" target="_blank" rel="noopener"><strong>نماذج جاهزة</strong><span>حلاق · عيادة أسنان · جيم · غسيل سيارات · مطعم</span></a>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-h"><h2>كيف بنشتغل</h2></div>
+      <ol class="steps">
+        <li><b>1</b><div><strong>بتحكيلي عالواتساب</strong><p>شو بزنسك وشو بدك.</p></div></li>
+        <li><b>2</b><div><strong>ببعتلك تصميم مجاني</strong><p>بتشوف الفكرة قبل ما تدفع.</p></div></li>
+        <li><b>3</b><div><strong>بنطلق</strong><p>اشتراك شهري، بتشمل الاستضافة والتعديلات.</p></div></li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="sec-h"><h2>الأسعار</h2><p>اشتراك شهري، نفس السعر تقريباً مهما كان نوع البزنس.</p></div>
+      <div class="prices">
+        <div class="pr"><span>صفحة هبوط</span><b>33$</b></div>
+        <div class="pr"><span>موقع / تطبيق ويب</span><b>66$</b></div>
+        <div class="pr"><span>تطبيق موبايل + ويب</span><b>99$</b></div>
+        <div class="pr custom"><span>مخصص / أتمتة</span><b>حسب المشروع</b></div>
+      </div>
+      <p class="note">💱 بتقدر تدفع نفس المبلغ بالشيكل حسب سعر صرف اليوم. وبتشمل جولتين تعديل عالتصميم وجولة عالنسخة النهائية.</p>
+    </section>
+
+    <section>
+      <details><summary>لازم أفهم بالتكنولوجيا؟</summary><p>لا. أنا بعمل كل إشي، وأنت بتعطيني معلومات بزنسك بس.</p></details>
+      <details><summary>ليش اشتراك شهري ومش مبلغ مرة وحدة؟</summary><p>عشان ما تدفع مبلغ كبير ببداية الطريق، والموقع بضل شغّال ومحدّث بدون ما تحمل همّه.</p></details>
+    </section>
+  </div>
+  <footer>
+    <div class="links">
+      <a href="https://instagram.com/adham_abu_allan" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://adham-abu-allan.vercel.app" target="_blank" rel="noopener">الموقع</a>
+      <button id="copyEmail">adhamallan4@gmail.com</button>
+    </div>
+    <span>© أدهم أبو علان</span>
+  </footer>
+</div>
+
+<div class="dock" dir="rtl" lang="ar">
+  <a class="btn btn-primary" id="dockWa" href="https://wa.me/972595376623?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A3%D8%AF%D9%87%D9%85%20%F0%9F%91%8B%20%D8%AC%D9%8A%D8%AA%20%D9%85%D9%86%20%D8%A7%D9%84%D8%A7%D9%86%D8%B3%D8%AA%D8%BA%D8%B1%D8%A7%D9%85" target="_blank" rel="noopener">💬 احكي معي عالواتساب</a>
+</div>
+
+<script>
+(function(){
+  var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  var WA="https://wa.me/972595376623";
+  var app=$("#app"), dock=$(".dock");
+  var lang="ar";
+  var norm=function(h){return h.replace(/\s+/g," ").trim()};
+
+  // ---- English dictionary (keys = Arabic markup, normalised) ----
+  var EN={
+    "ببني مواقع وتطبيقات وأتمتة بالذكاء الاصطناعي <b>بتجيبلك زباين</b>":"I build websites, apps &amp; AI automations <b>that bring you clients</b>",
+    "أدهم أبو علان":"Adham Abu Allan",
+    "📱 تطبيقين منشورين على Google Play":"📱 2 published apps on Google Play",
+    "🇵🇸 من فلسطين":"🇵🇸 From Palestine",
+    "شو جابك لهون؟":"What brought you here?",
+    "🎁 بدي الأداة من الفيديو":"🎁 I want the tool from the video",
+    "الأدوات والملفات المجانية":"Free tools &amp; files",
+    "📈 عندي بزنس":"📈 I have a business",
+    "بدي زباين أكثر ووقت أقل":"More clients, less busywork",
+    "الأدوات المجانية":"Free tools",
+    "كل أداة حكيت عنها بالريلز، برابطها وشرحها.":"Every tool from my Reels, with its link and a how-to.",
+    "أمثلة — بتتعبّى من الريلز تبعتك":"Examples — filled from my Reels",
+    "أداة بتعملك ريلز كاملة بالذكاء الاصطناعي":"An AI tool that makes full Reels for you",
+    "الرابط + طريقة الاستخدام":"Link + how to use it",
+    "أتمتة بترد على زباينك لحالها":"An automation that replies to your clients",
+    "دليل خطوة بخطوة":"Step-by-step guide",
+    "5 تطبيقات بتوفرلك ساعة كل يوم":"5 apps that save you an hour a day",
+    "علّق الكلمة تحت أي ريل":"Comment the keyword under any Reel",
+    "وبوصلك رابط الأداة عالخاص فوراً":"and get the tool link in your DMs instantly",
+    "كل الأدوات بالريلز":"All tools in my Reels",
+    "شوف آخر الفيديوهات عالانستغرام":"See my latest videos on Instagram",
+    "قائمة مع روابط":"List with links",
+    "بتستعمل هالأدوات لشغلك؟":"Using these tools for your business?",
+    "أنا ببنيها كاملة لأصحاب المشاريع: موقع، حجوزات، ردود أوتوماتيك عالواتساب. أنت بتركّز على زباينك.":"I build the whole system for business owners: website, bookings, automatic WhatsApp replies. You focus on your clients.",
+    "شوف شو بقدر أعملك ←":"See what I can build for you →",
+    "بصمّملك شكل صفحتك مجاناً، قبل ما تدفع إشي":"I'll design your page for free, before you pay anything",
+    "جاوب على 3 أسئلة (أقل من دقيقة)":"Answer 3 questions (under a minute)",
+    "ببعتلك تصميم مبدئي لبزنسك عالواتساب":"Get a first design for your business on WhatsApp",
+    "إذا عجبك منكمل، وإذا لا ما خسرت إشي":"Like it? We continue. If not, you lost nothing",
+    "شو نوع البزنس؟":"What kind of business?",
+    "🍽️ مطعم / كافيه":"🍽️ Restaurant / café",
+    "💈 صالون / حلاق":"💈 Salon / barber",
+    "🦷 عيادة":"🦷 Clinic",
+    "🛍️ متجر / براند":"🛍️ Shop / brand",
+    "🏋️ جيم / نادي":"🏋️ Gym / club",
+    "✳️ إشي تاني":"✳️ Something else",
+    "شو أكثر إشي بدك إياه هلأ؟":"What do you need most right now?",
+    "🎯 زباين جدد من الإنترنت":"🎯 New clients from online",
+    "📅 حجوزات أوتوماتيك":"📅 Automatic bookings",
+    "📱 تطبيق لزبايني":"📱 An app for my clients",
+    "💬 ردود أوتوماتيك عالواتساب":"💬 Automatic WhatsApp replies",
+    "→ رجوع":"← Back",
+    "وين بزنسك؟":"Where is your business?",
+    "الضفة الغربية":"West Bank",
+    "الداخل (48)":"Inside the Green Line (48)",
+    "غزة":"Gaza",
+    "برّا البلاد":"Abroad",
+    "هاد اللي بنصحك فيه 👇":"Here's what I recommend 👇",
+    "جهّزتلك الرسالة، بس ابعتها:":"Your message is ready, just send it:",
+    "ابعتها عالواتساب":"Send on WhatsApp",
+    "انسخ الرسالة":"Copy message",
+    "↺ ابدأ من جديد":"↺ Start over",
+    "شغلي":"My work",
+    "مشاريع حقيقية، مش صور من الإنترنت.":"Real projects, not stock images.",
+    "سوق قطع غيار سيارات · iOS و Android · 4 لغات":"Car spare-parts marketplace · iOS &amp; Android · 4 languages",
+    "تطبيق إيجار شقق · على Google Play":"Apartment rentals app · on Google Play",
+    "موقع براند رموش مغناطيسية":"Website for a magnetic-lash brand",
+    "نماذج جاهزة":"Showcase sites",
+    "حلاق · عيادة أسنان · جيم · غسيل سيارات · مطعم":"Barber · dental clinic · gym · car care · restaurant",
+    "وين بلاقي":"Ween Balaqee",
+    "كيف بنشتغل":"How it works",
+    "بتحكيلي عالواتساب":"You message me on WhatsApp",
+    "شو بزنسك وشو بدك.":"Your business and what you need.",
+    "ببعتلك تصميم مجاني":"I send you a free design",
+    "بتشوف الفكرة قبل ما تدفع.":"You see the idea before you pay.",
+    "بنطلق":"We launch",
+    "اشتراك شهري، بتشمل الاستضافة والتعديلات.":"Monthly plan, hosting and edits included.",
+    "الأسعار":"Pricing",
+    "💱 بتقدر تدفع نفس المبلغ بالشيكل حسب سعر صرف اليوم. وبتشمل جولتين تعديل عالتصميم وجولة عالنسخة النهائية.":"💱 You can pay the same amount in shekels at the day's exchange rate. Includes two rounds of design revisions and one on the finished build.",
+    "اشتراك شهري، نفس السعر تقريباً مهما كان نوع البزنس.":"Monthly plans, about the same price whatever your business is.",
+    "$ الضفة":"$ West Bank",
+    "₪ الداخل":"₪ Inside 48",
+    "صفحة هبوط":"Landing page",
+    "موقع / تطبيق ويب":"Website / web app",
+    "تطبيق موبايل + ويب":"Mobile app + web",
+    "مخصص / أتمتة":"Custom / automation",
+    "حسب المشروع":"Per project",
+    "لازم أفهم بالتكنولوجيا؟":"Do I need to be good with tech?",
+    "لا. أنا بعمل كل إشي، وأنت بتعطيني معلومات بزنسك بس.":"No. I handle everything; you just give me your business details.",
+    "ليش اشتراك شهري ومش مبلغ مرة وحدة؟":"Why monthly instead of one big payment?",
+    "عشان ما تدفع مبلغ كبير ببداية الطريق، والموقع بضل شغّال ومحدّث بدون ما تحمل همّه.":"So you don't pay a big sum upfront, and your site stays live and up to date without you worrying about it.",
+    "الموقع":"Website",
+    "© أدهم أبو علان":"© Adham Abu Allan",
+    "💬 احكي معي عالواتساب":"💬 Message me on WhatsApp",
+    "🧠 ورّيني الاستراتيجية":"🧠 Show the strategy"
+  };
+  var SEL="h1,h2,h3,p:not(.why),.fork-btn strong,.fork-btn span,.res-txt strong,.res-txt span,.pill,.example-tag,.btn:not(#waResult):not(#demoLink),.opt,.back,.w strong,.w span,.steps strong,.steps p,.pr span,.pr.custom b,summary,.price-toggle button,footer > span,.links a,.offer li,#explainBtn";
+  var nodes=$$(SEL).filter(function(el){return !el.closest(".why") && !el.closest("#quiz .result p#planWhy") && el.id!=="planWhy" && el.id!=="msg"});
+  nodes.forEach(function(el){el._ar=el.innerHTML});
+
+  function applyLang(l){
+    lang=l;
+    [app,dock].forEach(function(r){r.dir=l==="ar"?"rtl":"ltr";r.lang=l});
+    document.documentElement.lang=l;
+    nodes.forEach(function(el){
+      if(l==="ar"){el.innerHTML=el._ar;return}
+      var k=norm(el._ar); if(EN[k]) el.innerHTML=EN[k];
+    });
+    $("#langBtn").textContent=l==="ar"?"EN":"عربي";
+    setProg(step);
+    if(step===4) buildResult();
+    var dockMsg=l==="ar"?"مرحبا أدهم 👋 جيت من الانستغرام":"Hi Adham 👋 I came from Instagram";
+    $("#dockWa").href=WA+"?text="+encodeURIComponent(dockMsg);
+    try{localStorage.setItem("lang",l)}catch(e){}
+  }
+
+  // strategy annotations
+
+  $("#langBtn").addEventListener("click",function(){applyLang(lang==="ar"?"en":"ar")});
+
+  // fork
+  var tTools=$("#tabTools"), tBiz=$("#tabBiz"), pTools=$("#pathTools"), pBiz=$("#pathBiz");
+  function track(n,p){try{window.va&&window.va("event",{name:n,data:p||{}})}catch(e){}}
+  function go(which){track("path_"+which);
+    var biz=which==="biz";
+    tTools.setAttribute("aria-selected",!biz); tBiz.setAttribute("aria-selected",biz);
+    pTools.hidden=biz; pBiz.hidden=!biz;
+    pTools.style.display=biz?"none":"flex"; pBiz.style.display=biz?"flex":"none";
+    if(biz) tBiz.scrollIntoView({behavior:"smooth",block:"start"});
+  }
+  pBiz.style.display="none";
+  tTools.addEventListener("click",function(){go("tools")});
+  tBiz.addEventListener("click",function(){go("biz")});
+  $$("[data-go]").forEach(function(b){b.addEventListener("click",function(){go(b.dataset.go)})});
+  if(location.hash==="#biz") go("biz");
+
+  // quiz
+  var ans={}, step=1;
+  var VAL_EN={"مطعم أو كافيه":"a restaurant / café","صالون أو حلاق":"a salon / barbershop","عيادة":"a clinic","متجر أو براند منتجات":"a shop / product brand","جيم أو نادي":"a gym","بزنس من نوع تاني":"a business",
+    "زباين جدد من الإنترنت":"new clients from online","حجوزات أوتوماتيك":"automatic bookings","تطبيق لزبايني":"an app for my clients","ردود أوتوماتيك عالواتساب":"automatic WhatsApp replies",
+    "الضفة":"the West Bank","الداخل":"the 48 area (inside the Green Line)","غزة":"Gaza","برّا البلاد":"abroad",
+    "مطعم":"restaurant","حلاق":"barber","عيادة أسنان":"dental clinic","براند":"brand","جيم":"gym"};
+  var PLANS={
+    landing:{usd:"33$",ils:null,ar:["صفحة هبوط بتجيب زباين","صفحة وحدة قوية بتشرح شغلك وبتحوّل الزائر لرسالة عالواتساب. ولو عندك منتج، بنضيفله فيديو ومجسّم ثلاثي الأبعاد."],en:["A landing page that brings clients","One strong page that explains your business and turns visitors into WhatsApp messages. Got a product? We add a hero video and a 3D model."]},
+    web:{usd:"66$",ils:null,ar:["موقع مع نظام حجوزات","زباينك بيحجزوا لحالهم بأي وقت، وأنت بتوصلك الحجوزات مرتبة، بدون مكالمات ورسائل رايحة جاية."],en:["A website with bookings","Clients book themselves any time and you get tidy bookings, without the back-and-forth calls and messages."]},
+    app:{usd:"99$",ils:null,ar:["تطبيق موبايل + موقع","تطبيق باسم بزنسك على Android و iPhone، مع موقع، عشان زباينك يرجعوا إلك دايماً."],en:["Mobile app + website","An app with your business name on Android and iPhone, plus a website, so clients keep coming back."]},
+    auto:{usd:null,ils:null,ar:["أتمتة واتساب بالذكاء الاصطناعي","بوت بيرد على الأسئلة المتكررة، بيأكد الحجوزات وبيبعت تذكيرات، وأنت مش ماسك التلفون طول اليوم."],en:["AI WhatsApp automation","A bot that answers common questions, confirms bookings and sends reminders, so you're not on your phone all day."]}
+  };
+  function setProg(n){
+    var L={ar:{1:'الخطوة 1 من 4 · اخترت "عندي بزنس" ✓',2:"الخطوة 2 من 4",3:"الخطوة 3 من 4 · ضايل سؤال واحد",4:"خلصنا ✓"},
+           en:{1:'Step 1 of 4 · You chose "I have a business" ✓',2:"Step 2 of 4",3:"Step 3 of 4 · one question left",4:"Done ✓"}};
+    $("#progLabel").textContent=L[lang][n]; $("#progBar").style.width=(n*25)+"%";
+  }
+  function show(n){
+    step=n; $$("#quiz [data-step]").forEach(function(el){el.hidden=(+el.dataset.step!==n)}); setProg(n);
+    if(n===4) buildResult();
+  }
+  $$("#quiz .opt").forEach(function(b){
+    b.addEventListener("click",function(){
+      var k=b.dataset.k;
+      $$('#quiz .opt[data-k="'+k+'"]').forEach(function(o){o.setAttribute("aria-pressed","false")});
+      b.setAttribute("aria-pressed","true");
+      ans[k]=b.dataset.v;
+      if(k==="type") ans.demo=b.dataset.demo;
+      if(k==="goal") ans.plan=b.dataset.plan;
+      if(k==="market") ans.cur=b.dataset.cur;
+      setTimeout(function(){show(step+1)},180);
+    });
+  });
+  $$("#quiz [data-back]").forEach(function(b){b.addEventListener("click",function(){show(+b.dataset.back)})});
+  $("#restart").addEventListener("click",function(){ans={};$$("#quiz .opt").forEach(function(o){o.setAttribute("aria-pressed","false")});show(1)});
+
+  var currentMsg="";
+  var en=function(v){return VAL_EN[v]||v};
+  function buildResult(){
+    var p=PLANS[ans.plan]||PLANS.landing, cur=ans.cur||"usd", price=p.usd, t=p[lang];
+    $("#planName").textContent=t[0];
+    $("#planWhy").textContent=t[1];
+    if(lang==="ar"){
+      $("#planPrice").innerHTML=price?("من "+price+" <small>بالشهر"+(cur==="ils"?" · أو بالشيكل حسب سعر الصرف":"")+"</small>"):'<small>السعر حسب الحاجة، بنحكي عالواتساب</small>';
+      currentMsg="مرحبا أدهم 👋 جيت من رابط الانستغرام.\nعندي "+ans.type+" ب"+ans.market+"، وبدي "+ans.goal+".\nبدي التصميم المجاني لصفحتي 🙏";
+      $("#demoLink").textContent=ans.demo?("شوف مثال جاهز: "+ans.demo):"شوف أمثلة جاهزة";
+    }else{
+      $("#planPrice").innerHTML=price?("from "+price+" <small>/ month"+(cur==="ils"?" · or in shekels at the day's rate":"")+"</small>"):'<small>Priced per project, let\'s talk on WhatsApp</small>';
+      currentMsg="Hi Adham 👋 I came from your Instagram link.\nI have "+en(ans.type)+" in "+en(ans.market)+" and I want "+en(ans.goal)+".\nI'd like the free design for my page 🙏";
+      $("#demoLink").textContent=ans.demo?("See a ready example: "+en(ans.demo)):"See ready examples";
+    }
+    $("#msg").textContent=currentMsg;
+    $("#waResult").textContent=lang==="ar"?"ابعتها عالواتساب":"Send on WhatsApp";
+    $("#waResult").href=WA+"?text="+encodeURIComponent(currentMsg);
+    track("quiz_done",{type:ans.type,goal:ans.goal,market:ans.market});
+    syncCur(cur);
+  }
+  function copy(text,btn,done){
+    var orig=btn.innerHTML;
+    var ok=function(){btn.textContent=done;setTimeout(function(){btn.innerHTML=orig},1600)};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok,function(){btn.textContent=text})}
+    else{btn.textContent=text}
+  }
+  $("#copyMsg").addEventListener("click",function(){copy(currentMsg,this,lang==="ar"?"✓ انسخت":"✓ Copied")});
+  $("#copyEmail").addEventListener("click",function(){copy("adhamallan4@gmail.com",this,lang==="ar"?"✓ انسخ الإيميل":"✓ Email copied")});
+
+  // currency
+  function syncCur(){}
+
+  var saved=null; try{saved=localStorage.getItem("lang")}catch(e){}
+  if(saved==="en") applyLang("en");
+  document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a");if(!a)return;var h=a.getAttribute("href")||"";if(h.indexOf("wa.me")>-1)track("whatsapp_click",{from:a.id||"link"});else if(h.indexOf("http")===0)track("outbound",{to:h.split("/")[2]});});
+})();
+</script>
+
+</body>
+</html>
