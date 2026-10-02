@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>كل الأدوات | أدهم أبو علان</title>
+<meta name="description" content="كل أداة ذكاء اصطناعي وتطبيق حكيت عنه بالريلز، برابطه الرسمي وطريقة استخدامه.">
+<meta name="theme-color" content="#070A08">
+<meta property="og:title" content="كل الأدوات · أدهم أبو علان">
+<meta property="og:image" content="https://adhamabuallan.github.io/links/hero.jpg">
+<link rel="icon" href="../avatar.jpg">
+<link rel="stylesheet" href="tools.css">
+</head>
+<body>
+<main>
+  <a class="back" href="../"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>رجوع</a>
+  <h1 style="margin-top:22px">كل الأدوات</h1>
+  <p class="lede">كل أداة حكيت عنها بالريلز. دوّر بالاسم أو بالرقم اللي شفته بالفيديو.</p>
+  <input class="search" id="q" type="search" aria-label="بحث" placeholder="مثلاً: CapCut أو 12" autocomplete="off">
+  <div class="rows" id="list"></div>
+  <p class="empty" id="empty" hidden></p>
+  <footer><a href="../" dir="ltr">@adham_abu_allan</a></footer>
+</main>
+<script>
+(function(){
+  var list=document.getElementById("list"), empty=document.getElementById("empty"), q=document.getElementById("q"), all=[];
+  var arrow='<svg class="flip" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  function norm(s){return String(s||"").toLowerCase().replace(/[٠-٩]/g,function(d){return "٠١٢٣٤٥٦٧٨٩".indexOf(d)}).replace(/#/g,"").trim()}
+  function render(){
+    var v=norm(q.value);
+    var rows=all.filter(function(t){return !v||String(t.n)===v||norm(t.tool+" "+(t.hook_ar||"")+" "+(t.desc_ar||"")+" "+(t.keyword||"")).indexOf(v)>-1});
+    list.innerHTML="";
+    rows.forEach(function(t){
+      var a=document.createElement("a");a.className="row-link";a.href=t.n+"/";
+      a.innerHTML='<span class="n"></span><div><strong></strong><span class="sub"></span></div>'+arrow;
+      a.querySelector(".n").textContent="#"+t.n;a.querySelector("strong").textContent=t.tool;a.querySelector(".sub").textContent=t.hook_ar||t.desc_ar||"";
+      list.appendChild(a);
+    });
+    empty.hidden=rows.length>0;
+    empty.textContent=all.length?"ما في نتائج لهالبحث.":"أول أداة نازلة قريباً، تابع الريلز.";
+    list.style.display=rows.length?"":"none";
+  }
+  q.addEventListener("input",render);
+  fetch("../tools.json",{cache:"no-cache"}).then(function(r){return r.json()}).then(function(d){all=(d.tools||[]).slice().sort(function(a,b){return b.n-a.n});render()}).catch(render);
+})();
+</script>
+</body>
+</html>

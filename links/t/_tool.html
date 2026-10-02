@@ -1,0 +1,71 @@
+<!doctype html>
+<!-- TEMPLATE. To publish tool N: copy this file to links/t/N/index.html and replace {{N}}, {{TOOL}}, {{HOOK}}, {{DESC}} in <head> only. The body fills itself from links/tools.json. -->
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>#{{N}} {{TOOL}} · {{HOOK}} | أدهم أبو علان</title>
+<meta name="description" content="{{DESC}}">
+<meta name="theme-color" content="#070A08">
+<meta property="og:title" content="#{{N}} {{TOOL}} · {{HOOK}}">
+<meta property="og:description" content="{{DESC}}">
+<meta property="og:image" content="https://adhamabuallan.github.io/links/hero.jpg">
+<meta property="og:url" content="https://adhamabuallan.github.io/links/t/{{N}}/">
+<link rel="icon" href="../../avatar.jpg">
+<link rel="stylesheet" href="../tools.css">
+</head>
+<body>
+<main>
+  <a class="back" href="../"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>كل الأدوات</a>
+
+  <p class="kicker"><span class="num" id="num"></span><span id="hook"></span></p>
+  <h1 id="tool"></h1>
+  <p class="lede" id="desc"></p>
+  <p class="facts" id="facts"></p>
+  <img class="cover" id="cover" alt="" hidden>
+
+  <a class="btn btn-accent" id="go" href="#" target="_blank" rel="noopener"><span id="goTxt"></span>
+    <svg class="flip" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <p class="note">رابط الموقع الرسمي</p>
+  <a class="btn btn-line" id="reel" href="#" target="_blank" rel="noopener" hidden>شوف الريل</a>
+
+  <section id="howWrap" hidden>
+    <h2>كيف تستعمله</h2>
+    <ol class="steps" id="steps"></ol>
+  </section>
+
+  <p class="empty" id="missing" hidden>ما لقيت هالأداة. <a href="../" style="color:var(--accent)">شوف كل الأدوات</a></p>
+  <footer><a href="../../" dir="ltr">@adham_abu_allan</a></footer>
+</main>
+<script>
+(function(){
+  var m=location.pathname.match(/\/t\/(\d+)\/?/); var n=m?+m[1]:null;
+  var D=["٠","١","٢","٣","٤","٥","٦","٧","٨","٩"];
+  function ar(x){return String(x).replace(/\d/g,function(d){return D[d]})}
+  function $(id){return document.getElementById(id)}
+  fetch("../../tools.json",{cache:"no-cache"}).then(function(r){return r.json()}).then(function(data){
+    var t=(data.tools||[]).filter(function(x){return x.n===n})[0];
+    if(!t){$("missing").hidden=false;return}
+    $("num").textContent="#"+t.n;
+    $("hook").textContent=t.hook_ar||"";
+    $("tool").textContent=t.tool;
+    $("desc").textContent=t.desc_ar||"";
+    var f=[];
+    if(t.price_ar) f.push("السعر: <b></b>");
+    if(t.platform_ar) f.push("على: <b></b>");
+    $("facts").innerHTML=f.map(function(s){return "<span>"+s+"</span>"}).join("");
+    var bs=$("facts").querySelectorAll("b"), i=0;
+    if(t.price_ar) bs[i++].textContent=t.price_ar;
+    if(t.platform_ar) bs[i++].textContent=t.platform_ar;
+    $("go").href=t.url; $("goTxt").textContent="افتح "+t.tool;
+    if(t.cover){$("cover").src=t.cover;$("cover").alt=t.tool;$("cover").hidden=false}
+    if(t.reel_url){$("reel").href=t.reel_url;$("reel").hidden=false}
+    if(t.steps_ar&&t.steps_ar.length){
+      $("howWrap").hidden=false;
+      t.steps_ar.forEach(function(s,k){var li=document.createElement("li");var b=document.createElement("b");b.textContent=ar(k+1);var sp=document.createElement("span");sp.textContent=s;li.appendChild(b);li.appendChild(sp);$("steps").appendChild(li)});
+    }
+  }).catch(function(){$("missing").hidden=false});
+})();
+</script>
+</body>
+</html>

@@ -93,6 +93,7 @@ section{display:flex;flex-direction:column;gap:14px}
 .row-link > div{min-width:0;flex:1;display:flex;flex-direction:column;gap:2px}
 .row-link strong{font-family:var(--display);font-weight:500;font-size:16px}
 .row-link span{font-size:13.5px;color:var(--muted);line-height:1.5}
+.row-link .n{flex:none;min-width:36px;text-align:center;font-family:var(--display);font-weight:800;font-size:15px;color:var(--accent);direction:ltr}
 .row-link .go{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);color:var(--accent);transition:background .2s,border-color .2s}
 .row-link:hover .go{background:var(--accent-glow);border-color:transparent}
 [dir="rtl"] .flip{transform:scaleX(-1)}
@@ -217,7 +218,7 @@ body.has-dock{padding-bottom:120px}
         <h2 data-en="Free tools">الأدوات المجانية</h2>
         <p data-en="Every tool from my Reels, with its link and a how-to.">كل أداة بحكي عنها بالريلز، برابطها وطريقة استخدامها.</p>
       </div>
-      <div class="rows">
+      <div class="rows" id="toolRows">
         <a class="row-link" href="https://instagram.com/adham_abu_allan" target="_blank" rel="noopener">
           <div><strong data-en="Comment the keyword on any Reel">علّق الكلمة تحت أي ريل</strong><span data-en="The tool link lands in your DMs right away.">وبيوصلك رابط الأداة عالخاص فوراً.</span></div>
           <span class="go"><svg class="flip" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -446,6 +447,34 @@ body.has-dock{padding-bottom:120px}
   $("#dockWa").href=WA+"?text="+encodeURIComponent(T.ar.dock);
   var saved=null; try{saved=localStorage.getItem("lang")}catch(e){}
   if(saved==="en") applyLang("en");
+})();
+</script>
+<script>
+/* Newest tools from tools.json, shown above the two fixed rows. */
+(function(){
+  var box=document.getElementById("toolRows"); if(!box) return;
+  var data=[];
+  var arrow='<span class="go"><svg class="flip" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+  function draw(){
+    Array.prototype.slice.call(box.querySelectorAll(".dyn")).forEach(function(e){e.remove()});
+    if(!data.length) return;
+    var en=document.documentElement.lang==="en", first=box.firstElementChild;
+    data.slice(0,5).forEach(function(t){
+      var a=document.createElement("a");a.className="row-link dyn";a.href="t/"+t.n+"/";
+      a.innerHTML='<span class="n"></span><div><strong></strong><span></span></div>'+arrow;
+      a.querySelector(".n").textContent="#"+t.n;
+      a.querySelector("strong").textContent=t.tool;
+      a.querySelector("div span").textContent=(en&&t.hook_en)?t.hook_en:(t.hook_ar||"");
+      box.insertBefore(a,first);
+    });
+    var all=document.createElement("a");all.className="row-link dyn";all.href="t/";
+    all.innerHTML='<div><strong></strong><span></span></div>'+arrow;
+    all.querySelector("strong").textContent=en?"All tools ("+data.length+")":"كل الأدوات ("+data.length+")";
+    all.querySelector("div span").textContent=en?"Search by name or number.":"دوّر بالاسم أو بالرقم.";
+    box.insertBefore(all,first);
+  }
+  fetch("tools.json",{cache:"no-cache"}).then(function(r){return r.json()}).then(function(d){data=(d.tools||[]).slice().sort(function(a,b){return b.n-a.n});draw()}).catch(function(){});
+  var lb=document.getElementById("langBtn"); if(lb) lb.addEventListener("click",function(){setTimeout(draw,0)});
 })();
 </script>
 </body>
