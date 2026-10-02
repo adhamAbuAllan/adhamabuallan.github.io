@@ -46,7 +46,7 @@
 }
 *{box-sizing:border-box}
 html{background:var(--ink);-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--ink);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.7;padding-block:0 120px;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--ink);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.7;padding-block:0 40px;-webkit-font-smoothing:antialiased}
 h1,h2,h3,p{margin:0}
 h1,h2,h3{font-family:var(--display);line-height:1.25;text-wrap:balance}
 a{color:inherit;text-decoration:none}
@@ -97,9 +97,6 @@ section{display:flex;flex-direction:column;gap:14px}
 .row-link:hover .go{background:var(--accent-glow);border-color:transparent}
 [dir="rtl"] .flip{transform:scaleX(-1)}
 
-.bridge{display:flex;flex-direction:column;gap:12px;padding-block:6px}
-.bridge h3{font-weight:700;font-size:19px}
-.bridge p{color:#C9D4CE;font-size:15px;max-width:36ch}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;border-radius:15px;padding:0 20px;font-family:var(--display);font-weight:700;font-size:16px;transition:transform .15s,filter .2s}
@@ -172,6 +169,7 @@ footer{margin-top:48px;display:flex;flex-direction:column;align-items:center;gap
 .dock .btn{width:100%;max-width:448px;box-shadow:0 10px 34px rgba(34,197,94,.28)}
 
 [hidden]{display:none!important}
+body.has-dock{padding-bottom:120px}
 
 @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes settle{from{transform:scale(1.04)}to{transform:none}}
@@ -229,12 +227,6 @@ footer{margin-top:48px;display:flex;flex-direction:column;align-items:center;gap
           <span class="go"><svg class="flip" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </a>
       </div>
-    </section>
-
-    <section class="bridge">
-      <h3 data-en="Using these tools for your business?">بتستعمل هالأدوات لشغلك؟</h3>
-      <p data-en="I build the whole system for business owners: website, bookings and automatic WhatsApp replies. You focus on your clients.">ببنيلك النظام كامل: موقع، حجوزات، وردود أوتوماتيك عالواتساب. وأنت بتركّز على زباينك.</p>
-      <button class="btn btn-text" type="button" data-go="biz"><span data-en="See what I can build for you">شوف شو بقدر أعملك</span><svg class="flip" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </section>
   </div>
 
@@ -364,7 +356,7 @@ footer{margin-top:48px;display:flex;flex-direction:column;align-items:center;gap
   </footer>
 </div>
 
-<div class="dock">
+<div class="dock" id="dock" hidden>
   <a class="btn btn-accent" id="dockWa" href="https://wa.me/972595376623" target="_blank" rel="noopener">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 20l1.3-3.9A8.5 8.5 0 1 1 8 19l-4 1z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg>
     <span data-en="Message me on WhatsApp">احكي معي عالواتساب</span>
@@ -405,7 +397,7 @@ footer{margin-top:48px;display:flex;flex-direction:column;align-items:center;gap
   function go(which,scroll){
     var biz=which==="biz";
     tTools.setAttribute("aria-selected",!biz); tBiz.setAttribute("aria-selected",biz);
-    pTools.hidden=biz; pBiz.hidden=!biz;
+    pTools.hidden=biz; pBiz.hidden=!biz; document.getElementById("dock").hidden=!biz; document.body.classList.toggle("has-dock",biz);
     if(scroll) $(".choice").scrollIntoView({behavior:"smooth",block:"start"});
   }
   tTools.addEventListener("click",function(){go("tools")});
