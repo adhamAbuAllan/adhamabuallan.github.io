@@ -150,6 +150,14 @@ section{display:flex;flex-direction:column;gap:14px}
 .price span{font-size:15.5px}
 .price b{font-family:var(--display);font-weight:700;font-size:20px;font-variant-numeric:tabular-nums;white-space:nowrap}
 .price b small{font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted);margin-inline-start:3px}
+.bill{display:inline-flex;gap:4px;padding:4px;margin:4px 0 2px;border:1px solid var(--line);border-radius:999px;align-self:flex-start}
+.bill button{min-height:38px;padding:0 14px;border:0;border-radius:999px;background:transparent;color:var(--muted);font:inherit;font-size:14px;cursor:pointer;white-space:nowrap}
+.bill button[aria-pressed=true]{background:var(--ink-3);color:inherit;box-shadow:inset 0 0 0 1px var(--line)}
+.bill i{font-style:normal;font-size:11.5px;font-weight:600;padding:2px 7px;border-radius:999px;background:var(--accent);color:var(--accent-ink);margin-inline-start:4px}
+.price{flex-wrap:wrap}
+.price .save{flex-basis:100%;font-style:normal;font-size:12.5px;color:var(--muted);text-align:end;margin-top:-6px}
+.price .save:empty{display:none}
+.price .save s{opacity:.75}.price .save b{font-family:inherit;font-size:inherit;font-weight:600;color:var(--accent)}
 .price.custom b{font-size:15px;font-weight:500;color:var(--muted)}
 .note{font-size:13.5px;color:var(--muted)}
 
@@ -329,11 +337,15 @@ body.has-dock{padding-bottom:120px}
     </section>
 
     <section>
-      <div class="sh"><h2 data-en="Pricing">الأسعار</h2><p data-en="Monthly plans, about the same price whatever your business is.">اشتراك شهري، نفس السعر تقريباً مهما كان بزنسك.</p></div>
+      <div class="sh"><h2 data-en="Pricing">الأسعار</h2><p data-en="Monthly or yearly plans. Pay yearly and get 2 months free.">اشتراك شهري أو سنوي. ادفع سنوي وخُد شهرين مجاناً.</p></div>
+      <div class="bill" role="group" aria-label="Billing">
+        <button type="button" data-bill="m" aria-pressed="true" data-en="Monthly">شهري</button>
+        <button type="button" data-bill="y" aria-pressed="false"><span data-en="Yearly">سنوي</span> <i data-en="2 months free">شهرين مجاناً</i></button>
+      </div>
       <div class="price-list">
-        <div class="price"><span data-en="Landing page">صفحة هبوط</span><b><bdi>$33</bdi><small data-en="/mo">/شهر</small></b></div>
-        <div class="price"><span data-en="Website / web app">موقع أو تطبيق ويب</span><b><bdi>$66</bdi><small data-en="/mo">/شهر</small></b></div>
-        <div class="price"><span data-en="Mobile app + web">تطبيق موبايل + ويب</span><b><bdi>$99</bdi><small data-en="/mo">/شهر</small></b></div>
+        <div class="price" data-m="33"><span data-en="Landing page">صفحة هبوط</span><b><bdi>$33</bdi><small>/شهر</small></b><em class="save"></em></div>
+        <div class="price" data-m="66"><span data-en="Website / web app">موقع أو تطبيق ويب</span><b><bdi>$66</bdi><small>/شهر</small></b><em class="save"></em></div>
+        <div class="price" data-m="99"><span data-en="Mobile app + web">تطبيق موبايل + ويب</span><b><bdi>$99</bdi><small>/شهر</small></b><em class="save"></em></div>
         <div class="price custom"><span data-en="Custom / automation">مخصص أو أتمتة</span><b data-en="Let's talk">حسب المشروع</b></div>
       </div>
       <p class="note" data-en="You can pay the same amount in shekels at the day's rate. Includes two rounds of design revisions and one on the finished build.">بتقدر تدفع نفس المبلغ بالشيكل حسب سعر اليوم. وبتشمل جولتين تعديل عالتصميم وجولة عالنسخة النهائية.</p>
@@ -389,11 +401,22 @@ body.has-dock{padding-bottom:120px}
     document.documentElement.lang=l; document.documentElement.dir=l==="ar"?"rtl":"ltr";
     tr.forEach(function(el){el.innerHTML=l==="ar"?el._ar:el.getAttribute("data-en")});
     $("#langBtn").textContent=T[l].lang;
+    if(window.renderBill)renderBill();
     $("#dockWa").href=WA+"?text="+encodeURIComponent(T[l].dock);
     setProg(step); if(step===4) buildResult();
     try{localStorage.setItem("lang",l)}catch(e){}
   }
   $("#langBtn").addEventListener("click",function(){applyLang(lang==="ar"?"en":"ar")});
+  // Yearly = monthly x 12 with 2 months free (pay 10 months), same as adham-abu-allan.vercel.app
+  var bill="m";try{if(localStorage.getItem("links-bill")==="y")bill="y"}catch(e){}
+  var B={ar:{mo:"/شهر",yr:"/سنة",was:"بدل",save:"وفّر"},en:{mo:"/mo",yr:"/yr",was:"instead of",save:"save"}};
+  window.renderBill=function(){var b=B[lang]||B.ar,y=bill==="y";
+    $$(".price[data-m]").forEach(function(el){var m=+el.getAttribute("data-m");
+      el.querySelector("b").innerHTML="<bdi>$"+(y?(m*10).toLocaleString("en-US"):m)+"</bdi><small>"+(y?b.yr:b.mo)+"</small>";
+      el.querySelector(".save").innerHTML=y?b.was+" <s><bdi>$"+(m*12).toLocaleString("en-US")+"</bdi></s> · <b>"+b.save+" <bdi>$"+(m*2)+"</bdi></b>":""});
+    $$(".bill button").forEach(function(x){x.setAttribute("aria-pressed",String(x.getAttribute("data-bill")===bill))})};
+  $$(".bill button").forEach(function(x){x.addEventListener("click",function(){bill=x.getAttribute("data-bill");try{localStorage.setItem("links-bill",bill)}catch(e){}renderBill()})});
+  renderBill();
 
   var tTools=$("#tabTools"), tBiz=$("#tabBiz"), pTools=$("#pathTools"), pBiz=$("#pathBiz");
   function go(which,scroll){
