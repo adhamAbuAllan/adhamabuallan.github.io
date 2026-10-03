@@ -1,1 +1,93 @@
-{"tools":[]}
+{
+ "tools": [
+  {
+   "n": 1,
+   "tool": "Claude + HeyGen",
+   "keyword": "رابط",
+   "hook_ar": "فيديو كامل بدون مونتاج ولا تصوير",
+   "hook_en": "A full video with no editing or filming",
+   "desc_ar": "ربطت أداتين ببعض: HeyGen بيعمل الفيديو بأفاتار إلك، وClaude بيكتب ويدير كل الشغل، وسكل motion‑graphics بيضيف الأنيميشن. هون كل الروابط والخطوات.",
+   "price_ar": "في خطط مجانية للتجربة",
+   "platform_ar": "الويب والكمبيوتر",
+   "url": "https://www.heygen.com",
+   "cover": "cover.jpg",
+   "links": [
+    {
+     "label": "افتح HeyGen",
+     "sub": "اعمل حساب والأفاتار تبعك",
+     "url": "https://www.heygen.com"
+    },
+    {
+     "label": "افتح Claude",
+     "sub": "claude.ai أو تطبيق الكمبيوتر",
+     "url": "https://claude.ai"
+    },
+    {
+     "label": "سكل motion‑graphics",
+     "sub": "مجاني ومفتوح المصدر على GitHub",
+     "url": "https://github.com/Barty-Bart/motion-graphics"
+    }
+   ],
+   "sections": [
+    {
+     "title": "١. ابدأ مع HeyGen",
+     "steps": [
+      "اعمل حساب على heygen.com. الخطة المجانية فيها رصيد محدود للتجربة.",
+      "اعمل أفاتار إلك من قسم Avatars: اختار Digital Twin وسجّل فيديو قصير إلك وإنت بتحكي قدام الكاميرا. أو ابدأ بأفاتار جاهز.",
+      "إذا بدك الأفاتار يحكي بصوتك، استنسخ صوتك من قسم Voices.",
+      "جرّب فيديو قصير من HeyGen نفسه عشان تتأكد إن الأفاتار جاهز."
+     ]
+    },
+    {
+     "title": "٢. اربط HeyGen مع Claude (MCP)",
+     "intro": "الـ MCP بيخلي Claude يشغّل HeyGen لحاله: بيكتب السكربت وبيختار الأفاتار وبيعمل الفيديو، وإنت بس بتحكيله شو بدك.",
+     "steps": [
+      "افتح Claude على claude.ai أو تطبيق الكمبيوتر، وروح على Customize ثم Connectors.",
+      {
+       "t": "اضغط + Add ثم Add custom connector، سمّيه HeyGen، وحط هاد الرابط:",
+       "code": "https://mcp.heygen.com/mcp/v1/"
+      },
+      "اضغط Connect وسجّل دخول بحساب HeyGen ووافق. ما بتحتاج أي API key.",
+      {
+       "t": "جرّب، انسخ هاد الطلب وابعته لـ Claude:",
+       "code": "اعمل فيديو بـ HeyGen بالأفاتار تبعي، عمودي 9:16، مدته 30 ثانية، عن آخر خبر بالذكاء الاصطناعي. اكتب السكربت أول ووريني إياه قبل ما تعمل الفيديو."
+      },
+      "Claude بيعمل الفيديو، وبتلاقيه كمان بمشاريعك على HeyGen.",
+      {
+       "t": "بتستعمل Claude Code؟ هاد الأمر بيضيف HeyGen، وبعدها اكتب ‎/mcp عشان تسجّل دخول:",
+       "code": "claude mcp add --transport http -s user heygen https://mcp.heygen.com/mcp/v1/"
+      }
+     ],
+     "tip": "الحساب المجاني على Claude بيسمح بموصّل مخصص واحد، وكل فيديو بينخصم من رصيدك على HeyGen."
+    },
+    {
+     "title": "٣. ركّب سكل الأنيميشن motion‑graphics",
+     "intro": "سكل مجاني ومفتوح المصدر لـ Claude Code. بيحوّل الفيديو والترانسكربت لمقاطع موشن جرافيك ماشية مع كلامك: شكل واحد بيتحوّل، وماوس بيكبس، وحركة ناعمة.",
+     "steps": [
+      "بتحتاج Claude Code (مع اشتراك Pro أو Max)، وNode 18 أو أحدث، وPython 3، وffmpeg.",
+      {
+       "t": "افتح التيرمنال واكتب:",
+       "code": "npx skills add Barty-Bart/motion-graphics"
+      },
+      {
+       "t": "افتح Claude Code بمجلد الفيديو واكتب:",
+       "code": "/motion-broll"
+      },
+      "أعطيه الفيديو والترانسكربت (ملف SRT)، ووافق على خطة المقاطع اللي بيقترحها.",
+      "بيطلعلك مقاطع MP4 وملفات شفافة جاهزة تحطها فوق الفيديو، مع معاينة كاملة."
+     ],
+     "tip": "أول مرة بيشتغل بينزّل Playwright وChromium لحاله، فبياخد كم دقيقة زيادة."
+    },
+    {
+     "title": "٤. كيف طلع الفيديو اللي بالريل",
+     "steps": [
+      "Claude كتب السكربت، يعني حتى كتابة المحتوى ما عملتها.",
+      "Claude عمل الفيديو بالأفاتار تبعي على HeyGen من خلال الـ MCP.",
+      "وبعدين Claude ضاف الأنيميشن بسكل motion‑graphics ورتّب المونتاج والصوت.",
+      "ولا مرة فتحت برنامج مونتاج ولا وقفت قدام الكاميرا."
+     ]
+    }
+   ]
+  }
+ ]
+}
