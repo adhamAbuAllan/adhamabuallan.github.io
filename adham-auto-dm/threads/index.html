@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Threads Bot – Adham Auto DM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#f6f6f4; --surface:#fff; --line:#e4e2dd; --text:#1b1b19; --muted:#6b6a66; --accent:#d6336c; --accent-2:#f76707; --ok:#2f9e44; --bad:#e03131; color-scheme: light; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#121212; --surface:#1b1b1b; --line:#2e2e2e; --text:#ececea; --muted:#a3a29e; --accent:#f06595; --accent-2:#ff922b; --ok:#51cf66; --bad:#ff6b6b; color-scheme: dark; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.7 "IBM Plex Sans Arabic", Inter, system-ui, sans-serif; }
+  main { max-width: 600px; margin: 0 auto; padding: 36px 16px 64px; }
+  h1 { font-size: clamp(24px, 6vw, 30px); line-height: 1.25; margin: 14px 0 6px; }
+  .lead { color: var(--muted); margin: 0 0 18px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px; margin: 14px 0; }
+  .pill { display:inline-flex; align-items:center; gap:8px; padding: 4px 12px; border-radius: 99px; font-size: 14px; font-weight: 600; border:1px solid var(--line); }
+  .pill i { width:8px; height:8px; border-radius:50%; background: var(--muted); }
+  .pill.on i { background: var(--ok); } .pill.off i { background: var(--accent-2); }
+  ol { margin: 8px 0 0; padding-inline-start: 22px; } ol li + li { margin-top: 8px; }
+  .btn { display:flex; justify-content:center; align-items:center; gap:8px; width:100%; border:0; cursor:pointer; background: linear-gradient(135deg, var(--accent-2), var(--accent)); color:#fff; text-decoration:none; font: 700 16px/1 inherit; font-family: inherit; padding: 15px 18px; border-radius: 12px; margin-top: 12px; }
+  .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+  .btn[disabled] { opacity: .6; cursor: wait; }
+  textarea { width:100%; min-height: 92px; margin-top: 10px; padding: 12px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); color: var(--text); font: 13px/1.4 ui-monospace, Menlo, monospace; direction: ltr; text-align: left; resize: vertical; }
+  .msg { margin-top: 12px; padding: 12px 14px; border-radius: 12px; font-size: 15px; display:none; }
+  .msg.ok { display:block; background: color-mix(in srgb, var(--ok) 14%, transparent); color: var(--ok); }
+  .msg.bad { display:block; background: color-mix(in srgb, var(--bad) 14%, transparent); color: var(--bad); }
+  .stats { display:grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align:center; margin-top: 12px; }
+  .stats div { background: var(--bg); border-radius: 12px; padding: 10px 4px; font-size: 13px; color: var(--muted); }
+  .stats b { display:block; font-size: 22px; color: var(--text); font-family: Inter, sans-serif; }
+  .small { font-size: 14px; } .muted { color: var(--muted); }
+  code, .ltr { direction: ltr; unicode-bidi: isolate; }
+  a { color: var(--accent); }
+  [hidden] { display:none !important; }
+</style>
+</head>
+<body>
+<main>
+  <img src="../icon-1024.png" alt="" width="44" height="44" style="border-radius:12px;display:block">
+  <h1>بوت الردود على Threads</h1>
+  <p class="lead">أي حدا بيعلّق على بوستاتك بـ Threads، البوت بيرد عليه رد عام فيه رابط الشرح. ما بيرد على حدا إنت رديت عليه، وبيرد مرة وحدة بس لكل شخص.</p>
+
+  <div class="card">
+    <span id="state" class="pill"><i></i><span>بفحص…</span></span>
+    <div id="stats" class="stats" hidden>
+      <div><b id="sBot">0</b>رد البوت</div>
+      <div><b id="sYou">0</b>رديت إنت</div>
+      <div><b id="sPosts">0</b>بوست مراقَب</div>
+    </div>
+    <p id="last" class="small muted" style="margin:10px 0 0" hidden></p>
+  </div>
+
+  <div id="badLink" class="card" hidden>
+    <strong>الرابط ناقص</strong>
+    <p class="small muted" style="margin:6px 0 0">افتح الرابط الكامل اللي بعتلك ياه Claude.</p>
+  </div>
+
+  <div id="connectCard" class="card" hidden>
+    <strong id="connectTitle">ربط حساب Threads</strong>
+    <ol class="small">
+      <li>اقبل الدعوة من تطبيق Threads: <b>الإعدادات ← الحساب ← أذونات مواقع الويب ← الدعوات</b>.</li>
+      <li>افتح صفحة التطبيق تحت، وانزل لآخر الصفحة عند <b>أداة إنشاء رموز المستخدم</b> (User Token Generator).</li>
+      <li>اضغط <b>إنشاء رمز وصول</b> جنب <span class="ltr">adham_abu_allan</span> ← وافق ← انسخ الرمز.</li>
+      <li>ارجع هون، الصقه تحت واضغط <b>حفظ وتشغيل</b>.</li>
+    </ol>
+    <a class="btn ghost" target="_blank" rel="noopener" href="https://developers.facebook.com/apps/3757698427717806/use_cases/customize/settings/?use_case_enum=THREADS_API&selected_tab=settings&product_route=threads-api">افتح صفحة التطبيق ↗</a>
+    <textarea id="token" placeholder="الصق الرمز هون (بيبلش بـ TH)" autocomplete="off" spellcheck="false" autocapitalize="off"></textarea>
+    <button id="save" class="btn" type="button">حفظ وتشغيل</button>
+    <div id="msg" class="msg" role="status" aria-live="polite"></div>
+  </div>
+
+  <p class="small muted">الرمز بيتحدّث لحاله كل أسبوع. البوت بيفحص التعليقات كل ٣ دقايق.</p>
+</main>
+<script>
+(() => {
+  const API = "https://alfhdieorygvgrmhypea.supabase.co/functions/v1/threads-bot";
+  const k = new URLSearchParams(location.hash.slice(1)).get("k") || "";
+  const $ = (id) => document.getElementById(id);
+  const state = $("state"), msg = $("msg");
+
+  function setState(on, text) {
+    state.className = "pill " + (on ? "on" : "off");
+    state.querySelector("span").textContent = text;
+  }
+  function show(el, text, ok) { el.textContent = text; el.className = "msg " + (ok ? "ok" : "bad"); }
+
+  async function load() {
+    if (!k) { setState(false, "رابط غير صالح"); $("badLink").hidden = false; return; }
+    try {
+      const r = await fetch(`${API}/status?k=${encodeURIComponent(k)}`, { cache: "no-store" });
+      if (r.status === 403) { setState(false, "رابط غير صالح"); $("badLink").hidden = false; return; }
+      const s = await r.json();
+      const c = s.replies || {};
+      $("sBot").textContent = c.bot_replied || 0;
+      $("sYou").textContent = c.owner_answered || 0;
+      $("sPosts").textContent = (s.posts || []).filter(p => p.active).length;
+      $("stats").hidden = false;
+      if (s.connected) {
+        setState(true, "شغّال على @" + s.username);
+        $("connectTitle").textContent = "تجديد الربط (إذا وقف البوت)";
+        if (s.last_run_at) {
+          const t = new Date(s.last_run_at).toLocaleString("ar", { hour: "numeric", minute: "2-digit", day: "numeric", month: "short" });
+          $("last").textContent = "آخر فحص: " + t + (s.last_error ? " · خطأ: " + s.last_error : "");
+          $("last").hidden = false;
+        }
+      } else {
+        setState(false, "مش مربوط لسا");
+      }
+      $("connectCard").hidden = false;
+    } catch (e) {
+      setState(false, "ما قدرت أوصل للبوت");
+    }
+  }
+
+  $("save").addEventListener("click", async () => {
+    const token = $("token").value.trim();
+    if (token.length < 40) { show(msg, "الرمز قصير، انسخه كامل.", false); return; }
+    const b = $("save"); b.disabled = true; b.textContent = "بربط…";
+    try {
+      const r = await fetch(`${API}/connect?k=${encodeURIComponent(k)}`, {
+        method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ token })
+      });
+      const d = await r.json();
+      if (d.ok) {
+        const n = (d.first_run && d.first_run.sent) || 0;
+        show(msg, `تم ✅ البوت شغّال على @${d.username}. أول فحص: ${n} رد جديد.`, true);
+        $("token").value = "";
+        load();
+      } else if (d.error === "threads_rejected") {
+        show(msg, "Threads رفض الرمز. تأكد إنك قبلت الدعوة وجرّب رمز جديد.", false);
+      } else {
+        show(msg, "الرمز مش واضح، انسخه كامل وجرّب مرة ثانية.", false);
+      }
+    } catch (e) {
+      show(msg, "صار خطأ بالاتصال، جرّب كمان مرة.", false);
+    } finally {
+      b.disabled = false; b.textContent = "حفظ وتشغيل";
+    }
+  });
+
+  load();
+})();
+</script>
+</body>
+</html>
