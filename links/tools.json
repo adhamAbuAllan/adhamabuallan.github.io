@@ -89,6 +89,25 @@
     }
    ],
    "reel_url": "https://www.instagram.com/reel/DeCss1zq-dG/"
+  },
+  {
+   "n": 2,
+   "tool": "OpenArt AI Video Editor",
+   "keyword": "FLEX",
+   "hook_ar": "هاي اللمبرغيني مش حقيقية",
+   "hook_en": "That Lamborghini isn't real",
+   "desc_ar": "بترفع فيديو قصير إلك، بتكتب شو بدك يتغيّر، والذكاء الاصطناعي بيبدّل السيارة أو الساعة أو الخلفية وكل اشي تاني بضل زي ما هو.",
+   "price_ar": "مدفوع بالرصيد (في رصيد تجربة محدود)",
+   "platform_ar": "الويب (الموبايل والكمبيوتر)",
+   "url": "https://openart.ai/features/ai-video-editor/",
+   "reel_url": null,
+   "cover": null,
+   "steps_ar": [
+    "صوّر فيديو قصير من ١ لـ ١٠ ثواني (MP4 أو MOV، أقل من 100MB) وادخل على openart.ai.",
+    "افتح AI Video Editor وارفع الفيديو، واكتب بالإنجليزي شو بدك يتغيّر، مثلاً: replace the car with a red Lamborghini.",
+    "شوف كم رصيد بياخد على زر Generate، اضغطه واستنى كم دقيقة، ونزّل الفيديو."
+   ],
+   "date": "2026-10-04"
   }
  ]
 }
