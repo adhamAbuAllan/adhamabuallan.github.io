@@ -168,6 +168,63 @@
     "إذا طلعت كلمة عربية غلط بالصورة، اطلب منه يصلّحها أو يعمل الصورة بالإنجليزي. وتأكد من الأفكار، لأنه أحياناً بيغلط بالتفاصيل."
    ],
    "date": "2026-10-09"
+  },
+  {
+   "n": 6,
+   "tool": "Pinterest + Higgsfield",
+   "keyword": "BRAND",
+   "hook_ar": "إعلان بآلاف الدولارات… عملته بصورة من Pinterest",
+   "hook_en": "A thousands-of-dollars ad… made from a Pinterest photo",
+   "desc_ar": "بتلاقي إعلان احترافي عجبك على Pinterest، وبتعطيه لـ Higgsfield مع صورة منتجك، وبيطلعلك صور وفيديو إعلاني لمنتجك بنفس الستايل والإضاءة.",
+   "price_ar": "Pinterest مجاني، وHiggsfield مدفوع بالرصيد",
+   "platform_ar": "الويب (الموبايل والكمبيوتر)",
+   "url": "https://higgsfield.ai",
+   "cover": null,
+   "links": [
+    {
+     "label": "افتح Pinterest",
+     "sub": "دوّر على إعلان بالستايل اللي بدك إياه",
+     "url": "https://www.pinterest.com"
+    },
+    {
+     "label": "افتح Higgsfield",
+     "sub": "هون بتبدّل المنتج وبتعمل الفيديو",
+     "url": "https://higgsfield.ai"
+    }
+   ],
+   "sections": [
+    {
+     "title": "١. لاقي الستايل على Pinterest",
+     "steps": [
+      "دوّر على كلمات زي: beauty product ad أو luxury skincare campaign أو اسم نوع منتجك + ad.",
+      "اختار صورة إعلان عجبتك إضاءتها وتكوينها، ونزّلها أو خذ لقطة شاشة.",
+      "جهّز صورة واضحة لمنتجك على خلفية سادة، كل ما كانت أوضح كل ما طلعت النتيجة أحسن."
+     ]
+    },
+    {
+     "title": "٢. بدّل المنتج بـ Higgsfield",
+     "steps": [
+      "ادخل على higgsfield.ai وافتح قسم الصور (Image)، واختار موديل بيقبل صور مرجعية.",
+      "ارفع صورة Pinterest وصورة منتجك مع بعض.",
+      {
+       "t": "اكتب الطلب بالإنجليزي، مثلاً:",
+       "code": "Recreate the first image as a new ad photo with a new model. Replace the product with my product from the second image. Keep the same lighting, colors and composition."
+      },
+      "شوف كم رصيد بياخد قبل ما تكبس Generate، وولّد كذا نسخة واختار الأحلى."
+     ]
+    },
+    {
+     "title": "٣. حوّلها لفيديو",
+     "steps": [
+      "خذ أحلى صورة وافتح قسم الفيديو (Video) بنفس الموقع.",
+      "ارفعها كأول فريم واكتب حركة بسيطة، مثلاً: slow camera push-in, model blinks and smiles softly.",
+      "ركّب المقاطع ورا بعض مع اسم البراند وموسيقى، وصار عندك إعلان كامل."
+     ],
+     "tip": "استعمل صورة Pinterest كمرجع للستايل بس، وخلّي Higgsfield يعمل صورة جديدة. لا تنشر صورة حدا تاني أو وجه موديل حقيقي على إنه إعلانك."
+    }
+   ],
+   "reel_url": null,
+   "date": "2026-10-10"
   }
  ]
 }
