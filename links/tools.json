@@ -245,6 +245,73 @@
     "نزّل المقاطع وركّبها ورا بعض مع صوت الأداة (دريل، طرق) عشان تحس إنها حقيقية."
    ],
    "date": "2026-10-11"
+  },
+  {
+   "n": 8,
+   "tool": "Claude + Upwork",
+   "keyword": "أبورك",
+   "hook_ar": "الـAI بيدورلي على شغل على Upwork وأنا نايم",
+   "hook_en": "AI hunts Upwork jobs for me while I sleep",
+   "desc_ar": "مهمة مجدولة على Claude بتفتح Upwork لحالها مرتين باليوم، بتفلتر الوظايف الجديدة، وبتبعتلك تقرير بالوظايف المناسبة إلك وليش. وإذا عميل ردّ، بتكتبلك الرد جاهز وإنت اللي بتبعته.",
+   "price_ar": "بدك اشتراك Claude مدفوع، وUpwork مجاني (التقديم بالـConnects)",
+   "platform_ar": "Claude (الكمبيوتر أو الموقع)",
+   "url": "https://claude.ai",
+   "cover": null,
+   "links": [
+    {
+     "label": "افتح Claude",
+     "sub": "claude.ai أو تطبيق الكمبيوتر",
+     "url": "https://claude.ai"
+    },
+    {
+     "label": "افتح Upwork",
+     "sub": "لازم يكون عندك حساب فريلانسر",
+     "url": "https://www.upwork.com"
+    }
+   ],
+   "sections": [
+    {
+     "title": "١. جهّز Claude وUpwork",
+     "steps": [
+      "لازم يكون عندك اشتراك Claude مدفوع، لأنه المهام المجدولة والموصّلات مش موجودة بالحساب المجاني.",
+      "افتح Claude وروح على Customize ثم Connectors، دوّر على Upwork واضغط Connect.",
+      "سجّل دخول بحساب Upwork تبعك ووافق، وصار Claude يقدر يقرأ الوظايف ورسايلك."
+     ]
+    },
+    {
+     "title": "٢. انسخ البرومبت وعبّي الفراغات",
+     "intro": "هاد البرومبت اللي بشغّله أنا، بس نظيف وبدون معلوماتي. عبّي الأقواس [ ] بمعلوماتك الحقيقية.",
+     "steps": [
+      {
+       "t": "انسخ البرومبت:",
+       "code": "Scan Upwork for new jobs worth applying to, and report only the ones that pass my filters. Use the Upwork connector. Write the report in Arabic.\n\n1) FIRST, CHECK CLIENT REPLIES\n- Check my unread Upwork messages and the status of my proposals.\n- If a client replied, put it at the very top: who, which job, what they asked, and a suggested reply for me to send myself.\n- Never send a message, apply, or accept/decline an offer for me. Draft only. I send.\n\n2) ABOUT ME (use only this, never invent experience)\n- My skill: [e.g. Flutter mobile developer / logo designer / Arabic content writer]\n- My real projects: [project 1: what it is + tools + link] / [project 2] / [project 3]\n- Languages I speak: [e.g. Arabic, English]\n- How I bid: [fixed-price or hourly], minimum budget [$100]\n\n3) SEARCH\nSearch the newest jobs with payment verified, using these keywords: [keyword 1], [keyword 2], [keyword 3]. If nothing passes, look at the next page of results.\n\n4) FILTERS (a job must pass all of them)\n- Posted in the last 48 hours.\n- Fewer than 15 proposals.\n- Client payment verified.\n- Not already hired (hired count is less than the people needed).\n- No minimum Job Success Score (I am new on Upwork).\n- Budget at least [$100].\n- [Optional: countries I prefer or want to skip]\n\n5) WARN ME (do not drop the job)\n- The budget is too small for the work: suggest a smaller first phase.\n- The client has spent $0 and hired nobody.\n- The client rating is below 4.5.\n\n6) REPORT\n- First line: \"Upwork scan\" + today's date and time.\n- For each job: title, budget, client country, number of proposals, hours since posted, connects cost, client spend/hires/rating, why I fit (from my real projects only), any warning, and the link.\n- My connects balance.\n- Last line: which ONE job to apply to first, and why.\n- If nothing passes, say so in one line. Never lower the filters to fill the report."
+      },
+      "بدّل كل اشي بين [ ] بمعلوماتك: مهارتك، مشاريعك الحقيقية مع روابطها، الكلمات اللي بدك تدوّر فيها، وأقل ميزانية بتقبلها.",
+      "بدك التقرير بالإنجليزي؟ بدّل Write the report in Arabic بـ Write the report in English."
+     ],
+     "tip": "اكتب مشاريعك الحقيقية بس. الـAI بيقنع العميل باللي إنت كاتبه، فإذا كتبت خبرة مش إلك بيطلع العرض غلط."
+    },
+    {
+     "title": "٣. اعمل المهمة المجدولة",
+     "steps": [
+      "بـClaude، اضغط Scheduled من القائمة الجانبية، وبعدين New task.",
+      "سمّيها مثلاً Upwork job scan، والصق البرومبت بعد ما عبّيته.",
+      "اختار التكرار: كل يوم الساعة ٨ الصبح و٦ المسا (أو الأوقات اللي بتناسبك).",
+      "اضغط Run now مرة وحدة، واقرأ أول تقرير. إذا طلع كتير أو قليل، عدّل الفلاتر بالبرومبت."
+     ]
+    },
+    {
+     "title": "٤. كيف بتستعمله كل يوم",
+     "steps": [
+      "التقرير بيوصلك مرتين باليوم، فيه الوظايف اللي بتستاهل بس، وليش إنت مناسب إلها.",
+      "إنت اللي بتقدّم على الوظيفة وبتكتب العرض، والـAI بيساعدك بس.",
+      "إذا عميل ردّ عليك، بتلاقي الرد مكتوب جاهز بأول التقرير: راجعه وابعته إنت."
+     ],
+     "tip": "الـAI عمره ما بيقدّم ولا ببعت رسايل بالنيابة عنك. هو بيدوّر وبيفلتر وبيكتب، والقرار إلك."
+    }
+   ],
+   "reel_url": null,
+   "date": "2026-10-12"
   }
  ]
 }
