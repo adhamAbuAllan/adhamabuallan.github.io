@@ -312,6 +312,26 @@
    ],
    "reel_url": null,
    "date": "2026-10-12"
+  },
+  {
+   "n": 9,
+   "tool": "Google SynthID Detector",
+   "keyword": "REAL",
+   "hook_ar": "صورة حقيقية ولا AI؟ جوجل بتفحصها بثواني",
+   "hook_en": "Real photo or AI? Google checks it in seconds",
+   "desc_ar": "أداة مجانية من جوجل: بترفع صورة أو فيديو أو صوت، وبتحكيلك إذا فيه علامة مخفية (SynthID) من أدوات جوجل أو OpenAI أو NVIDIA أو Kakao، يعني إنه معمول بالذكاء الاصطناعي.",
+   "price_ar": "مجاني (حوالي ١٠ فحوصات باليوم)",
+   "platform_ar": "الويب (الموبايل والكمبيوتر)",
+   "url": "https://synthid.com/",
+   "reel_url": null,
+   "cover": null,
+   "steps_ar": [
+    "ادخل على synthid.com وسجّل دخول بحساب Google أو Apple أو OpenAI. الموقع بالإنجليزي بس.",
+    "ارفع الصورة أو الفيديو أو الصوت اللي بدك تفحصه (زي JPG أو PNG أو MP4 أو MOV أو MP3).",
+    "استنى كم ثانية وشوف النتيجة: إذا لقى علامة SynthID، يعني الملف معمول أو متعدّل بأداة AI من جوجل أو OpenAI أو NVIDIA أو Kakao.",
+    "انتبه: إذا ما لقى علامة، هاد مش دليل إنه حقيقي. ممكن يكون معمول بأداة ما بتحط علامة (زي Midjourney أو Grok)، فتأكد كمان من مصدر الفيديو."
+   ],
+   "date": "2026-10-13"
   }
  ]
 }
