@@ -332,6 +332,27 @@
     "انتبه: إذا ما لقى علامة، هاد مش دليل إنه حقيقي. ممكن يكون معمول بأداة ما بتحط علامة (زي Midjourney أو Grok)، فتأكد كمان من مصدر الفيديو."
    ],
    "date": "2026-10-13"
+  },
+  {
+   "n": 10,
+   "tool": "Gemini (Nano Banana 2.1)",
+   "keyword": "ROOM",
+   "hook_ar": "صوّرت غرفتي… وGemini غيّر ديكورها بجملة",
+   "hook_en": "I snapped my room… and Gemini redesigned it with one sentence",
+   "desc_ar": "بتصوّر غرفتك أو صالونك وبترفع الصورة على Gemini، بتكتب الستايل اللي بدك إياه، وبيطلعلك نفس الغرفة بديكور جديد قبل ما تصرف شيكل على أثاث أو دهان.",
+   "price_ar": "مجاني بحدود (عدد صور محدود، والاشتراك بيرفع الحد)",
+   "platform_ar": "الموبايل والكمبيوتر",
+   "url": "https://gemini.google.com/",
+   "reel_url": null,
+   "cover": null,
+   "steps_ar": [
+    "صوّر الغرفة بالعرض أو بالطول من زاوية واسعة، والإضاءة منيحة، وخلّي الأرض والحيطان باينين.",
+    "افتح تطبيق Gemini أو gemini.google.com وسجّل دخول بحساب Google، اضغط + وارفع الصورة.",
+    "اكتب بالإنجليزي: Redesign this exact room in modern Scandinavian style. Keep the same walls, windows, door and camera angle. Change only furniture, colors, lighting and decor. Photorealistic.",
+    "بدّل الستايل بكلمة وحدة: Japandi أو industrial أو boho أو Arabic majlis، أو اطلب تغيير واحد بس زي: change only the wall color to sage green.",
+    "انتبه: الصورة اقتراح من الذكاء الاصطناعي مش مخطط حقيقي. القياسات والأسعار ما بتطلع منها، فقيس الغرفة قبل ما تشتري أي اشي."
+   ],
+   "date": "2026-10-15"
   }
  ]
 }
