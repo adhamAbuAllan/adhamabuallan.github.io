@@ -13,7 +13,7 @@ Everything here is data and code for Adham's own business. Nothing in it sends m
 | This toolkit | `sahl-studio/` in the repo `adhamAbuAllan/adhamabuallan.github.io` |
 | Published media | `sahl/media/wNN/<code>.<ext>` in the same repo, served at `https://adhamabuallan.github.io/sahl/media/wNN/...` |
 | Brand images | `sahl/brand/` (cover, profile, logo SVGs) |
-| Auto-poster | Supabase project `alfhdieorygvgrmhypea`, edge function `sahl-poster`, tables `sahl_posts` and `sahl_settings`, cron job `sahl-poster-hourly` (posts once a day at 20:00 Asia/Hebron) |
+| Auto-poster | Supabase project `iezglohziunneucnsngq` ("adham-billing", the same project as the WhatsApp bot), edge function `sahl-poster`, tables `sahl_posts` and `sahl_settings`, cron job `sahl-poster-hourly` (posts once a day at 20:00 Asia/Hebron) |
 | HQ board | https://claude.ai/artifact/7PczNdLyr7Ldr8FV7DHp4U (database via the ArtifactData tool: collections `posts`, `leads`, `groups`, `todo`, doc `meta/numbers`) |
 | WhatsApp chats | Supabase project `iezglohziunneucnsngq`, table `wa_messages` (role `user` = customer). Every post's WhatsApp link ends with its code, like `(P08)`, so chats can be counted per post |
 | Marketing plan | Claude Docs doc `8d714db3-9999-4010-94f7-3ae94ea04b4a` (https://claude.ai/artifact/JU2QN3vGDSuUSx17cfHApZ) |
@@ -100,7 +100,7 @@ GitHub Pages takes about a minute. Check each URL loads (from a browser tool; th
 
 ## Queue the posts
 
-1. Supabase `alfhdieorygvgrmhypea` (execute_sql), one row per post:
+1. Supabase `iezglohziunneucnsngq` (execute_sql), one row per post:
 
 ```sql
 insert into public.sahl_posts (code, week, post_date, theme, format, kind, idea, caption, first_comment, media_urls, approve_by)
@@ -119,7 +119,7 @@ Also `groups/<week>-<n>` docs `{week, date, day, kind, text, done: false}`.
 
 ## Auto-poster endpoints (all need header `x-cron-key` = `sahl_settings.cron_key`)
 
-Call them from SQL with `net.http_post(url := 'https://alfhdieorygvgrmhypea.supabase.co/functions/v1/sahl-poster/<route>', headers := jsonb_build_object('Content-Type','application/json','x-cron-key',(select cron_key from public.sahl_settings where id=1)), body := '{}'::jsonb)`, then read `net._http_response` by the returned id.
+Call them from SQL with `net.http_post(url := 'https://iezglohziunneucnsngq.supabase.co/functions/v1/sahl-poster/<route>', headers := jsonb_build_object('Content-Type','application/json','x-cron-key',(select cron_key from public.sahl_settings where id=1)), body := '{}'::jsonb)`, then read `net._http_response` by the returned id.
 
 - `/status` Page connection check
 - `/cron` the hourly run (posts at 20:00 local, once a day)
@@ -129,3 +129,5 @@ Call them from SQL with `net.http_post(url := 'https://alfhdieorygvgrmhypea.supa
 - `/refresh-token` re-read the Page token after Adham reconnects the Meta app
 
 `sahl_settings.paused = true` stops all posting.
+
+The poster moved from project `alfhdieorygvgrmhypea` on 2026-10-29 (that project is paused). Use only `iezglohziunneucnsngq`.
