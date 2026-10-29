@@ -1,0 +1,6 @@
+node_modules/
+out/w*/
+out/thumbs/
+_tmp_*
+reel_*.html
+__pycache__/

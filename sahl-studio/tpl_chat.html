@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="brand.css">
+<style>
+  body { width: 1080px; height: 1920px; overflow: hidden; position: relative; }
+  .grid { position: absolute; inset: 0; background-image: radial-gradient(var(--line) 1.5px, transparent 1.5px); background-size: 48px 48px; opacity: .55; }
+  .top { position: absolute; top: 120px; right: 80px; left: 80px; text-align: right; }
+  .chip { display: inline-block; font-size: 30px; font-weight: 600; color: var(--on-emerald); background: var(--emerald); padding: 8px 22px; border-radius: var(--r-pill); margin-bottom: 26px; }
+  .hook { font-size: 82px; line-height: 1.18; font-weight: 700; margin: 0; }
+  .sub { font-size: 38px; line-height: 1.4; color: var(--muted); margin: 22px 0 0; font-weight: 500; }
+  .phone { position: absolute; left: 50%; top: 600px; width: 640px; height: 1180px; margin-left: -320px; border-radius: 76px; background: var(--surface-2); padding: 14px; box-shadow: 0 0 0 2px var(--line); }
+  .screen { position: relative; width: 612px; height: 1152px; border-radius: 64px; overflow: hidden; background: #0B141A; }
+  .status { height: 58px; background: #000; position: relative; }
+  .status .clock { position: absolute; right: 52px; top: 14px; font: 600 26px Inter, sans-serif; color: #fff; direction: ltr; }
+  .notch { position: absolute; top: 12px; left: 50%; width: 150px; height: 40px; margin-left: -75px; border-radius: 40px; background: #111; }
+  .bar { height: 104px; background: #1F2C34; display: flex; align-items: center; gap: 20px; padding: 0 26px; }
+  .avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--ink-950); display: grid; place-items: center; overflow: hidden; }
+  .avatar img { width: 64px; }
+  .who b { display: block; font-size: 30px; font-weight: 600; color: #E9EDEF; }
+  .who span { font-size: 22px; color: #8696A0; }
+  .chat { position: absolute; top: 162px; bottom: 96px; left: 0; right: 0; padding: 24px 22px; display: flex; flex-direction: column; gap: 16px; justify-content: flex-end; }
+  .msg { max-width: 80%; font-size: 29px; line-height: 1.45; padding: 14px 20px 30px; border-radius: 22px; position: relative; opacity: 0; transform: translateY(20px); color: #E9EDEF; }
+  .msg .t { position: absolute; bottom: 6px; left: 16px; font: 400 18px Inter, sans-serif; color: rgba(233,237,239,.6); direction: ltr; }
+  .them { align-self: flex-start; background: #1F2C34; border-top-right-radius: 6px; }
+  .bot { align-self: flex-end; background: #005C4B; border-top-left-radius: 6px; }
+  .typing { align-self: flex-end; background: #005C4B; border-radius: 22px; padding: 18px 24px; display: none; gap: 8px; }
+  .typing i { width: 12px; height: 12px; border-radius: 50%; background: rgba(233,237,239,.7); display: inline-block; }
+  .input { position: absolute; bottom: 0; left: 0; right: 0; height: 96px; background: #1F2C34; display: flex; align-items: center; padding: 0 26px; }
+  .input div { flex: 1; height: 60px; border-radius: 30px; background: #2A3942; color: #8696A0; font-size: 26px; display: flex; align-items: center; padding: 0 24px; }
+  .label { position: absolute; left: 50%; top: 1700px; transform: translateX(-50%); font-size: 34px; color: var(--muted); font-weight: 500; white-space: nowrap; }
+  .foot { position: absolute; bottom: 64px; left: 80px; }
+  .foot img { height: 78px; }
+  .end { position: absolute; inset: 0; background: var(--ink-950); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; text-align: center; padding: 0 90px; }
+  .end img { width: 520px; }
+  .end h2 { font-size: 78px; line-height: 1.2; margin: 70px 0 0; font-weight: 700; }
+  .end .cta { margin-top: 60px; display: inline-flex; align-items: center; gap: 22px; background: var(--emerald); color: var(--on-emerald); font-size: 50px; font-weight: 700; padding: 30px 60px; border-radius: var(--r-pill); }
+  .end .small { margin-top: 40px; font-size: 36px; color: var(--muted); font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="grid"></div>
+<div class="top" id="top"><span class="chip" id="chip"></span><h1 class="hook" id="hook"></h1><p class="sub" id="sub"></p></div>
+<div class="phone" id="phone"><div class="screen">
+  <div class="status"><span class="clock">2:14</span><div class="notch"></div></div>
+  <div class="bar"><div class="avatar"><img src="out/brand/sahl-mark.svg" alt=""></div><div class="who"><b id="bizName"></b><span id="bizSub"></span></div></div>
+  <div class="chat" id="chat"></div>
+  <div class="input"><div id="inputHint"></div></div>
+</div></div>
+<div class="foot" id="foot"><img src="out/brand/sahl-wordmark.svg" alt=""></div>
+<div class="end" id="end"><img src="out/brand/sahl-wordmark.svg" alt=""><h2 id="endTitle"></h2><div class="cta" id="cta"><span id="ctaText"></span></div><div class="small" id="endSmall"></div></div>
+<script>
+const C = window.__CFG__;
+for (const [id, k] of [['chip','chip'],['sub','sub'],['endTitle','endTitle'],['ctaText','cta'],['endSmall','endSmall'],['bizName','bizName'],['bizSub','bizSub'],['inputHint','inputHint']]) document.getElementById(id).textContent = C[k];
+document.getElementById('hook').innerHTML = C.hook;
+const chat = document.getElementById('chat');
+const els = C.chat.map(m => {
+  if (m.from === 'bot') { const ty = document.createElement('div'); ty.className = 'typing'; ty.innerHTML = '<i></i><i></i><i></i>'; chat.appendChild(ty); m.typing = ty; }
+  const d = document.createElement('div'); d.className = 'msg ' + m.from; d.innerHTML = '<span></span><span class="t">2:1' + (4 + Math.floor(m.t / 4)) + '</span>'; d.firstChild.textContent = m.text; d.style.display = 'none'; chat.appendChild(d); return d;
+});
+const ease = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
+const clamp = (x, a=0, b=1) => Math.max(a, Math.min(b, x));
+window.render = (t) => {
+  const intro = ease(clamp(t / 0.7));
+  const top = document.getElementById('top'), phone = document.getElementById('phone');
+  top.style.opacity = intro; top.style.transform = `translateY(${(1-intro)*30}px)`;
+  phone.style.opacity = clamp(t / 0.5); phone.style.transform = `translateY(${(1-intro)*160}px)`;
+  document.getElementById('foot').style.opacity = intro;
+  C.chat.forEach((m, i) => {
+    const d = els[i];
+    if (m.typing) { m.typing.style.display = (t > m.t - 1.1 && t < m.t) ? 'flex' : 'none';
+      [...m.typing.children].forEach((dot, j) => dot.style.opacity = 0.35 + 0.65 * Math.abs(Math.sin((t * 6) - j))); }
+    d.style.display = t >= m.t ? 'block' : 'none';
+    const k = ease(clamp((t - m.t) / 0.3));
+    d.style.opacity = k; d.style.transform = `translateY(${(1-k)*20}px)`;
+  });
+  const e = ease(clamp((t - C.endAt) / 0.5));
+  document.getElementById('end').style.opacity = e;
+  document.getElementById('cta').style.transform = `scale(${0.9 + 0.1 * ease(clamp((t - C.endAt - 0.4) / 0.4))})`;
+};
+window.render(0);
+</script>
+</body>
+</html>

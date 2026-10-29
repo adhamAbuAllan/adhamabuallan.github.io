@@ -1,0 +1,26 @@
+/* Sahl Digital brand tokens for rendered posts (mirrors the design system) */
+@font-face { font-family: "Plex Arabic"; font-weight: 400; src: url(fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2); }
+@font-face { font-family: "Plex Arabic"; font-weight: 500; src: url(fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2); }
+@font-face { font-family: "Plex Arabic"; font-weight: 600; src: url(fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2); }
+@font-face { font-family: "Plex Arabic"; font-weight: 700; src: url(fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2); }
+@font-face { font-family: "Inter"; font-weight: 400; src: url(fonts/inter-latin-400-normal.woff2); }
+@font-face { font-family: "Inter"; font-weight: 600; src: url(fonts/inter-latin-600-normal.woff2); }
+@font-face { font-family: "Inter"; font-weight: 700; src: url(fonts/inter-latin-700-normal.woff2); }
+@font-face { font-family: "Inter"; font-weight: 800; src: url(fonts/inter-latin-800-normal.woff2); }
+:root {
+  --ink-950: #0A0A0A;   /* page ground */
+  --surface: #111412;   /* cards on the ground */
+  --surface-2: #171C19; /* raised cards, phone body */
+  --line: #26302A;      /* hairlines */
+  --text: #F5F7F5;      /* main text on dark */
+  --muted: #A3AFA7;     /* secondary text on dark */
+  --emerald: #22C55E;   /* the one accent */
+  --emerald-deep: #15803D;
+  --on-emerald: #052E16;/* text on emerald fills */
+  --wa: #25D366;
+  --font: "Plex Arabic", "Inter", system-ui, sans-serif;
+  --r-sm: 12px; --r-md: 20px; --r-lg: 32px; --r-pill: 999px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--ink-950); color: var(--text); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+.em { color: var(--emerald); }

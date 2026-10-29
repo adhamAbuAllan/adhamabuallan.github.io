@@ -1,0 +1,581 @@
+<title>Sahl HQ</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: a manager's desk. One sticky header with the week's state, tabs underneath,
+   and each board as a single readable column (a broadcast rundown for posts, a call sheet for leads). */
+:root {
+  --ground: #0B0D0C;
+  --surface: #121614;
+  --surface-2: #19201C;
+  --line: #26302A;
+  --text: #EEF3EF;
+  --muted: #9AA79F;
+  --accent: #22C55E;
+  --on-accent: #052E16;
+  --accent-soft: rgba(34, 197, 94, .14);
+  --warn: #F2B84B;
+  --warn-soft: rgba(242, 184, 75, .14);
+  --danger: #F2685C;
+  --danger-soft: rgba(242, 104, 92, .14);
+  --info: #7FB2FF;
+  --info-soft: rgba(127, 178, 255, .14);
+  --font-ui: "Inter", "IBM Plex Sans Arabic", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-ar: "IBM Plex Sans Arabic", "Geeza Pro", "Noto Sans Arabic", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --r-sm: 8px;
+  --r-md: 14px;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --ground: #F3F6F4; --surface: #FFFFFF; --surface-2: #EAF0EC; --line: #D4DED7;
+    --text: #0E1511; --muted: #56645B; --accent: #15803D; --on-accent: #FFFFFF;
+    --accent-soft: rgba(21, 128, 61, .10); --warn: #9A6300; --warn-soft: rgba(154, 99, 0, .10);
+    --danger: #B42318; --danger-soft: rgba(180, 35, 24, .09); --info: #1D5FC4; --info-soft: rgba(29, 95, 196, .09);
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --ground: #F3F6F4; --surface: #FFFFFF; --surface-2: #EAF0EC; --line: #D4DED7;
+  --text: #0E1511; --muted: #56645B; --accent: #15803D; --on-accent: #FFFFFF;
+  --accent-soft: rgba(21, 128, 61, .10); --warn: #9A6300; --warn-soft: rgba(154, 99, 0, .10);
+  --danger: #B42318; --danger-soft: rgba(180, 35, 24, .09); --info: #1D5FC4; --info-soft: rgba(29, 95, 196, .09);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { background: var(--ground); color: var(--text); font: 15px/1.5 var(--font-ui); margin: 0; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--ground); }
+a { color: var(--accent); }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wrap { max-width: 860px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--ground) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.top .wrap { padding-block: 14px 0; display: grid; gap: 12px; }
+.brand { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.brand h1 { margin: 0; font-size: 22px; letter-spacing: -.01em; font-weight: 700; display: flex; align-items: baseline; gap: 10px; }
+.brand h1 .ar { font-family: var(--font-ar); color: var(--accent); font-size: 24px; }
+.brand .wk { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+.tally { display: flex; gap: 8px; flex-wrap: wrap; font-size: 13px; }
+.tally span { display: inline-flex; gap: 6px; align-items: center; padding: 3px 10px; border-radius: 999px; background: var(--surface-2); color: var(--muted); font-variant-numeric: tabular-nums; }
+.tally b { color: var(--text); font-weight: 600; }
+nav.tabs { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; margin: 0 -4px; }
+nav.tabs a { padding: 10px 12px; text-decoration: none; color: var(--muted); font-weight: 500; font-size: 14px; border-bottom: 2px solid transparent; white-space: nowrap; }
+nav.tabs a[aria-current="page"] { color: var(--text); border-bottom-color: var(--accent); }
+nav.tabs a .n { font-size: 11px; margin-inline-start: 4px; padding: 1px 6px; border-radius: 999px; background: var(--surface-2); color: var(--muted); font-variant-numeric: tabular-nums; }
+
+main .wrap { padding-block: 20px 64px; display: grid; gap: 28px; }
+section.board[hidden] { display: none !important; }
+.board { display: grid; gap: 16px; }
+.board > h2 { margin: 0; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 600; }
+.lede { margin: 0; color: var(--muted); max-width: 62ch; }
+
+.note { border: 1px solid var(--line); border-radius: var(--r-md); padding: 14px 16px; background: var(--surface); display: grid; gap: 8px; }
+.note h3 { margin: 0; font-size: 15px; }
+.note p { margin: 0; color: var(--muted); }
+
+/* waiting on you */
+.todo { display: grid; gap: 2px; }
+.todo label { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; padding: 8px 0; border-top: 1px solid var(--line); cursor: pointer; }
+.todo label:first-child { border-top: 0; }
+.todo input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--accent); }
+.todo .t { display: grid; gap: 2px; min-width: 0; }
+.todo .t b { font-weight: 600; }
+.todo .t small { color: var(--muted); font-size: 13px; }
+.todo label.done b { text-decoration: line-through; color: var(--muted); }
+
+/* post rundown */
+.day { display: grid; grid-template-columns: 104px 1fr; gap: 16px; padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); }
+.day.is-rejected { opacity: .72; }
+.thumb { position: relative; width: 104px; aspect-ratio: 9 / 16; border-radius: 10px; overflow: hidden; background: var(--surface-2); max-width: 100%; }
+.thumb.sq { aspect-ratio: 4 / 5; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.thumb .kind { position: absolute; inset: auto 6px 6px auto; font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 6px; background: rgba(0,0,0,.66); color: #fff; letter-spacing: .02em; }
+.body { display: grid; gap: 10px; min-width: 0; align-content: start; }
+.row1 { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; flex-wrap: wrap; }
+.when { font-weight: 600; font-variant-numeric: tabular-nums; }
+.when small { color: var(--muted); font-weight: 400; margin-inline-start: 6px; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: var(--muted); }
+.chip.code { font-family: var(--font-mono); font-size: 11px; color: var(--text); }
+.pill { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+.pill.pending { background: var(--warn-soft); color: var(--warn); }
+.pill.approved, .pill.posted { background: var(--accent-soft); color: var(--accent); }
+.pill.rejected, .pill.failed { background: var(--danger-soft); color: var(--danger); }
+.pill.posting { background: var(--info-soft); color: var(--info); }
+.idea { margin: 0; font-weight: 500; }
+.cap { font-family: var(--font-ar); direction: rtl; text-align: right; white-space: pre-wrap; margin: 0; font-size: 15.5px; line-height: 1.75; color: var(--text); background: var(--surface-2); border-radius: var(--r-sm); padding: 12px 14px; max-height: 7.2em; overflow: hidden; position: relative; }
+.cap.open { max-height: none; }
+.cap:not(.open)::after { content: ""; position: absolute; inset: auto 0 0 0; height: 2.4em; background: linear-gradient(transparent, var(--surface-2)); }
+.fc { font-size: 13px; color: var(--muted); display: flex; gap: 6px; flex-wrap: wrap; align-items: baseline; }
+.fc .ar { font-family: var(--font-ar); direction: rtl; color: var(--text); }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.btn { appearance: none; border: 1px solid var(--line); background: transparent; border-radius: 999px; padding: 7px 14px; font-weight: 600; font-size: 14px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; color: var(--text); }
+.btn:hover { background: var(--surface-2); }
+.btn.go { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.btn.go:hover { filter: brightness(1.06); background: var(--accent); }
+.btn.stop { color: var(--danger); }
+.btn.ghost { border-color: transparent; color: var(--muted); padding-inline: 8px; }
+.btn[disabled] { opacity: .5; cursor: default; }
+.meta { font-size: 12.5px; color: var(--muted); }
+.meta.warn { color: var(--warn); }
+.rejectbox { display: grid; gap: 8px; }
+.rejectbox textarea { width: 100%; min-height: 64px; border-radius: var(--r-sm); border: 1px solid var(--line); background: var(--surface-2); padding: 8px 10px; resize: vertical; }
+.bulk { display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+/* tables */
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; background: var(--surface-2); }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+tr:last-child td { border-bottom: 0; }
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.rule { padding: 14px; border-radius: var(--r-md); background: var(--surface); border: 1px solid var(--line); display: grid; gap: 4px; }
+.rule b { font-size: 22px; font-variant-numeric: tabular-nums; }
+.rule span { color: var(--muted); font-size: 13px; }
+
+/* leads */
+.filters { display: flex; gap: 6px; flex-wrap: wrap; }
+.filters button { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 5px 12px; font-size: 13px; cursor: pointer; color: var(--muted); }
+.filters button[aria-pressed="true"] { background: var(--text); color: var(--ground); border-color: var(--text); }
+.lead { padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); display: grid; gap: 10px; }
+.lead .head { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; align-items: baseline; }
+.lead .name { font-weight: 600; font-size: 16px; }
+.lead .name .ar { font-family: var(--font-ar); }
+.lead .why { margin: 0; color: var(--muted); font-size: 14px; }
+.msg { font-family: var(--font-ar); direction: rtl; text-align: right; white-space: pre-wrap; margin: 0; background: var(--surface-2); border-radius: var(--r-sm); padding: 12px 14px; line-height: 1.75; user-select: all; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; flex-wrap: wrap; }
+.seg button { border: 0; background: transparent; padding: 6px 11px; font-size: 13px; cursor: pointer; color: var(--muted); }
+.seg button[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+
+/* numbers */
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.kpi { padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); display: grid; gap: 2px; }
+.kpi span { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.kpi b { font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+.kpi small { color: var(--muted); font-size: 12.5px; }
+
+.empty { padding: 22px; border: 1px dashed var(--line); border-radius: var(--r-md); color: var(--muted); display: grid; gap: 6px; }
+.empty b { color: var(--text); }
+.toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); background: var(--text); color: var(--ground); padding: 10px 16px; border-radius: 999px; font-size: 14px; font-weight: 500; z-index: 20; max-width: calc(100% - 32px); box-shadow: 0 6px 24px rgba(0,0,0,.3); }
+.ar { font-family: var(--font-ar); }
+
+@media (max-width: 520px) {
+  .day { grid-template-columns: 72px 1fr; gap: 12px; padding: 14px; }
+  .thumb { width: 72px; }
+  .thumb .kind { font-size: 9px; inset: auto 4px 4px auto; }
+  nav.tabs a { padding-inline: 9px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .day, .lead { transition: opacity .2s; }
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <h1>Sahl HQ <span class="ar">سهل</span></h1>
+      <span class="wk" id="wk">Loading the week…</span>
+    </div>
+    <div class="tally" id="tally" aria-live="polite"></div>
+    <nav class="tabs" aria-label="Boards">
+      <a href="#week" data-tab="week">This week <span class="n" id="n-week">–</span></a>
+      <a href="#ideas" data-tab="ideas">Ideas</a>
+      <a href="#leads" data-tab="leads">Leads <span class="n" id="n-leads">–</span></a>
+      <a href="#groups" data-tab="groups">Groups</a>
+      <a href="#numbers" data-tab="numbers">Numbers</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="board" id="b-week" aria-labelledby="h-week">
+      <h2 id="h-week">This week</h2>
+      <div class="note" id="todo-box">
+        <h3>Waiting on you</h3>
+        <div class="todo" id="todo"><p class="meta">Loading…</p></div>
+      </div>
+      <div class="bulk">
+        <p class="lede" id="rule-line">Every post goes out at 8 PM Palestine time. Anything you don't reject by the deadline posts on its own.</p>
+        <button class="btn go" id="approve-all" type="button">Approve all waiting</button>
+      </div>
+      <div id="live-line" class="meta"></div>
+      <div id="days" class="board"></div>
+    </section>
+
+    <section class="board" id="b-ideas" aria-labelledby="h-ideas" hidden>
+      <h2 id="h-ideas">Ideas scoreboard</h2>
+      <p class="lede">Every post tests a new idea. When one clearly wins, we copy it, while 1 post in 3 keeps testing something new.</p>
+      <div class="rules">
+        <div class="rule"><b>2×</b><span>the average chats makes a post a candidate</span></div>
+        <div class="rule"><b>3 copies</b><span>each beating the average by 20% makes it a winner</span></div>
+        <div class="rule"><b>1 in 3</b><span>posts stays a brand-new idea, even after a winner</span></div>
+      </div>
+      <div class="scroll"><table>
+        <thead><tr><th>Post</th><th>Idea</th><th>Format</th><th class="num">Chats</th><th class="num">Quotes</th><th class="num">Clients</th><th class="num">vs avg</th><th>Flag</th></tr></thead>
+        <tbody id="ideas-body"></tbody>
+      </table></div>
+      <p class="meta" id="ideas-foot">Chats are counted from the code at the end of each WhatsApp message, like (P01).</p>
+    </section>
+
+    <section class="board" id="b-leads" aria-labelledby="h-leads" hidden>
+      <h2 id="h-leads">Leads</h2>
+      <p class="lede">Businesses the Lead Hunter found, each with a message ready to copy. You send them yourself from your phone, so the business number stays safe.</p>
+      <div class="filters" id="lead-filters" role="group" aria-label="Filter leads"></div>
+      <div id="leads" class="board"></div>
+    </section>
+
+    <section class="board" id="b-groups" aria-labelledby="h-groups" hidden>
+      <h2 id="h-groups">Groups</h2>
+      <p class="lede">Posts for our own Group «أصحاب المصالح بنابلس والداخل». Copy one on its day and post it yourself; Facebook doesn't let tools post into Groups.</p>
+      <div id="groups" class="board"></div>
+    </section>
+
+    <section class="board" id="b-numbers" aria-labelledby="h-numbers" hidden>
+      <h2 id="h-numbers">Numbers</h2>
+      <p class="lede" id="num-lede">The Friday report fills these in from the Page and your WhatsApp chats.</p>
+      <div class="kpis" id="kpis"></div>
+      <div class="note">
+        <h3>Ads test, when you're ready</h3>
+        <p>Budget $336 over 5 weeks. It passes at 4 paying clients (about $84 each). Stop any ad that costs more than $100 per client.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(() => {
+  const PROJECT = "alfhdieorygvgrmhypea";
+  const SUPA = "Supabase";
+  const TZ = "Asia/Hebron";
+  const state = { posts: new Map(), live: new Map(), leads: [], groups: [], todo: [], numbers: null, leadFilter: "new", db: null, mcp: null, liveOk: false };
+  const $ = (s, el = document) => el.querySelector(s);
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+  const FORMAT = { "showcase-reel": "Showcase Reel", "demo-reel": "Demo Reel", "tips-carousel": "Tips carousel", "before-after": "Before and after", "price-card": "Price card", "question": "Question post" };
+  const THEME = { "online-easy": "Online, made easy", "whatsapp-customers": "WhatsApp customers", "offer-proof": "Offer and proof" };
+  const STATUS = { pending: "Waiting", approved: "Approved", rejected: "Rejected", posting: "Posting", posted: "Posted", failed: "Failed" };
+
+  function toast(msg) {
+    const t = $("#toast"); t.textContent = msg; t.hidden = false;
+    clearTimeout(toast._t); toast._t = setTimeout(() => { t.hidden = true; }, 3600);
+  }
+  function fmtDay(iso) {
+    const d = new Date(iso + "T12:00:00Z");
+    return d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" });
+  }
+  function fmtStamp(iso) {
+    try { return new Date(iso).toLocaleString("en-GB", { weekday: "short", day: "numeric", month: "short", hour: "numeric", minute: "2-digit", hour12: true, timeZone: TZ }); } catch (e) { return iso; }
+  }
+  function todayLocal() {
+    return new Intl.DateTimeFormat("en-CA", { timeZone: TZ, year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+  }
+
+  // Effective status: what the poster reports wins once it has acted; otherwise your decision here.
+  function effective(p) {
+    const live = state.live.get(p.code);
+    if (live && ["posted", "posting", "failed"].includes(live.status)) return live.status;
+    return p.status || "pending";
+  }
+
+  /* ---------- tabs ---------- */
+  const TABS = ["week", "ideas", "leads", "groups", "numbers"];
+  function showTab() {
+    const h = (location.hash || "").replace("#", "");
+    const tab = TABS.includes(h) ? h : "week";
+    TABS.forEach((t) => { $("#b-" + t).hidden = t !== tab; });
+    document.querySelectorAll("nav.tabs a").forEach((a) => { if (a.dataset.tab === tab) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
+  }
+  window.addEventListener("hashchange", showTab);
+
+  /* ---------- week ---------- */
+  function renderWeek() {
+    const posts = [...state.posts.values()].sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+    const box = $("#days");
+    if (!posts.length) {
+      box.innerHTML = state.db ? '<div class="empty"><b>No posts queued yet.</b><span>The Content Studio adds next week\'s 7 posts every Thursday morning.</span></div>'
+        : '<div class="empty"><b>The board needs its data store.</b><span>Open this page in claude.ai to load the week\'s posts.</span></div>';
+    }
+    const counts = { pending: 0, approved: 0, rejected: 0, posted: 0 };
+    const html = posts.map((p) => {
+      const st = effective(p);
+      if (st === "posted") counts.posted++; else if (st === "rejected") counts.rejected++; else if (st === "approved") counts.approved++; else if (st === "pending") counts.pending++;
+      const live = state.live.get(p.code) || {};
+      const vertical = p.kind === "video";
+      const kindLabel = p.kind === "video" ? "Reel" : p.kind === "carousel" ? (p.media_urls || []).length + " slides" : "Image";
+      const deadline = p.approve_by ? new Date(p.approve_by) : null;
+      const past = deadline && Date.now() > deadline.getTime();
+      let metaLine = "";
+      if (st === "pending") metaLine = past ? '<span class="meta">No answer by the deadline, so this one posts as planned.</span>' : `<span class="meta warn">Posts on its own unless you reject it by ${esc(fmtStamp(p.approve_by))}.</span>`;
+      if (st === "approved") metaLine = `<span class="meta">${p.synced === false ? "Approved here. The 7:30 PM check passes it to the poster." : "Approved. The poster has it."}</span>`;
+      if (st === "rejected") metaLine = `<span class="meta">Rejected${p.note ? ": " + esc(p.note) : "."} ${p.synced === false ? "The 7:30 PM check tells the poster." : "It will not post."}</span>`;
+      if (st === "posted") metaLine = `<span class="meta">Posted ${live.posted_at ? esc(fmtStamp(live.posted_at)) : ""}. ${live.fb_post_id ? `<a href="https://www.facebook.com/${esc(live.fb_post_id)}" target="_blank" rel="noopener">Open on Facebook</a>` : ""}</span>`;
+      if (st === "failed") metaLine = `<span class="meta warn">The poster hit an error: ${esc((live.error || "").slice(0, 160))}. Claude retries it after fixing the cause.</span>`;
+      const media = (p.media_urls || [])[0];
+      const canDecide = !["posted", "posting"].includes(st);
+      return `<article class="day ${st === "rejected" ? "is-rejected" : ""}" id="post-${esc(p.code)}" data-code="${esc(p.code)}">
+        <div class="thumb ${vertical ? "" : "sq"}">${p.thumb ? `<img src="${esc(p.thumb)}" alt="Preview of ${esc(p.code)}">` : ""}<span class="kind">${esc(kindLabel)}</span></div>
+        <div class="body">
+          <div class="row1">
+            <div class="when">${esc(fmtDay(p.date))}<small>8:00 PM</small></div>
+            <span class="pill ${st}">${STATUS[st] || st}</span>
+          </div>
+          <div class="chips"><span class="chip code">${esc(p.code)}</span><span class="chip">${esc(FORMAT[p.format] || p.format)}</span><span class="chip">${esc(THEME[p.theme] || p.theme)}</span></div>
+          <p class="idea">${esc(p.idea)}</p>
+          <p class="cap" dir="rtl" lang="ar">${esc(p.caption)}</p>
+          <div class="fc"><span>First comment:</span><span class="ar" dir="rtl">${esc((p.first_comment || "").split("\n")[0])}</span><span>+ WhatsApp link with code (${esc(p.code)})</span></div>
+          <div class="actions">
+            ${canDecide && st !== "approved" ? `<button class="btn go" type="button" data-act="approve">Approve</button>` : ""}
+            ${canDecide && st !== "rejected" ? `<button class="btn stop" type="button" data-act="reject">Reject</button>` : ""}
+            ${canDecide && (st === "approved" || st === "rejected") ? `<button class="btn ghost" type="button" data-act="undo">Undo</button>` : ""}
+            <button class="btn ghost" type="button" data-act="more">Full caption</button>
+            ${media ? `<a class="btn ghost" href="${esc(media)}" target="_blank" rel="noopener">Open media</a>` : ""}
+          </div>
+          <div class="rejectbox" hidden>
+            <label class="meta" for="note-${esc(p.code)}">What should change? (optional)</label>
+            <textarea id="note-${esc(p.code)}" placeholder="e.g. use the dental site instead"></textarea>
+            <div class="actions"><button class="btn stop" type="button" data-act="confirm-reject">Reject this post</button><button class="btn ghost" type="button" data-act="cancel">Keep it</button></div>
+          </div>
+          ${metaLine}
+        </div>
+      </article>`;
+    }).join("");
+    if (posts.length) box.innerHTML = html;
+    $("#n-week").textContent = counts.pending ? String(counts.pending) : "0";
+    $("#tally").innerHTML = posts.length ? `<span><b>${counts.pending}</b> waiting</span><span><b>${counts.approved}</b> approved</span><span><b>${counts.rejected}</b> rejected</span><span><b>${counts.posted}</b> posted</span>` : "";
+    const first = posts[0], last = posts[posts.length - 1];
+    $("#wk").textContent = posts.length ? `${first.week || ""} · ${fmtDay(first.date)} to ${fmtDay(last.date)}` : "No week queued";
+    $("#approve-all").disabled = !counts.pending;
+    renderIdeas();
+  }
+
+  async function pushToPoster(code, status, note) {
+    if (!state.mcp) return false;
+    if (!/^[A-Za-z0-9_-]+$/.test(code)) return false;
+    const n = (note || "").replace(/'/g, "''").slice(0, 500);
+    const sql = `update public.sahl_posts set status='${status}', approved_at=${status === "approved" ? "now()" : "approved_at"}, review_note=${n ? `'${n}'` : "review_note"} where code='${code}' and status in ('pending','approved','rejected') returning code, status;`;
+    try {
+      const res = await state.mcp.callTool(SUPA, "execute_sql", { project_id: PROJECT, query: sql }, { cache: false });
+      return sqlRows(res).some((r) => r.code === code);
+    } catch (e) {
+      handleMcpError(e, true);
+      return false;
+    }
+  }
+
+  async function decide(code, status, note) {
+    const p = state.posts.get(code); if (!p) return;
+    if (!state.db) { toast("Can't save here. Open the page in claude.ai."); return; }
+    const patch = { status, decided_at: new Date().toISOString(), note: note || "", synced: false };
+    try { await state.db.doc("posts/" + code).update(patch); } catch (e) { toast("Couldn't save that. Try again in a moment."); return; }
+    const ok = await pushToPoster(code, status, note);
+    if (ok) { try { await state.db.doc("posts/" + code).update({ synced: true }); } catch (e) {} }
+    const word = status === "approved" ? "Approved" : status === "rejected" ? "Rejected" : "Back to waiting";
+    toast(ok ? `${word} ${code}. The poster has it.` : `${word} ${code}. The 7:30 PM check passes it on.`);
+  }
+
+  $("#days").addEventListener("click", (e) => {
+    const b = e.target.closest("button[data-act]"); if (!b) return;
+    const card = b.closest(".day"); const code = card.dataset.code;
+    const act = b.dataset.act;
+    if (act === "more") { const c = $(".cap", card); c.classList.toggle("open"); b.textContent = c.classList.contains("open") ? "Shorter" : "Full caption"; return; }
+    if (act === "reject") { $(".rejectbox", card).hidden = false; $("textarea", card).focus(); return; }
+    if (act === "cancel") { $(".rejectbox", card).hidden = true; return; }
+    if (act === "confirm-reject") { decide(code, "rejected", $("textarea", card).value.trim()); return; }
+    if (act === "approve") { decide(code, "approved"); return; }
+    if (act === "undo") { decide(code, "pending"); return; }
+  });
+  $("#approve-all").addEventListener("click", async () => {
+    const waiting = [...state.posts.values()].filter((p) => effective(p) === "pending");
+    for (const p of waiting) await decide(p.code, "approved");
+    if (waiting.length) toast(`Approved ${waiting.length} posts.`);
+  });
+
+  /* ---------- waiting on you ---------- */
+  function renderTodo() {
+    const box = $("#todo");
+    const items = [...state.todo].sort((a, b) => (a.order || 99) - (b.order || 99));
+    if (!items.length) { box.innerHTML = '<p class="meta">Nothing waiting on you.</p>'; $("#todo-box").hidden = !!state.db; return; }
+    $("#todo-box").hidden = false;
+    box.innerHTML = items.map((t) => `<label class="${t.done ? "done" : ""}"><input type="checkbox" id="todo-${esc(t.id)}" data-id="${esc(t.id)}" ${t.done ? "checked" : ""}><span class="t"><b>${esc(t.title)}</b><small>${esc(t.detail || "")}</small></span></label>`).join("");
+  }
+  $("#todo").addEventListener("change", async (e) => {
+    const id = e.target.dataset.id; if (!id || !state.db) return;
+    try { await state.db.doc("todo/" + id).update({ done: e.target.checked, done_at: e.target.checked ? new Date().toISOString() : null }); } catch (err) { toast("Couldn't save that tick."); }
+  });
+
+  /* ---------- ideas ---------- */
+  function renderIdeas() {
+    const posts = [...state.posts.values()].sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+    const withNums = posts.map((p) => { const l = state.live.get(p.code) || {}; return { ...p, chats: l.chats ?? p.chats, quotes: l.quotes ?? p.quotes, clients: l.clients ?? p.clients, winner: l.winner ?? p.winner, st: effective(p) }; });
+    const posted = withNums.filter((p) => p.st === "posted" && typeof p.chats === "number");
+    const avg = posted.length ? posted.reduce((s, p) => s + p.chats, 0) / posted.length : null;
+    $("#ideas-body").innerHTML = withNums.length ? withNums.map((p) => {
+      const has = typeof p.chats === "number" && p.st === "posted";
+      const ratio = has && avg ? p.chats / avg : null;
+      let flag = p.st === "posted" ? "" : `<span class="chip">${p.st === "rejected" ? "Dropped" : "Not posted yet"}</span>`;
+      if (p.winner) flag = '<span class="pill posted">Winner</span>';
+      else if (ratio && ratio >= 2) flag = '<span class="pill pending">Candidate</span>';
+      return `<tr><td><span class="chip code">${esc(p.code)}</span></td><td>${esc(p.idea)}</td><td>${esc(FORMAT[p.format] || p.format)}</td>
+        <td class="num">${has ? p.chats : "–"}</td><td class="num">${has ? (p.quotes ?? 0) : "–"}</td><td class="num">${has ? (p.clients ?? 0) : "–"}</td>
+        <td class="num">${ratio ? ratio.toFixed(1) + "×" : "–"}</td><td>${flag}</td></tr>`;
+    }).join("") : '<tr><td colspan="8" class="meta">Ideas show up here as soon as a week is queued.</td></tr>';
+    $("#ideas-foot").textContent = avg != null ? `Average so far: ${avg.toFixed(1)} chats per post across ${posted.length} posts. Chats are counted from the code at the end of each WhatsApp message, like (P01).` : "Numbers start after the first post goes out. Chats are counted from the code at the end of each WhatsApp message, like (P01).";
+  }
+
+  /* ---------- leads ---------- */
+  const LEAD_STATES = [["new", "New"], ["sent", "Sent"], ["replied", "Replied"], ["client", "Client"], ["skip", "Skip"]];
+  function renderLeads() {
+    const counts = Object.fromEntries(LEAD_STATES.map(([k]) => [k, 0]));
+    state.leads.forEach((l) => { counts[l.status || "new"] = (counts[l.status || "new"] || 0) + 1; });
+    $("#n-leads").textContent = String(counts.new || 0);
+    $("#lead-filters").innerHTML = LEAD_STATES.map(([k, label]) => `<button type="button" data-f="${k}" aria-pressed="${state.leadFilter === k}">${label} ${counts[k] || 0}</button>`).join("") + `<button type="button" data-f="all" aria-pressed="${state.leadFilter === "all"}">All ${state.leads.length}</button>`;
+    const list = state.leads.filter((l) => state.leadFilter === "all" || (l.status || "new") === state.leadFilter)
+      .sort((a, b) => (b.found_at || "").localeCompare(a.found_at || ""));
+    $("#leads").innerHTML = list.length ? list.map((l) => `<article class="lead" data-id="${esc(l._id)}">
+        <div class="head"><span class="name">${esc(l.name)}${l.name_ar ? ` <span class="ar">· ${esc(l.name_ar)}</span>` : ""}</span>
+          <span class="chips"><span class="chip">${esc(l.niche || "")}</span><span class="chip">${esc(l.town || "")}</span></span></div>
+        ${l.why ? `<p class="why">${esc(l.why)}</p>` : ""}
+        <p class="msg" dir="rtl" lang="ar">${esc(l.message)}</p>
+        <div class="actions">
+          <button class="btn go" type="button" data-act="copy">Copy message</button>
+          ${l.link ? `<a class="btn ghost" href="${esc(l.link)}" target="_blank" rel="noopener">Open their page</a>` : ""}
+          ${l.whatsapp ? `<a class="btn ghost" href="https://wa.me/${esc(String(l.whatsapp).replace(/\D/g, ""))}" target="_blank" rel="noopener">WhatsApp ${esc(l.whatsapp)}</a>` : ""}
+        </div>
+        <div class="seg" role="group" aria-label="Lead status">${LEAD_STATES.map(([k, label]) => `<button type="button" data-st="${k}" aria-pressed="${(l.status || "new") === k}">${label}</button>`).join("")}</div>
+        <span class="meta">Found ${l.found_at ? esc(fmtStamp(l.found_at)) : ""}${l.source ? " on " + esc(l.source) : ""}</span>
+      </article>`).join("")
+      : `<div class="empty"><b>${state.leads.length ? "Nothing in this list." : "No leads yet."}</b><span>${state.leads.length ? "Pick another filter above." : "The Lead Hunter adds up to 10 businesses every morning at 9 AM, starting with barbers, dental clinics and restaurants."}</span></div>`;
+  }
+  $("#lead-filters").addEventListener("click", (e) => { const b = e.target.closest("button[data-f]"); if (!b) return; state.leadFilter = b.dataset.f; try { localStorage.setItem("sahl-lead-filter", state.leadFilter); } catch (err) {} renderLeads(); });
+  $("#leads").addEventListener("click", async (e) => {
+    const card = e.target.closest(".lead"); if (!card) return;
+    const id = card.dataset.id; const lead = state.leads.find((l) => l._id === id);
+    const copy = e.target.closest("button[data-act='copy']");
+    if (copy) {
+      const text = lead ? lead.message : "";
+      try { await navigator.clipboard.writeText(text); toast("Message copied. Paste it in WhatsApp or Messenger."); }
+      catch (err) { const r = document.createRange(); r.selectNodeContents($(".msg", card)); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast("Selected. Copy it from your keyboard menu."); }
+      return;
+    }
+    const st = e.target.closest("button[data-st]");
+    if (st && state.db) {
+      try { await state.db.doc("leads/" + id).update({ status: st.dataset.st, status_at: new Date().toISOString() }); toast(`Marked ${st.textContent.toLowerCase()}.`); } catch (err) { toast("Couldn't save that. Try again."); }
+    }
+  });
+
+  /* ---------- groups ---------- */
+  function renderGroups() {
+    const list = [...state.groups].sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+    $("#groups").innerHTML = list.length ? list.map((g) => `<article class="lead" data-id="${esc(g._id)}">
+        <div class="head"><span class="name">${esc(g.date ? fmtDay(g.date) : g.day || "")}</span><span class="chips"><span class="chip">${esc(g.kind || "")}</span>${g.done ? '<span class="pill posted">Posted</span>' : ""}</span></div>
+        <p class="msg" dir="rtl" lang="ar">${esc(g.text)}</p>
+        <div class="actions"><button class="btn go" type="button" data-act="copy">Copy post</button><button class="btn ghost" type="button" data-act="done">${g.done ? "Mark not posted" : "Mark posted"}</button></div>
+      </article>`).join("")
+      : '<div class="empty"><b>No Group posts queued.</b><span>The Content Studio writes 3 Group posts with each week of Page posts.</span></div>';
+  }
+  $("#groups").addEventListener("click", async (e) => {
+    const card = e.target.closest(".lead"); if (!card) return;
+    const g = state.groups.find((x) => x._id === card.dataset.id); if (!g) return;
+    const b = e.target.closest("button[data-act]"); if (!b) return;
+    if (b.dataset.act === "copy") {
+      try { await navigator.clipboard.writeText(g.text); toast("Copied. Paste it in the Group."); }
+      catch (err) { const r = document.createRange(); r.selectNodeContents($(".msg", card)); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast("Selected. Copy it from your keyboard menu."); }
+    }
+    if (b.dataset.act === "done" && state.db) { try { await state.db.doc("groups/" + g._id).update({ done: !g.done }); } catch (err) { toast("Couldn't save that."); } }
+  });
+
+  /* ---------- numbers ---------- */
+  function renderNumbers() {
+    const n = state.numbers || {};
+    const fmt = (v, pre = "") => (typeof v === "number" ? pre + v.toLocaleString("en-US", { maximumFractionDigits: 2 }) : "–");
+    const cpc = typeof n.spend === "number" && n.clients ? n.spend / n.clients : null;
+    const tiles = [
+      ["Posts published", fmt(n.posts), n.period || "this week"],
+      ["WhatsApp chats", fmt(n.chats), "from post codes"],
+      ["Price quotes", fmt(n.quotes), "sent by you"],
+      ["New clients", fmt(n.clients), "paid the first month"],
+      ["Followers", fmt(n.followers), "on the Page"],
+      ["Ad spend", fmt(n.spend, "$"), cpc ? `$${cpc.toFixed(0)} per client` : "no ads yet"],
+    ];
+    $("#kpis").innerHTML = tiles.map(([k, v, s]) => `<div class="kpi"><span>${k}</span><b>${v}</b><small>${esc(s)}</small></div>`).join("");
+    $("#num-lede").textContent = n.updated_at ? `Updated ${fmtStamp(n.updated_at)} by the Friday report.` : "The Friday report fills these in from the Page and your WhatsApp chats. First report: Friday, Nov 6.";
+  }
+
+  /* ---------- live status from the poster (Supabase) ---------- */
+  function sqlRows(res) {
+    const p = res ? res.payload : null;
+    let s = typeof p === "string" ? p : p && typeof p.result === "string" ? p.result : (res && res.content || []).map((c) => c.text || "").join("\n");
+    const m = s.match(/<untrusted-data-[^>]*>\s*([\s\S]*?)\s*<\/untrusted-data-/);
+    const body = m ? m[1] : s;
+    const i = body.indexOf("["), j = body.lastIndexOf("]");
+    if (i < 0 || j < i) return [];
+    try { const rows = JSON.parse(body.slice(i, j + 1)); return Array.isArray(rows) ? rows : []; } catch (e) { return []; }
+  }
+  function handleMcpError(e, isWrite) {
+    const code = e && e.code;
+    const line = $("#live-line");
+    if (code === "needs_reauth") line.textContent = "Live status paused: reconnect Supabase in claude.ai Settings → Connectors.";
+    else if (code === "server_not_connected" || code === "selection_required") line.textContent = "Live status is off: add or pick the Supabase connector in claude.ai Settings → Connectors. Your decisions still save here.";
+    else if (code === "not_in_manifest" || code === "blocked_by_policy" || code === "approval_required") line.textContent = "Live status isn't allowed in this view. Your decisions still save here and reach the poster at 7:30 PM.";
+    else if (code === "tool_error") line.textContent = "The poster's database answered with an error" + (isWrite ? ", so this decision goes over at 7:30 PM." : ".");
+    else line.textContent = isWrite ? "Couldn't reach the poster just now. The 7:30 PM check passes the decision on." : "Couldn't reach the poster just now.";
+  }
+  async function loadLive(userAsked) {
+    if (!state.mcp) return;
+    const line = $("#live-line");
+    line.textContent = "Checking the poster…";
+    try {
+      const res = await state.mcp.callTool(SUPA, "execute_sql", { project_id: PROJECT, query: "select code, status, fb_post_id, error, posted_at, chats, quotes, clients, reach, saves, shares, winner from public.sahl_posts order by post_date desc limit 60;" }, { cache: false });
+      const rows = sqlRows(res);
+      state.live = new Map(rows.map((r) => [r.code, r]));
+      state.liveOk = true;
+      line.innerHTML = `Live from the poster, checked ${esc(new Date().toLocaleTimeString("en-GB", { hour: "numeric", minute: "2-digit", hour12: true }))}. <button class="btn ghost" type="button" id="live-refresh">Refresh</button>`;
+      renderWeek();
+    } catch (e) {
+      if (e && e.retryable && !loadLive._retried) { loadLive._retried = true; setTimeout(() => loadLive(false), (e.retryAfterMs || 1500) + Math.random() * 800); return; }
+      handleMcpError(e, false);
+    }
+  }
+  document.addEventListener("click", (e) => {
+    if (e.target.id === "live-refresh") loadLive(true);
+    if (e.target.id === "live-connect") loadLive(true);
+  });
+
+  /* ---------- boot ---------- */
+  showTab();
+  try { const f = localStorage.getItem("sahl-lead-filter"); if (f) state.leadFilter = f; } catch (e) {}
+  renderWeek(); renderTodo(); renderLeads(); renderGroups(); renderNumbers();
+
+  const claudeApi = window.claude;
+  if (!claudeApi || typeof claudeApi.use !== "function") return;
+
+  claudeApi.use("db").then((db) => {
+    if (!db) { renderWeek(); return; }
+    state.db = db;
+    const live = (path, fn) => db.collection(path).onSnapshot((snap) => fn(snap.docs.filter((d) => d.exists).map((d) => ({ _id: d.id, ...d.data() }))), () => {});
+    live("posts", (rows) => { state.posts = new Map(rows.map((r) => [r.code || r._id, r])); renderWeek(); });
+    live("leads", (rows) => { state.leads = rows; renderLeads(); });
+    live("groups", (rows) => { state.groups = rows; renderGroups(); });
+    live("todo", (rows) => { state.todo = rows.map((r) => ({ ...r, id: r._id })); renderTodo(); });
+    db.doc("meta/numbers").onSnapshot((d) => { state.numbers = d.exists ? d.data() : null; renderNumbers(); }, () => {});
+  });
+
+  claudeApi.use("mcp").then(async (mcp) => {
+    if (!mcp) { $("#live-line").textContent = "Decisions save here and reach the poster at 7:30 PM each day."; return; }
+    state.mcp = mcp;
+    let perm = "prompt";
+    try { const perms = await claudeApi.use("permissions"); if (perms) perm = await perms.state("mcp:" + SUPA).catch(() => "unavailable"); } catch (e) {}
+    if (perm === "granted") loadLive(false);
+    else if (perm === "unavailable" || perm === "denied") $("#live-line").textContent = "Decisions save here and reach the poster at 7:30 PM each day.";
+    else $("#live-line").innerHTML = 'Decisions save here and reach the poster at 7:30 PM. <button class="btn ghost" type="button" id="live-connect">Show live post status</button>';
+  });
+})();
+</script>
