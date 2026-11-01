@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مطعم لمة ولقمة · نابلس</title>
+<meta name="description" content="مطعم لمة ولقمة في نابلس، شارع المي: فطور شعبي، شاورما، كرسبي وزنجر، نقانق وتوست. توصيل مجاني فوق 50 شيكل في المنطقة الشرقية.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBF6EE;--card:#FFFFFF;--ink:#2A1A12;--soft:#6B5446;--red:#C2410C;--red-d:#9A3412;--saffron:#F59E0B;--line:#EADFCF;--ok:#1F7A3E}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Cairo,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.demo{background:#14110F;color:#F4EFE8;font-size:13px;text-align:center;padding:8px 16px}
+.demo b{color:#7BE3A0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header.hero{background:radial-gradient(120% 90% at 85% 0%,#3F6B3A 0%,#24452A 55%,#13291A 100%);color:#FFF6EC;padding:56px 0 72px;position:relative;overflow:hidden}
+.hero .tag{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px 14px;font-size:14px;font-weight:600}
+.hero h1{font-size:clamp(38px,8vw,68px);font-weight:900;line-height:1.1;margin:18px 0 10px}
+.hero p.lead{font-size:clamp(17px,2.6vw,21px);max-width:560px;opacity:.92}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:14px;padding:14px 22px;font-weight:700;font-size:17px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.btn-wa{background:#25D366;color:#073B1E}
+.btn-ghost{background:rgba(255,255,255,.12);color:#FFF6EC;border:1px solid rgba(255,255,255,.3)}
+.btn svg{width:20px;height:20px}
+.plate{position:absolute;left:-60px;bottom:-90px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,#E8A33D 0 30%,transparent 31%),radial-gradient(circle,#FFF3E0 0 46%,#F1DFC4 47% 60%,transparent 61%);opacity:.18}
+section{padding:56px 0}
+h2{font-size:clamp(26px,4.4vw,36px);font-weight:900;line-height:1.2;margin-bottom:8px}
+.sub{color:var(--soft);margin-bottom:28px}
+.offer{margin-top:-48px;position:relative;z-index:2}
+.offer .card{background:var(--card);border-radius:24px;box-shadow:0 12px 40px rgba(60,30,10,.12);display:grid;grid-template-columns:1fr auto;gap:24px;padding:28px;align-items:center}
+.offer .k{font-size:14px;color:var(--red);font-weight:700}
+.offer h3{font-size:26px;font-weight:900;margin:4px 0 10px}
+.offer ul{list-style:none;display:grid;gap:6px}
+.offer li{display:flex;gap:10px;align-items:center}
+.offer li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--saffron);flex:none}
+.price{text-align:center;background:var(--bg);border-radius:20px;padding:18px 22px;min-width:150px}
+.price .now{font-family:Inter,sans-serif;font-size:56px;font-weight:800;color:var(--red);line-height:1}
+.price .cur{font-size:16px;font-weight:700;color:var(--red)}
+.price .was{color:var(--soft);font-size:14px;text-decoration:line-through;margin-top:6px}
+.menu{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.dish{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.dish .ico{width:44px;height:44px;border-radius:12px;background:#FDEBD3;display:grid;place-items:center;color:var(--red);font-weight:900}
+.dish h4{font-size:20px;font-weight:700}
+.dish p{color:var(--soft);font-size:15px;flex:1}
+.dish button{align-self:flex-start;background:none;border:1px solid var(--red);color:var(--red);border-radius:10px;padding:6px 14px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer}
+.dish button[aria-pressed="true"]{background:var(--red);color:#fff}
+.order{background:#2A1A12;color:#FBF6EE;border-radius:28px;padding:32px}
+.order h2{color:#FFF}
+.order .sub{color:#D8C7B5}
+.form{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+.form label{display:grid;gap:6px;font-size:14px;color:#D8C7B5}
+.form input,.form select,.form textarea{font-family:inherit;font-size:16px;padding:12px 14px;border-radius:12px;border:1px solid #4A372B;background:#3A271C;color:#FFF;width:100%}
+.form .full{grid-column:1/-1}
+.picked{grid-column:1/-1;min-height:28px;color:#FFD9A0;font-weight:600}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.info .box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.info h4{font-size:18px;margin-bottom:6px}
+.info p{color:var(--soft)}
+.info a{color:var(--red);font-weight:700}
+footer{padding:40px 0 100px;text-align:center;color:var(--soft);font-size:14px}
+.float{position:fixed;left:16px;bottom:16px;z-index:9;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+:focus-visible{outline:3px solid var(--saffron);outline-offset:2px}
+@media (max-width:640px){.offer .card{grid-template-columns:1fr}.price{order:-1}.form{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:no-preference){.dish{transition:transform .2s}.dish:hover{transform:translateY(-3px)}}
+</style>
+</head>
+<body>
+<div class="demo">صفحة تجريبية جاهزة لمطعمكم، عملتها <b>سهل</b>. إذا عجبتكم منخليها صفحتكم الرسمية.</div>
+
+<header class="hero">
+  <div class="plate" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="tag">نابلس · شارع المي</span>
+    <h1>مطعم لمة ولقمة</h1>
+    <p class="lead">توست ومأكولات شعبية: حمص وفول وفلافل، شاورما وفاهيتا، كرسبي وزنجر، وتشكيلة سندويشات بكل النكهات.</p>
+    <div class="ctas">
+      <a class="btn btn-wa" href="#order"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l1.8.9c.3.1.5.2.5.3.1.2.1.7-.1 1.4Z"/></svg>اطلب عالواتساب</a>
+      <a class="btn btn-ghost" href="#menu">شوف المنيو</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap offer">
+  <div class="card">
+    <div>
+      <div class="k">للمنطقة الشرقية</div>
+      <h3>توصيل مجاني</h3>
+      <ul>
+        <li>للطلبات فوق 50 شيكل</li>
+        <li>في المنطقة الشرقية، نابلس</li>
+        <li>اطلب عالواتساب بكبسة وحدة</li>
+      </ul>
+    </div>
+    <div class="price"><div class="now">50+</div><div class="cur">شيكل</div><div class="was" style="text-decoration:none">والتوصيل علينا</div></div>
+  </div>
+</div>
+
+<section id="menu">
+  <div class="wrap">
+    <h2>المنيو</h2>
+    <p class="sub">اختار شو بدك، ومنبعت طلبك جاهز عالواتساب.</p>
+    <div class="menu">
+      <article class="dish"><div class="ico">1</div><h4>فطور شعبي</h4><p>حمص وفول وفلافل.</p><button type="button" data-item="فطور شعبي" aria-pressed="false">أضف للطلب</button></article>
+      <article class="dish"><div class="ico">2</div><h4>عجة ومقالي</h4><p>عجة ومقالي وبطاطا.</p><button type="button" data-item="عجة ومقالي" aria-pressed="false">أضف للطلب</button></article>
+      <article class="dish"><div class="ico">3</div><h4>شاورما وفاهيتا</h4><p>اسأل عن السعر عالواتساب.</p><button type="button" data-item="شاورما وفاهيتا" aria-pressed="false">أضف للطلب</button></article>
+      <article class="dish"><div class="ico">4</div><h4>كرسبي وزنجر</h4><p>اسأل عن السعر عالواتساب.</p><button type="button" data-item="كرسبي وزنجر" aria-pressed="false">أضف للطلب</button></article>
+      <article class="dish"><div class="ico">5</div><h4>نقانق وسوبر نقانق</h4><p>اسأل عن السعر عالواتساب.</p><button type="button" data-item="نقانق وسوبر نقانق" aria-pressed="false">أضف للطلب</button></article>
+      <article class="dish"><div class="ico">6</div><h4>توست وسندويشات</h4><p>تشكيلة بكل النكهات.</p><button type="button" data-item="توست وسندويشات" aria-pressed="false">أضف للطلب</button></article>
+    </div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="wrap">
+    <div class="order">
+      <h2>اطلب هسا</h2>
+      <p class="sub">توصيل مجاني للطلبات فوق 50 شيكل في المنطقة الشرقية.</p>
+      <form class="form" id="f">
+        <div class="picked" id="picked" aria-live="polite">ما اخترت شي لسا. اختار من المنيو فوق، أو اكتب طلبك تحت.</div>
+        <label>الاسم<input name="name" autocomplete="name" required></label>
+        <label>الاستلام
+          <select name="mode"><option>توصيل</option><option>استلام من المطعم</option></select>
+        </label>
+        <label class="full">العنوان (للتوصيل)<input name="addr" autocomplete="street-address"></label>
+        <label class="full">ملاحظات<textarea name="note" rows="2" placeholder="مثلا: 2 سندويش زنجر وصحن حمص"></textarea></label>
+        <button class="btn btn-wa full" type="submit">ابعت الطلب عالواتساب</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap info">
+    <div class="box"><h4>وين موقعنا؟</h4><p>نابلس، شارع المي، جنب حلويات فستق حلبي.</p><p><a href="https://www.google.com/maps/search/?api=1&query=%D8%AD%D9%84%D9%88%D9%8A%D8%A7%D8%AA+%D9%81%D8%B3%D8%AA%D9%82+%D8%AD%D9%84%D8%A8%D9%8A+%D9%86%D8%A7%D8%A8%D9%84%D8%B3" target="_blank" rel="noopener">افتح الخريطة</a></p></div>
+    <div class="box"><h4>للطلب والاستفسار</h4><p>واتساب وجوال: <a href="tel:+970568093354" dir="ltr">0568093354</a></p></div>
+    <div class="box"><h4>التوصيل</h4><p>مجاني فوق 50 شيكل في المنطقة الشرقية.</p></div>
+  </div>
+</section>
+
+<footer>© مطعم لمة ولقمة · صفحة تجريبية من سهل</footer>
+<a class="btn btn-wa float" href="https://wa.me/970568093354" aria-label="راسلنا عالواتساب">واتساب</a>
+
+<script>
+const WA='970568093354', picked=new Set(), out=document.getElementById('picked');
+function show(){out.textContent=picked.size?('طلبك: '+[...picked].join('، ')):'ما اخترت شي لسا. اختار من المنيو فوق، أو اكتب طلبك تحت.';}
+document.querySelectorAll('.dish button').forEach(b=>b.addEventListener('click',()=>{const i=b.dataset.item;if(picked.has(i)){picked.delete(i);b.setAttribute('aria-pressed','false');b.textContent='أضف للطلب';}else{picked.add(i);b.setAttribute('aria-pressed','true');b.textContent='انضاف ✓';}show();}));
+document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();const d=new FormData(e.target);
+const lines=['مرحبا، بدي أطلب من لمة ولقمة:'];if(picked.size)lines.push('• '+[...picked].join('\n• '));
+if(d.get('note'))lines.push('ملاحظات: '+d.get('note'));lines.push('الاستلام: '+d.get('mode'));if(d.get('addr'))lines.push('العنوان: '+d.get('addr'));lines.push('الاسم: '+d.get('name'));
+location.href='https://wa.me/'+WA+'?text='+encodeURIComponent(lines.join('\n'));});
+</script>
+</body>
+</html>
