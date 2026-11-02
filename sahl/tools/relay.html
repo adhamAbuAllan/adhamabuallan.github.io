@@ -13,7 +13,10 @@
     const r = await fetch(path, { cache: 'no-store' });
     const buf = await r.arrayBuffer();
     if (!window.opener) throw new Error('no opener');
-    window.opener.postMessage({ sahlRelay: 1, name: path.split('/').pop(), type: r.headers.get('content-type'), buf }, 'https://www.facebook.com', [buf]);
+    const ok = ['https://www.facebook.com','https://adsmanager.facebook.com','https://business.facebook.com'];
+    const to = new URLSearchParams(location.search).get('to') || 'https://www.facebook.com';
+    if (!ok.includes(to)) throw new Error('bad target');
+    window.opener.postMessage({ sahlRelay: 1, name: path.split('/').pop(), type: r.headers.get('content-type'), buf }, to, [buf]);
     s.textContent = 'Sent. This tab can close.';
     setTimeout(() => window.close(), 800);
   } catch (e) { s.textContent = 'Error: ' + e.message; }
