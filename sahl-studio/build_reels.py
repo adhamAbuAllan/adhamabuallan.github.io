@@ -32,7 +32,7 @@ def build_showcase(p, seconds=15.0):
     tall_h = Image.open(f"frames/{site}_tall.png").size[1]
     cfg = {
         "chip": p["chip"], "hook": p["hook_html"], "sub": p["sub"], "note": p["note"],
-        "endTitle": END["title"], "cta": END["cta"], "endSmall": END["small"],
+        "endTitle": END["title"], "cta": END["cta"], "endSmall": p.get("end_small", END["small"]),
         "tall": tall, "header": hdr, "tallH": tall_h, "scrollTo": p.get("scroll_to", SCROLL.get(site, 3000)),
         "segments": [[1.4, 4.4, 0, 0.34], [5.0, 8.0, 0.34, 0.68], [8.6, 11.2, 0.68, 1.0]],
         "tapAt": 999, "tapX": 0, "tapY": 0, "endAt": 11.8,

@@ -62,7 +62,7 @@ def before_after(p):
     bubbles = "".join(f'<div class="bub">{x}</div>' for x in p["before_lines"])
     body = (f'<h1 class="h">{p["headline"]}</h1><div class="tag">{p["tag"]}</div><div class="cols">'
             f'<div class="col before"><div class="lbl">{p["before_title"]}</div>{bubbles}</div>'
-            f'<div class="col after"><div class="lbl">{p["after_title"]}</div><div class="shot"><img src="frames/restaurant_top.png"></div></div>'
+            f'<div class="col after"><div class="lbl">{p["after_title"]}</div><div class="shot"><img src="frames/{p.get('site', 'restaurant')}_top.png"></div></div>'
             f'</div><img class="wm" src="out/brand/sahl-wordmark.svg">')
     return [shot(HEAD % (1080, 1350, css, body), f"{OUT}/{p['code']}.png", 1080, 1350)]
 

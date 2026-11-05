@@ -12,7 +12,7 @@ p = next(x for x in D["posts"] if x["code"] == code)
 secs = float(p.get("seconds", 14.5)); end_at = float(p.get("end_at", 11.4))
 cfg = {"chip": p["chip"], "hook": p["hook_html"], "sub": p["sub"], "chat": p["chat"],
        "bizName": p.get("biz_name", "صالون مقص"), "bizSub": p.get("biz_sub", "بوت الحجز، شغال 24 ساعة"), "inputHint": "اكتب رسالة",
-       "endTitle": p.get("end_title", "بدك بوت زي هذا لمصلحتك؟"), "cta": "راسلنا عالواتساب", "endSmall": "الرابط بأول تعليق", "endAt": end_at}
+       "endTitle": p.get("end_title", "بدك بوت زي هذا لمصلحتك؟"), "cta": "راسلنا عالواتساب", "endSmall": p.get("end_small", "الرابط بأول تعليق"), "endAt": end_at}
 html = open("tpl_chat.html").read().replace("<body>", "<body>\n<script>window.__CFG__ = " + json.dumps(cfg, ensure_ascii=False) + ";</script>", 1)
 page = f"reel_{code}.html"
 open(page, "w").write(html)
