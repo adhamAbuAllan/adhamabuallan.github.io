@@ -1,0 +1,36 @@
+name: Sahl voice mix
+# Mixes a voiceover (public audio URL) onto an ad video in this repo.
+# Trigger: add or change a job file in sahl/media/ads/jobs/*.json:
+#   {"base": "sahl/media/ads/x.mp4", "audio_url": "https://...", "out": "sahl/media/ads/y.mp4", "bed_volume": 0.35}
+on:
+  push:
+    paths: ["sahl/media/ads/jobs/*.json"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  mix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg jq
+      - name: Mix every job whose output is missing
+        run: |
+          set -e
+          for j in sahl/media/ads/jobs/*.json; do
+            base=$(jq -r .base "$j"); url=$(jq -r .audio_url "$j"); out=$(jq -r .out "$j"); vol=$(jq -r '.bed_volume // 0.35' "$j")
+            [ -f "$out" ] && { echo "skip $out"; continue; }
+            curl -fsSL -o /tmp/voice.audio "$url"
+            ffmpeg -y -loglevel error -i "$base" -i /tmp/voice.audio \
+              -filter_complex "[0:a]volume=${vol}[a0];[1:a]aresample=48000,volume=1.0[a1];[a0][a1]amix=inputs=2:duration=first:normalize=0[a]" \
+              -map 0:v -map "[a]" -c:v copy -c:a aac -b:a 160k -movflags +faststart "$out"
+            echo "made $out"
+          done
+      - name: Commit results
+        run: |
+          git config user.name "sahl-bot"
+          git config user.email "sahl-bot@users.noreply.github.com"
+          git add sahl/media/ads/*.mp4
+          git diff --cached --quiet || git commit -m "Sahl voice mix results"
+          git push
