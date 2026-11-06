@@ -131,3 +131,22 @@ Call them from SQL with `net.http_post(url := 'https://iezglohziunneucnsngq.supa
 `sahl_settings.paused = true` stops all posting.
 
 The poster moved from project `alfhdieorygvgrmhypea` on 2026-10-29 (that project is paused). Use only `iezglohziunneucnsngq`.
+
+## Daily new-niche Reel (from 2026-11-06, replaces the weekly Content Studio)
+
+Adham's rule: every day one new video about a NEW kind of business, never the same 2 or 3 ideas.
+One showcase Reel a day, each one a fresh landing page for a niche that has never been shown.
+
+1. Pick the first `todo` niche in `niches.json` (60 niches; add more at the end anytime).
+2. Build the page at `sahl/s/<key>/index.html` (served at `https://adhamabuallan.github.io/sahl/s/<key>/`):
+   one self-contained mobile-first Arabic RTL page for an INVENTED brand name (never a real business),
+   a top strip «مثال من سهل · صفحة تجريبية», a sticky header with `data-sticky`, hero, services or menu
+   with clear prices, gallery made of CSS shapes and gradients (no photos, no people), hours and area,
+   and a big green WhatsApp button (`https://adhamabuallan.github.io/sahl/wa/?c=<code>`).
+   Fonts must load locally: `@font-face` pointing at `../../../sahl-studio/fonts/*.woff2`. No external
+   requests at all, so the capture works offline. Each niche gets its own palette and layout feel.
+3. Capture: `cd sahl-studio && node capture.mjs ../sahl/s/<key>/index.html <key>` prints
+   `{tallH, headerH, scrollTo}`; put `scroll_to` in the day file.
+4. Day file `days/<date>.json` = `{"posts":[<one showcase-reel post>]}` (same fields as a week post),
+   then `WEEK_JSON=days/<date>.json OUT=out/<date> python3 build_reels.py`.
+5. Publish page + media (`sahl/media/d/<code>.mp4`), queue in `sahl_posts`, mark the niche `done`.

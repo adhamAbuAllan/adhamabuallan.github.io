@@ -1,0 +1,365 @@
+{
+ "note": "Queue of niches for the daily new-niche Reel. One page per niche, never repeat. Status: todo | done (with date and code). Add more niches at the end anytime.",
+ "niches": [
+  {
+   "key": "gym",
+   "ar": "نادي رياضي",
+   "brief": "gym or fitness club: plans, classes timetable, trial-day booking",
+   "status": "todo"
+  },
+  {
+   "key": "carwash",
+   "ar": "مغسلة وتلميع سيارات",
+   "brief": "car wash and detailing: packages, book a slot on WhatsApp",
+   "status": "todo"
+  },
+  {
+   "key": "coffee",
+   "ar": "كوفي شوب",
+   "brief": "coffee shop: drinks menu, pickup orders on WhatsApp",
+   "status": "todo"
+  },
+  {
+   "key": "sweets",
+   "ar": "محل حلويات",
+   "brief": "sweets shop: kunafa and trays, order for occasions",
+   "status": "todo"
+  },
+  {
+   "key": "homekitchen",
+   "ar": "أكل بيتي",
+   "brief": "home kitchen: daily dishes, pre-order on WhatsApp, delivery area",
+   "status": "todo"
+  },
+  {
+   "key": "pastries",
+   "ar": "معجنات وفطاير",
+   "brief": "pastries and bakery: trays for gatherings, delivery",
+   "status": "todo"
+  },
+  {
+   "key": "womensalon",
+   "ar": "صالون نسائي",
+   "brief": "women's beauty salon: services, prices, bridal package, booking",
+   "status": "todo"
+  },
+  {
+   "key": "lashes",
+   "ar": "لاشز وأظافر",
+   "brief": "lashes and nails studio: services gallery, booking",
+   "status": "todo"
+  },
+  {
+   "key": "perfume",
+   "ar": "محل عطور",
+   "brief": "perfume store: scents catalogue, order on WhatsApp",
+   "status": "todo"
+  },
+  {
+   "key": "skincare",
+   "ar": "عناية بالبشرة",
+   "brief": "skin care clinic: sessions and packages, consultation booking",
+   "status": "todo"
+  },
+  {
+   "key": "florist",
+   "ar": "محل ورد",
+   "brief": "florist: bouquets catalogue, same-day delivery",
+   "status": "todo"
+  },
+  {
+   "key": "photographer",
+   "ar": "مصور",
+   "brief": "photographer: portfolio, wedding and event packages, booking",
+   "status": "todo"
+  },
+  {
+   "key": "weddinghall",
+   "ar": "قاعة أفراح",
+   "brief": "wedding hall: capacity, packages, check a date",
+   "status": "todo"
+  },
+  {
+   "key": "eventplanner",
+   "ar": "تنظيم مناسبات",
+   "brief": "event planner: birthdays and engagements, packages",
+   "status": "todo"
+  },
+  {
+   "key": "realestate",
+   "ar": "مكتب عقارات",
+   "brief": "real estate office: apartments for rent and sale, ask on WhatsApp",
+   "status": "todo"
+  },
+  {
+   "key": "drivingschool",
+   "ar": "مدرسة تعليم سواقة",
+   "brief": "driving school: lessons, test prep, register",
+   "status": "todo"
+  },
+  {
+   "key": "tutoring",
+   "ar": "مركز دروس تقوية",
+   "brief": "tutoring centre for tawjihi: subjects, schedule, register",
+   "status": "todo"
+  },
+  {
+   "key": "kindergarten",
+   "ar": "روضة أطفال",
+   "brief": "kindergarten: programme, photos, registration",
+   "status": "todo"
+  },
+  {
+   "key": "language",
+   "ar": "مركز لغات",
+   "brief": "language centre: English and Hebrew courses, levels, register",
+   "status": "todo"
+  },
+  {
+   "key": "pharmacy",
+   "ar": "صيدلية",
+   "brief": "pharmacy: delivery, ask a pharmacist on WhatsApp",
+   "status": "todo"
+  },
+  {
+   "key": "optics",
+   "ar": "محل نظارات",
+   "brief": "optics shop: frames catalogue, eye test booking",
+   "status": "todo"
+  },
+  {
+   "key": "physio",
+   "ar": "علاج طبيعي",
+   "brief": "physiotherapy centre: sessions, home visits, booking",
+   "status": "todo"
+  },
+  {
+   "key": "vet",
+   "ar": "عيادة بيطرية",
+   "brief": "vet clinic: services, vaccinations, booking",
+   "status": "todo"
+  },
+  {
+   "key": "petshop",
+   "ar": "محل حيوانات أليفة",
+   "brief": "pet shop: food and supplies, delivery",
+   "status": "todo"
+  },
+  {
+   "key": "phonerepair",
+   "ar": "تصليح جوالات",
+   "brief": "phone repair: screen and battery prices, drop-off",
+   "status": "todo"
+  },
+  {
+   "key": "furniture",
+   "ar": "معرض أثاث",
+   "brief": "furniture showroom: collections, order on WhatsApp",
+   "status": "todo"
+  },
+  {
+   "key": "carpentry",
+   "ar": "منجرة",
+   "brief": "carpentry workshop: kitchens and doors, free quote",
+   "status": "todo"
+  },
+  {
+   "key": "aluminum",
+   "ar": "ألمنيوم وزجاج",
+   "brief": "aluminium and glass workshop: windows, quote request",
+   "status": "todo"
+  },
+  {
+   "key": "plumber",
+   "ar": "فني صحية",
+   "brief": "plumber: services, emergency call on WhatsApp",
+   "status": "todo"
+  },
+  {
+   "key": "electrician",
+   "ar": "كهربائي",
+   "brief": "electrician: installs and repairs, booking",
+   "status": "todo"
+  },
+  {
+   "key": "cleaning",
+   "ar": "شركة تنظيف",
+   "brief": "cleaning company: homes and offices, packages, booking",
+   "status": "todo"
+  },
+  {
+   "key": "laundry",
+   "ar": "مصبغة",
+   "brief": "laundry and dry cleaning: price list, pickup and delivery",
+   "status": "todo"
+  },
+  {
+   "key": "tailor",
+   "ar": "خياطة وتفصيل",
+   "brief": "tailor: dresses and abayas made to measure, booking",
+   "status": "todo"
+  },
+  {
+   "key": "boutique",
+   "ar": "بوتيك ملابس",
+   "brief": "clothing boutique: new arrivals, order on WhatsApp",
+   "status": "todo"
+  },
+  {
+   "key": "kidswear",
+   "ar": "ملابس أطفال",
+   "brief": "kids clothing store: collections, delivery",
+   "status": "todo"
+  },
+  {
+   "key": "gifts",
+   "ar": "محل هدايا",
+   "brief": "gift shop: gift boxes, custom orders, delivery",
+   "status": "todo"
+  },
+  {
+   "key": "oliveoil",
+   "ar": "زيت زيتون",
+   "brief": "olive oil producer: tins and prices, order the season",
+   "status": "todo"
+  },
+  {
+   "key": "honey",
+   "ar": "عسل بلدي",
+   "brief": "local honey: types and prices, delivery",
+   "status": "todo"
+  },
+  {
+   "key": "butcher",
+   "ar": "ملحمة",
+   "brief": "butcher: cuts and prices, orders for delivery",
+   "status": "todo"
+  },
+  {
+   "key": "fishmarket",
+   "ar": "مسمكة",
+   "brief": "fish market: today's catch, order and pickup",
+   "status": "todo"
+  },
+  {
+   "key": "grocery",
+   "ar": "سوبرماركت توصيل",
+   "brief": "grocery store with delivery: order on WhatsApp",
+   "status": "todo"
+  },
+  {
+   "key": "juicebar",
+   "ar": "عصائر وكوكتيل",
+   "brief": "juice bar: menu, orders and delivery",
+   "status": "todo"
+  },
+  {
+   "key": "carrental",
+   "ar": "تأجير سيارات",
+   "brief": "car rental: fleet and daily prices, book a car",
+   "status": "todo"
+  },
+  {
+   "key": "travel",
+   "ar": "مكتب سياحة وسفر",
+   "brief": "travel agency: umrah and trips, packages, ask on WhatsApp",
+   "status": "todo"
+  },
+  {
+   "key": "chalet",
+   "ar": "شاليه ومسبح",
+   "brief": "chalet with pool: photos, check a date, booking",
+   "status": "todo"
+  },
+  {
+   "key": "football",
+   "ar": "ملعب كرة قدم",
+   "brief": "football pitch: book an hour on WhatsApp",
+   "status": "todo"
+  },
+  {
+   "key": "lawyer",
+   "ar": "مكتب محاماة",
+   "brief": "law office: services, consultation booking",
+   "status": "todo"
+  },
+  {
+   "key": "accountant",
+   "ar": "مكتب محاسبة",
+   "brief": "accounting office: services for shops, consultation",
+   "status": "todo"
+  },
+  {
+   "key": "printing",
+   "ar": "مطبعة",
+   "brief": "print shop: cards, banners, quote request",
+   "status": "todo"
+  },
+  {
+   "key": "jewelry",
+   "ar": "محل ذهب ومجوهرات",
+   "brief": "jewellery store: collections, ask on WhatsApp",
+   "status": "todo"
+  },
+  {
+   "key": "bridal",
+   "ar": "فساتين أعراس",
+   "brief": "bridal dress rental: collection, fitting appointment",
+   "status": "todo"
+  },
+  {
+   "key": "dentallab",
+   "ar": "مختبر أسنان",
+   "brief": "dental lab: services for clinics, order intake",
+   "status": "todo"
+  },
+  {
+   "key": "nursery",
+   "ar": "مشتل نباتات",
+   "brief": "plant nursery: plants catalogue, delivery",
+   "status": "todo"
+  },
+  {
+   "key": "solar",
+   "ar": "طاقة شمسية",
+   "brief": "solar installer: systems and quote request",
+   "status": "todo"
+  },
+  {
+   "key": "moving",
+   "ar": "نقل عفش",
+   "brief": "furniture movers: services, quote on WhatsApp",
+   "status": "todo"
+  },
+  {
+   "key": "cakes",
+   "ar": "كيك ومناسبات",
+   "brief": "custom cakes: designs gallery, order for a date",
+   "status": "todo"
+  },
+  {
+   "key": "shawarma",
+   "ar": "شاورما",
+   "brief": "shawarma shop: menu, delivery orders",
+   "status": "todo"
+  },
+  {
+   "key": "pizza",
+   "ar": "بيتزا",
+   "brief": "pizza place: menu, delivery orders",
+   "status": "todo"
+  },
+  {
+   "key": "hotel",
+   "ar": "فندق وبيت ضيافة",
+   "brief": "guesthouse: rooms, prices, book a night",
+   "status": "todo"
+  },
+  {
+   "key": "clinic",
+   "ar": "عيادة عامة",
+   "brief": "family clinic: doctors, hours, appointment booking",
+   "status": "todo"
+  }
+ ]
+}
