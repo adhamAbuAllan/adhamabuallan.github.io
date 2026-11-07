@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>نادي قوس للياقة · مثال من سهل</title>
+<meta name="description" content="مثال من سهل: صفحة تجريبية لنادي رياضي، فيها الاشتراكات وجدول الكلاسات وحجز يوم تجربة عالواتساب.">
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format("woff2");font-weight:600}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-800-normal.woff2) format("woff2");font-weight:800}
+:root{--ink:#111111;--ink2:#1B1B1B;--paper:#F1EEE8;--orange:#FF5A1F;--orange-d:#D9440F;--sand:#E3DDD2;--mute:#8E8A84;--line:#2B2B2B;--wa:#1FAF54}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font-family:Plex,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.num{font-family:Inter,Plex,sans-serif;font-weight:800;letter-spacing:-.02em}
+.demo{background:var(--paper);color:var(--ink);font-size:13px;font-weight:600;text-align:center;padding:7px 16px}
+.demo b{color:var(--orange-d)}
+.wrap{max-width:560px;margin:0 auto;padding:0 18px}
+.top{position:sticky;top:0;z-index:20;background:rgba(17,17,17,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px}
+.logo i{width:34px;height:34px;border-radius:50%;border:5px solid var(--orange);border-bottom-color:transparent;transform:rotate(-45deg);display:block}
+.top .btn-sm{background:var(--orange);color:#140600;font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px}
+
+.hero{position:relative;overflow:hidden;padding:34px 0 40px}
+.hero::before{content:"";position:absolute;inset:-40% -60% auto auto;width:420px;height:420px;border-radius:50%;border:60px solid rgba(255,90,31,.16)}
+.hero::after{content:"";position:absolute;left:-80px;bottom:-30px;width:300px;height:90px;background:repeating-linear-gradient(-55deg,var(--orange) 0 14px,transparent 14px 30px);opacity:.25}
+.kicker{display:inline-flex;gap:8px;align-items:center;font-size:13px;font-weight:600;color:var(--orange);border:1px solid rgba(255,90,31,.5);padding:5px 12px;border-radius:999px}
+.kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.hero h1{font-size:40px;line-height:1.2;font-weight:700;margin:16px 0 12px;position:relative}
+.hero h1 em{font-style:normal;color:var(--ink);background:var(--orange);padding:0 8px;border-radius:6px}
+.hero p{color:#CFCAC2;font-size:17px;max-width:30em;position:relative}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--wa);color:#fff;font-weight:700;font-size:18px;padding:16px 20px;border-radius:16px;margin-top:22px;box-shadow:0 10px 30px rgba(31,175,84,.35);position:relative}
+.cta svg{width:24px;height:24px;flex:none}
+.cta.alt{background:transparent;border:1.5px solid var(--sand);box-shadow:none;color:var(--paper);font-size:16px;margin-top:10px;padding:13px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:26px;position:relative}
+.facts div{background:var(--ink2);border:1px solid var(--line);border-radius:14px;padding:12px 8px;text-align:center}
+.facts b{display:block;font-size:24px;color:var(--orange)}
+.facts span{font-size:12.5px;color:#BDB7AE}
+
+section{padding:40px 0}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px}
+.sec-h h2{font-size:26px;line-height:1.3}
+.sec-h small{color:var(--mute);font-size:13px}
+.light{background:var(--paper);color:var(--ink)}
+.light .sec-h small{color:#6E6A64}
+
+.plans{display:grid;gap:12px}
+.plan{position:relative;background:#fff;border:1.5px solid var(--sand);border-radius:18px;padding:18px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.plan h3{font-size:18px}
+.plan p{font-size:13.5px;color:#6E6A64}
+.price{text-align:left;white-space:nowrap}
+.price b{font-size:30px;display:block;line-height:1}
+.price span{font-size:12px;color:#6E6A64}
+.plan.hot{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.plan.hot p,.plan.hot .price span{color:#BDB7AE}
+.plan.hot .price b{color:var(--orange)}
+.plan .badge{position:absolute;top:-11px;right:16px;background:var(--orange);color:#140600;font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px}
+.extra{margin-top:12px;font-size:14px;color:#55514B;background:var(--sand);border-radius:14px;padding:12px 14px}
+
+.tt{border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.tt-row{display:grid;grid-template-columns:76px 1fr 1fr;border-top:1px solid var(--line)}
+.tt-row:first-child{border-top:0;background:var(--ink2);font-size:13px;color:var(--mute)}
+.tt-row>div{padding:11px 10px;font-size:14px}
+.tt-row>div:first-child{font-weight:700;border-left:1px solid var(--line)}
+.cls{display:block;font-weight:600}
+.cls small{display:block;font-weight:400;color:var(--mute);font-size:12px}
+.tag-w{display:inline-block;font-size:11px;background:rgba(255,90,31,.18);color:var(--orange);padding:0 6px;border-radius:6px;margin-inline-start:4px}
+
+.steps{display:grid;gap:10px;counter-reset:s}
+.step{display:flex;gap:14px;align-items:center;background:#fff;border-radius:16px;padding:14px;border:1.5px solid var(--sand)}
+.step::before{counter-increment:s;content:counter(s);font-family:Inter,sans-serif;font-weight:800;font-size:22px;width:44px;height:44px;flex:none;border-radius:12px;display:grid;place-items:center;background:var(--orange);color:#140600}
+.step b{display:block;font-size:16px}
+.step span{font-size:13.5px;color:#6E6A64}
+
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{position:relative;height:150px;border-radius:18px;overflow:hidden;background:var(--ink2);border:1px solid var(--line)}
+.tile.wide{grid-column:span 2;height:170px}
+.tile label{position:absolute;bottom:10px;right:12px;font-size:13px;font-weight:600;background:rgba(17,17,17,.75);padding:3px 10px;border-radius:999px}
+.t1{background:linear-gradient(160deg,#2A2A2A,#151515)}
+.bar{position:absolute;top:58px;left:20px;right:20px;height:10px;border-radius:5px;background:linear-gradient(#cfcfcf,#7a7a7a)}
+.plate{position:absolute;top:28px;width:22px;height:70px;border-radius:6px;background:linear-gradient(90deg,#FF5A1F,#B83A0C)}
+.plate.a{left:34px}.plate.b{left:60px;height:56px;top:35px;background:linear-gradient(90deg,#E9E4DA,#A9A399)}
+.plate.c{right:34px}.plate.d{right:60px;height:56px;top:35px;background:linear-gradient(90deg,#E9E4DA,#A9A399)}
+.t2{background:radial-gradient(circle at 70% 30%,#FF5A1F 0 22%,transparent 23%),linear-gradient(135deg,#1E1E1E,#121212)}
+.kb{position:absolute;left:28px;top:38px;width:62px;height:62px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#555,#1a1a1a)}
+.kb::before{content:"";position:absolute;left:12px;top:-26px;width:38px;height:34px;border:8px solid #444;border-bottom:0;border-radius:20px 20px 0 0}
+.t3{background:repeating-linear-gradient(90deg,#1a1a1a 0 18px,#202020 18px 36px)}
+.belt{position:absolute;left:16px;right:16px;bottom:44px;height:18px;border-radius:9px;background:repeating-linear-gradient(90deg,#333 0 10px,#2a2a2a 10px 20px);border:2px solid #444}
+.pulse{position:absolute;left:20px;right:20px;top:34px;height:40px;background:linear-gradient(90deg,transparent,rgba(255,90,31,.9) 50%,transparent);clip-path:polygon(0 60%,30% 60%,38% 10%,46% 95%,54% 35%,60% 60%,100% 60%,100% 70%,58% 70%,54% 50%,46% 100%,38% 30%,32% 70%,0 70%)}
+.t4{background:linear-gradient(200deg,#FF5A1F,#8A2A07)}
+.ring{position:absolute;inset:30px 40px 50px;border:4px solid rgba(255,255,255,.85);border-radius:10px;box-shadow:inset 0 0 0 10px rgba(0,0,0,.15)}
+.ring::before,.ring::after{content:"";position:absolute;left:-4px;right:-4px;height:4px;background:rgba(255,255,255,.6)}
+.ring::before{top:30%}.ring::after{top:62%}
+.t5{background:linear-gradient(135deg,#2B2B2B,#161616)}
+.mat{position:absolute;bottom:42px;width:70px;height:16px;border-radius:8px}
+.mat.m1{right:24px;background:#FF5A1F}.mat.m2{right:104px;background:#E3DDD2}.mat.m3{right:184px;background:#FF5A1F;opacity:.6}.mat.m4{right:264px;background:#E3DDD2;opacity:.5}
+.ball{position:absolute;top:26px;left:30px;width:70px;height:70px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ffb08f,#FF5A1F 55%,#9c3008)}
+
+.info{display:grid;gap:12px}
+.box{background:var(--ink2);border:1px solid var(--line);border-radius:18px;padding:16px}
+.box h3{font-size:17px;margin-bottom:8px;color:var(--orange)}
+.hrs{display:flex;justify-content:space-between;padding:7px 0;border-top:1px dashed var(--line);font-size:15px}
+.hrs:first-of-type{border-top:0}
+.box ul{list-style:none;font-size:15px;color:#D7D2CA}
+.box li{padding:4px 0}
+.box li::before{content:"";display:inline-block;width:7px;height:7px;border-radius:2px;background:var(--orange);margin-inline-end:8px;vertical-align:middle}
+
+.final{background:var(--orange);color:#140600;text-align:center;padding:44px 0 40px;position:relative;overflow:hidden}
+.final::after{content:"";position:absolute;right:-50px;top:-50px;width:180px;height:180px;border-radius:50%;border:30px solid rgba(0,0,0,.08)}
+.final h2{font-size:30px;line-height:1.3;position:relative}
+.final p{font-size:16px;margin-top:8px;position:relative}
+.final .cta{background:var(--wa);color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+footer{text-align:center;font-size:13px;color:var(--mute);padding:22px 16px 34px}
+footer b{color:var(--paper)}
+</style>
+</head>
+<body>
+<div class="demo">مثال من سهل · <b>صفحة تجريبية</b></div>
+
+<header class="top" data-sticky>
+  <div class="wrap">
+    <div class="logo"><i></i>نادي قوس</div>
+    <a class="btn-sm" href="#trial">يوم تجربة</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <span class="kicker">رام الله والبيرة · مفتوح كل يوم</span>
+    <h1>تمرّن بخطة واضحة، وجرّب أول <em>يوم</em> ببلاش</h1>
+    <p>كل شي بتسأل عنه قبل ما تشترك موجود هون: الأسعار، جدول الكلاسات، وأوقات السيدات. احجز يوم التجربة برسالة وحدة.</p>
+    <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P15">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>
+      احجز يوم تجربة عالواتساب
+    </a>
+    <a class="cta alt" href="#plans">شوف الاشتراكات</a>
+    <div class="facts">
+      <div><b class="num">+40</b><span>جهاز وأوزان</span></div>
+      <div><b class="num">6</b><span>مدربين</span></div>
+      <div><b class="num">18</b><span>كلاس بالأسبوع</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="plans">
+  <div class="wrap">
+    <div class="sec-h"><h2>الاشتراكات</h2><small>أسعار مثال</small></div>
+    <div class="plans">
+      <div class="plan"><div><h3>شهر</h3><p>كل الأجهزة والكلاسات</p></div><div class="price"><b class="num"><bdi dir="ltr">180 ₪</bdi></b><span>بالشهر</span></div></div>
+      <div class="plan hot"><span class="badge">الأكثر طلبا</span><div><h3>3 شهور</h3><p>مع جلسة تقييم وخطة تمرين</p></div><div class="price"><b class="num"><bdi dir="ltr">480 ₪</bdi></b><span>يعني 160 بالشهر</span></div></div>
+      <div class="plan"><div><h3>6 شهور</h3><p>مع خطة أكل من المدرب</p></div><div class="price"><b class="num"><bdi dir="ltr">870 ₪</bdi></b><span>يعني 145 بالشهر</span></div></div>
+      <div class="plan"><div><h3>طلاب الجامعة</h3><p>بالبطاقة الجامعية</p></div><div class="price"><b class="num"><bdi dir="ltr">150 ₪</bdi></b><span>بالشهر</span></div></div>
+    </div>
+    <div class="extra">مدرب خاص: 10 جلسات بـ <bdi dir="ltr">600 ₪</bdi>. الحصة اليومية بدون اشتراك: <bdi dir="ltr">30 ₪</bdi>.</div>
+  </div>
+</section>
+
+<section id="classes">
+  <div class="wrap">
+    <div class="sec-h"><h2>جدول الكلاسات</h2><small>السبت لحد الخميس</small></div>
+    <div class="tt">
+      <div class="tt-row"><div>اليوم</div><div>الصبح</div><div>المسا</div></div>
+      <div class="tt-row"><div>السبت</div><div><span class="cls">زومبا <span class="tag-w">سيدات</span><small>10:00</small></span></div><div><span class="cls">كروس فت<small>7:00</small></span></div></div>
+      <div class="tt-row"><div>الأحد</div><div><span class="cls">يوغا <span class="tag-w">سيدات</span><small>9:30</small></span></div><div><span class="cls">ملاكمة<small>8:00</small></span></div></div>
+      <div class="tt-row"><div>الاثنين</div><div><span class="cls">ستريتشنج<small>7:00</small></span></div><div><span class="cls">كروس فت<small>7:00</small></span></div></div>
+      <div class="tt-row"><div>الثلاثاء</div><div><span class="cls">زومبا <span class="tag-w">سيدات</span><small>10:00</small></span></div><div><span class="cls">ملاكمة<small>8:00</small></span></div></div>
+      <div class="tt-row"><div>الأربعاء</div><div><span class="cls">بيلاتس <span class="tag-w">سيدات</span><small>9:30</small></span></div><div><span class="cls">سيركت<small>7:30</small></span></div></div>
+      <div class="tt-row"><div>الخميس</div><div><span class="cls">ستريتشنج<small>7:00</small></span></div><div><span class="cls">كروس فت<small>6:00</small></span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="trial">
+  <div class="wrap">
+    <div class="sec-h"><h2>يوم التجربة ببلاش</h2><small>3 خطوات</small></div>
+    <div class="steps">
+      <div class="step"><div><b>اختار اليوم والساعة</b><span>الصبح أو المسا، وأوقات السيدات كمان</span></div></div>
+      <div class="step"><div><b>ابعتلنا عالواتساب</b><span>الرسالة جاهزة، بس اضغط إرسال</span></div></div>
+      <div class="step"><div><b>تعال وجرّب</b><span>مدرب بيستقبلك وبيعملك جولة على النادي</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="sec-h"><h2>جوا النادي</h2><small>5 أقسام</small></div>
+    <div class="gal">
+      <div class="tile wide t1"><span class="plate a"></span><span class="plate b"></span><span class="bar"></span><span class="plate c"></span><span class="plate d"></span><label>منطقة الأوزان الحرة</label></div>
+      <div class="tile t2"><span class="kb"></span><label>الكيتل بيل</label></div>
+      <div class="tile t3"><span class="pulse"></span><span class="belt"></span><label>الكارديو</label></div>
+      <div class="tile t4"><span class="ring"></span><label>حلبة الملاكمة</label></div>
+      <div class="tile t5"><span class="ball"></span><span class="mat m1"></span><span class="mat m2"></span><label>قاعة الكلاسات</label></div>
+    </div>
+  </div>
+</section>
+
+<section id="hours" style="padding-top:0">
+  <div class="wrap info">
+    <div class="box">
+      <h3>ساعات الدوام</h3>
+      <div class="hrs"><span>السبت لحد الخميس</span><b class="num"><bdi dir="ltr">6:00 - 23:00</bdi></b></div>
+      <div class="hrs"><span>الجمعة</span><b class="num"><bdi dir="ltr">14:00 - 22:00</bdi></b></div>
+      <div class="hrs"><span>قسم السيدات</span><b class="num"><bdi dir="ltr">9:00 - 13:00</bdi></b></div>
+    </div>
+    <div class="box">
+      <h3>وين إحنا</h3>
+      <ul>
+        <li>رام الله والبيرة، قريب من الشارع الرئيسي</li>
+        <li>موقف سيارات مجاني للمشتركين</li>
+        <li>غرف تبديل وخزائن ودوش</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>جاهز تبلش؟</h2>
+    <p>ابعتلنا هسا واحجز يوم التجربة، والرد بيوصلك بنفس اليوم.</p>
+    <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P15">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>
+      احجز عالواتساب
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>نادي قوس اسم تجريبي. هاي الصفحة <b>مثال من سهل</b> لمواقع المصالح المحلية.</footer>
+</body>
+</html>

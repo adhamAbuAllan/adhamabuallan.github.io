@@ -5,7 +5,9 @@
    "key": "gym",
    "ar": "نادي رياضي",
    "brief": "gym or fitness club: plans, classes timetable, trial-day booking",
-   "status": "todo"
+   "status": "done",
+   "date": "2026-11-08",
+   "code": "P15"
   },
   {
    "key": "carwash",
