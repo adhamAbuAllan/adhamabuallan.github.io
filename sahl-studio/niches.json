@@ -13,7 +13,9 @@
    "key": "carwash",
    "ar": "مغسلة وتلميع سيارات",
    "brief": "car wash and detailing: packages, book a slot on WhatsApp",
-   "status": "todo"
+   "status": "done",
+   "date": "2026-11-09",
+   "code": "P16"
   },
   {
    "key": "coffee",

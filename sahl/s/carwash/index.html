@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>رغوة لغسيل وتلميع السيارات · مثال من سهل</title>
+<meta name="description" content="مثال من سهل: صفحة تجريبية لمغسلة وتلميع سيارات، فيها الباقات والأسعار ومواعيد اليوم وحجز دور عالواتساب.">
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format("woff2");font-weight:600}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-800-normal.woff2) format("woff2");font-weight:800}
+:root{--navy:#0B2342;--navy2:#123259;--deep:#071729;--aqua:#2FD3C9;--aqua-d:#14A89F;--foam:#EEF7F8;--foam2:#DCECEF;--sun:#FFCF3A;--ink:#0B2342;--mute:#5B7189;--wa:#1FAF54}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--foam);color:var(--ink);font-family:Plex,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.num{font-family:Inter,Plex,sans-serif;font-weight:800;letter-spacing:-.02em}
+.demo{background:var(--sun);color:var(--deep);font-size:13px;font-weight:600;text-align:center;padding:7px 16px}
+.wrap{max-width:560px;margin:0 auto;padding:0 18px}
+
+.top{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px}
+.logo i{position:relative;width:34px;height:34px;display:block}
+.logo i::before{content:"";position:absolute;right:0;top:4px;width:24px;height:24px;border-radius:50%;background:var(--aqua)}
+.logo i::after{content:"";position:absolute;left:0;bottom:0;width:15px;height:15px;border-radius:50%;background:#fff}
+.logo small{display:block;font-size:11.5px;font-weight:500;color:#9FC3D6;line-height:1.1}
+.btn-sm{background:var(--aqua);color:var(--deep);font-weight:700;font-size:14px;padding:8px 16px;border-radius:999px}
+
+.hero{background:var(--navy);color:#fff;padding:26px 0 0;position:relative;overflow:hidden}
+.hero h1{font-size:36px;line-height:1.25;font-weight:700;margin-bottom:12px}
+.hero h1 span{color:var(--aqua)}
+.hero p{color:#C9DCE8;font-size:16.5px}
+.scene{position:relative;height:200px;margin-top:22px}
+.bub{position:absolute;border-radius:50%;background:radial-gradient(circle at 32% 30%,#fff 0 12%,rgba(255,255,255,.35) 13% 45%,rgba(255,255,255,.12) 46%);border:1.5px solid rgba(255,255,255,.45)}
+.b1{width:46px;height:46px;right:30px;top:6px}.b2{width:24px;height:24px;right:96px;top:30px}.b3{width:62px;height:62px;left:26px;top:0}.b4{width:18px;height:18px;left:110px;top:44px}.b5{width:30px;height:30px;right:180px;top:2px}
+.car{position:absolute;left:50%;bottom:26px;width:300px;height:110px;transform:translateX(-50%)}
+.car .body{position:absolute;left:0;right:0;bottom:22px;height:52px;border-radius:26px 34px 14px 14px;background:linear-gradient(180deg,#5EE6DD,#14A89F)}
+.car .cab{position:absolute;left:62px;right:78px;bottom:66px;height:44px;border-radius:40px 46px 0 0;background:linear-gradient(180deg,#3fd9cf,#1bb3a9)}
+.car .win{position:absolute;bottom:70px;height:32px;background:#0B2342;opacity:.85}
+.car .w1{left:76px;width:70px;border-radius:30px 6px 0 0}.car .w2{left:152px;width:58px;border-radius:6px 34px 0 0}
+.car .shine{position:absolute;left:30px;bottom:56px;width:120px;height:6px;border-radius:3px;background:rgba(255,255,255,.7)}
+.car .tire{position:absolute;bottom:0;width:52px;height:52px;border-radius:50%;background:#0A1424;border:8px solid #1d2e44}
+.car .tire::after{content:"";position:absolute;inset:9px;border-radius:50%;background:#B9C9D6}
+.car .t1{left:40px}.car .t2{right:44px}
+.road{position:absolute;left:-20px;right:-20px;bottom:0;height:28px;background:var(--deep)}
+.road::after{content:"";position:absolute;left:0;right:0;top:12px;height:4px;background:repeating-linear-gradient(90deg,var(--sun) 0 30px,transparent 30px 60px);opacity:.7}
+.spark{position:absolute;width:14px;height:14px;background:var(--sun);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%)}
+.s1{right:70px;top:76px}.s2{left:70px;top:90px;width:10px;height:10px}
+
+.ticket{background:#fff;color:var(--ink);border-radius:22px;padding:16px 18px;margin-top:-6px;position:relative;z-index:2;display:flex;align-items:center;gap:14px;box-shadow:0 14px 30px rgba(7,23,41,.18)}
+.ticket .clock{flex:none;width:62px;height:62px;border-radius:18px;background:var(--foam2);display:grid;place-items:center;font-size:20px;color:var(--navy)}
+.ticket b{display:block;font-size:17px}
+.ticket span{font-size:14px;color:var(--mute)}
+.hero-pad{background:linear-gradient(var(--navy) 50%,var(--foam) 50%);padding-bottom:4px}
+
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--wa);color:#fff;font-weight:700;font-size:18px;padding:16px 20px;border-radius:16px;margin-top:16px;box-shadow:0 10px 26px rgba(31,175,84,.35)}
+.cta svg{width:24px;height:24px;flex:none}
+.cta.alt{background:transparent;color:var(--navy);border:2px solid var(--navy);box-shadow:none;font-size:16px;padding:12px;margin-top:10px}
+
+section{padding:38px 0}
+.sec-h{margin-bottom:16px}
+.sec-h h2{font-size:26px;line-height:1.3}
+.sec-h p{color:var(--mute);font-size:14.5px}
+
+.pk{display:grid;gap:12px}
+.card{position:relative;background:#fff;border-radius:20px;padding:18px;overflow:hidden}
+.card .row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.card h3{font-size:19px}
+.card .tm{font-size:13px;color:var(--mute)}
+.price{background:var(--foam2);border-radius:14px;padding:6px 12px;text-align:center;white-space:nowrap}
+.price b{font-size:26px;display:block;line-height:1.1}
+.price span{font-size:12px;color:var(--mute)}
+.card ul{list-style:none;margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
+.card li{font-size:13px;background:var(--foam);border-radius:999px;padding:3px 11px}
+.card.star{background:var(--navy);color:#fff}
+.card.star .tm,.card.star .price span{color:#9FC3D6}
+.card.star .price{background:var(--aqua);color:var(--deep)}
+.card.star .price span{color:var(--deep)}
+.card.star li{background:var(--navy2)}
+.card .badge{display:inline-block;background:var(--sun);color:var(--deep);font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;margin-bottom:8px}
+.card.pro{background:#fff;border:2px solid var(--aqua)}
+.addons{margin-top:14px;background:#fff;border-radius:20px;padding:14px 18px}
+.addons h3{font-size:16px;margin-bottom:4px}
+.ad{display:flex;justify-content:space-between;padding:8px 0;border-top:1px dashed var(--foam2);font-size:15px}
+.ad:first-of-type{border-top:0}
+.ad b{color:var(--aqua-d)}
+
+.slots-sec{background:var(--navy);color:#fff}
+.slots-sec .sec-h p{color:#9FC3D6}
+.legend{display:flex;gap:16px;font-size:13px;color:#C9DCE8;margin-bottom:12px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-inline-end:6px;vertical-align:middle}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.sl{border-radius:14px;padding:10px 4px;text-align:center;font-size:15px;background:var(--aqua);color:var(--deep);font-weight:700}
+.sl small{display:block;font-family:Plex,sans-serif;font-weight:500;font-size:11.5px}
+.sl.full{background:var(--navy2);color:#6F8FAB}
+.sl.full small{color:#6F8FAB}
+.slots-note{margin-top:14px;font-size:14px;color:#C9DCE8}
+
+.how{display:grid;gap:10px}
+.st{display:flex;gap:14px;align-items:center;background:#fff;border-radius:18px;padding:14px}
+.st .ic{flex:none;width:48px;height:48px;border-radius:50%;background:var(--foam2);position:relative}
+.ic.msg::before{content:"";position:absolute;inset:13px 11px 15px;border-radius:6px;background:var(--wa)}
+.ic.msg::after{content:"";position:absolute;left:15px;bottom:10px;border:5px solid transparent;border-top-color:var(--wa)}
+.ic.clk::before{content:"";position:absolute;inset:11px;border-radius:50%;border:4px solid var(--navy)}
+.ic.clk::after{content:"";position:absolute;left:23px;top:16px;width:4px;height:11px;background:var(--navy);border-radius:2px}
+.ic.key::before{content:"";position:absolute;left:12px;top:14px;width:16px;height:16px;border-radius:50%;border:4px solid var(--aqua-d)}
+.ic.key::after{content:"";position:absolute;left:28px;top:21px;width:12px;height:4px;background:var(--aqua-d)}
+.st b{display:block;font-size:16px}
+.st span{font-size:14px;color:var(--mute)}
+
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{position:relative;height:150px;border-radius:20px;overflow:hidden}
+.tile.wide{grid-column:span 2;height:168px}
+.tile label{position:absolute;bottom:10px;right:12px;font-size:13px;font-weight:600;background:rgba(255,255,255,.9);color:var(--ink);padding:3px 10px;border-radius:999px}
+.g1{background:linear-gradient(90deg,#8C8F94 0 50%,#123259 50%)}
+.g1::before{content:"";position:absolute;left:50%;top:18px;bottom:18px;width:3px;background:#fff;transform:translateX(-50%)}
+.g1 .dust{position:absolute;inset:0 50% 0 0;background:radial-gradient(circle at 20% 30%,rgba(90,70,40,.5) 0 8px,transparent 9px),radial-gradient(circle at 60% 60%,rgba(90,70,40,.45) 0 12px,transparent 13px),radial-gradient(circle at 35% 75%,rgba(90,70,40,.4) 0 6px,transparent 7px)}
+.g1 .gloss{position:absolute;right:12%;top:26px;width:34%;height:10px;border-radius:5px;background:rgba(255,255,255,.75);transform:rotate(-12deg)}
+.g1 .gloss.b{top:48px;width:20%;opacity:.5}
+.g1 .tag{position:absolute;top:10px;font-size:12px;font-weight:700;color:#fff}
+.g1 .tag.l{left:12px}.g1 .tag.r{right:12px}
+.g2{background:var(--aqua)}
+.g2 .bub{border-color:rgba(255,255,255,.7)}
+.g3{background:repeating-linear-gradient(0deg,#2b2b2e 0 14px,#232326 14px 28px)}
+.g3::before{content:"";position:absolute;left:30px;right:30px;top:24px;height:64px;border-radius:18px 18px 8px 8px;background:repeating-linear-gradient(90deg,#3a3a3f 0 12px,#333338 12px 24px)}
+.g4{background:var(--navy2)}
+.g4 .rim{position:absolute;left:50%;top:40%;width:96px;height:96px;transform:translate(-50%,-50%);border-radius:50%;background:#0A1424;border:12px solid #1d2e44}
+.g4 .rim::after{content:"";position:absolute;inset:10px;border-radius:50%;background:conic-gradient(#C9D6E0 0 10%,#7E93A6 10% 20%,#C9D6E0 20% 30%,#7E93A6 30% 40%,#C9D6E0 40% 50%,#7E93A6 50% 60%,#C9D6E0 60% 70%,#7E93A6 70% 80%,#C9D6E0 80% 90%,#7E93A6 90%)}
+.g5{background:linear-gradient(160deg,#FFE48A,#FFCF3A)}
+.g5 .lamp{position:absolute;top:34px;width:84px;height:48px;border-radius:26px 26px 14px 14px;background:rgba(255,255,255,.75);border:4px solid #fff}
+.g5 .lamp.a{right:28%}.g5 .lamp.b{left:28%;background:rgba(150,120,40,.35);border-color:rgba(255,255,255,.5)}
+
+.info{display:grid;gap:12px}
+.box{background:#fff;border-radius:20px;padding:16px 18px}
+.box h3{font-size:17px;margin-bottom:6px;color:var(--navy)}
+.hrs{display:flex;justify-content:space-between;padding:7px 0;border-top:1px dashed var(--foam2);font-size:15px}
+.hrs:first-of-type{border-top:0}
+.box ul{list-style:none;font-size:15px}
+.box li{padding:4px 0}
+.box li::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--aqua);margin-inline-end:8px;vertical-align:middle}
+
+.final{background:var(--aqua);color:var(--deep);text-align:center;padding:44px 0 40px;position:relative;overflow:hidden}
+.final .bub{border-color:rgba(255,255,255,.7)}
+.final h2{font-size:30px;line-height:1.3;position:relative}
+.final p{font-size:16px;margin-top:6px;position:relative}
+.final .cta{position:relative;box-shadow:0 10px 26px rgba(7,23,41,.25)}
+footer{background:var(--deep);text-align:center;font-size:13px;color:#9FC3D6;padding:22px 16px 34px}
+footer b{color:#fff}
+</style>
+</head>
+<body>
+<div class="demo">مثال من سهل · صفحة تجريبية</div>
+
+<header class="top" data-sticky>
+  <div class="wrap">
+    <a class="logo" href="#"><i></i><span>رغوة<small>غسيل وتلميع سيارات</small></span></a>
+    <a class="btn-sm" href="https://adhamabuallan.github.io/sahl/wa/?c=P16">احجز دورك</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <h1>سيارتك بتلمع، <span>وإنت ما بتستنى</span> بالدور</h1>
+    <p>غسيل وتلميع سيارات بنابلس. اختار الباقة والساعة اللي بتناسبك، وابعت رسالة وحدة عالواتساب، وتعال عالوقت.</p>
+    <div class="scene" aria-hidden="true">
+      <i class="bub b1"></i><i class="bub b2"></i><i class="bub b3"></i><i class="bub b4"></i><i class="bub b5"></i>
+      <i class="spark s1"></i><i class="spark s2"></i>
+      <div class="car"><i class="cab"></i><i class="win w1"></i><i class="win w2"></i><i class="body"></i><i class="shine"></i><i class="tire t1"></i><i class="tire t2"></i></div>
+      <div class="road"></div>
+    </div>
+  </div>
+</section>
+<div class="hero-pad">
+  <div class="wrap">
+    <div class="ticket">
+      <div class="clock num">10:30</div>
+      <div><b>أقرب دور فاضي اليوم</b><span>غسيل كامل جوا وبرا، بيخلص بحوالي 45 دقيقة</span></div>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P16">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>
+    احجز ساعتك عالواتساب
+  </a>
+  <a class="cta alt" href="#packages">شوف الباقات والأسعار</a>
+</div>
+
+<section id="packages">
+  <div class="wrap">
+    <div class="sec-h"><h2>الباقات والأسعار</h2><p>الأسعار للسيارة الصغيرة والمتوسطة. الجيب والفان بزيادة 10 شيكل.</p></div>
+    <div class="pk">
+      <div class="card">
+        <div class="row"><div><h3>غسيل خارجي</h3><div class="tm">حوالي 20 دقيقة</div></div><div class="price"><b class="num">30</b><span>شيكل</span></div></div>
+        <ul><li>رغوة وشطف بالضغط</li><li>جنوط وكوشوك</li><li>تنشيف بالفوطة</li></ul>
+      </div>
+      <div class="card star">
+        <span class="badge">الأكثر طلبا</span>
+        <div class="row"><div><h3>غسيل كامل جوا وبرا</h3><div class="tm">حوالي 45 دقيقة</div></div><div class="price"><b class="num">55</b><span>شيكل</span></div></div>
+        <ul><li>كل الغسيل الخارجي</li><li>شفط الفرش والدعاسات</li><li>تنظيف الطبلون والزجاج</li><li>معطر</li></ul>
+      </div>
+      <div class="card">
+        <div class="row"><div><h3>غسيل مع واكس</h3><div class="tm">حوالي ساعة</div></div><div class="price"><b class="num">90</b><span>شيكل</span></div></div>
+        <ul><li>الغسيل الكامل</li><li>طبقة واكس لمعة</li><li>تلميع الكوشوك</li></ul>
+      </div>
+      <div class="card pro">
+        <div class="row"><div><h3>تلميع وحماية نانو</h3><div class="tm">يوم كامل، بحجز مسبق</div></div><div class="price"><b class="num">650</b><span>شيكل</span></div></div>
+        <ul><li>إزالة الخدوش الخفيفة</li><li>تلميع على مرحلتين</li><li>طبقة نانو بتحمي لحد سنة</li></ul>
+      </div>
+    </div>
+    <div class="addons">
+      <h3>إضافات</h3>
+      <div class="ad"><span>تنظيف الفرش بالبخار</span><b><span class="num">120</span> شيكل</b></div>
+      <div class="ad"><span>تلميع الضوايات</span><b><span class="num">60</span> شيكل</b></div>
+      <div class="ad"><span>غسيل الماتور</span><b><span class="num">40</span> شيكل</b></div>
+      <div class="ad"><span>منستلم السيارة من بيتك ومنرجعها</span><b><span class="num">20</span> شيكل</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="slots-sec" id="slots">
+  <div class="wrap">
+    <div class="sec-h"><h2>مواعيد اليوم</h2><p>كل ساعة إلها سيارتين بس، عشان ما حدا يستنى.</p></div>
+    <div class="legend"><span><i style="background:var(--aqua)"></i>فاضي</span><span><i style="background:var(--navy2)"></i>محجوز</span></div>
+    <div class="slots">
+      <div class="sl full num">8:00<small>محجوز</small></div>
+      <div class="sl full num">9:00<small>محجوز</small></div>
+      <div class="sl num">10:30<small>فاضي</small></div>
+      <div class="sl full num">11:30<small>محجوز</small></div>
+      <div class="sl num">12:30<small>فاضي</small></div>
+      <div class="sl num">1:30<small>فاضي</small></div>
+      <div class="sl full num">2:30<small>محجوز</small></div>
+      <div class="sl num">3:30<small>فاضي</small></div>
+      <div class="sl full num">4:30<small>محجوز</small></div>
+      <div class="sl num">5:30<small>فاضي</small></div>
+      <div class="sl full num">6:30<small>محجوز</small></div>
+      <div class="sl num">7:00<small>فاضي</small></div>
+    </div>
+    <p class="slots-note">ابعت الساعة اللي بدك إياها، وبنثبتلك الدور برسالة.</p>
+    <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P16">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>
+      احجز دور فاضي
+    </a>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-h"><h2>كيف بتحجز؟</h2><p>دقيقة وحدة من تلفونك.</p></div>
+    <div class="how">
+      <div class="st"><i class="ic msg"></i><div><b>ابعت رسالة جاهزة</b><span>اكتب الباقة ونوع السيارة والساعة.</span></div></div>
+      <div class="st"><i class="ic clk"></i><div><b>بنثبتلك الدور</b><span>بيوصلك تأكيد بالوقت، وتذكير قبل بساعة.</span></div></div>
+      <div class="st"><i class="ic key"></i><div><b>تعال وخذ سيارتك لامعة</b><span>أو خلينا نستلمها من بيتك ونرجعها.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-h"><h2>من الشغل</h2><p>قبل وبعد، والتفاصيل اللي بتفرق.</p></div>
+    <div class="gal">
+      <div class="tile wide g1"><i class="dust"></i><i class="gloss"></i><i class="gloss b"></i><span class="tag l">قبل</span><span class="tag r">بعد</span><label>تلميع البودي</label></div>
+      <div class="tile g2"><i class="bub b1"></i><i class="bub b2"></i><i class="bub b3"></i><i class="bub b4"></i><label>رغوة كثيفة</label></div>
+      <div class="tile g4"><i class="rim"></i><label>جنوط نظيفة</label></div>
+      <div class="tile g3"><label>فرش بالبخار</label></div>
+      <div class="tile g5"><i class="lamp a"></i><i class="lamp b"></i><label>تلميع الضوايات</label></div>
+    </div>
+  </div>
+</section>
+
+<section id="hours" style="padding-top:0">
+  <div class="wrap">
+    <div class="info">
+      <div class="box">
+        <h3>ساعات الدوام</h3>
+        <div class="hrs"><span>السبت لحد الخميس</span><b class="num">8:00 · 19:00</b></div>
+        <div class="hrs"><span>الجمعة</span><b class="num">13:00 · 18:00</b></div>
+      </div>
+      <div class="box">
+        <h3>وين إحنا ومنطقة الاستلام</h3>
+        <ul>
+          <li>المغسلة بنابلس، وفي موقف مظلل للاستنا</li>
+          <li>استلام وتسليم من البيت داخل نابلس</li>
+          <li>الدفع كاش أو بطاقة</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <i class="bub b1"></i><i class="bub b3"></i><i class="bub b4"></i>
+  <div class="wrap">
+    <h2>سيارتك بدها غسلة؟</h2>
+    <p>ابعتلنا هسا، وخذ أقرب دور فاضي بدون ما تستنى.</p>
+    <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P16">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>
+      احجز عالواتساب
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>رغوة اسم تجريبي. هاي الصفحة <b>مثال من سهل</b> لمواقع المصالح المحلية.</footer>
+</body>
+</html>
