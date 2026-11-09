@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>المصطبة كوفي · مثال من سهل</title>
+<meta name="description" content="مثال من سهل: صفحة تجريبية لكوفي شوب، فيها قائمة المشروبات والأسعار وطلب مسبق عالواتساب للاستلام بدون دور.">
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format("woff2");font-weight:600}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-800-normal.woff2) format("woff2");font-weight:800}
+:root{--roast:#2A1A12;--roast2:#3A251A;--crema:#E8C9A0;--milk:#FBF4EA;--milk2:#F2E6D6;--copper:#D9692B;--copper-d:#B5531E;--ink:#2A1A12;--mute:#7A6455;--wa:#1FAF54}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--milk);color:var(--ink);font-family:Plex,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.num{font-family:Inter,Plex,sans-serif;font-weight:800;letter-spacing:-.02em}
+.demo{background:var(--copper);color:#fff;font-size:13px;font-weight:600;text-align:center;padding:7px 16px}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:var(--milk);border-bottom:3px solid var(--roast)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--roast)}
+.logo i{position:relative;width:30px;height:32px;display:block}
+.logo i::before{content:"";position:absolute;left:2px;right:6px;bottom:0;height:22px;background:var(--roast);border-radius:3px 3px 10px 10px}
+.logo i::after{content:"";position:absolute;right:0;bottom:7px;width:9px;height:10px;border:3px solid var(--roast);border-left:0;border-radius:0 8px 8px 0}
+.logo b{position:absolute;left:8px;top:0;width:4px;height:8px;border-radius:4px;background:var(--copper)}
+.logo small{display:block;font-size:11.5px;font-weight:500;color:var(--mute);line-height:1.1}
+.btn-sm{background:var(--roast);color:var(--crema);font-weight:700;font-size:14px;padding:8px 16px;border-radius:999px}
+
+/* hero */
+.hero{padding:30px 0 34px}
+.hero h1{font-size:38px;line-height:1.2;font-weight:700;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--copper)}
+.hero p.lead{font-size:17px;color:var(--roast2);margin-top:12px}
+.counter{position:relative;margin-top:24px;background:var(--roast);border-radius:28px;padding:24px 20px 20px;color:var(--milk);overflow:hidden}
+.counter .steam{position:absolute;top:18px;left:56px;display:flex;gap:9px}
+.counter .steam span{width:6px;height:34px;border-radius:6px;background:rgba(232,201,160,.35)}
+.counter .steam span:nth-child(2){height:46px;margin-top:-8px}
+.cup{position:absolute;left:24px;top:64px;width:92px;height:96px}
+.cup .c{position:absolute;left:0;right:14px;bottom:0;height:80px;background:var(--milk);border-radius:6px 6px 30px 30px}
+.cup .c::before{content:"";position:absolute;left:8px;right:8px;top:6px;height:12px;border-radius:50%;background:#8A5A3B}
+.cup .c::after{content:"";position:absolute;left:20px;top:30px;width:38px;height:22px;border-radius:4px;background:var(--copper)}
+.cup .h{position:absolute;right:0;bottom:26px;width:24px;height:30px;border:7px solid var(--milk);border-left:0;border-radius:0 16px 16px 0}
+.ticket{position:relative;margin-right:0;margin-left:112px;background:var(--milk);color:var(--ink);border-radius:18px;padding:14px 16px}
+.ticket .t1{font-size:13px;color:var(--mute)}
+.ticket .t2{font-weight:700;font-size:16px;line-height:1.4;margin:4px 0 8px}
+.ticket .ready{display:flex;align-items:center;justify-content:space-between;background:var(--crema);border-radius:12px;padding:8px 12px;font-weight:700;font-size:14px}
+.ticket .ready .num{font-size:20px}
+.counter .note{margin-top:18px;font-size:14.5px;color:var(--crema)}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--wa);color:#fff;font-weight:700;font-size:18px;padding:17px 20px;border-radius:18px;margin-top:18px}
+.cta .wa-i{width:22px;height:22px;border-radius:50%;border:3px solid #fff;position:relative}
+.cta .wa-i::after{content:"";position:absolute;left:-4px;bottom:-5px;border:5px solid transparent;border-top-color:#fff;transform:rotate(30deg)}
+
+section{padding:36px 0}
+h2{font-size:27px;line-height:1.25;font-weight:700;margin-bottom:6px}
+.sub{color:var(--mute);font-size:15.5px;margin-bottom:18px}
+
+/* flow */
+.flow{background:var(--crema)}
+.flow ol{list-style:none;display:grid;gap:10px}
+.flow li{display:flex;gap:14px;align-items:center;background:var(--milk);border-radius:18px;padding:14px 16px}
+.flow li i{flex:none;width:46px;height:46px;border-radius:14px;background:var(--roast);position:relative}
+.flow .i1::before{content:"";position:absolute;inset:12px 13px 14px;border-radius:6px;background:var(--wa)}
+.flow .i2::before{content:"";position:absolute;left:12px;top:12px;width:22px;height:22px;border-radius:50%;border:3px solid var(--crema)}
+.flow .i2::after{content:"";position:absolute;left:22px;top:17px;width:3px;height:9px;background:var(--copper);border-radius:2px}
+.flow .i3::before{content:"";position:absolute;left:13px;right:15px;bottom:11px;height:20px;background:var(--milk);border-radius:3px 3px 9px 9px}
+.flow li b{display:block;font-size:16.5px}
+.flow li span{font-size:14.5px;color:var(--mute)}
+
+/* menu */
+.cat{margin-top:22px}
+.cat h3{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:700;margin-bottom:10px}
+.cat h3::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--copper)}
+.cat.cold h3::before{background:#5BA4C9;border-radius:4px}
+.cat.sweet h3::before{background:#C98B4B;border-radius:4px 4px 50% 50%}
+.row{display:flex;align-items:baseline;gap:10px;padding:11px 14px;border-radius:14px}
+.row:nth-child(odd){background:var(--milk2)}
+.row .n{font-weight:600;font-size:16px}
+.row .d{display:block;font-size:13px;color:var(--mute);font-weight:400}
+.row .dots{flex:1}
+.row .p{font-size:17px;white-space:nowrap}
+.row .p small{font-family:Plex;font-weight:500;font-size:13px;color:var(--mute)}
+.sizes{display:flex;gap:8px;margin:4px 0 2px}
+.sizes span{background:var(--roast);color:var(--crema);font-size:13px;font-weight:600;padding:4px 12px;border-radius:999px}
+
+/* card */
+.loyal{background:var(--roast);color:var(--milk);border-radius:28px;padding:24px 20px}
+.loyal h2{color:var(--crema)}
+.loyal p{color:#E9DCCB;font-size:15.5px}
+.stamps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:18px}
+.stamps span{aspect-ratio:1;border-radius:50%;border:2.5px dashed rgba(232,201,160,.5);display:grid;place-items:center}
+.stamps span.on{background:var(--crema);border:0}
+.stamps span.on::after{content:"";width:40%;height:40%;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:var(--roast);transform:rotate(-30deg)}
+.stamps span.free{background:var(--copper);border:0;color:#fff;font-weight:700;font-size:13px}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:1}
+.tile.wide{grid-column:span 2;aspect-ratio:2/1}
+.tile figcaption{position:absolute;right:12px;bottom:10px;background:rgba(42,26,18,.82);color:var(--milk);font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px}
+.art{background:#C98B4B}
+.art::before{content:"";position:absolute;inset:16%;border-radius:50%;background:radial-gradient(circle at 50% 50%,#FBF4EA 0 10%,#B97A45 11% 18%,#FBF4EA 19% 28%,#B97A45 29% 36%,#FBF4EA 37% 46%,#8A5A3B 47%)}
+.beans{background:var(--roast);background-image:radial-gradient(ellipse 9px 13px at 25% 30%,#6B4128 98%,transparent),radial-gradient(ellipse 9px 13px at 70% 22%,#7C4C2F 98%,transparent),radial-gradient(ellipse 9px 13px at 50% 60%,#6B4128 98%,transparent),radial-gradient(ellipse 9px 13px at 20% 78%,#7C4C2F 98%,transparent),radial-gradient(ellipse 9px 13px at 80% 70%,#6B4128 98%,transparent),radial-gradient(ellipse 9px 13px at 45% 88%,#7C4C2F 98%,transparent)}
+.iced{background:linear-gradient(160deg,#BFE0EE,#7FB6D2)}
+.iced::before{content:"";position:absolute;left:34%;right:34%;top:16%;bottom:12%;background:linear-gradient(#F2E6D6 0 30%,#A8724A 30% 100%);border-radius:6px 6px 14px 14px;opacity:.95}
+.iced::after{content:"";position:absolute;left:46%;top:6%;width:6px;height:40%;background:var(--copper);border-radius:4px;transform:rotate(10deg)}
+.bar{background:linear-gradient(180deg,#E8C9A0 0 62%,#3A251A 62%)}
+.bar i{position:absolute;bottom:38%;width:46px;height:60px;border-radius:6px 6px 16px 16px;background:var(--milk)}
+.bar i:nth-child(1){right:14%}.bar i:nth-child(2){right:42%;height:46px;background:var(--copper)}.bar i:nth-child(3){right:68%;height:70px}
+.bar b{position:absolute;right:8%;left:8%;bottom:20%;height:8px;border-radius:4px;background:#5A3A27}
+.pastry{background:#F2E6D6}
+.pastry::before{content:"";position:absolute;left:18%;right:18%;top:36%;height:32%;border-radius:50% 50% 40% 40%;background:repeating-linear-gradient(100deg,#D99A52 0 14px,#C27F3A 14px 18px)}
+
+/* hours */
+.info{display:grid;gap:10px}
+.box{background:var(--milk2);border-radius:20px;padding:16px 18px}
+.box h3{font-size:17px;margin-bottom:6px}
+.hrs{display:flex;justify-content:space-between;font-size:15.5px;padding:4px 0}
+.hrs .num{font-size:16px;font-weight:700}
+.box p{font-size:15px;color:var(--roast2)}
+
+.final{background:var(--roast);color:var(--milk);text-align:center;border-radius:32px 32px 0 0;padding:40px 0 34px;margin-top:20px}
+.final h2{font-size:30px;color:var(--crema)}
+.final p{color:#E9DCCB;font-size:16px}
+footer{background:var(--roast);color:#BFA996;text-align:center;font-size:13px;padding:0 20px 30px}
+footer b{color:var(--crema)}
+</style>
+</head>
+<body>
+<div class="demo">مثال من سهل · صفحة تجريبية</div>
+
+<header class="top" data-sticky>
+  <div class="wrap">
+    <a class="logo" href="#"><i><b></b></i><span>المصطبة<small>قهوة وحلو جنبها</small></span></a>
+    <a class="btn-sm" href="https://adhamabuallan.github.io/sahl/wa/?c=P17">اطلب هسا</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <h1>اطلب قهوتك من الطريق، <em>واستلمها جاهزة</em></h1>
+    <p class="lead">ابعث طلبك عالواتساب وانت جاي، منجهزه خلال 7 دقايق، وبتمر بتاخذه بدون ما توقف عالدور.</p>
+    <div class="counter">
+      <div class="steam"><span></span><span></span><span></span></div>
+      <div class="cup"><div class="c"></div><div class="h"></div></div>
+      <div class="ticket">
+        <div class="t1">طلب استلام</div>
+        <div class="t2">لاتيه وسط + كرواسون زعتر</div>
+        <div class="ready"><span>جاهز الساعة</span><span class="num">7:42</span></div>
+      </div>
+      <p class="note">الصبح قبل الشغل؟ طلبك بيكون عالرف باسمك.</p>
+    </div>
+    <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P17"><span class="wa-i"></span>اطلب عالواتساب</a>
+  </div>
+</section>
+
+<section class="flow" id="how">
+  <div class="wrap">
+    <h2>طلب بدون دور</h2>
+    <p class="sub">ثلاث خطوات من التلفون للكاسة.</p>
+    <ol>
+      <li><i class="i1"></i><div><b>بتختار من القائمة</b><span>وبتبعث الطلب برسالة جاهزة</span></div></li>
+      <li><i class="i2"></i><div><b>منأكدلك الوقت</b><span>بنحكيلك أي ساعة بيكون جاهز</span></div></li>
+      <li><i class="i3"></i><div><b>بتمر وبتاخذه</b><span>عالرف باسمك، والدفع عند الاستلام</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <h2>قائمة المشروبات</h2>
+    <p class="sub">الأسعار بالشيكل، حجم وسط.</p>
+    <div class="sizes"><span>صغير ناقص 2</span><span>وسط</span><span>كبير زايد 3</span></div>
+
+    <div class="cat">
+      <h3>قهوة سخنة</h3>
+      <div class="row"><span class="n">إسبريسو<span class="d">شوت مركز من بن محمص عنا</span></span><span class="dots"></span><span class="p num">8 <small>شيكل</small></span></div>
+      <div class="row"><span class="n">قهوة عربية بالهيل<span class="d">ركوة لشخص أو اثنين</span></span><span class="dots"></span><span class="p num">7 <small>شيكل</small></span></div>
+      <div class="row"><span class="n">أمريكانو</span><span class="dots"></span><span class="p num">10 <small>شيكل</small></span></div>
+      <div class="row"><span class="n">كابتشينو</span><span class="dots"></span><span class="p num">13 <small>شيكل</small></span></div>
+      <div class="row"><span class="n">لاتيه</span><span class="dots"></span><span class="p num">14 <small>شيكل</small></span></div>
+      <div class="row"><span class="n">سبانش لاتيه<span class="d">حليب مكثف وإسبريسو</span></span><span class="dots"></span><span class="p num">16 <small>شيكل</small></span></div>
+    </div>
+
+    <div class="cat cold">
+      <h3>بارد</h3>
+      <div class="row"><span class="n">آيس لاتيه</span><span class="dots"></span><span class="p num">15 <small>شيكل</small></span></div>
+      <div class="row"><span class="n">آيس موكا</span><span class="dots"></span><span class="p num">17 <small>شيكل</small></span></div>
+      <div class="row"><span class="n">فرابيه كراميل</span><span class="dots"></span><span class="p num">18 <small>شيكل</small></span></div>
+      <div class="row"><span class="n">ليمون ونعنع</span><span class="dots"></span><span class="p num">12 <small>شيكل</small></span></div>
+    </div>
+
+    <div class="cat sweet">
+      <h3>حلو جنب القهوة</h3>
+      <div class="row"><span class="n">كرواسون زبدة أو زعتر</span><span class="dots"></span><span class="p num">9 <small>شيكل</small></span></div>
+      <div class="row"><span class="n">كوكيز شوكولاتة</span><span class="dots"></span><span class="p num">6 <small>شيكل</small></span></div>
+      <div class="row"><span class="n">قطعة تشيز كيك</span><span class="dots"></span><span class="p num">16 <small>شيكل</small></span></div>
+    </div>
+    <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P17"><span class="wa-i"></span>ابعث طلبك هسا</a>
+  </div>
+</section>
+
+<section id="card" style="padding-top:8px">
+  <div class="wrap">
+    <div class="loyal">
+      <h2>الكاسة العاشرة علينا</h2>
+      <p>كل طلب عالواتساب بينحسب بكرتك. بعد 9 كاسات، العاشرة مجانا.</p>
+      <div class="stamps">
+        <span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span>
+        <span class="on"></span><span></span><span></span><span></span><span class="free">مجانا</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <h2>من عنا</h2>
+    <p class="sub">البار، الحلو، والرسمة عالحليب.</p>
+    <div class="gal">
+      <figure class="tile wide bar"><i></i><i></i><i></i><b></b><figcaption>البار الصبح</figcaption></figure>
+      <figure class="tile art"><figcaption>لاتيه</figcaption></figure>
+      <figure class="tile iced"><figcaption>آيس لاتيه</figcaption></figure>
+      <figure class="tile beans"><figcaption>بن محمص طازة</figcaption></figure>
+      <figure class="tile pastry"><figcaption>كرواسون</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="hours" style="padding-top:0">
+  <div class="wrap info">
+    <h2>الدوام والتوصيل</h2>
+    <div class="box">
+      <h3>ساعات الدوام</h3>
+      <div class="hrs"><span>السبت للخميس</span><span>من <bdi class="num">6:30</bdi> لحد <bdi class="num">23:00</bdi></span></div>
+      <div class="hrs"><span>الجمعة</span><span>من <bdi class="num">14:00</bdi> لحد <bdi class="num">23:00</bdi></span></div>
+    </div>
+    <div class="box">
+      <h3>الاستلام والتوصيل</h3>
+      <p>الاستلام من المحل وسط البلد جنب الدوار. منوصل داخل البلد للطلبات فوق <bdi dir="ltr">40</bdi> شيكل، والتوصيل <bdi dir="ltr">5</bdi> شيكل.</p>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>قهوتك جاهزة قبل ما توصل</h2>
+    <p>رسالة وحدة عالواتساب، وطلبك بيستناك.</p>
+    <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P17"><span class="wa-i"></span>اطلب عالواتساب</a>
+  </div>
+</section>
+</main>
+<footer>المصطبة اسم تجريبي. هاي الصفحة <b>مثال من سهل</b> لمواقع المصالح المحلية.</footer>
+</body>
+</html>

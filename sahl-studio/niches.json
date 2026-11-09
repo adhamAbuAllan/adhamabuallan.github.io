@@ -21,7 +21,9 @@
    "key": "coffee",
    "ar": "كوفي شوب",
    "brief": "coffee shop: drinks menu, pickup orders on WhatsApp",
-   "status": "todo"
+   "status": "done",
+   "date": "2026-11-10",
+   "code": "P17"
   },
   {
    "key": "sweets",
