@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>حلويات زهر القطر · مثال من سهل</title>
+<meta name="description" content="مثال من سهل: صفحة تجريبية لمحل حلويات، فيها صدور الكنافة والأسعار وحجز طلبيات المناسبات عالواتساب قبل بيوم.">
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format("woff2");font-weight:600}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-800-normal.woff2) format("woff2");font-weight:800}
+:root{--plum:#3B1420;--plum2:#55202F;--cream:#FFF6E6;--cream2:#F7E7CC;--kunafa:#E3862A;--kunafa-d:#B9621A;--syrup:#F4B942;--pist:#7DA23F;--pist-d:#4E6F22;--ink:#3B1420;--mute:#7B5A60;--wa:#1FAF54}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--ink);font-family:Plex,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.num{font-family:Inter,Plex,sans-serif;font-weight:800;letter-spacing:-.02em}
+.demo{background:var(--pist-d);color:#fff;font-size:13px;font-weight:600;text-align:center;padding:7px 16px}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px}
+h2{font-size:28px;line-height:1.25;font-weight:700}
+.sub{color:var(--mute);font-size:15.5px;margin-top:6px}
+section{padding:38px 0}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:var(--plum);color:var(--cream)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px}
+.logo i{width:34px;height:34px;border-radius:50%;background:var(--kunafa);position:relative;display:block;box-shadow:inset 0 0 0 4px var(--syrup)}
+.logo i::after{content:"";position:absolute;inset:11px;border-radius:50%;background:var(--pist)}
+.logo small{display:block;font-size:11.5px;font-weight:500;color:var(--cream2);opacity:.8;line-height:1.1}
+.btn-sm{background:var(--syrup);color:var(--plum);font-weight:700;font-size:14px;padding:8px 15px;border-radius:10px}
+
+/* hero */
+.hero{padding:30px 0 40px;background:var(--plum);color:var(--cream);border-radius:0 0 36px 36px}
+.hero h1{font-size:37px;line-height:1.22;font-weight:700}
+.hero h1 em{font-style:normal;color:var(--syrup)}
+.hero .lead{font-size:17px;margin-top:12px;color:var(--cream2)}
+.tray{position:relative;width:260px;height:260px;margin:30px auto 0}
+.tray .rim{position:absolute;inset:0;border-radius:50%;background:#C9C3B8;box-shadow:inset 0 0 0 8px #E8E3DA,inset 0 0 0 12px #A9A296}
+.tray .k{position:absolute;inset:18px;border-radius:50%;background:repeating-conic-gradient(var(--kunafa) 0 6deg,var(--kunafa-d) 6deg 9deg)}
+.tray .k::before{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,rgba(244,185,66,.55) 0 40%,transparent 70%)}
+.tray .p{position:absolute;width:9px;height:9px;border-radius:3px;background:var(--pist)}
+.tray .cut{position:absolute;left:50%;top:18px;bottom:50%;width:3px;background:var(--plum);transform-origin:bottom;opacity:.45}
+.slip{position:absolute;bottom:-10px;right:-6px;background:var(--cream);color:var(--plum);border-radius:16px;padding:12px 14px;width:178px;transform:rotate(-3deg);box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.slip b{display:block;font-size:13px;color:var(--kunafa-d)}
+.slip span{display:block;font-size:14px;font-weight:600;line-height:1.4}
+.slip .num{font-size:20px;color:var(--plum)}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--wa);color:#fff;font-weight:700;font-size:19px;padding:17px 20px;border-radius:16px;margin-top:34px}
+.wa-i{width:24px;height:24px;border-radius:50%;border:3px solid #fff;position:relative;display:inline-block}
+.wa-i::after{content:"";position:absolute;left:-4px;bottom:-4px;width:8px;height:8px;background:#fff;clip-path:polygon(0 100%,100% 40%,40% 0)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chips span{background:var(--plum2);font-size:13.5px;padding:5px 12px;border-radius:999px}
+
+/* steps */
+.steps{display:grid;gap:12px;margin-top:22px}
+.step{display:flex;gap:14px;align-items:flex-start;background:var(--cream2);border-radius:18px;padding:16px}
+.step .d{flex:0 0 46px;height:46px;border-radius:14px;background:var(--plum);color:var(--syrup);display:grid;place-items:center;font-size:20px}
+.step b{display:block;font-size:17px}
+.step span{color:var(--mute);font-size:14.5px}
+
+/* trays */
+.trays{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.tr{background:#fff;border-radius:20px;padding:14px;position:relative;overflow:hidden}
+.tr .pic{height:96px;border-radius:14px;margin-bottom:10px;position:relative;overflow:hidden}
+.tr h3{font-size:16px;line-height:1.35}
+.tr .who{font-size:13px;color:var(--mute)}
+.tr .pr{margin-top:8px;font-size:22px;color:var(--plum)}
+.tr .pr small{font-family:Plex;font-size:13px;font-weight:600}
+.k1{background:repeating-linear-gradient(100deg,var(--kunafa) 0 5px,var(--kunafa-d) 5px 7px)}
+.k1::after{content:"";position:absolute;inset:auto 0 0 0;height:22px;background:repeating-linear-gradient(90deg,var(--pist) 0 6px,var(--pist-d) 6px 9px);opacity:.9}
+.b1{background:linear-gradient(135deg,#F0C46A 25%,transparent 25%) -14px 0/28px 28px,linear-gradient(225deg,#F0C46A 25%,transparent 25%) -14px 0/28px 28px,linear-gradient(315deg,#F0C46A 25%,transparent 25%) 0 0/28px 28px,linear-gradient(45deg,#F0C46A 25%,transparent 25%) 0 0/28px 28px,#C98A2E}
+.m1{background:radial-gradient(circle at 25% 35%,#fff 0 13px,transparent 14px),radial-gradient(circle at 60% 60%,#fff 0 13px,transparent 14px),radial-gradient(circle at 85% 30%,#fff 0 13px,transparent 14px),radial-gradient(circle at 40% 80%,#fff 0 11px,transparent 12px),#E9D6B7}
+.h1t{background:repeating-linear-gradient(0deg,#F7EBDD 0 14px,#E4CDB0 14px 16px)}
+.h1t::after{content:"";position:absolute;inset:30px 22px;border-radius:50%;background:var(--pist);opacity:.75}
+.mix{background:conic-gradient(var(--kunafa) 0 90deg,#C98A2E 90deg 180deg,#E9D6B7 180deg 270deg,var(--pist) 270deg)}
+.cake{background:linear-gradient(var(--plum2) 0 30%,var(--cream2) 30% 40%,var(--plum2) 40% 70%,var(--cream2) 70% 80%,var(--plum2) 80%)}
+.tag{position:absolute;top:22px;left:22px;background:var(--syrup);color:var(--plum);font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px}
+
+/* kilo */
+.kilo{background:var(--cream2);border-radius:28px 28px 0 0}
+.list{margin-top:18px;background:#fff;border-radius:20px;padding:6px 16px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px dashed #E8D5B5}
+.row:last-child{border:0}
+.row .n{font-weight:600;font-size:16px}
+.row .n small{display:block;font-weight:400;color:var(--mute);font-size:13px}
+.row .p{font-size:18px;white-space:nowrap}
+.row .p small{font-family:Plex;font-size:12.5px;font-weight:600;color:var(--mute)}
+
+/* occasions */
+.occ{background:var(--pist-d);color:#fff}
+.occ .sub{color:#DDE8C9}
+.occs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.oc{background:rgba(255,255,255,.12);border-radius:18px;padding:14px 10px;text-align:center}
+.oc i{display:block;width:44px;height:44px;margin:0 auto 8px;border-radius:12px;background:var(--syrup)}
+.oc:nth-child(2) i{border-radius:50%;background:var(--kunafa)}
+.oc:nth-child(3) i{clip-path:polygon(50% 0,100% 100%,0 100%);background:var(--cream)}
+.oc:nth-child(4) i{border-radius:50% 50% 12px 12px;background:#F2A6B5}
+.oc:nth-child(5) i{background:var(--cream);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.oc:nth-child(6) i{border-radius:12px 12px 50% 50%;background:var(--syrup)}
+.oc b{font-size:14.5px;display:block;line-height:1.35}
+.oc span{font-size:12.5px;color:#DDE8C9}
+
+/* gallery */
+.gal{display:grid;grid-auto-flow:dense;grid-template-columns:repeat(3,1fr);grid-auto-rows:92px;gap:8px;margin-top:20px}
+.gal div{border-radius:16px;position:relative;overflow:hidden}
+.gal .g1{grid-column:span 2;grid-row:span 2;background:repeating-conic-gradient(from 10deg at 50% 120%,var(--kunafa) 0 5deg,var(--kunafa-d) 5deg 8deg)}
+.gal .g1::after{content:"";position:absolute;left:18%;right:18%;top:22%;height:26%;border-radius:50%;background:var(--pist);opacity:.85}
+.gal .g2{background:radial-gradient(circle at 50% 50%,var(--syrup) 0 22px,transparent 23px),var(--plum)}
+.gal .g3{background:repeating-linear-gradient(45deg,#C98A2E 0 10px,#F0C46A 10px 20px)}
+.gal .g4{background:radial-gradient(circle at 30% 40%,#fff 0 12px,transparent 13px),radial-gradient(circle at 70% 65%,#fff 0 12px,transparent 13px),var(--pist)}
+.gal .g5{background:linear-gradient(var(--cream2) 0 50%,transparent 50%),repeating-linear-gradient(90deg,var(--plum2) 0 30px,var(--kunafa) 30px 60px)}
+.gal .g6{background:conic-gradient(from 45deg,#F2A6B5 0 25%,var(--cream2) 0 50%,#F2A6B5 0 75%,var(--cream2) 0)}
+
+/* info */
+.info{display:grid;gap:12px;margin-top:20px}
+.card{background:#fff;border-radius:20px;padding:16px 18px}
+.card h3{font-size:17px;margin-bottom:6px}
+.hrs div{display:flex;justify-content:space-between;font-size:15px;padding:4px 0}
+.hrs .num{font-size:15px;font-weight:700}
+.area{display:flex;flex-wrap:wrap;gap:8px}
+.area span{background:var(--cream2);padding:4px 11px;border-radius:999px;font-size:14px}
+.fine{font-size:13.5px;color:var(--mute);margin-top:8px}
+
+.final{background:var(--plum);color:var(--cream);text-align:center;border-radius:36px 36px 0 0}
+.final p{color:var(--cream2);margin-top:8px}
+footer{background:var(--plum);color:var(--cream2);text-align:center;font-size:13px;padding:0 20px 34px}
+</style>
+</head>
+<body>
+<header class="top" data-sticky>
+  <div class="demo">مثال من سهل · صفحة تجريبية</div>
+  <div class="wrap">
+    <a class="logo" href="#"><i></i><span>زهر القطر<small>حلويات ومناسبات</small></span></a>
+    <a class="btn-sm" href="https://adhamabuallan.github.io/sahl/wa/?c=P18">احجز طلبيتك</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <h1>صدر المناسبة <em>محجوز ومحسوب</em> قبلها بيوم</h1>
+    <p class="lead">اختار الصدر حسب عدد الضيوف، احجز اليوم والساعة عالواتساب، وبيوصلك سخن عالموعد.</p>
+    <div class="chips"><span>كنافة نابلسية</span><span>بقلاوة</span><span>معمول</span><span>كيك</span></div>
+    <div class="tray">
+      <div class="rim"></div>
+      <div class="k"></div>
+      <span class="p" style="top:70px;left:90px"></span><span class="p" style="top:120px;left:150px"></span><span class="p" style="top:160px;left:80px"></span><span class="p" style="top:95px;left:180px"></span><span class="p" style="top:185px;left:140px"></span><span class="p" style="top:125px;left:110px"></span>
+      <div class="slip"><b>طلبية محجوزة</b><span>صدر كنافة كبير، 40 شخص</span><span>الخميس الساعة <bdi class="num" dir="ltr">7:30</bdi></span></div>
+    </div>
+    <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P18"><span class="wa-i"></span>احجز صدرك عالواتساب</a>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2>طلبية العزومة بدون تلفونات</h2>
+    <p class="sub">من التلفون لباب البيت، وكل شي واضح من أول رسالة.</p>
+    <div class="steps">
+      <div class="step"><div class="d num">1</div><div><b>بتختار الصدر</b><span>عدد الضيوف بيحددلك الحجم والسعر</span></div></div>
+      <div class="step"><div class="d num">2</div><div><b>بتبعث اليوم والساعة</b><span>رسالة جاهزة فيها كل التفاصيل</span></div></div>
+      <div class="step"><div class="d num">3</div><div><b>منأكدلك الحجز</b><span>وبنخبزه بنفس اليوم عشان يوصل سخن</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="trays">
+  <div class="wrap">
+    <h2>صدور المناسبات</h2>
+    <p class="sub">الأسعار بالشيكل، والحجز قبل 24 ساعة على الأقل.</p>
+    <div class="trays">
+      <div class="tr"><div class="pic k1"></div><span class="tag">الأكثر طلب</span><h3>كنافة نابلسية صدر وسط</h3><div class="who">حوالي 20 شخص</div><div class="pr num">160 <small>شيكل</small></div></div>
+      <div class="tr"><div class="pic k1"></div><h3>كنافة نابلسية صدر كبير</h3><div class="who">حوالي 40 شخص</div><div class="pr num">290 <small>شيكل</small></div></div>
+      <div class="tr"><div class="pic b1"></div><h3>بقلاوة مشكلة صدر</h3><div class="who">حوالي 60 قطعة</div><div class="pr num">220 <small>شيكل</small></div></div>
+      <div class="tr"><div class="pic cake"></div><h3>كيك المناسبة</h3><div class="who">بالاسم والتاريخ</div><div class="pr num">140 <small>شيكل</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="kilo" id="kilo">
+  <div class="wrap">
+    <h2>بالكيلو للبيت</h2>
+    <p class="sub">بتطلب أي كمية، والسعر للكيلو.</p>
+    <div class="list">
+      <div class="row"><span class="n">بقلاوة بالفستق<small>جوز وكاجو وفستق حلبي</small></span><span class="p num">90 <small>شيكل</small></span></div>
+      <div class="row"><span class="n">معمول بالتمر<small>بالسميد، بدون إضافات</small></span><span class="p num">60 <small>شيكل</small></span></div>
+      <div class="row"><span class="n">معمول بالجوز والفستق</span><span class="p num">80 <small>شيكل</small></span></div>
+      <div class="row"><span class="n">كنافة بالقطعة<small>سعر القطعة</small></span><span class="p num">12 <small>شيكل</small></span></div>
+      <div class="row"><span class="n">علبة هدية مشكلة<small>نص كيلو بعلبة مسكرة</small></span><span class="p num">55 <small>شيكل</small></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="occ" id="occ">
+  <div class="wrap">
+    <h2>لأي مناسبة عندك</h2>
+    <p class="sub">احكيلنا شو المناسبة وعدد الضيوف، ومنقترحلك الصدر المناسب.</p>
+    <div class="occs">
+      <div class="oc"><i></i><b>خطبة وعرس</b><span>صدور وضيافة</span></div>
+      <div class="oc"><i></i><b>نجاح توجيهي</b><span>كنافة للحارة</span></div>
+      <div class="oc"><i></i><b>عيد</b><span>معمول بالكيلو</span></div>
+      <div class="oc"><i></i><b>مولود جديد</b><span>علب هدايا</span></div>
+      <div class="oc"><i></i><b>عيد ميلاد</b><span>كيك بالاسم</span></div>
+      <div class="oc"><i></i><b>عزومة جمعة</b><span>صدر سخن</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <h2>من فرن زهر القطر</h2>
+    <p class="sub">صدور طالعة سخنة كل يوم.</p>
+    <div class="gal"><div class="g1"></div><div class="g2"></div><div class="g3"></div><div class="g4"></div><div class="g5"></div><div class="g6"></div></div>
+  </div>
+</section>
+
+<section id="info" style="padding-top:10px">
+  <div class="wrap">
+    <h2>الدوام والتوصيل</h2>
+    <div class="info">
+      <div class="card hrs"><h3>ساعات الدوام</h3>
+        <div><span>السبت للخميس</span><bdi class="num" dir="ltr">9:00 - 22:00</bdi></div>
+        <div><span>الجمعة</span><bdi class="num" dir="ltr">13:00 - 23:00</bdi></div>
+      </div>
+      <div class="card"><h3>مناطق التوصيل</h3>
+        <div class="area"><span>وسط البلد</span><span>الأحياء القريبة</span><span>القرى المجاورة</span></div>
+        <p class="fine">التوصيل داخل البلد 15 شيكل، ومجاني لطلبيات فوق 250 شيكل.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>عندك مناسبة قريبة؟</h2>
+    <p>احجز صدرك هسا، وإحنا منرتب الباقي.</p>
+    <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P18"><span class="wa-i"></span>احجز عالواتساب</a>
+  </div>
+</section>
+</main>
+<footer>حلويات زهر القطر اسم تجريبي. هاي صفحة مثال من سهل.</footer>
+</body>
+</html>
