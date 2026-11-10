@@ -74,7 +74,9 @@ def niche_colors(tall_png):
     cand = []
     for n, (r, g, b) in q.getcolors(60 * 240):
         h, l, s = colorsys.rgb_to_hls(r / 255, g / 255, b / 255)
-        if s > 0.22 and 0.12 < l < 0.85: cand.append((s * (n ** 0.35), h, l, s))
+        if s > 0.22 and 0.12 < l < 0.85:
+            wa_green = 0.30 < h < 0.44          # WhatsApp buttons are on every page; they are not the page's mood
+            cand.append((s * (n ** 0.5) * (0.25 if wa_green else 1), h, l, s))
     cand.sort(reverse=True)
     if not cand: return "#22C55E", "#15803D"
     def hexc(h, l, s):

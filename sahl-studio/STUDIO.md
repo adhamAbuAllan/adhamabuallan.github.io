@@ -171,7 +171,7 @@ Extra post fields for v2:
 Run the arabic-voice checker on them like every other string.
 
 `capture.mjs` also writes `frames/<site>_tall2x.jpg` and `frames/<site>_header2x.png`; commit them with the page so the Reel can be rebuilt sharp.
-A render takes about 4 to 5 minutes. Check frames at 1.5, 3.5, 6.5, 10 and 13 s: hook fully visible, phone not clipped, cards readable and not covering each other, notification readable, end card centered.
+A render takes about 4 to 5 minutes. Check frames at 1.5, 3.5, 6.5, 9, 10 and 13.3 s (the contact sheet `studio_reel.py` writes shows exactly these): hook fully visible, phone not clipped, cards readable and not covering each other, notification readable, end card centered.
 
 ### One command for any Reel in this style
 
