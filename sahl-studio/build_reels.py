@@ -101,14 +101,17 @@ def build_showcase_v2(p, seconds=15.0):
     t = {"hook0": 0.12, "wordGap": 0.11, "underline": 0.12 + hook_words * 0.11 + 0.15, "move": 4 * B - 0.3,
          "cards": [6 * B, 9 * B, 12 * B][: len(points)], "cardsOut": 15 * B, "notif": 15.5 * B, "end": 18 * B,
          "cta": 18 * B + 0.95, "tap": 21 * B}
+    br = p.get("brand", {})   # optional: reuse the style for another brand or language
     cfg = {
-        "chip": p["chip"], "hook": p["hook_html"], "sub": p["sub"], "note": p["note"],
-        "endTitle": p.get("end_title", V2_END["title"]), "cta": V2_END["cta"], "endSmall": p.get("end_small", END["small"]),
-        "points": points, "notif": p.get("notif", "زبون جديد بعتلك طلبه"), "notifApp": "واتساب", "notifNow": "هسا",
+        "chip": p["chip"], "hook": p["hook_html"], "sub": p.get("sub", ""), "note": p.get("note", "صفحة جاهزة خلال 24 ساعة"),
+        "endTitle": p.get("end_title", V2_END["title"]), "cta": p.get("cta", V2_END["cta"]), "endSmall": p.get("end_small", "الرابط بالوصف"),
+        "points": points, "notif": p.get("notif", "زبون جديد بعتلك طلبه"), "notifApp": p.get("notif_app", "واتساب"), "notifNow": p.get("notif_now", "هسا"),
+        "dir": br.get("dir", "rtl"), "lang": br.get("lang", ""), "accent": br.get("accent", "#22C55E"), "onAccent": br.get("on_accent", "#052E16"),
+        "logo": br.get("logo", "out/brand/sahl-wordmark.svg"), "ctaIcon": br.get("cta_icon", "whatsapp"), "notifIcon": br.get("notif_icon", "whatsapp"),
         "tall": tall, "header": hdr, "tallH": tall_h, "scrollTo": p.get("scroll_to", SCROLL.get(site, 3000)),
         "segments": [[5 * B, 8.4 * B, 0, 0.36], [9.2 * B, 11.6 * B, 0.36, 0.7], [12.2 * B, 14.8 * B, 0.7, 1.0]],
         "statusBg": "#%02X%02X%02X" % (r, g, b), "statusFg": "#0B0F0D" if (r * 299 + g * 587 + b * 114) / 1000 > 150 else "#FFFFFF",
-        "c1": c1, "c2": c2, "flip": num % 2, "t": t,
+        "c1": c1, "c2": c2, "flip": p.get("_flip", num % 2), "t": t,
     }
     html = open("tpl_reel_v2.html").read().replace("<body>", "<body>\n<script>window.__CFG__ = " + json.dumps(cfg, ensure_ascii=False) + ";</script>", 1)
     page = f"reel_{code}.html"
@@ -121,8 +124,24 @@ def build_showcase_v2(p, seconds=15.0):
     wav = f"{OUT}/{code}.wav"
     make_track_v2(ev, seconds, wav, end_at=t["end"])
     mp4 = f"{OUT}/{code}.mp4"
-    subprocess.run(["node", "render_video.mjs", page, mp4, str(seconds), wav], check=True)
+    render_parallel(page, mp4, seconds, wav)
+    os.remove(page)
     return mp4
+
+
+def render_parallel(page, mp4, seconds, wav, fps=30):
+    """Render the page in one chunk per CPU core (max 4), then join the chunks and add the sound."""
+    n = round(seconds * fps)
+    k = max(1, min(4, os.cpu_count() or 1))
+    cuts = [round(n * i / k) for i in range(k + 1)]
+    parts = [f"{mp4}.part{i}.mp4" for i in range(k)]
+    procs = [subprocess.Popen(["node", "render_video.mjs", page, parts[i], str(seconds), "", str(cuts[i]), str(cuts[i + 1])]) for i in range(k)]
+    if any(pr.wait() != 0 for pr in procs): raise RuntimeError("render failed")
+    lst = mp4 + ".txt"
+    open(lst, "w").write("".join(f"file '{os.path.abspath(x)}'\n" for x in parts))
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-i", wav, "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
+                    "-shortest", "-movflags", "+faststart", mp4], check=True)
+    for x in parts + [lst]: os.remove(x)
 
 
 if __name__ == "__main__":

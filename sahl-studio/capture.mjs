@@ -18,7 +18,7 @@ const browser = await puppeteer.launch({
   defaultViewport: { width: 375, height: 812, deviceScaleFactor: 2 },
 });
 const page = await browser.newPage();
-await page.goto(pathToFileURL(path.resolve(input)).href, { waitUntil: "networkidle0" });
+await page.goto(/^https?:/.test(input) ? input : pathToFileURL(path.resolve(input)).href, { waitUntil: "networkidle0", timeout: 60000 });
 await page.evaluate(() => document.fonts.ready);
 // Reveal scroll animations so nothing stays hidden in the full-page shot.
 await page.addStyleTag({ content: "*{animation:none!important;transition:none!important}.reveal,[data-reveal]{opacity:1!important;transform:none!important}" });

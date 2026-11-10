@@ -22,6 +22,7 @@
   .hook .w { display: inline-block; overflow: hidden; padding: .12em 0 .2em; margin: -.12em 0 -.2em; }
   .hook .w > i { display: inline-block; font-style: normal; will-change: transform; }
   .hook .w.em > i { color: var(--emerald); }
+  .w.p { margin-inline-start: -.2em !important; }   /* a lone ؟ or ! hugs the word before it */
   .hook .w.em { position: relative; }
   .hook .w.em::after { content: ""; position: absolute; right: 0; left: 0; bottom: .1em; height: .09em; border-radius: 9px; background: var(--emerald); transform: scaleX(var(--u, 0)); transform-origin: 100% 50%; }
   .sub { right: 72px; left: 72px; margin: 0; font-size: 37px; line-height: 1.42; font-weight: 500; color: #C5CEC8; }
@@ -44,12 +45,12 @@
   .island { position: absolute; top: 13px; left: 50%; width: 148px; height: 40px; margin-left: -74px; border-radius: 40px; background: #000; z-index: 4; }
   .glare { position: absolute; inset: 0; z-index: 5; border-radius: 72px; pointer-events: none; background: linear-gradient(105deg, transparent 38%, rgba(255,255,255,.16) 47%, rgba(255,255,255,.04) 53%, transparent 62%); background-size: 300% 100%; }
 
-  .card { direction: rtl; display: flex; align-items: center; gap: 18px; padding: 20px 28px 20px 30px; border-radius: 30px; background: #fff; color: #0B0F0D; font-size: 39px; font-weight: 700; white-space: nowrap;
+  .card { display: flex; align-items: center; gap: 18px; padding: 20px 28px 20px 30px; border-radius: 30px; background: #fff; color: #0B0F0D; font-size: 39px; font-weight: 700; white-space: nowrap;
           box-shadow: 0 2px 0 rgba(255,255,255,.9) inset, 0 28px 60px rgba(0,0,0,.5), 0 6px 14px rgba(0,0,0,.3); will-change: transform; opacity: 0; }
   .card .ok { flex: none; width: 58px; height: 58px; border-radius: 50%; background: var(--emerald); display: grid; place-items: center; }
   .card .ok svg { width: 34px; height: 34px; }
 
-  .notif { left: 150px; top: 600px; width: 780px; direction: rtl; display: flex; gap: 22px; align-items: center; padding: 26px 30px; border-radius: 40px; background: rgba(250,252,250,.97); color: #0B0F0D;
+  .notif { left: 150px; top: 600px; width: 780px; display: flex; gap: 22px; align-items: center; padding: 26px 30px; border-radius: 40px; background: rgba(250,252,250,.97); color: #0B0F0D;
            box-shadow: 0 40px 90px rgba(0,0,0,.6), 0 8px 18px rgba(0,0,0,.35); opacity: 0; will-change: transform; }
   .notif .wa { flex: none; width: 92px; height: 92px; border-radius: 24px; background: #25D366; display: grid; place-items: center; }
   .notif .wa svg { width: 60px; height: 60px; color: #fff; }
@@ -70,6 +71,7 @@
   .pulse { position: absolute; inset: 0; border-radius: 999px; border: 4px solid var(--emerald); opacity: 0; }
   .fast { margin-top: 56px; display: inline-flex; align-items: center; gap: 14px; font-size: 38px; font-weight: 600; color: var(--text); padding: 14px 30px; border-radius: 999px; border: 2px solid rgba(255,255,255,.18); background: rgba(255,255,255,.05); }
   .fast b { width: 14px; height: 14px; border-radius: 50%; background: var(--emerald); }
+  .bar { top: 0; left: 0; height: 8px; width: 100%; background: var(--emerald); transform-origin: 0 50%; transform: scaleX(0); opacity: .9; }
   .small { margin-top: 30px; font-size: 36px; font-weight: 500; color: var(--muted); }
 </style>
 </head>
@@ -81,7 +83,7 @@
   <div class="abs vig"></div>
 </div>
 
-<div class="abs brandrow" id="brandrow"><span class="chip" id="chip"></span><img src="out/brand/sahl-wordmark.svg" alt=""></div>
+<div class="abs brandrow" id="brandrow"><span class="chip" id="chip"></span><img id="logo1" alt=""></div>
 
 <div class="abs stage" id="stage">
   <div class="abs shadow" id="shadow"></div>
@@ -110,11 +112,12 @@
   <div class="tx"><div class="r1"><span id="nApp"></span><span id="nNow"></span></div><div class="r2" id="nText"></div></div>
 </div>
 
+<div class="abs bar" id="bar"></div>
 <div class="abs wipe" id="wipe1" style="background:var(--emerald)"></div>
 <div class="abs wipe" id="wipe2" style="background:#070807"></div>
 <div class="abs end" id="end">
   <div class="abs blob" id="b3" style="left:-210px;top:150px"></div>
-  <img class="logo" id="elogo" src="out/brand/sahl-wordmark.svg" alt="" style="position:relative">
+  <img class="logo" id="elogo" alt="" style="position:relative">
   <h2 id="endTitle" style="position:relative"></h2>
   <div class="ctawrap" id="ctawrap">
     <div class="pulse" id="pulse"></div>
@@ -127,6 +130,14 @@
 
 <script>
 const C = window.__CFG__, T = C.t, $ = id => document.getElementById(id);
+const RTL = C.dir !== 'ltr';
+document.documentElement.dir = RTL ? 'rtl' : 'ltr'; document.documentElement.lang = C.lang || (RTL ? 'ar' : 'en');
+document.documentElement.style.setProperty('--emerald', C.accent); document.documentElement.style.setProperty('--on-emerald', C.onAccent);
+$('logo1').src = C.logo; $('elogo').src = C.logo;
+if (C.ctaIcon === 'none') document.querySelector('#cta svg').remove();
+if (C.notifIcon === 'bell') { const w = document.querySelector('.notif .wa'); w.style.background = C.accent; w.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" style="color:' + C.onAccent + '"><path d="M12 2a6 6 0 0 0-6 6v3.6l-1.7 3.1A1.5 1.5 0 0 0 5.6 17h12.8a1.5 1.5 0 0 0 1.3-2.3L18 11.6V8a6 6 0 0 0-6-6Zm-2.5 17a2.5 2.5 0 0 0 5 0h-5Z"/></svg>'; }
+$('hookwrap').style.transformOrigin = RTL ? '100% 0' : '0 0';
+document.styleSheets[1].insertRule(`.hook .w.em::after { transform-origin: ${RTL ? '100%' : '0'} 50%; }`, document.styleSheets[1].cssRules.length);
 const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
 const ease = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
 const out = t => 1 - Math.pow(1 - t, 3);
@@ -141,7 +152,7 @@ function words(el, html) {
   tmp.childNodes.forEach(n => {
     const em = n.nodeType === 1;
     (n.textContent || '').trim().split(/\s+/).filter(Boolean).forEach(w => {
-      const s = document.createElement('span'); s.className = 'w' + (em ? ' em' : '');
+      const s = document.createElement('span'); s.className = 'w' + (em ? ' em' : '') + (/^[؟?!.،,:؛…]+$/.test(w) ? ' p' : '');
       const i = document.createElement('i'); i.textContent = w; s.appendChild(i); el.appendChild(s); list.push(s);
     });
   });
@@ -156,7 +167,7 @@ $('nApp').textContent = C.notifApp; $('nNow').textContent = C.notifNow; $('nText
 $('page').src = C.tall; $('hdr').src = C.header;
 $('status').style.background = C.statusBg; $('status').style.color = C.statusFg;
 const glow = (c, a) => `radial-gradient(circle, ${c}${a} 0%, ${c}00 62%)`;
-$('b1').style.background = glow(C.c1, '8c'); $('b2').style.background = glow(C.c2, '73'); $('b3').style.background = glow('#22C55E', '40');
+$('b1').style.background = glow(C.c1, '8c'); $('b2').style.background = glow(C.c2, '73'); $('b3').style.background = glow(C.accent, '40');
 
 const cards = C.points.map((p, i) => {
   const d = document.createElement('div'); d.className = 'abs card';
@@ -195,7 +206,9 @@ window.render = (t) => {
   const ry = dir * (lerp(-26, -13, m) + 7 * Math.sin((t - T.move) * .55) * m);
   const rx = lerp(16, 5, m) + 1.5 * Math.cos(t * .7) * m;
   const rz = dir * lerp(5, 0, m);
-  const sc = lerp(1.12, 1, m) * (1 + .035 * ease(prog(t, T.notif - .2, .8)));
+  let punch = 0; for (const a of T.cards) { const q = prog(t, a, .5); if (q > 0 && q < 1) punch = Math.max(punch, Math.sin(Math.PI * q) * (1 - q)); }
+  const sc = lerp(1.12, 1, m) * (1 + .035 * ease(prog(t, T.notif - .2, .8))) * (1 + .03 * punch);
+  $('bar').style.transform = `scaleX(${clamp(t / T.end)})`; $('bar').style.opacity = t < T.end - .2 ? .9 : 0;
   $('phone').style.transform = `translateY(${ty}px) rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg) scale(${sc})`;
   $('shadow').style.opacity = m * .9; $('shadow').style.transform = `translateX(${-ry * 5}px) scale(${1 - .02 * Math.sin(t * 1.3)})`;
   $('glare').style.backgroundPosition = `${lerp(120, -40, prog(t, T.move, 2.4))}% 0`;

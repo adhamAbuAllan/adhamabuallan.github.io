@@ -172,3 +172,11 @@ Run the arabic-voice checker on them like every other string.
 
 `capture.mjs` also writes `frames/<site>_tall2x.jpg` and `frames/<site>_header2x.png`; commit them with the page so the Reel can be rebuilt sharp.
 A render takes about 4 to 5 minutes. Check frames at 1.5, 3.5, 6.5, 10 and 13 s: hook fully visible, phone not clipped, cards readable and not covering each other, notification readable, end card centered.
+
+### One command for any Reel in this style
+
+`python3 studio_reel.py spec.json [out.mp4]` makes the same Reel from one spec file: a local page or URL, one tall
+screenshot, or frames already captured. It also takes a `brand` block (logo, accent color, `dir` rtl/ltr), so the
+style works for other brands and for English. The spec format is at the top of `studio_reel.py`. It prints the mp4
+path and a 6-frame contact sheet (`<out>.sheet.jpg`) to check by eye. `build_reels.py` (week and day files) uses
+the same renderer.
