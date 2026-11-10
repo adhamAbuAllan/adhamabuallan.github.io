@@ -150,3 +150,25 @@ One showcase Reel a day, each one a fresh landing page for a niche that has neve
 4. Day file `days/<date>.json` = `{"posts":[<one showcase-reel post>]}` (same fields as a week post),
    then `WEEK_JSON=days/<date>.json OUT=out/<date> python3 build_reels.py`.
 5. Publish page + media (`sahl/media/d/<code>.mp4`), queue in `sahl_posts`, mark the niche `done`.
+
+## Reel style v2 "Studio" (from 2026-11-10, the default for every showcase Reel)
+
+Adham asked for much better-looking Reels. `build_reels.py` now renders `tpl_reel_v2.html` unless a post has `"style": "classic"`.
+
+What it does in 15 seconds, cut on a 96 BPM grid:
+1. 0 to 2.2 s: the hook rises word by word (the emerald word gets an underline) while the phone already peeks in from below.
+2. 2.2 to 9.4 s: the phone rises and floats in 3D, the page scrolls, and three white UI cards pop in beside it.
+3. 9.7 s: a WhatsApp notification drops over the phone.
+4. 11.25 s: emerald wipe, end card with the WhatsApp button, a tap and «صفحة جاهزة خلال 24 ساعة».
+
+The background glow takes its two colors from the page itself, so every niche looks different. The side the cards and the tilt start on flips with the post code.
+Sound: every word, card, scroll, notification and tap has an effect, over a soft synthesized music bed (`sfx.py`, needs numpy; no samples, no licences).
+
+Extra post fields for v2:
+- `points`: exactly 3 benefit lines for the white cards, 2 to 4 words each, specific to the niche (what this page gives that business). No prices, no numbers that are not on the page.
+- `notif`: one line for the WhatsApp notification, 5 words or fewer, like «زبون جديد حجز صدر كنافة». It shows how the page works; it is never a claim about a real client.
+- optional `end_title` (default «بدك صفحة زي هاي لمحلك؟»).
+Run the arabic-voice checker on them like every other string.
+
+`capture.mjs` also writes `frames/<site>_tall2x.jpg` and `frames/<site>_header2x.png`; commit them with the page so the Reel can be rebuilt sharp.
+A render takes about 4 to 5 minutes. Check frames at 1.5, 3.5, 6.5, 10 and 13 s: hook fully visible, phone not clipped, cards readable and not covering each other, notification readable, end card centered.

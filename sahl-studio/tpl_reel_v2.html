@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="brand.css">
+<style>
+  /* Sahl showcase Reel, style v2 "Studio": kinetic hook, 3D phone, white UI cards, WhatsApp moment, end card.
+     Everything is driven by window.render(t); no CSS animations. Timings sit on a 96 BPM grid (beat = 0.625 s). */
+  body { width: 1080px; height: 1920px; overflow: hidden; position: relative; background: #070807; }
+  .abs { position: absolute; }
+  .bg { inset: 0; }
+  .blob { width: 1500px; height: 1500px; border-radius: 50%; will-change: transform; }
+  .dots { inset: 0; background-image: radial-gradient(rgba(255,255,255,.085) 1.6px, transparent 1.6px); background-size: 54px 54px; -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 45%, #000 30%, transparent 100%); }
+  .vig { inset: 0; background: radial-gradient(ellipse 90% 70% at 50% 50%, transparent 55%, rgba(0,0,0,.55) 100%); }
+
+  .brandrow { top: 80px; left: 72px; right: 72px; display: flex; align-items: center; justify-content: space-between; }
+  .brandrow img { height: 98px; }
+  .chip { font-size: 30px; font-weight: 600; color: var(--on-emerald); background: var(--emerald); padding: 9px 24px; border-radius: 999px; }
+
+  .hookwrap { top: 200px; right: 72px; left: 72px; transform-origin: 100% 0; }
+  .hook { margin: 0; font-weight: 700; line-height: 1.22; letter-spacing: -0.5px; display: flex; flex-wrap: wrap; gap: 0 .26em; }
+  .hook .w { display: inline-block; overflow: hidden; padding: .12em 0 .2em; margin: -.12em 0 -.2em; }
+  .hook .w > i { display: inline-block; font-style: normal; will-change: transform; }
+  .hook .w.em > i { color: var(--emerald); }
+  .hook .w.em { position: relative; }
+  .hook .w.em::after { content: ""; position: absolute; right: 0; left: 0; bottom: .1em; height: .09em; border-radius: 9px; background: var(--emerald); transform: scaleX(var(--u, 0)); transform-origin: 100% 50%; }
+  .sub { right: 72px; left: 72px; margin: 0; font-size: 37px; line-height: 1.42; font-weight: 500; color: #C5CEC8; }
+
+  .stage { left: 0; top: 0; width: 1080px; height: 1920px; perspective: 2600px; perspective-origin: 50% 55%; }
+  .shadow { left: 190px; top: 1700px; width: 700px; height: 150px; border-radius: 50%; background: radial-gradient(ellipse, rgba(0,0,0,.75), transparent 68%); }
+  .phone { left: 250px; top: 640px; width: 580px; height: 1190px; border-radius: 86px; padding: 15px; transform-style: preserve-3d; will-change: transform;
+           background: linear-gradient(145deg, #2c312e, #0c0e0d 38%, #1b1f1d 70%, #050605);
+           box-shadow: 0 0 0 2px rgba(255,255,255,.16), 0 0 0 5px #000, 0 60px 120px rgba(0,0,0,.6); }
+  .btn { background: #1d211f; border-radius: 4px; width: 6px; }
+  .screen { position: relative; width: 550px; height: 1160px; border-radius: 72px; overflow: hidden; background: #000; }
+  .page { position: absolute; top: 60px; left: 0; width: 550px; will-change: transform; }
+  .hdr { position: absolute; top: 60px; left: 0; width: 550px; z-index: 2; }
+  .status { position: absolute; top: 0; left: 0; right: 0; height: 61px; z-index: 3; direction: ltr; font-family: Inter; font-weight: 600; font-size: 24px; display: flex; align-items: center; justify-content: space-between; padding: 6px 44px 0; }
+  .status .ic { display: flex; gap: 8px; align-items: center; }
+  .status .bat { width: 36px; height: 17px; border-radius: 5px; border: 2px solid currentColor; padding: 2px; opacity: .9; }
+  .status .bat b { display: block; width: 78%; height: 100%; border-radius: 2px; background: currentColor; }
+  .status .sig { display: flex; gap: 3px; align-items: flex-end; height: 16px; }
+  .status .sig b { width: 4px; border-radius: 1px; background: currentColor; }
+  .island { position: absolute; top: 13px; left: 50%; width: 148px; height: 40px; margin-left: -74px; border-radius: 40px; background: #000; z-index: 4; }
+  .glare { position: absolute; inset: 0; z-index: 5; border-radius: 72px; pointer-events: none; background: linear-gradient(105deg, transparent 38%, rgba(255,255,255,.16) 47%, rgba(255,255,255,.04) 53%, transparent 62%); background-size: 300% 100%; }
+
+  .card { direction: rtl; display: flex; align-items: center; gap: 18px; padding: 20px 28px 20px 30px; border-radius: 30px; background: #fff; color: #0B0F0D; font-size: 39px; font-weight: 700; white-space: nowrap;
+          box-shadow: 0 2px 0 rgba(255,255,255,.9) inset, 0 28px 60px rgba(0,0,0,.5), 0 6px 14px rgba(0,0,0,.3); will-change: transform; opacity: 0; }
+  .card .ok { flex: none; width: 58px; height: 58px; border-radius: 50%; background: var(--emerald); display: grid; place-items: center; }
+  .card .ok svg { width: 34px; height: 34px; }
+
+  .notif { left: 150px; top: 600px; width: 780px; direction: rtl; display: flex; gap: 22px; align-items: center; padding: 26px 30px; border-radius: 40px; background: rgba(250,252,250,.97); color: #0B0F0D;
+           box-shadow: 0 40px 90px rgba(0,0,0,.6), 0 8px 18px rgba(0,0,0,.35); opacity: 0; will-change: transform; }
+  .notif .wa { flex: none; width: 92px; height: 92px; border-radius: 24px; background: #25D366; display: grid; place-items: center; }
+  .notif .wa svg { width: 60px; height: 60px; color: #fff; }
+  .notif .tx { flex: 1; min-width: 0; }
+  .notif .r1 { display: flex; justify-content: space-between; font-size: 28px; font-weight: 600; color: #5E6A63; }
+  .notif .r2 { font-size: 38px; font-weight: 700; line-height: 1.3; margin-top: 2px; }
+
+  .wipe { left: 50%; top: 50%; width: 2600px; height: 2600px; margin: -1300px 0 0 -1300px; border-radius: 50%; transform: scale(0); will-change: transform; }
+  .end { inset: 0; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 540px 80px 0; opacity: 0; }
+  .end .logo { width: 430px; }
+  .end h2 { margin: 80px 0 0; font-size: 92px; line-height: 1.2; font-weight: 700; display: flex; flex-wrap: wrap; justify-content: center; gap: 0 .26em; }
+  .end h2 .w { display: inline-block; overflow: hidden; padding: .12em 0 .2em; margin: -.12em 0 -.2em; }
+  .end h2 .w > i { display: inline-block; font-style: normal; }
+  .ctawrap { position: relative; margin-top: 70px; }
+  .cta { display: inline-flex; align-items: center; gap: 24px; background: var(--emerald); color: var(--on-emerald); font-size: 56px; font-weight: 700; padding: 34px 68px; border-radius: 999px; box-shadow: 0 0 0 0 rgba(34,197,94,.5), 0 30px 70px rgba(34,197,94,.28); }
+  .cta svg { width: 62px; height: 62px; }
+  .ring { position: absolute; left: 50%; top: 50%; width: 130px; height: 130px; margin: -65px 0 0 -65px; border-radius: 50%; border: 7px solid #fff; opacity: 0; }
+  .pulse { position: absolute; inset: 0; border-radius: 999px; border: 4px solid var(--emerald); opacity: 0; }
+  .fast { margin-top: 56px; display: inline-flex; align-items: center; gap: 14px; font-size: 38px; font-weight: 600; color: var(--text); padding: 14px 30px; border-radius: 999px; border: 2px solid rgba(255,255,255,.18); background: rgba(255,255,255,.05); }
+  .fast b { width: 14px; height: 14px; border-radius: 50%; background: var(--emerald); }
+  .small { margin-top: 30px; font-size: 36px; font-weight: 500; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="abs bg">
+  <div class="abs blob" id="b1"></div>
+  <div class="abs blob" id="b2"></div>
+  <div class="abs dots"></div>
+  <div class="abs vig"></div>
+</div>
+
+<div class="abs brandrow" id="brandrow"><span class="chip" id="chip"></span><img src="out/brand/sahl-wordmark.svg" alt=""></div>
+
+<div class="abs stage" id="stage">
+  <div class="abs shadow" id="shadow"></div>
+  <div class="abs phone" id="phone">
+    <div class="abs btn" style="left:-7px;top:230px;height:70px"></div>
+    <div class="abs btn" style="left:-7px;top:330px;height:120px"></div>
+    <div class="abs btn" style="right:-7px;top:300px;height:170px"></div>
+    <div class="screen">
+      <img class="page" id="page">
+      <img class="hdr" id="hdr">
+      <div class="status" id="status"><span>9:41</span><span class="ic"><span class="sig"><b style="height:6px"></b><b style="height:9px"></b><b style="height:12px"></b><b style="height:16px"></b></span><span class="bat"><b></b></span></span></div>
+      <div class="island"></div>
+      <div class="glare" id="glare"></div>
+    </div>
+  </div>
+  <div id="cards"></div>
+</div>
+
+<div class="abs hookwrap" id="hookwrap">
+  <h1 class="hook" id="hook"></h1>
+</div>
+<p class="abs sub" id="sub"></p>
+
+<div class="abs notif" id="notif">
+  <div class="wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></div>
+  <div class="tx"><div class="r1"><span id="nApp"></span><span id="nNow"></span></div><div class="r2" id="nText"></div></div>
+</div>
+
+<div class="abs wipe" id="wipe1" style="background:var(--emerald)"></div>
+<div class="abs wipe" id="wipe2" style="background:#070807"></div>
+<div class="abs end" id="end">
+  <div class="abs blob" id="b3" style="left:-210px;top:150px"></div>
+  <img class="logo" id="elogo" src="out/brand/sahl-wordmark.svg" alt="" style="position:relative">
+  <h2 id="endTitle" style="position:relative"></h2>
+  <div class="ctawrap" id="ctawrap">
+    <div class="pulse" id="pulse"></div>
+    <div class="cta" id="cta"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg><span id="ctaText"></span></div>
+    <div class="ring" id="ring"></div>
+  </div>
+  <div class="fast" id="fast" style="position:relative"><b></b><span id="note"></span></div>
+  <div class="small" id="endSmall" style="position:relative"></div>
+</div>
+
+<script>
+const C = window.__CFG__, T = C.t, $ = id => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const ease = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
+const out = t => 1 - Math.pow(1 - t, 3);
+const back = t => { const c = 1.9; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); };
+const prog = (t, a, d) => clamp((t - a) / d);
+const lerp = (a, b, k) => a + (b - a) * k;
+
+// split a hook (text + one <span class="em">) into word spans that can rise one by one
+function words(el, html) {
+  const tmp = document.createElement('div'); tmp.innerHTML = html; el.innerHTML = '';
+  const list = [];
+  tmp.childNodes.forEach(n => {
+    const em = n.nodeType === 1;
+    (n.textContent || '').trim().split(/\s+/).filter(Boolean).forEach(w => {
+      const s = document.createElement('span'); s.className = 'w' + (em ? ' em' : '');
+      const i = document.createElement('i'); i.textContent = w; s.appendChild(i); el.appendChild(s); list.push(s);
+    });
+  });
+  return list;
+}
+const hookW = words($('hook'), C.hook);
+$('hook').style.fontSize = (hookW.length <= 4 ? 124 : hookW.length <= 6 ? 110 : 98) + 'px';
+const endW = words($('endTitle'), C.endTitle);
+$('chip').textContent = C.chip; $('sub').textContent = C.sub; $('note').textContent = C.note;
+$('ctaText').textContent = C.cta; $('endSmall').textContent = C.endSmall;
+$('nApp').textContent = C.notifApp; $('nNow').textContent = C.notifNow; $('nText').textContent = C.notif;
+$('page').src = C.tall; $('hdr').src = C.header;
+$('status').style.background = C.statusBg; $('status').style.color = C.statusFg;
+const glow = (c, a) => `radial-gradient(circle, ${c}${a} 0%, ${c}00 62%)`;
+$('b1').style.background = glow(C.c1, '8c'); $('b2').style.background = glow(C.c2, '73'); $('b3').style.background = glow('#22C55E', '40');
+
+const cards = C.points.map((p, i) => {
+  const d = document.createElement('div'); d.className = 'abs card';
+  d.innerHTML = '<span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="#052E16" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span></span>';
+  d.lastChild.textContent = p;
+  const side = (i + C.flip) % 2 === 0;                      // true = right edge, false = left edge
+  d.style.top = (920 + i * 245) + 'px'; d.style[side ? 'right' : 'left'] = '44px';
+  d.dataset.side = side ? 1 : -1; $('cards').appendChild(d); return d;
+});
+
+const SP = 550 / 375;                               // page css px -> screen px
+const maxScroll = Math.max(0, Math.min(C.scrollTo, C.tallH - (1160 - 60) / SP));
+const dir = C.flip ? -1 : 1;
+
+window.render = (t) => {
+  // background: two slow drifting glows in the niche's own colors
+  $('b1').style.transform = `translate(${-520 + 90*Math.sin(t*.5)}px, ${-380 + 70*Math.cos(t*.4)}px)`;
+  $('b2').style.transform = `translate(${160 + 110*Math.cos(t*.45)}px, ${880 + 90*Math.sin(t*.38)}px)`;
+  $('brandrow').style.opacity = out(prog(t, 0, .4));
+
+  // hook: words rise one by one, the emerald word gets its underline, then the block settles at the top
+  hookW.forEach((w, i) => {
+    const k = out(prog(t, T.hook0 + i * T.wordGap, .42));
+    w.firstChild.style.transform = `translateY(${(1 - k) * 115}%)`;
+    if (w.classList.contains('em')) w.style.setProperty('--u', ease(prog(t, T.underline, .4)));
+  });
+  const m = ease(prog(t, T.move, .75));
+  $('hookwrap').style.transform = `translateY(${lerp(170, 0, m)}px) scale(${lerp(1, .7, m)})`;
+  $('sub').style.top = Math.round(200 + $('hook').offsetHeight * .7 + 22) + 'px';
+  const subK = out(prog(t, T.move + .55, .5));
+  $('sub').style.opacity = subK; $('sub').style.transform = `translateY(${(1 - subK) * 24}px)`;
+
+  // phone: peeks in from the bottom during the hook (result in the first 3 seconds), then rises and floats in 3D
+  const inK = out(prog(t, .15, .9));
+  const ty = lerp(1500, 600, inK) * (1 - m) + 8 * Math.sin(t * 1.3) * m;
+  const ry = dir * (lerp(-26, -13, m) + 7 * Math.sin((t - T.move) * .55) * m);
+  const rx = lerp(16, 5, m) + 1.5 * Math.cos(t * .7) * m;
+  const rz = dir * lerp(5, 0, m);
+  const sc = lerp(1.12, 1, m) * (1 + .035 * ease(prog(t, T.notif - .2, .8)));
+  $('phone').style.transform = `translateY(${ty}px) rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg) scale(${sc})`;
+  $('shadow').style.opacity = m * .9; $('shadow').style.transform = `translateX(${-ry * 5}px) scale(${1 - .02 * Math.sin(t * 1.3)})`;
+  $('glare').style.backgroundPosition = `${lerp(120, -40, prog(t, T.move, 2.4))}% 0`;
+  let f = 0;
+  for (const [a, b, x, y] of C.segments) { if (t >= b) f = y; else if (t > a) { f = x + (y - x) * ease((t - a) / (b - a)); break; } else { f = x; break; } }
+  $('page').style.transform = `translateY(${-f * maxScroll * SP}px)`;
+
+  // white UI cards: spring in from their side, stay as a checklist, leave before the WhatsApp moment
+  cards.forEach((c, i) => {
+    const a = T.cards[i], k = back(prog(t, a, .45)), o = prog(t, a, .16), ex = ease(prog(t, T.cardsOut + i * .06, .3));
+    const s = +c.dataset.side;
+    c.style.opacity = o * (1 - ex);
+    c.style.transform = `translateX(${s * (1 - k) * 120 + s * ex * 160}px) translateY(${6 * Math.sin(t * 1.5 + i)}px) scale(${lerp(.6, 1, k)}) rotate(${-s * 2}deg)`;
+  });
+
+  // the WhatsApp moment: a notification drops over the phone
+  const nk = back(prog(t, T.notif, .5)), nx = ease(prog(t, T.end - .15, .25));
+  $('notif').style.opacity = prog(t, T.notif, .14) * (1 - nx);
+  $('notif').style.transform = `translateY(${(1 - nk) * -260}px) scale(${lerp(.86, 1, nk)})`;
+
+  // end card: emerald wipe, then the offer
+  $('wipe1').style.transform = `scale(${ease(prog(t, T.end - .25, .5))})`;
+  $('wipe2').style.transform = `scale(${ease(prog(t, T.end - .02, .5))})`;
+  const e = prog(t, T.end + .18, .25); $('end').style.opacity = e;
+  const lk = back(prog(t, T.end + .2, .5)); $('elogo').style.transform = `scale(${lerp(.7, 1, lk)})`; $('elogo').style.opacity = prog(t, T.end + .2, .2);
+  endW.forEach((w, i) => { w.firstChild.style.transform = `translateY(${(1 - out(prog(t, T.end + .45 + i * .07, .4))) * 115}%)`; });
+  const ck = back(prog(t, T.cta, .5)), tap = prog(t, T.tap, .5), press = Math.sin(Math.PI * prog(t, T.tap, .28));
+  $('ctawrap').style.opacity = prog(t, T.cta, .15); $('ctawrap').style.transform = `scale(${lerp(.6, 1, ck) * (1 - .06 * press)})`;
+  const pp = ((t - T.cta - .6) % 1.25) / 1.25; const pon = t > T.cta + .6;
+  $('pulse').style.opacity = pon ? (1 - pp) * .7 : 0; $('pulse').style.transform = `scale(${1 + pp * .14}, ${1 + pp * .5})`;
+  $('ring').style.opacity = tap > 0 && tap < 1 ? 1 - tap : 0; $('ring').style.transform = `scale(${.5 + tap * 1.3})`;
+  const fk = out(prog(t, T.cta + .35, .45)); $('fast').style.opacity = fk; $('fast').style.transform = `translateY(${(1 - fk) * 30}px)`;
+  $('endSmall').style.opacity = out(prog(t, T.cta + .6, .45));
+};
+window.render(0);
+</script>
+</body>
+</html>

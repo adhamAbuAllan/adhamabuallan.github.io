@@ -1,6 +1,7 @@
 // Capture a local showcase page as Reel frames, fully offline.
 // Usage: node capture.mjs <page.html> <site-key>
-// Writes frames/<site>_tall.png (375 wide, full page), frames/<site>_header.png
+// Writes frames/<site>_tall.png (375 wide, full page; plus _tall2x.jpg and _header2x.png, the sharp 750-wide
+// copies the v2 Reel uses), frames/<site>_header.png
 // (the sticky header strip) and frames/<site>_top.png (first screen), then prints
 // {tallH, headerH, scrollTo} as JSON for the week/day file.
 import puppeteer from "puppeteer-core";
@@ -42,7 +43,10 @@ im = Image.open("frames/${site}_tall2x.png").convert("RGB")
 w, h = im.size
 im = im.resize((375, round(h * 375 / w)), Image.LANCZOS)
 im.save("frames/${site}_tall.png")
+im2 = Image.open("frames/${site}_tall2x.png").convert("RGB")
+im2.save("frames/${site}_tall2x.jpg", quality=90)
 hd = Image.open("frames/${site}_header.png").convert("RGB")
+hd.save("frames/${site}_header2x.png")
 hd.resize((375, round(hd.size[1] * 375 / hd.size[0])), Image.LANCZOS).save("frames/${site}_header.png")
 import os; os.remove("frames/${site}_tall2x.png")
 print(im.size[1])
