@@ -37,7 +37,9 @@
    "key": "homekitchen",
    "ar": "أكل بيتي",
    "brief": "home kitchen: daily dishes, pre-order on WhatsApp, delivery area",
-   "status": "todo"
+   "status": "done",
+   "date": "2026-11-12",
+   "code": "P19"
   },
   {
    "key": "pastries",

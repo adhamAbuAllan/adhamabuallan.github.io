@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مطبخ الطنجرة الزرقا · مثال من سهل</title>
+<meta name="description" content="مثال من سهل: صفحة تجريبية لمطبخ أكل بيتي، فيها طبخة كل يوم بسعرها والطلب المسبق عالواتساب قبل الساعة 11 الصبح.">
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format("woff2");font-weight:600}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-800-normal.woff2) format("woff2");font-weight:800}
+:root{--blue:#1D4E9E;--blue-d:#123672;--blue-l:#DCE6F5;--enamel:#FBF8F1;--paper:#F2ECDF;--tomato:#D9432B;--saffron:#E9A825;--olive:#5B6B2F;--rice:#F3DFA8;--ink:#172238;--mute:#5D6679;--wa:#1FAF54}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--enamel);color:var(--ink);font-family:Plex,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.num{font-family:Inter,Plex,sans-serif;font-weight:800;letter-spacing:-.02em}
+.demo{background:var(--saffron);color:var(--ink);font-size:13px;font-weight:700;text-align:center;padding:7px 16px}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px}
+h2{font-size:29px;line-height:1.25;font-weight:700}
+.sub{color:var(--mute);font-size:15.5px;margin-top:6px}
+section{padding:40px 0}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:var(--enamel);border-bottom:4px solid var(--blue)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18.5px;color:var(--blue-d)}
+.pot{width:38px;height:28px;position:relative;display:block;margin-top:8px}
+.pot::before{content:"";position:absolute;inset:6px 0 0 0;background:var(--blue);border-radius:4px 4px 12px 12px;box-shadow:inset 0 3px 0 rgba(255,255,255,.25)}
+.pot::after{content:"";position:absolute;left:6px;right:6px;top:0;height:7px;background:var(--blue-d);border-radius:8px 8px 2px 2px}
+.logo small{display:block;font-size:11.5px;font-weight:500;color:var(--mute);line-height:1.1}
+.btn-sm{background:var(--blue);color:#fff;font-weight:700;font-size:14px;padding:8px 15px;border-radius:999px}
+
+/* hero */
+.hero{padding:28px 0 36px;background:var(--blue);color:#fff;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:18px;background:radial-gradient(circle at 9px 0,var(--enamel) 8px,transparent 9px) 0 0/18px 18px repeat-x}
+.hero h1{font-size:38px;line-height:1.2;font-weight:700}
+.hero h1 em{font-style:normal;color:var(--saffron)}
+.hero .lead{font-size:17px;margin-top:12px;color:var(--blue-l)}
+.stage{position:relative;height:270px;margin-top:22px}
+.bigpot{position:absolute;right:26px;bottom:20px;width:180px;height:140px}
+.bigpot .body{position:absolute;inset:26px 0 0 0;background:var(--enamel);border-radius:10px 10px 48px 48px;box-shadow:inset -18px -10px 0 rgba(29,78,158,.12)}
+.bigpot .body::before{content:"";position:absolute;left:0;right:0;top:34px;height:14px;background:var(--tomato)}
+.bigpot .body::after{content:"";position:absolute;left:0;right:0;top:56px;height:5px;background:var(--saffron)}
+.bigpot .lid{position:absolute;left:-8px;right:-8px;top:8px;height:24px;background:var(--enamel);border-radius:60px 60px 6px 6px;box-shadow:inset 0 -5px 0 rgba(29,78,158,.18)}
+.bigpot .knob{position:absolute;left:50%;top:-6px;width:30px;height:16px;margin-left:-15px;background:var(--tomato);border-radius:10px 10px 4px 4px}
+.bigpot .h1,.bigpot .h2{position:absolute;top:44px;width:26px;height:14px;border:6px solid var(--enamel);border-radius:8px}
+.bigpot .h1{right:-26px}.bigpot .h2{left:-26px}
+.steam{position:absolute;width:14px;height:64px;border-radius:999px;border:4px solid rgba(255,255,255,.55);border-color:rgba(255,255,255,.55) transparent transparent rgba(255,255,255,.55);transform:rotate(18deg)}
+.s1{right:70px;top:40px}.s2{right:108px;top:28px;height:80px}.s3{right:146px;top:44px}
+.board{position:absolute;z-index:3;left:0;top:4px;width:158px;background:#1E2A22;color:#F4F1E6;border:6px solid #8B5E34;border-radius:8px;padding:12px 12px 14px;transform:rotate(-4deg);box-shadow:0 12px 24px rgba(0,0,0,.25)}
+.board b{display:block;font-size:12.5px;color:var(--saffron)}
+.board span{display:block;font-size:17px;font-weight:700;line-height:1.35;margin-top:2px}
+.board .num{font-size:22px;color:#fff;margin-top:6px;display:block}
+.board .num small{font-family:Plex;font-size:13px;font-weight:600}
+.board i{display:block;font-style:normal;font-size:12.5px;color:#C8D3C0;margin-top:2px}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--wa);color:#fff;font-weight:700;font-size:19px;padding:17px 20px;border-radius:16px}
+.wa-i{width:24px;height:24px;border-radius:50%;border:3px solid #fff;position:relative;display:inline-block}
+.wa-i::after{content:"";position:absolute;left:-4px;bottom:-4px;width:8px;height:8px;background:#fff;clip-path:polygon(0 100%,100% 40%,40% 0)}
+.clock{display:flex;gap:8px;margin-top:14px;font-size:14px;color:var(--blue-l);flex-wrap:wrap}
+.clock span{background:var(--blue-d);padding:5px 12px;border-radius:999px}
+
+/* how */
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+.how div{background:var(--paper);border-radius:18px;padding:16px 12px;text-align:center}
+.how .t{display:block;font-size:24px;color:var(--blue)}
+.how b{display:block;font-size:15px;line-height:1.35;margin-top:4px}
+.how span{display:block;color:var(--mute);font-size:13px;line-height:1.4;margin-top:4px}
+
+/* week menu */
+.week{background:var(--paper)}
+.days{margin-top:22px;display:grid;gap:10px}
+.day{display:grid;grid-template-columns:62px 1fr auto;gap:12px;align-items:center;background:var(--enamel);border-radius:16px;padding:12px 14px}
+.day .d{background:var(--blue);color:#fff;border-radius:12px;text-align:center;font-weight:700;font-size:14px;padding:8px 0}
+.day.today .d{background:var(--tomato)}
+.day h3{font-size:16.5px;line-height:1.35}
+.day h3 small{display:block;color:var(--mute);font-size:13px;font-weight:500}
+.day .p{font-size:22px;color:var(--blue-d);text-align:left;white-space:nowrap}
+.day .p small{font-family:Plex;font-size:12.5px;font-weight:600;display:block;color:var(--mute);letter-spacing:0}
+.day.off{opacity:.7}
+.tag{display:inline-block;background:var(--tomato);color:#fff;font-size:11.5px;font-weight:700;border-radius:6px;padding:0 7px;margin-inline-start:6px;vertical-align:2px}
+
+/* trays */
+.trays{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.tr{border-radius:22px;padding:18px 16px;color:#fff}
+.tr.a{background:var(--olive)}.tr.b{background:var(--tomato)}
+.tr .n{font-size:13px;opacity:.9}
+.tr h3{font-size:18px;line-height:1.3;margin-top:2px}
+.tr .num{display:block;font-size:34px;margin-top:10px}
+.tr .num small{font-family:Plex;font-size:14px;font-weight:600}
+.tr ul{list-style:none;font-size:13.5px;margin-top:8px;opacity:.95}
+.extras{margin-top:16px;background:var(--paper);border-radius:18px;padding:6px 16px}
+.ex{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:2px dashed #DDD3BE;font-weight:600}
+.ex:last-child{border:0}
+.ex .num{color:var(--blue-d);font-size:18px}
+.ex .num small{font-family:Plex;font-size:12.5px;font-weight:600}
+
+/* gallery: plates from above */
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.plate{aspect-ratio:1;border-radius:20px;background:var(--blue-l);display:grid;place-items:center;position:relative}
+.plate::before{content:"";width:82%;aspect-ratio:1;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 7px #F1F3F8,inset 0 0 0 9px var(--blue)}
+.plate i{position:absolute;border-radius:50%}
+.plate b{position:absolute;bottom:8px;right:10px;background:var(--enamel);font-size:12.5px;padding:2px 9px;border-radius:999px}
+.p1 i{width:52%;aspect-ratio:1;background:radial-gradient(circle at 40% 38%,#F6E3B0 0 22%,#E1BD6C 23% 46%,#B67A3A 47% 60%,#8E5527 61%)}
+.p1 i::after{content:"";position:absolute;inset:30%;border-radius:50%;background:repeating-conic-gradient(#C89B3C 0 10deg,transparent 10deg 30deg)}
+.p2 i{width:56%;aspect-ratio:1;background:radial-gradient(circle,#3F5A1B 0 52%,#2E4412 53% 70%,#F3DFA8 71%)}
+.p2 i::after{content:"";position:absolute;left:30%;top:30%;width:14%;height:14%;border-radius:50%;background:#C9A15D;box-shadow:12px 6px 0 #C9A15D,-4px 14px 0 #C9A15D}
+.p3 i{width:54%;height:40%;border-radius:12px;background:repeating-linear-gradient(90deg,#7C8F3A 0 11px,#5D6F27 11px 13px,#E8C171 13px 26px,#C99E4D 26px 28px)}
+.p4 i{width:54%;height:36%;border-radius:10px;background:repeating-linear-gradient(90deg,#B4432C 0 16px,#8B2E1C 16px 18px);box-shadow:inset 0 -8px 0 rgba(0,0,0,.12)}
+.p4 i::after{content:"";position:absolute;inset:0;background:radial-gradient(circle,#F3DFA8 0 2px,transparent 3px) 0 0/10px 10px;border-radius:10px;opacity:.7}
+
+/* info */
+.info{display:grid;gap:12px;margin-top:20px}
+.card{background:var(--paper);border-radius:18px;padding:18px}
+.card h3{font-size:17px;margin-bottom:8px;color:var(--blue-d)}
+.hrs div{display:flex;justify-content:space-between;padding:6px 0;font-weight:600}
+.hrs bdi{font-size:16px}
+.area{display:flex;flex-wrap:wrap;gap:8px}
+.area span{background:var(--enamel);border-radius:999px;padding:5px 12px;font-size:14px;font-weight:600}
+.fine{font-size:14px;color:var(--mute);margin-top:10px}
+
+.final{background:var(--blue-d);color:#fff;text-align:center;padding:46px 0}
+.final p{color:var(--blue-l);font-size:16.5px;margin:8px 0 22px}
+footer{background:var(--ink);color:#C6CCD8;text-align:center;font-size:13px;padding:18px 20px 28px}
+</style>
+</head>
+<body>
+<div class="demo">مثال من سهل · صفحة تجريبية</div>
+<header class="top" data-sticky>
+  <div class="wrap">
+    <a class="logo" href="#"><i class="pot"></i><span>الطنجرة الزرقا<small>أكل بيتي كل يوم</small></span></a>
+    <a class="btn-sm" href="https://adhamabuallan.github.io/sahl/wa/?c=P19">اطلب</a>
+  </div>
+</header>
+<main>
+<section class="hero">
+  <div class="wrap">
+    <h1>طبخة بيت سخنة، <em>بتحجزها</em> قبل الظهر</h1>
+    <p class="lead">كل يوم طبخة وحدة من مطبخنا. بتطلب صحنك الصبح، ومنطبخ عالعدد بالزبط، وبيوصلك سخن عالغدا.</p>
+    <div class="stage">
+      <div class="board"><b>طبخة اليوم</b><span>مقلوبة دجاج مع لبن وسلطة</span><bdi class="num" dir="ltr">35 <small>شيكل</small></bdi><i>الطلب لحد الساعة 11</i></div>
+      <span class="steam s1"></span><span class="steam s2"></span><span class="steam s3"></span>
+      <div class="bigpot"><div class="lid"><span class="knob"></span></div><div class="body"></div><span class="h1"></span><span class="h2"></span></div>
+    </div>
+    <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P19"><span class="wa-i"></span>احجز صحنك عالواتساب</a>
+    <div class="clock"><span>الطلب من 8 لـ 11 الصبح</span><span>التوصيل من 1 لـ 3</span></div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2>كيف بتوصلك الطبخة؟</h2>
+    <p class="sub">بدون اتصالات وبدون انتظار.</p>
+    <div class="how">
+      <div><bdi class="t num" dir="ltr">11:00</bdi><b>بتحجز صحنك</b><span>برسالة جاهزة فيها العدد والعنوان</span></div>
+      <div><bdi class="t num" dir="ltr">12:00</bdi><b>منطبخ عالعدد</b><span>طبخة طازة، ولا صحن زيادة</span></div>
+      <div><bdi class="t num" dir="ltr">13:00</bdi><b>بيوصلك سخن</b><span>عالبيت أو عالشغل</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="week" id="menu">
+  <div class="wrap">
+    <h2>طبخات الأسبوع</h2>
+    <p class="sub">سعر الصحن لشخص واحد، ومعه لبن وسلطة.</p>
+    <div class="days">
+      <div class="day today"><span class="d">السبت</span><h3>مقلوبة دجاج<span class="tag">اليوم</span><small>رز وزهرة وباذنجان مقلي</small></h3><bdi class="p num" dir="ltr">35<small>شيكل</small></bdi></div>
+      <div class="day"><span class="d">الأحد</span><h3>ملوخية مع رز ودجاج<small>ملوخية ورق، مع شطة وليمون</small></h3><bdi class="p num" dir="ltr">35<small>شيكل</small></bdi></div>
+      <div class="day"><span class="d">الإثنين</span><h3>محاشي كوسا وورق عنب<small>بالرز واللحمة، 12 حبة</small></h3><bdi class="p num" dir="ltr">40<small>شيكل</small></bdi></div>
+      <div class="day"><span class="d">الثلاثاء</span><h3>مسخن رول<small>8 حبات مع سماق وبصل</small></h3><bdi class="p num" dir="ltr">30<small>شيكل</small></bdi></div>
+      <div class="day"><span class="d">الأربعاء</span><h3>منسف لحمة<small>جميد بلدي وشراك وصنوبر</small></h3><bdi class="p num" dir="ltr">50<small>شيكل</small></bdi></div>
+      <div class="day"><span class="d">الخميس</span><h3>مفتول مع دجاج وحمص<small>مرقة بصل وحمص</small></h3><bdi class="p num" dir="ltr">40<small>شيكل</small></bdi></div>
+      <div class="day off"><span class="d">الجمعة</span><h3>المطبخ مسكّر<small>بس طلبيات العزايم المحجوزة مسبقا</small></h3><span></span></div>
+    </div>
+  </div>
+</section>
+
+<section id="trays">
+  <div class="wrap">
+    <h2>صواني للعيلة والعزايم</h2>
+    <p class="sub">من طبخة اليوم، أو أي طبخة من الأسبوع إذا حجزت قبل بيومين.</p>
+    <div class="trays">
+      <div class="tr a"><span class="n">لـ 4 أشخاص</span><h3>صينية العيلة</h3><bdi class="num" dir="ltr">120 <small>شيكل</small></bdi><ul><li>طبخة اليوم</li><li>سلطة كبيرة</li><li>لبن</li></ul></div>
+      <div class="tr b"><span class="n">لـ 8 أشخاص</span><h3>صينية العزومة</h3><bdi class="num" dir="ltr">220 <small>شيكل</small></bdi><ul><li>طبخة على اختيارك</li><li>شوربة وسلطتين</li><li>لبن</li></ul></div>
+    </div>
+    <div class="extras">
+      <div class="ex"><span>شوربة عدس</span><bdi class="num" dir="ltr">12 <small>شيكل</small></bdi></div>
+      <div class="ex"><span>سلطة عربية كبيرة</span><bdi class="num" dir="ltr">10 <small>شيكل</small></bdi></div>
+      <div class="ex"><span>علبة لبن بلدي</span><bdi class="num" dir="ltr">6 <small>شيكل</small></bdi></div>
+      <div class="ex"><span>صحن حلو اليوم</span><bdi class="num" dir="ltr">10 <small>شيكل</small></bdi></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" style="padding-top:6px">
+  <div class="wrap">
+    <h2>من طنجرتنا لصحنك</h2>
+    <p class="sub">نفس الطعمة اللي بتعرفها من بيتكم.</p>
+    <div class="gal">
+      <div class="plate p1"><i></i><b>مقلوبة</b></div>
+      <div class="plate p2"><i></i><b>ملوخية</b></div>
+      <div class="plate p3"><i></i><b>محاشي</b></div>
+      <div class="plate p4"><i></i><b>مسخن</b></div>
+    </div>
+  </div>
+</section>
+
+<section id="info" style="padding-top:10px">
+  <div class="wrap">
+    <h2>المواعيد والتوصيل</h2>
+    <div class="info">
+      <div class="card hrs"><h3>المواعيد</h3>
+        <div><span>استقبال الطلبات</span><bdi class="num" dir="ltr">8:00 - 11:00</bdi></div>
+        <div><span>التوصيل والاستلام</span><bdi class="num" dir="ltr">13:00 - 15:00</bdi></div>
+        <div><span>الجمعة</span><span>عطلة</span></div>
+      </div>
+      <div class="card"><h3>وين منوصل؟</h3>
+        <div class="area"><span>وسط البلد</span><span>الجامعة</span><span>المكاتب والشركات</span><span>الأحياء القريبة</span></div>
+        <p class="fine">التوصيل 10 شيكل، ومجاني من 3 صحون وطالع. والاستلام من المطبخ ببلاش.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>شو بدك تتغدى بكرا؟</h2>
+    <p>احجز صحنك هسا، ومنطبخلك ياه عالموعد.</p>
+    <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P19"><span class="wa-i"></span>احجز عالواتساب</a>
+  </div>
+</section>
+</main>
+<footer>الطنجرة الزرقا اسم تجريبي. هاي صفحة مثال من سهل.</footer>
+</body>
+</html>
