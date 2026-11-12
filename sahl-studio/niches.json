@@ -45,7 +45,9 @@
    "key": "pastries",
    "ar": "معجنات وفطاير",
    "brief": "pastries and bakery: trays for gatherings, delivery",
-   "status": "todo"
+   "status": "done",
+   "date": "2026-11-13",
+   "code": "P20"
   },
   {
    "key": "womensalon",
