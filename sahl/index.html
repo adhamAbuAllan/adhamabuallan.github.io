@@ -1,122 +1,1430 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
-<head>
+<html lang="ar" dir="rtl" data-page-lang="ar"><head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>سهل Sahl Digital | صفحات ومواقع وتطبيقات للمحلات في الخليل</title>
-<meta name="description" content="سهل يصمم لمحلك صفحة على الإنترنت باسمه، فيها الأسعار وزر طلب عبر واتساب، وتجهز خلال 24 ساعة. مواقع وتطبيقات وبوتات واتساب للمحلات في الخليل وفلسطين.">
-<link rel="canonical" href="https://adhamabuallan.github.io/sahl/">
-<meta name="theme-color" content="#0A0A0A">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Sahl Digital سهل">
-<meta property="og:title" content="سهل Sahl Digital | صفحة لمحلك جاهزة خلال 24 ساعة">
-<meta property="og:description" content="شاهد صفحة محلك قبل أن تدفع. صفحات ومواقع وتطبيقات وبوتات واتساب للمحلات.">
-<meta property="og:url" content="https://adhamabuallan.github.io/sahl/">
-<meta property="og:image" content="https://adhamabuallan.github.io/sahl/brand/sahl-cover.png">
-<meta property="og:locale" content="ar_AR">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="brand/sahl-mark.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="brand/sahl-profile.png">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sahl Digital سهل","alternateName":["Sahl Digital","سهل"],"url":"https://adhamabuallan.github.io/sahl/","logo":"https://adhamabuallan.github.io/sahl/brand/sahl-profile.png","image":"https://adhamabuallan.github.io/sahl/brand/sahl-cover.png","description":"صفحات ومواقع وتطبيقات وبوتات واتساب للمحلات، تجهز الصفحة خلال 24 ساعة.","telephone":"+972595376623","address":{"@type":"PostalAddress","addressLocality":"Hebron","addressCountry":"PS"},"areaServed":["Hebron","West Bank"],"founder":{"@type":"Person","name":"Adham Abu Allan"},"sameAs":["https://www.facebook.com/sahldigitalps","https://wa.me/972595376623"]}
-</script>
-<style>
-@font-face{font-family:"Plex Arabic";font-weight:400;font-display:swap;src:url(../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2)}
-@font-face{font-family:"Plex Arabic";font-weight:600;font-display:swap;src:url(../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2)}
-@font-face{font-family:"Plex Arabic";font-weight:700;font-display:swap;src:url(../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2)}
-@font-face{font-family:"Inter";font-weight:600;font-display:swap;src:url(../sahl-studio/fonts/inter-latin-600-normal.woff2)}
-@font-face{font-family:"Inter";font-weight:800;font-display:swap;src:url(../sahl-studio/fonts/inter-latin-800-normal.woff2)}
-:root{--ground:#0A0A0A;--surface:#111412;--surface-2:#171C19;--line:#26302A;--text:#F5F7F5;--muted:#A3AFA7;--emerald:#22C55E;--on-emerald:#052E16;--font:"Plex Arabic","Inter",system-ui,sans-serif}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--ground);color:var(--text);font:17px/1.7 var(--font);-webkit-font-smoothing:antialiased}
-a{color:inherit}
-.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-.lat{font-family:"Inter",sans-serif;direction:ltr;unicode-bidi:isolate}
-header{position:sticky;top:0;z-index:5;background:rgba(10,10,10,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:22px}
-.logo img{width:36px;height:36px;border-radius:10px}
-.logo small{font:600 13px "Inter",sans-serif;color:var(--muted)}
-.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:12px 22px;font-weight:700;text-decoration:none;border:1px solid var(--line)}
-.btn.go{background:var(--emerald);border-color:var(--emerald);color:var(--on-emerald)}
-.btn.sm{padding:8px 16px;font-size:15px}
-.hero{padding:72px 0 56px}
-.hero h1{max-width:760px;font-size:clamp(34px,6vw,58px);line-height:1.25;margin:0 0 18px;font-weight:700}
-.em{color:var(--emerald)}
-.hero p{color:var(--muted);font-size:19px;max-width:620px;margin:0 0 28px}
-.cta{display:flex;gap:12px;flex-wrap:wrap}
-section{padding:48px 0;border-top:1px solid var(--line)}
-h2{font-size:28px;margin:0 0 24px}
-.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px}
-.card h3{margin:0 0 6px;font-size:19px}
-.card p{margin:0;color:var(--muted);font-size:15.5px}
-.step b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--emerald);color:var(--on-emerald);font:800 16px "Inter",sans-serif;margin-bottom:10px}
-.price{font:800 30px "Inter",sans-serif;margin:8px 0 2px}
-.price small{font:600 15px var(--font);color:var(--muted)}
-.card.main{border-color:var(--emerald);box-shadow:inset 0 0 0 1px var(--emerald)}
-.note{color:var(--muted);font-size:15px;margin-top:16px}
-.ex{text-decoration:none;display:block}
-.ex .tag{font-size:13px;color:var(--emerald)}
-footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--muted);font-size:15px}
-footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-footer a{text-decoration:none;margin-inline-start:16px}
-</style>
-</head>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>سهل | صفحات ومواقع للمحلات في الخليل وفلسطين</title>
+<meta name="description" content="صفحات هبوط من 99$ بالشهر، جاهزة خلال 24 ساعة تقريباً، ومواقع وتطبيقات ويب وجوال للمحلات والشركات. الاستضافة والدومين والدعم ضمن الاشتراك. ابدأ عبر واتساب.">
+<meta name="theme-color" content="#0D1110">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230D1110'/><path d='M9 22 16 9l7 13' stroke='%23FF5A36' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..110,400..800&amp;family=Geist:wght@400..600&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;family=Heebo:wght@400..800&amp;display=swap">
+<link rel="stylesheet" href="scrollcraft.css">
+<style>@font-face{font-family:"IBM Plex Sans Arabic";font-weight:400;src:url(fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format("woff2");font-display:swap}@font-face{font-family:"IBM Plex Sans Arabic";font-weight:500;src:url(fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2) format("woff2");font-display:swap}@font-face{font-family:"IBM Plex Sans Arabic";font-weight:600;src:url(fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format("woff2");font-display:swap}@font-face{font-family:"IBM Plex Sans Arabic";font-weight:700;src:url(fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format("woff2");font-display:swap}@font-face{font-family:"Inter";font-weight:400;src:url(fonts/inter-latin-400-normal.woff2) format("woff2");font-display:swap}@font-face{font-family:"Inter";font-weight:600;src:url(fonts/inter-latin-600-normal.woff2) format("woff2");font-display:swap}@font-face{font-family:"Inter";font-weight:700;src:url(fonts/inter-latin-700-normal.woff2) format("woff2");font-display:swap}@font-face{font-family:"Inter";font-weight:800;src:url(fonts/inter-latin-800-normal.woff2) format("woff2");font-display:swap}:root{--sc-font-display:"IBM Plex Sans Arabic","Inter",system-ui,sans-serif!important;--sc-font-text:"IBM Plex Sans Arabic","Inter",system-ui,sans-serif!important}
+  /* ------------------------------------------------------------ tokens --
+     Graphite-green ground, bone ink, one vermilion signal accent. */
+  :root {
+    --sc-canvas:     #070B09;
+    --sc-surface:    #0F1512;
+    --sc-ink:        #EEEAE1;
+    --sc-ink-soft:   #A3ADA7;
+    --sc-accent:     #22C55E;
+    --sc-accent-ink: #04130A;
+    --sc-font-display: "Archivo", "Helvetica Neue", Arial, system-ui, sans-serif;
+    --sc-font-text:    "Geist", "Helvetica Neue", Arial, system-ui, sans-serif;
+    --sc-shadow-color: 160 30% 2%;
+
+    --surface-2: #141C18;
+    --line: color-mix(in oklab, var(--sc-ink) 14%, transparent);
+    --line-strong: color-mix(in oklab, var(--sc-ink) 26%, transparent);
+    --wire: color-mix(in oklab, var(--sc-ink) 46%, transparent);
+    --bar-h: 64px;
+    --radius: 14px;          /* one radius scale: 14 for panels, 999 for controls */
+    --mx: 0; --my: 0;
+  }
+  html[lang="ar"] {
+    --sc-font-display: "IBM Plex Sans Arabic", "Noto Sans Arabic", "Geeza Pro", Tahoma, system-ui, sans-serif;
+    --sc-font-text:    "IBM Plex Sans Arabic", "Noto Sans Arabic", "Geeza Pro", Tahoma, system-ui, sans-serif;
+  }
+  /* Arabic is never tracked. Joining letters cannot take letter-spacing. */
+  html[lang="ar"] body, html[lang="ar"] body * { letter-spacing: 0 !important; }
+  html[lang="ar"] .sc-display, html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3 { line-height: 1.3; font-weight: 700; }
+  html[lang="ar"] body { line-height: 1.8; }
+  html[lang="ar"] .h2 { font-size: calc(var(--sc-t-3xl) * 0.82); }
+  html[lang="ar"] .drawer__name { font-size: var(--sc-t-xl); }
+  html[lang="ar"] .hero h1 { font-size: clamp(2.4rem, 1.2rem + 4vw, 4.8rem); line-height: 1.2; }
+  html[lang="he"] {
+    --sc-font-display: "Heebo", "Arial Hebrew", "Noto Sans Hebrew", Arial, system-ui, sans-serif;
+    --sc-font-text:    "Heebo", "Arial Hebrew", "Noto Sans Hebrew", Arial, system-ui, sans-serif;
+  }
+  /* Hebrew is never tracked tight: no negative letter-spacing anywhere. */
+  html[lang="he"] body, html[lang="he"] body * { letter-spacing: 0 !important; }
+  html[lang="he"] .sc-display, html[lang="he"] h1, html[lang="he"] h2, html[lang="he"] h3 { line-height: 1.15; font-weight: 700; }
+  html[lang="he"] body { line-height: 1.65; }
+  html[lang="he"] .h2 { font-size: calc(var(--sc-t-3xl) * 0.88); }
+  html[lang="he"] .drawer__name { font-size: calc(var(--sc-t-2xl) * 0.92); }
+  html[lang="he"] .hero h1 { font-size: clamp(2.6rem, 1.3rem + 4.4vw, 5.4rem); line-height: 1.05; }
+
+  body { background: var(--sc-canvas); }
+  h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; }
+  ul, ol { padding: 0; list-style: none; }
+  .visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+  .skip { position: fixed; inset-inline-start: 12px; top: 12px; z-index: 100; padding: 10px 16px; background: var(--sc-accent); color: var(--sc-accent-ink); border-radius: 999px; transform: translateY(-160%); transition: transform 160ms var(--sc-ease-out); }
+  .skip:focus-visible { transform: none; }
+
+  /* -------------------------------------------------------------- button */
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.6em;
+    min-height: 48px; padding: 0 1.4rem;
+    border-radius: 999px; border: 0;
+    background: var(--sc-accent); color: var(--sc-accent-ink);
+    font-family: var(--sc-font-text); font-weight: 600; font-size: var(--sc-t-sm);
+    text-decoration: none; white-space: nowrap; cursor: pointer;
+    box-shadow: var(--sc-e1);
+    transition: transform 140ms var(--sc-ease-out), background-color 160ms var(--sc-ease-out), box-shadow 160ms var(--sc-ease-out);
+  }
+  .btn svg { width: 18px; height: 18px; flex: none; }
+  .btn:active { transform: scale(0.97); }
+  .btn[aria-disabled="true"] { opacity: 0.45; pointer-events: none; }
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover { background: color-mix(in oklab, var(--sc-accent) 88%, white); box-shadow: var(--sc-e2); }
+  }
+  .btn--sm { min-height: 40px; padding: 0 1.05rem; }
+  .btn:focus-visible { outline-offset: 4px; border-radius: 999px; }
+
+  /* ----------------------------------------------------------------- bar
+     The nav is an index of the collection. It jumps, and it marks what is
+     on screen now. */
+  .bar {
+    position: fixed; inset: 0 0 auto 0; z-index: var(--sc-z-chrome);
+    height: var(--bar-h);
+    display: flex; align-items: center; gap: var(--sc-5);
+    padding-inline: var(--sc-gutter);
+    background: color-mix(in oklab, var(--sc-canvas) 86%, transparent);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: saturate(1.2) blur(10px);
+  }
+  .mark { display: inline-flex; align-items: baseline; gap: 0.5em; text-decoration: none; font-family: "Archivo", "Helvetica Neue", Arial, system-ui, sans-serif; font-weight: 650; font-size: 1.02rem; letter-spacing: -0.01em; white-space: nowrap; }
+  .mark small { font-family: var(--sc-font-text); font-weight: 450; font-size: 0.78rem; color: var(--sc-ink-soft); letter-spacing: 0.02em; }
+  .index { margin-inline-start: auto; position: relative; }
+  .index__toggle { display: none; }
+  .index__list { display: flex; align-items: center; gap: var(--sc-1); font-size: var(--sc-t-sm); }
+  .index__list a {
+    position: relative; display: inline-flex; align-items: center; min-height: 36px; padding: 0 0.6rem;
+    color: var(--sc-ink-soft); text-decoration: none; border-radius: 999px;
+    transition: color 160ms var(--sc-ease-out), background-color 160ms var(--sc-ease-out);
+  }
+  .index__list a[aria-current="true"] { color: var(--sc-ink); background: color-mix(in oklab, var(--sc-ink) 8%, transparent); }
+  .index__list a[aria-current="true"]::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--sc-accent); margin-inline-end: 0.5em; }
+  @media (hover: hover) and (pointer: fine) { .index__list a:hover { color: var(--sc-ink); } }
+  .index__sep { width: 1px; height: 18px; background: var(--line-strong); margin-inline: var(--sc-2); }
+  .index__group { color: color-mix(in oklab, var(--sc-ink-soft) 80%, transparent); font-size: var(--sc-t-xs); margin-inline-end: 0.15rem; }
+  .index__cta { display: none; }
+
+  .lang { display: inline-flex; flex: none; padding: 3px; border: 1px solid var(--line-strong); border-radius: 999px; }
+  .lang button {
+    min-width: 0; min-height: 32px; padding: 0 0.55rem; border: 0; border-radius: 999px; white-space: nowrap;
+    background: transparent; color: var(--sc-ink-soft); font-size: 0.8rem; font-weight: 600; cursor: pointer;
+    transition: background-color 160ms var(--sc-ease-out), color 160ms var(--sc-ease-out);
+  }
+  .lang button[lang="ar"] { font-family: "IBM Plex Sans Arabic", "Noto Sans Arabic", Tahoma, sans-serif; font-size: 0.86rem; }
+  .lang button[lang="he"] { font-family: "Heebo", "Arial Hebrew", "Noto Sans Hebrew", Arial, sans-serif; font-size: 0.84rem; letter-spacing: 0; }
+  .lang button[aria-pressed="true"] { background: var(--sc-ink); color: var(--sc-canvas); }
+  .lang button:active { transform: scale(0.97); }
+
+  /* Full index row with a three-way language switch: tighten until there is room to spare. */
+  @media (min-width: 1541px) and (max-width: 1760px) {
+    .bar { gap: var(--sc-4); }
+    .index__list { gap: 2px; }
+    .index__list a { padding: 0 0.45rem; }
+    .index__sep { margin-inline: var(--sc-1); }
+  }
+  @media (max-width: 1960px) {
+    .index__toggle {
+      display: inline-flex; align-items: center; gap: 0.5rem; min-height: 40px; padding: 0 0.95rem;
+      border: 1px solid var(--line-strong); border-radius: 999px; background: transparent; color: var(--sc-ink);
+      font-size: var(--sc-t-sm); font-weight: 500; cursor: pointer;
+    }
+    .index__toggle i { position: relative; width: 12px; height: 8px; border-block: 1.5px solid currentColor; transition: transform 200ms var(--sc-ease-out); }
+    .index__toggle[aria-expanded="true"] i { transform: scaleY(0.4); }
+    .index__list {
+      position: absolute; inset-block-start: calc(100% + 12px); inset-inline-end: 0;
+      min-width: 16rem; padding: var(--sc-3);
+      max-height: calc(100dvh - var(--bar-h, 72px) - 24px); overflow-y: auto; overscroll-behavior: contain;
+      flex-direction: column; align-items: stretch; gap: 2px;
+      background: var(--sc-surface); border: 1px solid var(--line); border-radius: var(--radius);
+      box-shadow: var(--sc-e3);
+      opacity: 0; transform: translateY(-6px) scale(0.98); transform-origin: top right; pointer-events: none; visibility: hidden;
+      transition: opacity 180ms var(--sc-ease-out), transform 180ms var(--sc-ease-out), visibility 0s linear 180ms;
+    }
+    [dir="rtl"] .index__list { transform-origin: top left; }
+    .index.is-open .index__list { opacity: 1; transform: none; pointer-events: auto; visibility: visible; transition-delay: 0s; }
+    .index__list a { min-height: 44px; border-radius: 10px; font-size: var(--sc-t-base); }
+    .index__sep { width: auto; height: 1px; margin: var(--sc-2) 0.6rem; }
+    .index__group { padding: 0.4rem 0.6rem 0; }
+    .index__cta { display: block; margin-top: var(--sc-2); }
+    .index__cta .btn { width: 100%; justify-content: center; color: var(--sc-accent-ink); font-size: var(--sc-t-sm); border-radius: 999px; }
+  }
+  @media (max-width: 640px) {
+    :root { --bar-h: 58px; }
+    .bar { gap: 6px; }
+    .bar > .btn { display: none; }
+    .mark small { display: none; }
+    .mark { font-size: 0.95rem; }
+    .index { margin-inline-start: auto; }
+    .index__toggle { padding: 0 0.6rem; gap: 0.35rem; }
+    .lang { padding: 2px; }
+    .lang button { min-height: 32px; padding: 0 0.38rem; font-size: 0.74rem; }
+    .lang button[lang="ar"] { font-size: 0.8rem; }
+    .lang button[lang="he"] { font-size: 0.78rem; }
+  }
+
+  /* ---------------------------------------------------------------- hero */
+  .hero__stage { display: grid; align-items: center; }
+  .hero__copy {
+    position: relative; z-index: 5;
+    padding-inline: var(--sc-gutter);
+    padding-top: var(--bar-h);
+    max-width: 44rem;
+  }
+  .hero__label { font-size: var(--sc-t-sm); color: var(--sc-ink-soft); display: flex; align-items: center; gap: 0.7em; }
+  .hero__label::before { content: ""; width: 22px; height: 1px; background: var(--sc-accent); }
+  .hero h1 {
+    margin-top: var(--sc-5);
+    font-family: var(--sc-font-display); font-weight: 700; font-stretch: 92%;
+    font-size: clamp(3rem, 1.4rem + 5.2vw, 6.4rem);
+    line-height: 0.96; letter-spacing: -0.035em; text-wrap: balance;
+  }
+  .hero__sub { margin-top: var(--sc-5); max-width: 34ch; font-size: var(--sc-t-lg); line-height: 1.45; color: var(--sc-ink-soft); text-wrap: pretty; }
+  .hero__copy .btn { margin-top: var(--sc-6); }
+  .hero__next {
+    position: absolute; z-index: 5; inset-inline-start: var(--sc-gutter); bottom: clamp(1.5rem, 5vh, 3rem);
+    max-width: 30rem; font-size: var(--sc-t-sm); color: var(--sc-ink-soft);
+  }
+
+  /* The bench: four planes, back to front, each on its own rate. */
+  .hero__art { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+  .bench {
+    position: absolute;
+    inset-block: calc(var(--bar-h) + 7vh) 9vh;
+    inset-inline-start: 47%; inset-inline-end: var(--sc-gutter);
+  }
+  .plane { position: absolute; will-change: transform; }
+  .plane--grid {
+    inset: -18% -30% -18% -40%;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(closest-side, #000 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent 100%);
+    opacity: 0.8;
+    transform: translate3d(calc(var(--mx) * -5px), calc(var(--sc-p) * -30px + var(--my) * -5px), 0) scale(0.985);
+  }
+  .plane--browser {
+    inset-block-start: 4%; inset-inline-start: 10%; width: 88%;
+    aspect-ratio: 16 / 10.5;
+    transform: translate3d(calc(var(--mx) * -10px), calc(var(--sc-p) * -90px + var(--my) * -9px), 0);
+  }
+  .plane--phone {
+    inset-block-end: 0; inset-inline-start: 0; width: 27%;
+    aspect-ratio: 9 / 19;
+    transform: translate3d(calc(var(--mx) * -20px), calc(var(--sc-p) * -170px + var(--my) * -16px), 0);
+  }
+  .plane--tools {
+    inset-block-end: 6%; inset-inline-end: -2%; width: 30%;
+    transform: translate3d(calc(var(--mx) * -30px), calc(var(--sc-p) * -260px + var(--my) * -24px), 0) scale(1.04);
+    filter: blur(0.4px);
+  }
+  .browser {
+    width: 100%; height: 100%; display: flex; flex-direction: column;
+    background: color-mix(in oklab, var(--sc-surface) 92%, transparent);
+    border: 1px solid var(--line-strong); border-radius: var(--radius);
+    box-shadow: var(--sc-e3), var(--sc-edge);
+    overflow: hidden;
+  }
+  .browser__top { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+  .browser__top b { width: 8px; height: 8px; border-radius: 50%; border: 1px solid var(--line-strong); }
+  .browser__url { margin-inline-start: 8px; flex: 1; max-width: 16rem; height: 22px; border-radius: 999px; background: color-mix(in oklab, var(--sc-ink) 6%, transparent); font-size: 11px; line-height: 22px; padding-inline: 12px; color: var(--sc-ink-soft); direction: ltr; text-align: start; }
+  .browser__body { position: relative; flex: 1; color: var(--wire); }
+  .browser__body svg, .thumb__wire svg, .phone__wire svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .browser__body svg * , .thumb__wire svg *, .phone__wire svg * { vector-effect: non-scaling-stroke; }
+
+  .phone {
+    position: relative; width: 100%; height: 100%;
+    padding: 7%;
+    background: #080B0A; border-radius: 22% / 10.5%;
+    box-shadow: var(--sc-e3), inset 0 0 0 1px color-mix(in oklab, var(--sc-ink) 18%, transparent);
+  }
+  .phone__screen { position: relative; width: 100%; height: 100%; border-radius: 15% / 7%; overflow: hidden; background: var(--sc-surface); --pc: clamp(0.16, calc(0.16 + var(--sc-p) * 1.5), 1); }
+  .phone__wire { position: absolute; inset: 0; color: var(--wire); clip-path: inset(calc(var(--pc) * 100%) 0 0 0); }
+  .phone__built { position: absolute; inset: 0; clip-path: inset(0 0 calc((1 - var(--pc)) * 100%) 0); display: flex; flex-direction: column; gap: 6%; padding: 14% 9% 9%; background: var(--surface-2); }
+  .phone__built .ph-nav { height: 3%; width: 38%; background: var(--sc-ink); border-radius: 2px; opacity: 0.9; }
+  .phone__built .ph-img { height: 30%; border-radius: 8px; background: var(--sc-accent); }
+  .phone__built .ph-h { height: 4.5%; width: 86%; background: var(--sc-ink); border-radius: 2px; }
+  .phone__built .ph-h + .ph-h { width: 60%; margin-top: -3%; }
+  .phone__built .ph-p { height: 2%; width: 78%; background: var(--sc-ink-soft); opacity: 0.6; border-radius: 2px; }
+  .phone__built .ph-b { height: 7%; width: 52%; border-radius: 999px; background: var(--sc-ink); margin-top: auto; }
+  .scan { position: absolute; inset: 0; transform: translate3d(0, calc(var(--pc) * 100%), 0); pointer-events: none; }
+  .scan::before { content: ""; position: absolute; inset-inline: 0; top: -1px; height: 2px; background: var(--sc-accent); box-shadow: 0 2px 10px -2px color-mix(in oklab, var(--sc-accent) 60%, transparent); }
+
+  .tools { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tool { background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--sc-e2), var(--sc-edge); aspect-ratio: 1; display: grid; place-items: center; }
+  .tool--type { font-family: var(--sc-font-display); font-weight: 700; font-size: clamp(1.4rem, 2.6vw, 2.6rem); letter-spacing: -0.03em; color: var(--sc-ink); }
+  .tool--swatch { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 6px; padding: 14%; place-items: stretch; }
+  .tool--swatch span { border-radius: 6px; border: 1px solid var(--line); }
+  .tool--swatch span:nth-child(1) { background: var(--sc-canvas); }
+  .tool--swatch span:nth-child(2) { background: var(--sc-ink); }
+  .tool--swatch span:nth-child(3) { background: var(--sc-accent); grid-column: span 2; }
+
+  /* FUTURE HERO VIDEO: styles are ready for the <video> slot in the markup. */
+  .hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+  .hero__video-scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, color-mix(in oklab, var(--sc-canvas) 90%, transparent) 0%, color-mix(in oklab, var(--sc-canvas) 55%, transparent) 45%, transparent 75%); }
+  [dir="rtl"] .hero__video-scrim { transform: scaleX(-1); }
+
+  @media (max-width: 860px) {
+    .hero__stage { align-items: start; }
+    .hero__copy { padding-top: calc(var(--bar-h) + 5svh); }
+    .hero h1 { font-size: clamp(2.5rem, 1.2rem + 7vw, 3.6rem); }
+    .hero__sub { font-size: var(--sc-t-base); }
+    .hero__copy .btn { margin-top: var(--sc-5); }
+    .hero__next { display: none; }
+    .bench { inset-block: auto 3svh; height: 42svh; inset-inline: var(--sc-gutter); }
+    .plane--browser { inset-block-start: 0; inset-inline-start: 16%; width: 84%; }
+    .plane--phone { width: 30%; inset-inline-start: 2%; }
+    .plane--tools { width: 34%; inset-block-end: 2%; inset-inline-end: 0; }
+    .browser__url { font-size: 10px; }
+  }
+  @media (max-width: 860px) and (max-height: 700px) {
+    .bench { height: 34svh; }
+  }
+
+  /* ------------------------------------------------------------ services */
+  .services { border-top: 1px solid var(--line); }
+  .services__head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: var(--sc-4) var(--sc-7); }
+  .services__head p { color: var(--sc-ink-soft); max-width: 34ch; }
+  .h2 { font-family: var(--sc-font-display); font-weight: 650; font-size: var(--sc-t-3xl); line-height: 1; letter-spacing: -0.03em; text-wrap: balance; }
+  .drawers { margin-top: var(--sc-8); border-top: 1px solid var(--line-strong); }
+  .drawer { border-bottom: 1px solid var(--line-strong); }
+  .drawer summary {
+    list-style: none; cursor: pointer;
+    display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) auto; align-items: center; gap: var(--sc-4) var(--sc-7);
+    padding-block: var(--sc-6);
+    border-radius: 4px;
+  }
+  .drawer summary::-webkit-details-marker { display: none; }
+  .drawer__name { font-family: var(--sc-font-display); font-weight: 600; font-size: var(--sc-t-2xl); line-height: 1.02; letter-spacing: -0.025em; }
+  .drawer__desc { color: var(--sc-ink-soft); max-width: 40ch; }
+  .drawer__icon { position: relative; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line-strong); transition: background-color 180ms var(--sc-ease-out), border-color 180ms var(--sc-ease-out); }
+  .drawer__icon::before, .drawer__icon::after { content: ""; position: absolute; inset: 50% auto auto 50%; width: 14px; height: 1.5px; margin: -0.75px 0 0 -7px; background: currentColor; transition: transform 220ms var(--sc-ease-out); }
+  .drawer__icon::after { transform: rotate(90deg); }
+  .drawer[open] .drawer__icon { background: var(--sc-accent); border-color: var(--sc-accent); color: var(--sc-accent-ink); }
+  .drawer[open] .drawer__icon::after { transform: rotate(0deg); }
+  @media (hover: hover) and (pointer: fine) { .drawer summary:hover .drawer__icon { border-color: var(--sc-ink); } }
+  .drawer__body { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) 44px; gap: var(--sc-4) var(--sc-7); padding-bottom: var(--sc-7); }
+  .drawer[open] .drawer__body { animation: drawer-in 360ms var(--sc-ease-out) both; }
+  @keyframes drawer-in { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+  .subtypes { display: flex; flex-wrap: wrap; gap: var(--sc-2); align-content: start; }
+  .subtypes li { padding: 0.45rem 0.9rem; border: 1px solid var(--line-strong); border-radius: 999px; font-size: var(--sc-t-sm); }
+  .examples { font-size: var(--sc-t-sm); color: var(--sc-ink-soft); }
+  .examples b { display: block; font-weight: 500; color: var(--sc-ink); margin-bottom: var(--sc-2); }
+  .examples ul { display: flex; flex-wrap: wrap; gap: var(--sc-1) var(--sc-4); }
+  .examples a { display: inline-flex; min-height: 32px; align-items: center; color: var(--sc-ink); text-decoration: underline; text-decoration-color: var(--sc-accent); text-underline-offset: 0.3em; }
+  .examples a:hover { text-decoration-thickness: 2px; }
+  @media (max-width: 860px) {
+    .drawer summary { grid-template-columns: minmax(0, 1fr) auto; padding-block: var(--sc-5); }
+    .drawer__desc { grid-column: 1; grid-row: 2; font-size: var(--sc-t-sm); }
+    .drawer__icon { grid-column: 2; grid-row: 1 / span 2; }
+    .drawer__body { grid-template-columns: 1fr; }
+    .drawers { margin-top: var(--sc-7); }
+  }
+
+  /* ------------------------------------------------------------- gallery */
+  .gallery__stage { background: var(--sc-canvas); }
+  .mirror { position: absolute; inset: 0; direction: ltr; }
+  [dir="rtl"] .mirror { transform: scaleX(-1); }
+  [dir="rtl"] .mirror .slot { transform: scaleX(-1); direction: rtl; }
+  .rail { direction: ltr; }
+  .rail {
+    position: relative;
+    height: 100%;
+    align-items: center; gap: clamp(1.25rem, 3vw, 3rem);
+    padding-inline: var(--sc-gutter);
+    padding-top: var(--bar-h);
+    width: max-content;
+  }
+  .slot { flex: none; }
+  .gallery__lead { width: clamp(17rem, 30vw, 27rem); }
+  .gallery__lead .h2 { font-size: var(--sc-t-3xl); }
+  .gallery__lead p { margin-top: var(--sc-5); color: var(--sc-ink-soft); max-width: 32ch; }
+  .gallery__lead .note { margin-top: var(--sc-5); font-size: var(--sc-t-sm); display: flex; gap: 0.6em; align-items: center; color: var(--sc-ink-soft); }
+  .gallery__lead .note::before { content: ""; width: 22px; height: 2px; background: var(--sc-accent); flex: none; }
+
+  .work { width: clamp(18rem, 29vw, 27rem); --c: 0; --s: 1; opacity: calc(0.55 + var(--s) * 0.45); transform: translate3d(0, calc((1 - var(--s)) * 18px), 0); }
+  .thumb {
+    position: relative; aspect-ratio: 4 / 3; overflow: hidden;
+    border-radius: var(--radius); background: var(--sc-surface);
+    border: 1px solid var(--line);
+    box-shadow: var(--sc-e3), var(--sc-edge);
+  }
+  .thumb__wire { position: absolute; inset: 0; color: var(--wire); clip-path: inset(calc(var(--c) * 100%) 0 0 0);
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 20px 20px; background-position: -1px -1px; }
+  .thumb__built { position: absolute; inset: 0; clip-path: inset(0 0 calc((1 - var(--c)) * 100%) 0); }
+  .thumb__built img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .plate[hidden], .thumb__img[hidden] { display: none; }
+  .thumb .scan { transform: translate3d(0, calc(var(--c) * 100%), 0); }
+  .thumb__tag {
+    position: absolute; inset-inline-end: 12px; top: 8px;
+    padding: 3px 9px; border-radius: 999px;
+    background: var(--sc-accent); color: var(--sc-accent-ink);
+    font-size: 11px; font-weight: 600; line-height: 1.3; white-space: nowrap;
+    opacity: calc(var(--c) * 3 - 0.2);
+  }
+  .work[data-built="0"] .thumb__tag { background: var(--sc-ink); color: var(--sc-canvas); }
+
+  /* Coming-soon plates: designed, typographic, no fake screenshots. */
+  .plate { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 7% 8%; overflow: hidden; }
+  .plate__k { font-size: 11px; color: currentColor; opacity: 0.66; display: flex; justify-content: space-between; gap: 1em; }
+  .plate__n { font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-weight: 700; font-stretch: 88%; font-size: clamp(2.4rem, 4.2vw, 3.6rem); line-height: 0.9; letter-spacing: -0.04em; direction: ltr; text-align: left; }
+  .plate--velora { background: radial-gradient(60% 70% at 72% 40%, #F4F2EE 0%, #D9DCDA 60%, #C7CCCA 100%); color: #1A1E1D; }
+  .plate--velora::after { content: ""; position: absolute; width: 26%; aspect-ratio: 0.42; right: 18%; top: 16%; border-radius: 40% 40% 12% 12% / 20% 20% 8% 8%; background: linear-gradient(180deg, #2A2F2E 0 20%, #9BA19F 20% 100%); box-shadow: 0 18px 30px -12px rgb(20 24 23 / 0.45); }
+  .plate--baqa { background: radial-gradient(55% 65% at 70% 38%, #F7E8DE 0%, #E3C9B5 55%, #CFA888 100%); color: #1D1D1D; }
+  .plate--baqa::after { content: ""; position: absolute; width: 22%; aspect-ratio: 1; right: 20%; top: 18%; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #FFF6EE 0 18%, #E9A8A0 19% 100%); box-shadow: 0 18px 30px -12px rgb(60 30 20 / 0.35); }
+  .plate--pulse { background: repeating-radial-gradient(circle at 70% 55%, transparent 0 22px, color-mix(in oklab, var(--sc-ink) 14%, transparent) 22px 23px), #111715; color: var(--sc-ink); }
+  .plate--zaitoun { background: linear-gradient(transparent 0 calc(100% - 1px), color-mix(in oklab, var(--sc-ink) 10%, transparent) 0) 0 0 / 100% 18px, #1D2320; color: var(--sc-ink); }
+  .plate--zaitoun .plate__ar { font-family: "IBM Plex Sans Arabic", "Noto Sans Arabic", Tahoma, sans-serif; font-weight: 700; font-size: clamp(2.6rem, 4.6vw, 3.8rem); line-height: 1.1; direction: rtl; text-align: right; letter-spacing: 0 !important; }
+  .plate--horizon { background: linear-gradient(180deg, #2B3230 0%, #151A19 100%); color: var(--sc-ink); }
+  .plate--horizon::before { content: ""; position: absolute; inset: 38% 14% 0 38%; border: 1px solid color-mix(in oklab, var(--sc-ink) 30%, transparent); border-bottom: 0; background: repeating-linear-gradient(180deg, transparent 0 31px, color-mix(in oklab, var(--sc-ink) 30%, transparent) 31px 32px); }
+  .plate--nexa { background: radial-gradient(color-mix(in oklab, var(--sc-ink) 22%, transparent) 1px, transparent 1.4px) 0 0 / 14px 14px, #0F1413; color: var(--sc-ink); }
+  .plate > * { position: relative; z-index: 1; }
+  /* Coming-soon plates only ever compile to ~55%, so their name sits in the top half. */
+  .plate:not(.plate--velora) { justify-content: flex-start; gap: 0.9rem; }
+
+  .work__label { margin-top: var(--sc-5); display: grid; gap: var(--sc-2); }
+  .work__kind { font-size: var(--sc-t-xs); color: var(--sc-ink-soft); letter-spacing: 0.04em; }
+  .work__name { font-family: var(--sc-font-display); font-weight: 650; font-size: var(--sc-t-xl); line-height: 1.05; letter-spacing: -0.02em; }
+  .work__line { color: var(--sc-ink-soft); font-size: var(--sc-t-sm); line-height: 1.5; max-width: 36ch; min-height: 3em; }
+  .work__meta { display: flex; align-items: center; justify-content: space-between; gap: var(--sc-4); margin-top: var(--sc-2); padding-top: var(--sc-3); border-top: 1px solid var(--line); font-size: var(--sc-t-sm); }
+  .work__status { color: var(--sc-ink-soft); }
+  .work__link { display: inline-flex; align-items: center; gap: 0.4em; min-height: 40px; color: var(--sc-ink); font-weight: 500; text-decoration: underline; text-decoration-color: var(--sc-accent); text-underline-offset: 0.3em; }
+  .work__link:hover { text-decoration-thickness: 2px; }
+  .work__link.is-disabled { color: var(--sc-ink-soft); text-decoration: none; cursor: default; }
+  [dir="rtl"] .work__link .arr { transform: scaleX(-1); }
+
+  .gallery__outro { width: clamp(16rem, 24vw, 22rem); }
+  .gallery__outro p { margin-top: var(--sc-4); color: var(--sc-ink-soft); }
+  .gallery__outro .btn { margin-top: var(--sc-6); }
+
+  @media (max-width: 860px) {
+    .plate__n { font-size: 2.2rem; }
+    .plate--zaitoun .plate__ar { font-size: 2.4rem; }
+    .rail { padding-top: calc(var(--bar-h) + 1rem); align-items: center; }
+    .gallery__lead { width: 78vw; }
+    .work { width: 80vw; }
+    .gallery__outro { width: 74vw; }
+    .work__label { margin-top: var(--sc-4); }
+  }
+
+  /* ------------------------------------------------------------- process */
+  .process__stage { display: grid; align-content: center; background: var(--surface-2); }
+  .process__wrap { padding-top: var(--bar-h); }
+  .process__track { position: relative; height: 2px; margin-top: var(--sc-8); background: var(--line); }
+  .process__line { position: absolute; inset: 0; background: var(--sc-accent); transform-origin: left center; transform: scaleX(clamp(0, calc(var(--sc-p) * 1.35), 1)); }
+  [dir="rtl"] .process__line { transform-origin: right center; }
+  .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sc-6); margin-top: var(--sc-6); }
+  .step { position: relative; }
+  .step__n { font-family: var(--sc-font-display); font-weight: 600; font-size: var(--sc-t-sm); color: var(--sc-accent); font-variant-numeric: tabular-nums; }
+  .step h3 { margin-top: var(--sc-2); font-family: var(--sc-font-display); font-weight: 650; font-size: var(--sc-t-xl); letter-spacing: -0.02em; line-height: 1.1; }
+  .step__time { margin-top: var(--sc-2); font-size: var(--sc-t-sm); color: var(--sc-ink); font-weight: 500; }
+  .step p:last-child { margin-top: var(--sc-3); font-size: var(--sc-t-sm); color: var(--sc-ink-soft); max-width: 30ch; }
+  @media (max-width: 860px) {
+    .process__track { position: absolute; inset-block: 0; inset-inline-start: 0; width: 2px; height: auto; margin: 0; }
+    .process__line { transform-origin: center top; transform: scaleY(clamp(0, calc(var(--sc-p) * 1.35), 1)); }
+    [dir="rtl"] .process__line { transform-origin: center top; }
+    .process__body { position: relative; margin-top: var(--sc-6); padding-inline-start: var(--sc-5); }
+    .steps { grid-template-columns: 1fr; gap: var(--sc-5); margin-top: 0; }
+    .step h3 { font-size: var(--sc-t-lg); display: inline; margin-inline-start: 0.4em; }
+    .step__time { display: inline; margin-inline-start: 0.6em; color: var(--sc-ink-soft); }
+    .step p:last-child { margin-top: var(--sc-1); }
+  }
+  @media (min-width: 861px) { .process__body { display: contents; } }
+
+  /* ----------------------------------------------------------------- faq */
+
+  .index__list a { white-space: nowrap; }
+  /* ---------- pricing ---------- */
+  .pricing__head { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: var(--sc-5) var(--sc-9); align-items: end; margin-bottom: var(--sc-8); }
+  .pricing__head p { color: var(--sc-ink-soft); max-width: 44ch; margin: 0; }
+  .plans { list-style: none; margin: 0; padding: 0; border-top: 1px solid color-mix(in oklab, var(--sc-ink) 16%, transparent); }
+  .plan { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) auto auto; gap: var(--sc-4) var(--sc-7); align-items: baseline;
+    padding: var(--sc-6) 0; border-bottom: 1px solid color-mix(in oklab, var(--sc-ink) 16%, transparent); }
+  .plan__name { margin: 0; font-family: var(--sc-font-display); font-weight: 600; font-size: var(--sc-t-xl); letter-spacing: -0.02em; }
+  .plan__what { margin: 0; color: var(--sc-ink-soft); max-width: 52ch; }
+  .cur { display: inline-flex; gap: 4px; padding: 4px; margin-bottom: var(--sc-6); border: 1px solid color-mix(in oklab, var(--sc-ink) 18%, transparent); border-radius: 999px; }
+  .cur button { min-height: 40px; padding: 0 1rem; border: 0; border-radius: 999px; background: transparent; color: var(--sc-ink-soft); font: inherit; font-size: var(--sc-t-sm); cursor: pointer; white-space: nowrap; }
+  .cur button[aria-pressed="true"] { background: var(--sc-ink); color: var(--sc-canvas); }
+  .cur button:focus-visible { outline: 2px solid var(--sc-accent); outline-offset: 2px; }
+  @media (max-width: 420px) { .cur { display: flex; } .cur button { flex: 1; padding: 0 .6rem; } }
+  .plan__price { margin: 0; white-space: nowrap; display: flex; align-items: baseline; gap: .35rem; }
+  .plan__num { font-family: var(--sc-font-display); font-weight: 650; font-size: var(--sc-t-2xl); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+  .plan__num--word { font-size: var(--sc-t-xl); }
+  .plan__per { color: var(--sc-ink-soft); font-size: var(--sc-t-sm); }
+  .prtoggles { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: var(--sc-6); }
+  .prtoggles .cur { margin-bottom: 0; }
+  .bill__off { display: inline-block; margin-inline-start: .35rem; padding: 2px 8px; border-radius: 999px; font-size: .78em; font-weight: 600; background: var(--sc-accent); color: var(--sc-canvas); }
+  .plan__save { margin: .35rem 0 0; font-size: var(--sc-t-sm); color: var(--sc-ink-soft); }
+  .plan__save s { opacity: .75; }
+  .plan__save b { color: var(--sc-accent); font-weight: 600; white-space: nowrap; }
+  @media (max-width: 420px) { .prtoggles { display: grid; } }
+  .plan--top .plan__num { color: var(--sc-accent); }
+  .plan__go { color: var(--sc-ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; white-space: nowrap; font-weight: 500;
+    transition: color .16s var(--sc-ease-out); }
+  .plan__go:focus-visible { outline: 2px solid var(--sc-accent); outline-offset: 4px; border-radius: 4px; }
+  @media (hover: hover) and (pointer: fine) { .plan__go:hover { color: var(--sc-accent); } }
+  @media (max-width: 860px) {
+    .pricing__head { grid-template-columns: 1fr; }
+    .plan { grid-template-columns: 1fr auto; }
+    .plan__what { grid-column: 1 / -1; grid-row: 2; }
+    .plan__go { grid-column: 1 / -1; }
+  }
+  .faq__grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr); gap: var(--sc-7) var(--sc-9); align-items: start; }
+  .faq__grid > div:first-child p { margin-top: var(--sc-4); color: var(--sc-ink-soft); max-width: 30ch; }
+  .qa { border-top: 1px solid var(--line-strong); }
+  .qa:last-child { border-bottom: 1px solid var(--line-strong); }
+  .qa summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: var(--sc-5); padding-block: var(--sc-5); font-size: var(--sc-t-lg); font-weight: 500; line-height: 1.3; border-radius: 4px; }
+  .qa summary::-webkit-details-marker { display: none; }
+  .qa summary::after { content: ""; flex: none; width: 10px; height: 10px; border-inline-end: 1.5px solid var(--sc-ink-soft); border-bottom: 1.5px solid var(--sc-ink-soft); transform: translateY(-3px) rotate(45deg); transition: transform 220ms var(--sc-ease-out); }
+  .qa[open] summary::after { transform: translateY(2px) rotate(225deg); }
+  .qa p { padding-bottom: var(--sc-5); color: var(--sc-ink-soft); max-width: 58ch; }
+  .qa[open] p { animation: drawer-in 320ms var(--sc-ease-out) both; }
+  @media (max-width: 860px) { .faq__grid { grid-template-columns: 1fr; } .qa summary { font-size: var(--sc-t-base); } }
+
+  /* ------------------------------------------------------------- contact
+     The close is an inquiry plate, typeset like the gallery labels. */
+  .contact { padding-bottom: 0; }
+  .plate-inquiry {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: var(--sc-7) var(--sc-9);
+    padding: clamp(1.5rem, 4vw, 4rem);
+    background: var(--sc-surface); border: 1px solid var(--line); border-radius: var(--radius);
+    box-shadow: var(--sc-e2), var(--sc-edge);
+  }
+  .plate-inquiry .work__kind { margin-bottom: var(--sc-3); }
+  .plate-inquiry .h2 { font-size: var(--sc-t-3xl); }
+  .plate-inquiry__intro p { margin-top: var(--sc-5); color: var(--sc-ink-soft); max-width: 34ch; }
+  .plate-inquiry__mail { margin-top: var(--sc-6); font-size: var(--sc-t-sm); color: var(--sc-ink-soft); }
+  .plate-inquiry__mail a { color: var(--sc-ink); text-decoration-color: var(--sc-accent); }
+  .compose fieldset { border: 0; padding: 0; margin: 0; }
+  .compose legend, .compose label { font-size: var(--sc-t-sm); font-weight: 500; margin-bottom: var(--sc-3); display: block; padding: 0; }
+  .chips { display: flex; flex-wrap: wrap; gap: var(--sc-2); }
+  .chip { position: relative; }
+  .chip input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .chip span { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem; border: 1px solid var(--line-strong); border-radius: 999px; font-size: var(--sc-t-sm); transition: background-color 160ms var(--sc-ease-out), border-color 160ms var(--sc-ease-out), color 160ms var(--sc-ease-out); }
+  .chip input:checked + span { background: var(--sc-ink); color: var(--sc-canvas); border-color: var(--sc-ink); }
+  .chip input:focus-visible + span { outline: 2px solid var(--sc-accent); outline-offset: 3px; }
+  @media (hover: hover) and (pointer: fine) { .chip:hover span { border-color: var(--sc-ink); } }
+  .compose__field { margin-top: var(--sc-6); }
+  .compose textarea {
+    width: 100%; min-height: 96px; resize: vertical; padding: 0.85rem 1rem;
+    background: var(--sc-canvas); border: 1px solid var(--line-strong); border-radius: 10px; color: var(--sc-ink); line-height: 1.5;
+    transition: border-color 160ms var(--sc-ease-out);
+  }
+  .compose textarea::placeholder { color: color-mix(in oklab, var(--sc-ink-soft) 80%, transparent); }
+  .compose textarea:focus-visible { outline: 2px solid var(--sc-accent); outline-offset: 2px; border-color: transparent; }
+  .compose__go { margin-top: var(--sc-6); display: flex; flex-wrap: wrap; align-items: center; gap: var(--sc-4); }
+  .compose__go p { font-size: var(--sc-t-xs); color: var(--sc-ink-soft); max-width: 30ch; }
+  .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sc-3) var(--sc-6); padding-block: var(--sc-7) var(--sc-6); font-size: var(--sc-t-xs); color: var(--sc-ink-soft); }
+  @media (max-width: 860px) { .plate-inquiry { grid-template-columns: 1fr; } }
+
+  /* ------------------------------------------------------ reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .plane, .work { transform: none !important; }
+    .work { opacity: 1; }
+    .drawer[open] .drawer__body, .qa[open] p { animation-duration: 1ms; }
+    .process__line { transform: none !important; }
+    .phone__screen { --pc: 1; }
+    /* No lateral travel: the collection is laid out as a plain grid instead,
+       so every object is reachable with ordinary vertical scroll. */
+    #work { height: auto !important; }
+    #work .gallery__stage { position: relative; height: auto; overflow: visible; }
+    #work .mirror { position: static; transform: none; }
+    #work .slot { transform: none; }
+    #work .rail {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+      width: auto; max-width: var(--sc-maxw); margin-inline: auto; transform: none !important;
+      gap: var(--sc-8) var(--sc-6); padding-block: var(--sc-section); align-items: start;
+    }
+    #work .gallery__lead, #work .work, #work .gallery__outro { width: auto; }
+  }
+.lang{display:none!important}</style>
+<link rel="canonical" href="https://adhamabuallan.github.io/sahl/"><meta property="og:type" content="website"><meta property="og:url" content="https://adham-abu-allan.vercel.app/ar/"><meta property="og:title" content="سهل | صفحات ومواقع للمحلات في الخليل وفلسطين"><meta property="og:description" content="صفحات هبوط من 99$ بالشهر، جاهزة خلال 24 ساعة تقريباً، ومواقع وتطبيقات ويب وجوال للمحلات والشركات. الاستضافة والدومين والدعم ضمن الاشتراك. ابدأ عبر واتساب."><meta property="og:image" content="https://adham-abu-allan.vercel.app/assets/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="ar_AR"><meta name="twitter:card" content="summary_large_image"></head>
 <body>
-<header><div class="wrap">
-  <a class="logo" href="./"><img src="brand/sahl-profile.png" alt="سهل" width="36" height="36"><span class="lat">Sahl Digital</span></a>
-  <a class="btn go sm" href="wa/?c=site">واتساب</a>
-</div></header>
 
-<main>
-<div class="wrap hero">
-  <h1>صفحة لمحلك على الإنترنت، <span class="em">جاهزة</span> خلال 24 ساعة</h1>
-  <p>سهل يصمم لمحلك صفحة باسمه، فيها الأسعار والموقع وزر طلب عبر واتساب. نرسل لك صفحة تجريبية باسم محلك، وتشاهدها قبل أن تدفع.</p>
-  <div class="cta"><a class="btn go" href="wa/?c=site">اطلب صفحتك التجريبية</a><a class="btn" href="#examples">شاهد أمثلة</a></div>
-</div>
+<a class="skip" href="#main" data-i18n="skip">انتقل إلى المحتوى</a>
+<div class="sc-grain" aria-hidden="true"></div>
 
-<section><div class="wrap">
-  <h2>كيف تعمل؟</h2>
-  <div class="grid">
-    <div class="card step"><b>1</b><h3>ترسل اسم محلك</h3><p>رسالة واحدة على واتساب فيها اسم المحل والمدينة.</p></div>
-    <div class="card step"><b>2</b><h3>تصلك صفحة تجريبية</h3><p>نجهز صفحة باسم محلك مجانا لتراها قبل أي دفع.</p></div>
-    <div class="card step"><b>3</b><h3>ترسل الأسعار والصور</h3><p>تصبح صفحتك الحقيقية جاهزة خلال 24 ساعة.</p></div>
+<header class="bar">
+  <a class="mark" href="#top" aria-label="Sahl Digital, back to top"><span style="font-size:1.5em;color:var(--sc-accent);font-weight:700">سهل</span> <small>Sahl Digital</small></a>
+
+  <nav class="index" aria-label="الفهرس" data-i18n-aria="indexAria">
+    <button class="index__toggle" type="button" aria-expanded="false" aria-controls="index-list"><i aria-hidden="true"></i><span data-i18n="index">الفهرس</span></button>
+    <ul class="index__list" id="index-list">
+      <li><a href="#services" data-nav="services" data-i18n="navServices">الخدمات</a></li>
+      <li class="index__sep" aria-hidden="true"></li>
+      <li class="index__group" aria-hidden="true" data-i18n="navWork">الأعمال</li>
+      <li><a href="#work-baqa" data-nav="baqa" data-jump="baqa">Baqa</a></li>
+      <li><a href="#work-zaitoun" data-nav="zaitoun" data-jump="zaitoun">Zaitoun</a></li>
+      <li><a href="#work-maqass" data-nav="maqass" data-jump="maqass">Maqass</a></li>
+      <li><a href="#work-basma" data-nav="basma" data-jump="basma">Basma</a></li>
+      <li><a href="#work-qowa" data-nav="qowa" data-jump="qowa">Qowa</a></li>
+      <li><a href="#work-lamaa" data-nav="lamaa" data-jump="lamaa">Lamaa</a></li>
+      <li><a href="#work-hayl" data-nav="hayl" data-jump="hayl">Hayl</a></li>
+      <li class="index__sep" aria-hidden="true"></li>
+      <li><a href="#process" data-nav="process" data-i18n="navProcess">طريقة العمل</a></li>
+      <li><a href="#pricing" data-nav="pricing" data-i18n="navPricing">الأسعار</a></li>
+      <li><a href="#faq" data-nav="faq" data-i18n="navFaq">أسئلة شائعة</a></li>
+      <li class="index__cta"><a class="btn" href="#contact" data-wa="" data-i18n="cta">اطلب صفحتك</a></li>
+    </ul>
+  </nav>
+
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+    <button type="button" data-lang="ar" lang="ar" aria-pressed="true">عربي</button>
+    <button type="button" data-lang="he" lang="he" aria-pressed="false">עברית</button>
   </div>
-</div></section>
 
-<section><div class="wrap">
-  <h2>الخدمات والأسعار</h2>
-  <div class="grid">
-    <div class="card main"><h3>صفحة لمحلك</h3><div class="price">312 <small>شيكل شهريا</small></div><p>أو 3,120 شيكل سنويا، أي شهران مجانا.</p></div>
-    <div class="card"><h3>موقع أو تطبيق ويب</h3><div class="price"><span class="lat">$198</span> <small>شهريا</small></div><p>أكثر من صفحة، لوحة تحكم، حجوزات أو طلبات.</p></div>
-    <div class="card"><h3>تطبيق موبايل مع ويب</h3><div class="price"><span class="lat">$297</span> <small>شهريا</small></div><p>تطبيق Android وiOS مع نسخة ويب.</p></div>
-    <div class="card"><h3>بوت واتساب</h3><div class="price"><small>حسب الطلب</small></div><p>يرد على زبائنك فورا ويرسل لك الطلبات.</p></div>
-  </div>
-  <p class="note">الاستضافة والدومين والتعديلات والدعم ضمن الاشتراك. الدفع بتحويل بنكي إلى بنك فلسطين أو نقدا في الخليل.</p>
-</div></section>
+  <a class="btn btn--sm" href="#contact" data-wa="" data-i18n="cta">اطلب صفحتك</a>
+</header>
 
-<section id="examples"><div class="wrap">
-  <h2>أمثلة من سهل</h2>
-  <div class="grid">
-    <a class="card ex" href="s/sweets/"><span class="tag">مثال</span><h3>محل حلويات</h3><p>قائمة الأسعار وطلب عبر واتساب.</p></a>
-    <a class="card ex" href="s/coffee/"><span class="tag">مثال</span><h3>مقهى</h3><p>المنيو والعروض وزر الطلب.</p></a>
-    <a class="card ex" href="s/gym/"><span class="tag">مثال</span><h3>نادي رياضي</h3><p>الاشتراكات وجدول الحصص والحجز.</p></a>
-    <a class="card ex" href="s/carwash/"><span class="tag">مثال</span><h3>غسيل سيارات</h3><p>الباقات والأسعار وحجز موعد.</p></a>
-  </div>
-  <p class="note">هذه صفحات تجريبية لأسماء غير حقيقية، صممناها لتعرف شكل صفحتك.</p>
-</div></section>
+<main id="main">
 
-<section><div class="wrap">
-  <h2>من وراء سهل؟</h2>
-  <div class="card"><p>سهل هو استوديو أدهم أبو علان في الخليل، مطور تطبيقات ومواقع. من أعماله تطبيق وين بلاقي على Google Play، وتطبيق MTA لقطع غيار السيارات، وموقع <a href="https://lunel-ashes.com" rel="noopener">Luné Lashes</a>.</p></div>
-</div></section>
+  <!-- 1 · HERO: pinned bench. Four planes on four rates; the phone compiles. -->
+  <section id="top" class="hero" data-sc-act="pin" data-sc-span="1.7">
+    <div data-sc-stage="" class="hero__stage">
+
+      <!-- ==================================================================
+           HERO VIDEO SLOT (not filled yet).
+           When the hero film exists, uncomment the block below. It sits
+           behind the bench as the back plane; the scrim keeps the headline
+           readable. Keep the .bench planes or remove .plane--grid only.
+           Encode: desktop 16:9 (1920x1080, ~6-8 MB, no audio), mobile
+           portrait 9:16 (1080x1920). Poster = first frame as .webp.
+
+      <video class="hero__video" autoplay muted loop playsinline preload="metadata"
+             poster="assets/hero-poster.webp" aria-hidden="true">
+        <source src="assets/hero-mobile.mp4" type="video/mp4" media="(max-width: 860px)">
+        <source src="assets/hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero__video-scrim" aria-hidden="true"></div>
+           ================================================================== -->
+
+      <div class="hero__art" aria-hidden="true">
+        <div class="bench">
+          <div class="plane plane--grid"></div>
+          <div class="plane plane--browser">
+            <div class="browser">
+              <div class="browser__top"><b></b><b></b><b></b><span class="browser__url">your-business.com</span></div>
+              <div class="browser__body" data-wire="desk"></div>
+            </div>
+          </div>
+          <div class="plane plane--phone">
+            <div class="phone">
+              <div class="phone__screen">
+                <div class="phone__wire" data-wire="phone"></div>
+                <div class="phone__built"><span class="ph-nav"></span><span class="ph-img"></span><span class="ph-h"></span><span class="ph-h"></span><span class="ph-p"></span><span class="ph-p"></span><span class="ph-b"></span></div>
+                <div class="scan"></div>
+              </div>
+            </div>
+          </div>
+          <div class="plane plane--tools">
+            <div class="tools">
+              <div class="tool tool--type">Aa</div>
+              <div class="tool tool--swatch"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__copy" data-sc-cue="0 1 0 0" data-sc-rise="0">
+        <p class="hero__label" data-i18n="heroLabel">سهل · صفحات ومواقع للمحلات والأعمال</p>
+        <h1 data-i18n="heroTitle">محلك على الإنترنت، بسهولة.</h1>
+        <p class="hero__sub" data-i18n="heroSub">سهل يصمّم ويبني صفحات ومواقع وتطبيقات للمحلات والأعمال في الخليل وكل فلسطين. تشاهد صفحتك قبل أن تدفع.</p>
+        <a class="btn" href="#contact" data-wa=""><span data-i18n="cta">اطلب صفحتك</span>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"></path></svg>
+        </a>
+      </div>
+      <p class="hero__next" data-sc-cue="0.34 1 0.2 0" data-i18n="heroNext">في الأسفل: سبعة مواقع لمحلات مثل محلك، وكلها تعمل الآن.</p>
+    </div>
+  </section>
+
+  <!-- 2 · SERVICES: flow. Three drawers, each opens into sub-types and examples. -->
+  <section id="services" class="sc-section services" data-sc-act="flow">
+    <div class="sc-wrap">
+      <div class="services__head" data-sc-in="" data-sc-stagger="60">
+        <h2 class="h2" data-i18n="svcTitle">ثلاثة أنواع من المشاريع.</h2>
+        <p data-i18n="svcIntro">افتح أيّاً منها لترى ما يشمله، مع مثال مناسب من المعرض.</p>
+      </div>
+      <div class="drawers" data-sc-in="">
+        <details class="drawer" open="">
+          <summary>
+            <span class="drawer__name" data-i18n="s1Name">المواقع وصفحات الهبوط</span>
+            <span class="drawer__desc" data-i18n="s1Desc">عندما تحتاج أن يجدك الناس ويثقوا بك ويتواصلوا معك.</span>
+            <span class="drawer__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="drawer__body">
+            <ul class="subtypes">
+              <li data-i18n="s1a">مواقع العلامات التجارية</li>
+              <li data-i18n="s1b">صفحات إطلاق المنتجات</li>
+              <li data-i18n="s1c">معارض الأعمال</li>
+              <li data-i18n="s1d">مواقع المطاعم والأعمال المحلية</li>
+            </ul>
+            <div class="examples"><b data-i18n="exLabel">أمثلة من المعرض</b>
+              <ul><li><a href="#work-zaitoun" data-jump="zaitoun">Zaitoun Kitchen</a></li></ul>
+            </div>
+          </div>
+        </details>
+        <details class="drawer">
+          <summary>
+            <span class="drawer__name" data-i18n="s2Name">تطبيقات الويب</span>
+            <span class="drawer__desc" data-i18n="s2Desc">أدوات يدخل إليها فريقك أو عملاؤك ويستخدمونها كل يوم.</span>
+            <span class="drawer__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="drawer__body">
+            <ul class="subtypes">
+              <li data-i18n="s2a">لوحات التحكم</li>
+              <li data-i18n="s2b">أنظمة الحجز</li>
+              <li data-i18n="s2c">أدوات داخلية</li>
+              <li data-i18n="s2d">منصات البيع والشراء</li>
+              <li data-i18n="s2e">متاجر الهدايا والورد</li>
+            </ul>
+            <div class="examples"><b data-i18n="exLabel">أمثلة من المعرض</b>
+              <ul><li><a href="#work-baqa" data-jump="baqa">Baqa</a></li><li><a href="#work-maqass" data-jump="maqass">Maqass Barber</a></li><li><a href="#work-basma" data-jump="basma">Basma Dental</a></li><li><a href="#work-qowa" data-jump="qowa">Qowa Fitness</a></li><li><a href="#work-lamaa" data-jump="lamaa">Lamaa Car Care</a></li></ul>
+            </div>
+          </div>
+        </details>
+        <details class="drawer">
+          <summary>
+            <span class="drawer__name" data-i18n="s3Name">تطبيقات الجوال</span>
+            <span class="drawer__desc" data-i18n="s3Desc">تطبيقات آيفون وأندرويد من شيفرة واحدة، مبنية بـ Flutter.</span>
+            <span class="drawer__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="drawer__body">
+            <ul class="subtypes">
+              <li data-i18n="s3a">iOS وأندرويد باستخدام Flutter</li>
+              <li data-i18n="s3b">نسخ أولية (MVP)</li>
+              <li data-i18n="s3c">إعادة تصميم التطبيقات</li>
+              <li data-i18n="s3d">صفحة إطلاق خاصة بالتطبيق</li>
+            </ul>
+            <div class="examples"><b data-i18n="exLabel">أمثلة من المعرض</b>
+              <ul></ul>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · GALLERY (PEAK): pan. Signature: the compile line. -->
+  <section id="work" class="gallery" data-sc-act="pan" data-sc-span="14">
+    <div data-sc-stage="" class="gallery__stage">
+      <div class="mirror">
+        <div class="rail" data-sc-pan="0.04">
+
+          <div class="slot"><div class="gallery__lead">
+            <h2 class="h2" data-i18n="galTitle">سبعة مواقع، لسبعة أنواع من المحلات.</h2>
+            <p data-i18n="galIntro">عيادة وصالون ونادٍ ومطعم ومحمصة وغسيل سيارات ومتجر هدايا. كل موقع يظهر كمخطط أولي ثم يكتمل بناؤه أمامك.</p>
+            <p class="note" data-i18n="galNote">«باقة» متجر حقيقي ومتاح الآن. والستة الباقية مواقع تجريبية تعمل الآن، وفي كل منها حجز أو طلب.</p>
+          </div></div>
+
+          <!-- Card schema is identical for every object: kind, name, line, status, link. -->
+          <div class="slot" id="work-lune"></div>
+
+          <div class="slot" id="work-mta"></div>
+
+          <div class="slot" id="work-ween"></div>
+
+          <div class="slot" id="work-baqa"><article class="work" data-work="baqa" data-built="1" aria-labelledby="w02">
+            <div class="thumb">
+              <div class="thumb__wire" data-wire="launch" aria-hidden="true"></div>
+              <div class="thumb__built">
+                <div class="plate plate--baqa" aria-hidden="true"><span class="plate__k"><span>Gifts by occasion</span></span><span class="plate__n">Baqa</span></div>
+                <img class="thumb__img" src="assets/showcase-baqa.webp" width="1200" height="900" alt="Baqa storefront, opening screen with the occasion row and the gift concierge" decoding="async" hidden="">
+              </div>
+              <div class="scan" aria-hidden="true"><span class="thumb__tag" data-i18n="tagLive">متاح الآن</span></div>
+            </div>
+            <div class="work__label">
+              <p class="work__kind" data-i18n="kB">متجر هدايا بالمناسبات / ورد</p>
+              <h3 class="work__name" id="w02">Baqa · باقة</h3>
+              <p class="work__line" data-i18n="dB">متجر هدايا وورد يبدأ من المناسبة: تختار المناسبة فتظهر الهدايا مرتّبة حسب الأنسب، وتُتمّ الطلب كضيف بست نقرات. مع مساعد هدايا بالذكاء الاصطناعي، وتتبّع حيّ للطلب، ولوحة طلبات للمحل. مبني لمحلات الورد في الأردن وفلسطين وإسرائيل.</p>
+              <p class="work__meta"><span class="work__status" data-i18n="own">من منتجاتنا</span>
+                <!-- LINK: href is set from BAQA_URL at the top of the script; the attribute below is only the no-JS fallback. -->
+                <a class="work__link" id="baqa-link" href="https://showcase-baqa.vercel.app" target="_blank" rel="noopener"><span data-i18n="viewStore">شاهد المتجر</span> <span class="arr" aria-hidden="true">↗</span></a></p>
+            </div>
+          </article></div>
+
+          <div class="slot" id="work-velora"></div>
+
+          <div class="slot" id="work-pulse"></div>
+
+          <div class="slot" id="work-zaitoun"><article class="work" data-work="zaitoun" data-built="1" aria-labelledby="w3">
+            <div class="thumb">
+              <div class="thumb__wire" data-wire="menu" aria-hidden="true"></div>
+              <div class="thumb__built"><div class="plate plate--zaitoun" aria-hidden="true"><span class="plate__k"><span>Zaitoun Kitchen</span><span>AR / EN</span></span><span class="plate__ar" lang="ar">زيتون</span></div>
+                <img class="thumb__img" src="assets/showcase-zaitoun.webp" width="1200" height="900" alt="Zaitoun Kitchen concept site, opening screen with the Arabic hero and a plate of food" decoding="async" hidden=""></div>
+              <div class="scan" aria-hidden="true"><span class="thumb__tag" data-i18n="tagBuilt">مكتمل</span></div>
+            </div>
+            <div class="work__label">
+              <p class="work__kind" data-i18n="k3">مطعم، بالعربية والإنجليزية</p>
+              <h3 class="work__name" id="w3">Zaitoun Kitchen</h3>
+              <p class="work__line" data-i18n="d3">موقع مطعم بالعربية والإنجليزية، مع قائمة طعام حقيقية وحجز طاولة عبر واتساب.</p>
+              <p class="work__meta"><span class="work__status" data-i18n="concept">موقع تجريبي</span>
+                <a class="work__link" href="https://zaitoun-kitchen.vercel.app" target="_blank" rel="noopener"><span data-i18n="viewLive">شاهد الموقع</span> <span class="arr" aria-hidden="true">↗</span></a></p>
+            </div>
+          </article></div>
+
+          <div class="slot" id="work-horizon"></div>
+
+          <div class="slot" id="work-nexa"></div>
+
+          <div class="slot" id="work-maqass"><article class="work" data-work="maqass" data-built="1" aria-labelledby="w6">
+            <div class="thumb">
+              <div class="thumb__wire" data-wire="menu" aria-hidden="true"></div>
+              <div class="thumb__built"><div class="plate plate--horizon" aria-hidden="true"><span class="plate__k"><span>Barbershop</span></span><span class="plate__n">Maqass</span></div>
+                <img class="thumb__img" src="assets/showcase-maqass.webp" width="1200" height="900" alt="Maqass Barber Studio concept site, dark opening screen with a barber chair and the Arabic name" decoding="async" hidden=""></div>
+              <div class="scan" aria-hidden="true"><span class="thumb__tag" data-i18n="tagBuilt">مكتمل</span></div>
+            </div>
+            <div class="work__label">
+              <p class="work__kind" data-i18n="k6">صالون حلاقة، عربي وعبري وإنجليزي</p>
+              <h3 class="work__name" id="w6">Maqass Barber Studio</h3>
+              <p class="work__line" data-i18n="d6">صالون حلاقة مع لوحة مواعيد حيّة: اختر الخدمة والحلّاق، شوف أي وقت يناسب، واحجز على واتساب.</p>
+              <p class="work__meta"><span class="work__status" data-i18n="concept">موقع تجريبي</span>
+                <a class="work__link" href="https://maqass-barber.vercel.app" target="_blank" rel="noopener"><span data-i18n="viewLive">شاهد الموقع</span> <span class="arr" aria-hidden="true">↗</span></a></p>
+            </div>
+          </article></div>
+
+          <div class="slot" id="work-basma"><article class="work" data-work="basma" data-built="1" aria-labelledby="w7">
+            <div class="thumb">
+              <div class="thumb__wire" data-wire="launch" aria-hidden="true"></div>
+              <div class="thumb__built"><div class="plate plate--velora" aria-hidden="true"><span class="plate__k"><span>Dental clinic</span></span><span class="plate__n">Basma</span></div>
+                <img class="thumb__img" src="assets/showcase-basma.webp" width="1200" height="900" alt="Basma Dental Clinic concept site, bright opening screen with the clinic doors opening onto the lounge" decoding="async" hidden=""></div>
+              <div class="scan" aria-hidden="true"><span class="thumb__tag" data-i18n="tagBuilt">مكتمل</span></div>
+            </div>
+            <div class="work__label">
+              <p class="work__kind" data-i18n="k7">عيادة أسنان، عربي وعبري وإنجليزي</p>
+              <h3 class="work__name" id="w7">Basma Dental Clinic</h3>
+              <p class="work__line" data-i18n="d7">موقع عيادة هادئ: اضغط على السن الذي يؤلمك في خريطة الابتسامة، اعرف العلاج المتوقّع وسعره، ثم احجز موعدًا.</p>
+              <p class="work__meta"><span class="work__status" data-i18n="concept">موقع تجريبي</span>
+                <a class="work__link" href="https://basma-dental-three.vercel.app" target="_blank" rel="noopener"><span data-i18n="viewLive">شاهد الموقع</span> <span class="arr" aria-hidden="true">↗</span></a></p>
+            </div>
+          </article></div>
+
+          <div class="slot" id="work-qowa"><article class="work" data-work="qowa" data-built="1" aria-labelledby="w8">
+            <div class="thumb">
+              <div class="thumb__wire" data-wire="app" aria-hidden="true"></div>
+              <div class="thumb__built"><div class="plate plate--pulse" aria-hidden="true"><span class="plate__k"><span>Gym &amp; studio</span></span><span class="plate__n">Qowa</span></div>
+                <img class="thumb__img" src="assets/showcase-qowa.webp" width="1200" height="900" alt="Qowa Fitness Club concept site, dark gym with orange light and the Arabic headline" decoding="async" hidden=""></div>
+              <div class="scan" aria-hidden="true"><span class="thumb__tag" data-i18n="tagBuilt">مكتمل</span></div>
+            </div>
+            <div class="work__label">
+              <p class="work__kind" data-i18n="k8">نادٍ رياضي، عربي وعبري وإنجليزي</p>
+              <h3 class="work__name" id="w8">Qowa Fitness Club</h3>
+              <p class="work__line" data-i18n="d8">موقع نادٍ رياضي مع جدول حصص أسبوعي، ساعات للنساء فقط، وحصة تجربة مجانية تُحجز بلمسات قليلة.</p>
+              <p class="work__meta"><span class="work__status" data-i18n="concept">موقع تجريبي</span>
+                <a class="work__link" href="https://qowa-fitness.vercel.app" target="_blank" rel="noopener"><span data-i18n="viewLive">شاهد الموقع</span> <span class="arr" aria-hidden="true">↗</span></a></p>
+            </div>
+          </article></div>
+
+          <div class="slot" id="work-lamaa"><article class="work" data-work="lamaa" data-built="1" aria-labelledby="w9">
+            <div class="thumb">
+              <div class="thumb__wire" data-wire="launch" aria-hidden="true"></div>
+              <div class="thumb__built"><div class="plate plate--nexa" aria-hidden="true"><span class="plate__k"><span>Mobile car care</span></span><span class="plate__n">Lamaa</span></div>
+                <img class="thumb__img" src="assets/showcase-lamaa.webp" width="1200" height="900" alt="Lamaa Mobile Car Care concept site, SUV covered in foam outside a stone villa" decoding="async" hidden=""></div>
+              <div class="scan" aria-hidden="true"><span class="thumb__tag" data-i18n="tagBuilt">مكتمل</span></div>
+            </div>
+            <div class="work__label">
+              <p class="work__kind" data-i18n="k9">عناية بالسيارات عند البيت، عربي وعبري وإنجليزي</p>
+              <h3 class="work__name" id="w9">Lamaa Mobile Car Care</h3>
+              <p class="work__line" data-i18n="d9">موقع غسيل سيارات متنقّل مع حاسبة سعر حيّة: اختر السيارة والباقة والإضافات، ثم الوقت الذي يأتون فيه إليك.</p>
+              <p class="work__meta"><span class="work__status" data-i18n="concept">موقع تجريبي</span>
+                <a class="work__link" href="https://lamaa-carcare.vercel.app" target="_blank" rel="noopener"><span data-i18n="viewLive">شاهد الموقع</span> <span class="arr" aria-hidden="true">↗</span></a></p>
+            </div>
+          </article></div>
+
+          <div class="slot" id="work-hayl"><article class="work" data-work="hayl" data-built="1" aria-labelledby="w10">
+            <div class="thumb">
+              <div class="thumb__wire" data-wire="launch" aria-hidden="true"></div>
+              <div class="thumb__built"><div class="plate plate--nexa" aria-hidden="true"><span class="plate__k"><span>Coffee</span></span><span class="plate__n">Hayl</span></div>
+                <img class="thumb__img" src="assets/showcase-hayl.webp" width="1200" height="900" alt="Hayl concept site, a coffee bag labelled هيل beside a brass dallah" decoding="async" hidden=""></div>
+              <div class="scan" aria-hidden="true"><span class="thumb__tag" data-i18n="tagBuilt">مكتمل</span></div>
+            </div>
+            <div class="work__label">
+              <p class="work__kind" data-i18n="k10">محمصة قهوة، عربي وإنجليزي</p>
+              <h3 class="work__name" id="w10">Hayl Coffee Roasters</h3>
+              <p class="work__line" data-i18n="d10">متجر محمصة تُسكب فيه القهوة مع التمرير، مع درجات التحميص واختيار الطحنة وسلة طلب على واتساب.</p>
+              <p class="work__meta"><span class="work__status" data-i18n="concept">موقع تجريبي</span>
+                <a class="work__link" href="https://hayl-coffee.vercel.app" target="_blank" rel="noopener"><span data-i18n="viewLive">شاهد الموقع</span> <span class="arr" aria-hidden="true">↗</span></a></p>
+            </div>
+          </article></div>
+
+          <div class="slot" id="work-fazaa"></div>
+
+          <div class="slot" id="work-layl"></div>
+
+          <div class="slot" id="work-kathib"></div>
+
+          <div class="slot"><div class="gallery__outro">
+            <h3 class="h2" style="font-size: var(--sc-t-2xl)" data-i18n="outroTitle">محلك قد يكون التالي.</h3>
+            <p data-i18n="outroBody">أرسل لنا اسم محلك على واتساب، وتصلك صفحة تجريبية باسمه قبل أي دفع.</p>
+            <a class="btn" href="#contact" data-wa="" data-i18n="cta">اطلب صفحتك</a>
+          </div></div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · PROCESS: pin. One line draws across four steps.
+       Timelines confirmed by owner: landing 24h, web 1-3 days, mobile by features. -->
+  <section id="process" class="process" data-sc-act="pin" data-sc-span="2">
+    <div data-sc-stage="" class="process__stage">
+      <div class="sc-wrap process__wrap">
+        <h2 class="h2" data-sc-cue="0 1 0 0" data-sc-rise="0" data-i18n="procTitle">كيف نعمل.</h2>
+        <div class="process__body">
+          <div class="process__track" aria-hidden="true"><span class="process__line"></span></div>
+          <ol class="steps">
+            <li class="step" data-sc-cue="0 1 0 0" data-sc-rise="0"><span class="step__n">1</span><h3 data-i18n="p1">الاسم</h3><p class="step__time" data-i18n="p1t">رسالة واحدة</p><p data-i18n="p1d">ترسل لنا اسم محلك ومدينته على واتساب.</p></li>
+            <li class="step" data-sc-cue="0.16 1 0.3 0"><span class="step__n">2</span><h3 data-i18n="p2">الصفحة التجريبية</h3><p class="step__time" data-i18n="p2t">خلال دقائق</p><p data-i18n="p2d">تصلك صفحة تجريبية باسم محلك، تشاهدها قبل أي دفع.</p></li>
+            <li class="step" data-sc-cue="0.34 1 0.3 0"><span class="step__n">3</span><h3 data-i18n="p3">الأسعار والصور</h3><p class="step__time" data-i18n="p3t">خلال 24 ساعة</p><p data-i18n="p3d">ترسل أسعارك وصورك، فتصبح الصفحة صفحتك بمحتواك الحقيقي.</p></li>
+            <li class="step" data-sc-cue="0.52 1 0.3 0"><span class="step__n">4</span><h3 data-i18n="p4">الإطلاق</h3><p class="step__time" data-i18n="p4t">يوم الإطلاق</p><p data-i18n="p4d">نربط النطاق والاستضافة ونسلّمك الرابط، ونعدّل لك ما تحتاجه بعد ذلك.</p></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · PRICING: flow. A price list, typeset as rows, not cards.
+       PLAN DETAILS: inclusions are a draft; owner to confirm. -->
+  <section id="pricing" class="sc-section pricing" data-sc-act="flow">
+    <div class="sc-wrap">
+      <div class="pricing__head" data-sc-in="" data-sc-stagger="60">
+        <h2 class="h2" data-i18n="prTitle">باقات بسيطة، شهرية أو سنوية.</h2>
+        <p data-i18n="prIntro">سعر واضح مهما كان مجال عملك. ادفع شهرياً، أو سنوياً واحصل على شهرين مجاناً. يشمل التصميم والبناء والاستضافة والصيانة. عرض لأول 10 محلات: صفحة الهبوط بـ 99 شيكل لأول شهر.</p>
+      </div>
+      <div class="prtoggles">
+      <div class="cur bill" role="group" aria-label="Billing period" id="bill">
+        <button type="button" data-bill="m" aria-pressed="true" id="billM">Monthly</button>
+        <button type="button" data-bill="y" aria-pressed="false"><span id="billY">Yearly</span> <span class="bill__off" id="billOff">2 months free</span></button>
+      </div>
+      <div class="cur" role="group" aria-label="العملة" data-i18n-aria="curAria">
+        <button type="button" data-cur="usd" aria-pressed="true"><span data-i18n="curUsd">دولار</span> · $</button>
+        <button type="button" data-cur="ils" aria-pressed="false"><span data-i18n="curIls">شيكل</span> · ₪</button>
+      </div>
+      </div>
+      <ol class="plans" data-sc-in="" data-sc-stagger="70">
+        <li class="plan">
+          <h3 class="plan__name" data-i18n="pl1">صفحة هبوط</h3>
+          <p class="plan__what" data-i18n="pl1d">صفحة واحدة لمنتج أو خدمة أو إطلاق. تشمل الاستضافة والتعديلات الصغيرة والتحديثات.</p>
+          <p class="plan__price"><span class="plan__num" data-usd-n="99">$99</span><span class="plan__per" data-i18n="perMonth">/ شهرياً</span></p>
+          <p class="plan__save" hidden=""></p>
+          <a class="plan__go" href="#contact" data-plan="website"><span data-i18n="cta">اطلب صفحتك</span> <span class="arr" aria-hidden="true">↗</span></a>
+        </li>
+        <li class="plan">
+          <h3 class="plan__name" data-i18n="pl2">موقع أو تطبيق ويب</h3>
+          <p class="plan__what" data-i18n="pl2d">مواقع متعددة الصفحات وتطبيقات ويب مع خادم أو قاعدة بيانات أو لوحة تحكم. تشمل الاستضافة والتعديلات المستمرة.</p>
+          <p class="plan__price"><span class="plan__num" data-usd-n="198">$198</span><span class="plan__per" data-i18n="perMonth">/ شهرياً</span></p>
+          <p class="plan__save" hidden=""></p>
+          <a class="plan__go" href="#contact" data-plan="webapp"><span data-i18n="cta">اطلب صفحتك</span> <span class="arr" aria-hidden="true">↗</span></a>
+        </li>
+        <li class="plan plan--top">
+          <h3 class="plan__name" data-i18n="pl3">تطبيق جوال + ويب</h3>
+          <p class="plan__what" data-i18n="pl3d">تطبيق آيفون وأندرويد يُبنى مع موقعه أو تطبيق الويب الخاص به. يشمل النشر على المتاجر والاستضافة والتحديثات.</p>
+          <p class="plan__price"><span class="plan__num" data-usd-n="297">$297</span><span class="plan__per" data-i18n="perMonth">/ شهرياً</span></p>
+          <p class="plan__save" hidden=""></p>
+          <a class="plan__go" href="#contact" data-plan="mobile"><span data-i18n="cta">اطلب صفحتك</span> <span class="arr" aria-hidden="true">↗</span></a>
+        </li>
+        <li class="plan">
+          <h3 class="plan__name" data-i18n="pl4">باقة مخصّصة</h3>
+          <p class="plan__what" data-i18n="pl4d">جوال أو ويب أو كلاهما بنطاق أكبر: عدة تطبيقات أو تكاملات أو متطلبات خاصة.</p>
+          <p class="plan__price"><span class="plan__num plan__num--word" data-i18n="plTalk">لنتحدث</span></p>
+          <a class="plan__go" href="#contact" data-plan="unsure"><span data-i18n="cta">اطلب صفحتك</span> <span class="arr" aria-hidden="true">↗</span></a>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 6 · FAQ: flow. -->
+  <section id="faq" class="sc-section faq" data-sc-act="flow">
+    <div class="sc-wrap faq__grid">
+      <div data-sc-in="" data-sc-stagger="60">
+        <h2 class="h2" data-i18n="faqTitle">إجابات مباشرة.</h2>
+        <p data-i18n="faqIntro">إن لم تجد سؤالك هنا، اسأله على واتساب.</p>
+      </div>
+      <div data-sc-in="">
+        <details class="qa">
+          <summary data-i18n="q1">كم التكلفة؟</summary>
+          <p data-i18n="a1">الباقات شهرية: 99$ لصفحة الهبوط، و198$ للموقع أو تطبيق الويب، و297$ لتطبيق الجوال مع موقعه. وإذا دفعت سنوياً تحصل على شهرين مجاناً: 990$ أو 1,980$ أو 2,970$ في السنة. وبتقدر تدفع نفس المبلغ بالشيكل حسب سعر الصرف (البورصة) يوم الدفع. أما المشاريع الأكبر أو المختلطة فتحصل على تسعيرة خاصة بعد مكالمة قصيرة.</p>
+        </details>
+        <details class="qa">
+          <summary data-i18n="q2">كم يستغرق العمل؟</summary>
+          <p data-i18n="a2">صفحة الهبوط جاهزة خلال 24 ساعة، والمواقع وتطبيقات الويب خلال 1 إلى 3 أيام. أما تطبيقات الجوال فتعتمد على الميزات، من أسبوع تقريباً حتى شهر ونصف. نبني بنماذج الذكاء الاصطناعي فوق خطة هندسية كاملة، فالسرعة لا تأتي على حساب الجودة.</p>
+        </details>
+        <details class="qa">
+          <summary data-i18n="q3">كم جولة تعديلات أحصل عليها؟</summary>
+          <!-- PLACEHOLDER: revisions policy. Owner to confirm the number of rounds. -->
+          <p data-i18n="a3">يشمل العمل جولتين من التعديلات على التصميم وجولة على النسخة النهائية. أي تغيير كبير في الاتجاه يُسعّر مسبقاً قبل تنفيذه.</p>
+        </details>
+        <details class="qa">
+          <summary data-i18n="q4">هل تتولى الاستضافة والنطاق؟</summary>
+          <p data-i18n="a4">نعم. نجهّز الاستضافة والنطاق والتحليلات في حسابات تملكها أنت، فلا تكون مقيّداً بنا أبداً.</p>
+        </details>
+        <details class="qa">
+          <summary data-i18n="q5">هل يمكن أن يكون موقعي بالعربية والإنجليزية؟</summary>
+          <p data-i18n="a5">نعم. نبني المواقع ثنائية اللغة من اليمين إلى اليسار منذ البداية، بخطوط عربية سليمة، لا بقلب التصميم في النهاية.</p>
+        </details>
+        <details class="qa">
+          <summary data-i18n="q6">هل مواقع المعرض لعملاء حقيقيين؟</summary>
+          <p data-i18n="a6">«باقة» متجر حقيقي ومتاح الآن. أما الستة الأخرى فهي مواقع تجريبية صُمّمت لتُظهر ما يمكن تحقيقه لكل نوع من المحلات. ومحلك يحظى بالعناية نفسها.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · CLOSE: the inquiry plate. The ending is an input. -->
+  <section id="contact" class="sc-section contact" data-sc-act="flow">
+    <div class="sc-wrap">
+      <div class="plate-inquiry" data-sc-in="">
+        <div class="plate-inquiry__intro">
+          <p class="work__kind" data-i18n="inqKind">طلب مشروع</p>
+          <h2 class="h2" data-i18n="cta">اطلب صفحتك</h2>
+          <p data-i18n="inqBody">اختر ما تحتاجه وأضف سطراً عنه. سيفتح واتساب ورسالتك مكتوبة وجاهزة للإرسال.</p>
+          <p class="plate-inquiry__mail"><span data-i18n="inqMail">تفضّل البريد الإلكتروني؟</span> <a href="mailto:adhamallan4@gmail.com">adhamallan4@gmail.com</a></p>
+        </div>
+        <form class="compose" id="compose" onsubmit="return false">
+          <fieldset>
+            <legend data-i18n="inqType">ماذا تريد أن تبني؟</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="kind" value="website" checked=""><span data-i18n="t1">موقع أو صفحة هبوط</span></label>
+              <label class="chip"><input type="radio" name="kind" value="webapp"><span data-i18n="t2">تطبيق ويب</span></label>
+              <label class="chip"><input type="radio" name="kind" value="mobile"><span data-i18n="t3">تطبيق جوال</span></label>
+              <label class="chip"><input type="radio" name="kind" value="unsure"><span data-i18n="t4">لست متأكداً بعد</span></label>
+            </div>
+          </fieldset>
+          <div class="compose__field">
+            <label for="note" data-i18n="inqNote">سطر واحد عن مشروعك (اختياري)</label>
+            <textarea id="note" name="note" rows="3" maxlength="400" data-i18n-ph="inqPh" placeholder="مثال: موقع حجز لعيادتي بالعربية والإنجليزية"></textarea>
+          </div>
+          <div class="compose__go">
+            <a class="btn" id="compose-go" href="#contact" data-wa=""><span data-i18n="cta">اطلب صفحتك</span>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"></path></svg>
+            </a>
+            <p data-i18n="inqSafe">يفتح واتساب، ولا يُرسل شيء حتى تضغط إرسال.</p>
+          </div>
+        </form>
+      </div>
+      <footer class="foot">
+        <span data-i18n="footA">© 2026 سهل، الخليل. مواقع وتطبيقات ويب وتطبيقات جوال.</span>
+        <span data-i18n="footB">أعمال المعرض مفاهيم تجريبية أصلية.</span>
+      </footer>
+    </div>
+  </section>
+
 </main>
 
-<footer><div class="wrap">
-  <span>© 2026 <span class="lat">Sahl Digital</span> سهل · الخليل</span>
-  <span><a href="https://www.facebook.com/sahldigitalps" rel="noopener">فيسبوك</a><a href="wa/?c=site">واتساب</a></span>
-</div></footer>
-</body>
-</html>
+<script src="scrollcraft.js"></script>
+<script>
+/* ============================================================================
+   SETUP: fill these before launch.
+   ========================================================================== */
+// PLACEHOLDER: WhatsApp number in international format, digits only (e.g. "9627XXXXXXXX").
+// While it is empty, every "Start a project" link falls back to #contact.
+const WHATSAPP_NUMBER = "972595376623";
+// Baqa storefront. Swap for the Vercel deployment (showcase-baqa) when it is up.
+const BAQA_URL = "https://showcase-baqa.vercel.app";
+
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+
+  /* ---------------------------------------------------------------- copy */
+  var AR = {
+    skip: "انتقل إلى المحتوى", studio: "استوديو", index: "الفهرس", indexAria: "الفهرس",
+    navServices: "الخدمات", navWork: "الأعمال", navProcess: "طريقة العمل", navFaq: "أسئلة شائعة",
+    cta: "اطلب صفحتك",
+    heroLabel: "سهل · صفحات ومواقع للمحلات والأعمال",
+    heroTitle: "محلك على الإنترنت، بسهولة.",
+    heroSub: "سهل يصمّم ويبني صفحات ومواقع وتطبيقات للمحلات والأعمال في الخليل وكل فلسطين. تشاهد صفحتك قبل أن تدفع.",
+    heroNext: "في الأسفل: سبعة مواقع لمحلات مثل محلك، وكلها تعمل الآن.",
+    svcTitle: "ثلاثة أنواع من المشاريع.",
+    svcIntro: "افتح أيّاً منها لترى ما يشمله، مع مثال مناسب من المعرض.",
+    s1Name: "المواقع وصفحات الهبوط", s1Desc: "عندما تحتاج أن يجدك الناس ويثقوا بك ويتواصلوا معك.",
+    s1a: "مواقع العلامات التجارية", s1b: "صفحات إطلاق المنتجات", s1c: "معارض الأعمال", s1d: "مواقع المطاعم والأعمال المحلية",
+    s2Name: "تطبيقات الويب", s2Desc: "أدوات يدخل إليها فريقك أو عملاؤك ويستخدمونها كل يوم.",
+    s2a: "لوحات التحكم", s2b: "أنظمة الحجز", s2c: "أدوات داخلية", s2d: "منصات البيع والشراء", s2e: "متاجر الهدايا والورد",
+    s3Name: "تطبيقات الجوال", s3Desc: "تطبيقات آيفون وأندرويد من شيفرة واحدة، مبنية بـ Flutter.",
+    s3a: "iOS وأندرويد باستخدام Flutter", s3b: "نسخ أولية (MVP)", s3c: "إعادة تصميم التطبيقات", s3d: "صفحة إطلاق خاصة بالتطبيق",
+    exLabel: "أمثلة من المعرض",
+    galTitle: "سبعة مواقع، لسبعة أنواع من المحلات.",
+    galIntro: "عيادة وصالون ونادٍ ومطعم ومحمصة وغسيل سيارات ومتجر هدايا. كل موقع يظهر كمخطط أولي ثم يكتمل بناؤه أمامك.",
+    galNote: "«باقة» متجر حقيقي ومتاح الآن. والستة الباقية مواقع تجريبية تعمل الآن، وفي كل منها حجز أو طلب.",
+    tagLive: "متاح الآن", onPlay: "Google Play", viewStore: "شاهد المتجر", kB: "متجر هدايا بالمناسبات / ورد", dB: "متجر هدايا وورد يبدأ من المناسبة: تختار المناسبة فتظهر الهدايا مرتّبة حسب الأنسب، وتُتمّ الطلب كضيف بست نقرات. مع مساعد هدايا بالذكاء الاصطناعي، وتتبّع حيّ للطلب، ولوحة طلبات للمحل. مبني لمحلات الورد في الأردن وفلسطين وإسرائيل.", kW: "تطبيق جوال / إيجارات", dW: "تطبيق لإيجار الشقق في المدن الفلسطينية: يبحث المستأجر حسب الصنف ويتواصل مع المالك، ويعرض المالك شققه ويديرها. مبني بـ Flutter، بالعربية أولاً، مع وضع فاتح وداكن.", own: "من منتجاتنا", kM: "تطبيق جوال + منصة", dM: "منصة لقطع غيار السيارات بُنيت بالكامل: تطبيق Flutter وواجهة Django ومحادثة فورية مع رسائل صوتية. على iOS وأندرويد وبأربع لغات.", client: "مشروع عميل", k0: "علامة تجميل / متجر إلكتروني", d0: "موقع العلامة لعلبة رموش قابلة لإعادة الاستخدام، مع فيلم للمنتج يعمل أثناء التمرير.",
+    tagBuilt: "مكتمل", tagBuild: "قيد البناء", concept: "موقع تجريبي", viewLive: "شاهد الموقع", soon: "قريباً",
+    k1: "تجميل / عناية بالبشرة", d1: "إطلاق منتج يقوده الضوء لسيروم فيتامين سي.",
+    k2: "إطلاق تطبيق جوال", d2: "إطلاق تطبيق لياقة يعمل فيه التطبيق الحقيقي على الهاتف أثناء التمرير.",
+    k3: "مطعم، بالعربية والإنجليزية", d3: "موقع مطعم بالعربية والإنجليزية، مع قائمة طعام حقيقية وحجز طاولة عبر واتساب.",
+    k4: "عقارات", d4: "قصة فيلا حديثة، طابقاً بعد طابق.",
+    k5: "برمجيات كخدمة (SaaS)", d5: "صفحة لشركة ناشئة مع عرض حيّ للمنتج يعمل فعلاً.",
+    k6: "صالون حلاقة، عربي وعبري وإنجليزي", d6: "صالون حلاقة مع لوحة مواعيد حيّة: اختر الخدمة والحلّاق، شوف أي وقت يناسب، واحجز على واتساب.",
+    k7: "عيادة أسنان، عربي وعبري وإنجليزي", d7: "موقع عيادة هادئ: اضغط على السن الذي يؤلمك في خريطة الابتسامة، اعرف العلاج المتوقّع وسعره، ثم احجز موعدًا.",
+    k8: "نادٍ رياضي، عربي وعبري وإنجليزي", d8: "موقع نادٍ رياضي مع جدول حصص أسبوعي، ساعات للنساء فقط، وحصة تجربة مجانية تُحجز بلمسات قليلة.",
+    k9: "عناية بالسيارات عند البيت، عربي وعبري وإنجليزي", d9: "موقع غسيل سيارات متنقّل مع حاسبة سعر حيّة: اختر السيارة والباقة والإضافات، ثم الوقت الذي يأتون فيه إليك.",
+    k10: "محمصة قهوة، عربي وإنجليزي", d10: "متجر محمصة تُسكب فيه القهوة مع التمرير، مع درجات التحميص واختيار الطحنة وسلة طلب على واتساب.",
+    k11: "تطبيق خدمات منزلية، عربي وإنجليزي", d11: "صفحة إطلاق تطبيق فيها هاتف يعمل فعلاً: اختر التصليح والموعد، وشاهد الفنّي يتحرك إليك على الخريطة.",
+    k12: "عطر، تجربة ثلاثية الأبعاد، عربي وإنجليزي", d12: "زجاجة عطر ثلاثية الأبعاد تدور مع التمرير، ويتغير لون السائل فيها مع كل طبقة من العطر.",
+    k13: "مخيم صحراوي، تجربة مولّدة بالكود، عربي وإنجليزي", d13: "صحراء مرسومة بالكود: مرّر من الفجر حتى الليل، فتتحرك الشمس ويتغير لون الكثبان وتضيء أنوار المخيم.",
+    tagLab: "تجربة", labStatus: "تجربة",
+    outroTitle: "محلك قد يكون التالي.",
+    outroBody: "أرسل لنا اسم محلك على واتساب، وتصلك صفحة تجريبية باسمه قبل أي دفع.",
+    procTitle: "كيف نعمل.",
+    p1: "الاسم", p1t: "رسالة واحدة", p1d: "ترسل لنا اسم محلك ومدينته على واتساب.",
+    p2: "الصفحة التجريبية", p2t: "خلال دقائق", p2d: "تصلك صفحة تجريبية باسم محلك، تشاهدها قبل أي دفع.",
+    p3: "الأسعار والصور", p3t: "خلال 24 ساعة", p3d: "ترسل أسعارك وصورك، فتصبح الصفحة صفحتك بمحتواك الحقيقي.",
+    p4: "الإطلاق", p4t: "يوم الإطلاق", p4d: "نربط النطاق والاستضافة ونسلّمك الرابط، ونعدّل لك ما تحتاجه بعد ذلك.",
+    navPricing: "الأسعار",
+    prTitle: "باقات بسيطة، شهرية أو سنوية.", prIntro: "سعر واضح مهما كان مجال عملك. ادفع شهرياً، أو سنوياً واحصل على شهرين مجاناً. يشمل التصميم والبناء والاستضافة والصيانة. عرض لأول 10 محلات: صفحة الهبوط بـ 99 شيكل لأول شهر.",
+    pl1: "صفحة هبوط", pl1d: "صفحة واحدة لمنتج أو خدمة أو إطلاق. تشمل الاستضافة والتعديلات الصغيرة والتحديثات.",
+    pl2: "موقع أو تطبيق ويب", pl2d: "مواقع متعددة الصفحات وتطبيقات ويب مع خادم أو قاعدة بيانات أو لوحة تحكم. تشمل الاستضافة والتعديلات المستمرة.",
+    pl3: "تطبيق جوال + ويب", pl3d: "تطبيق آيفون وأندرويد يُبنى مع موقعه أو تطبيق الويب الخاص به. يشمل النشر على المتاجر والاستضافة والتحديثات.",
+    pl4: "باقة مخصّصة", pl4d: "جوال أو ويب أو كلاهما بنطاق أكبر: عدة تطبيقات أو تكاملات أو متطلبات خاصة.",
+    plTalk: "لنتحدث", perMonth: "/ شهرياً", curUsd: "دولار", curIls: "شيكل", curAria: "العملة",
+    faqTitle: "إجابات مباشرة.", faqIntro: "إن لم تجد سؤالك هنا، اسأله على واتساب.",
+    q1: "كم التكلفة؟", a1: "الباقات شهرية: 99$ لصفحة الهبوط، و198$ للموقع أو تطبيق الويب، و297$ لتطبيق الجوال مع موقعه. وإذا دفعت سنوياً تحصل على شهرين مجاناً: 990$ أو 1,980$ أو 2,970$ في السنة. وبتقدر تدفع نفس المبلغ بالشيكل حسب سعر الصرف (البورصة) يوم الدفع. أما المشاريع الأكبر أو المختلطة فتحصل على تسعيرة خاصة بعد مكالمة قصيرة.",
+    q2: "كم يستغرق العمل؟", a2: "صفحة الهبوط جاهزة خلال 24 ساعة، والمواقع وتطبيقات الويب خلال 1 إلى 3 أيام. أما تطبيقات الجوال فتعتمد على الميزات، من أسبوع تقريباً حتى شهر ونصف. نبني بنماذج الذكاء الاصطناعي فوق خطة هندسية كاملة، فالسرعة لا تأتي على حساب الجودة.",
+    q3: "كم جولة تعديلات أحصل عليها؟", a3: "يشمل العمل جولتين من التعديلات على التصميم وجولة على النسخة النهائية. أي تغيير كبير في الاتجاه يُسعّر مسبقاً قبل تنفيذه.",
+    q4: "هل تتولى الاستضافة والنطاق؟", a4: "نعم. نجهّز الاستضافة والنطاق والتحليلات في حسابات تملكها أنت، فلا تكون مقيّداً بنا أبداً.",
+    q5: "هل يمكن أن يكون موقعي بالعربية والإنجليزية؟", a5: "نعم. نبني المواقع ثنائية اللغة من اليمين إلى اليسار منذ البداية، بخطوط عربية سليمة، لا بقلب التصميم في النهاية.",
+    q6: "هل مواقع المعرض لعملاء حقيقيين؟", a6: "«باقة» متجر حقيقي ومتاح الآن. أما الستة الأخرى فهي مواقع تجريبية صُمّمت لتُظهر ما يمكن تحقيقه لكل نوع من المحلات. ومحلك يحظى بالعناية نفسها.",
+    inqKind: "طلب مشروع",
+    inqBody: "اختر ما تحتاجه وأضف سطراً عنه. سيفتح واتساب ورسالتك مكتوبة وجاهزة للإرسال.",
+    inqMail: "تفضّل البريد الإلكتروني؟",
+    inqType: "ماذا تريد أن تبني؟",
+    t1: "موقع أو صفحة هبوط", t2: "تطبيق ويب", t3: "تطبيق جوال", t4: "لست متأكداً بعد",
+    inqNote: "سطر واحد عن مشروعك (اختياري)",
+    inqPh: "مثال: موقع حجز لعيادتي بالعربية والإنجليزية",
+    inqSafe: "يفتح واتساب، ولا يُرسل شيء حتى تضغط إرسال.",
+    footA: "© 2026 سهل، الخليل. مواقع وتطبيقات ويب وتطبيقات جوال.",
+    footB: "أعمال المعرض مفاهيم تجريبية أصلية."
+  };
+  var HE = {
+    skip: "דילוג לתוכן", studio: "סטודיו", index: "תפריט", indexAria: "תפריט ניווט",
+    navServices: "שירותים", navWork: "עבודות", navProcess: "תהליך העבודה", navFaq: "שאלות נפוצות",
+    cta: "מתחילים פרויקט",
+    heroLabel: "סטודיו עצמאי לאתרים ולאפליקציות",
+    heroTitle: "מרעיון ועד השקה.",
+    heroSub: "Sahl Digital מעצב ובונה אתרים, אפליקציות ווב ואפליקציות מובייל לעסקים שחשוב להם איך הם נראים ברשת.",
+    heroNext: "בהמשך: שלושה־עשר אתרי קונספט, שנבנו בדיוק כמו שהאתר שלכם ייבנה.",
+    svcTitle: "שלושה סוגי פרויקטים.",
+    svcIntro: "פתחו כל אחד כדי לראות מה הוא כולל, עם דוגמה מתאימה מהגלריה.",
+    s1Name: "אתרים ודפי נחיתה", s1Desc: "כשאנשים צריכים למצוא אתכם, לסמוך עליכם וליצור קשר.",
+    s1a: "אתרי מותג", s1b: "דפי השקה למוצרים", s1c: "תיקי עבודות", s1d: "אתרים למסעדות ולעסקים מקומיים",
+    s2Name: "אפליקציות ווב", s2Desc: "כלים שהצוות או הלקוחות שלכם נכנסים אליהם ומשתמשים בהם כל יום.",
+    s2a: "דשבורדים", s2b: "מערכות הזמנות ותורים", s2c: "כלים פנימיים", s2d: "מרקטפלייסים", s2e: "חנויות מתנות ופרחים",
+    s3Name: "אפליקציות מובייל", s3Desc: "אפליקציות ל-iOS ול-Android מבסיס קוד אחד, בנויות ב-Flutter.",
+    s3a: "iOS ו-Android עם Flutter", s3b: "גרסאות MVP", s3c: "עיצוב מחדש לאפליקציות", s3d: "דף השקה לאפליקציה עצמה",
+    exLabel: "דוגמאות מהגלריה",
+    galTitle: "עבודות אמיתיות, ושלושה־עשר קונספטים.",
+    galIntro: "קודם עבודות אמיתיות שכבר באוויר, ואחריהן קונספט אחד לכל תחום. כל עבודה מופיעה כסקיצה ונבנית מול העיניים תוך כדי גלילה.",
+    galNote: "Luné Lashes,‏ MTA,‏ Ween Balaqee ו-Baqa הם פרויקטים אמיתיים שכבר באוויר. שלושה־עשר האחרים הם אתרי קונספט חיים, וביניהם ארבעה אתרי הזמנת תורים, שתי חנויות בערבית ובאנגלית ושני ניסויים בתלת־ממד ובאמנות גנרטיבית.",
+    tagLive: "באוויר", onPlay: "Google Play", viewStore: "לחנות", kB: "חנות מתנות לפי אירוע / פרחים", dB: "חנות מתנות ופרחים שמתחילה מהאירוע: בוחרים אירוע, רואים מתנות מדורגות לפי התאמה ומשלימים הזמנה כאורח בשש לחיצות. עם יועץ מתנות מבוסס AI, מעקב הזמנה חי ולוח הזמנות לחנות. נבנה לחנויות פרחים בירדן, בפלסטין ובישראל.", kW: "אפליקציית מובייל / השכרת דירות", dW: "אפליקציה להשכרת דירות בערים פלסטיניות: שוכרים מסננים לפי סוג הנכס ופונים ישירות לבעלים, ובעלי הדירות מפרסמים ומנהלים את הנכסים שלהם. בנויה ב-Flutter, קודם כול בערבית, עם מצב בהיר וכהה.", own: "מוצר שלי", kM: "אפליקציית מובייל + מרקטפלייס", dM: "מרקטפלייס לחלקי חילוף לרכב, שנבנה מקצה לקצה: אפליקציית Flutter, שרת API ב-Django וצ'אט בזמן אמת עם הודעות קוליות. ב-iOS וב-Android, בארבע שפות.", client: "פרויקט ללקוח", k0: "מותג יופי / חנות אונליין", d0: "אתר המותג של קופסת ריסים לשימוש חוזר, עם סרטון מוצר שמתנגן תוך כדי גלילה.",
+    tagBuilt: "הושלם", tagBuild: "בבנייה", concept: "אתר קונספט", viewLive: "לאתר החי", soon: "בקרוב",
+    k1: "יופי / טיפוח העור", d1: "השקת מוצר שמובלת באור, לסרום ויטמין C.",
+    k2: "השקת אפליקציית מובייל", d2: "השקה לאפליקציית כושר, שבה האפליקציה האמיתית רצה על הטלפון תוך כדי גלילה.",
+    k3: "מסעדה, ערבית ואנגלית", d3: "אתר מסעדה דו-לשוני בערבית ובאנגלית, עם תפריט אמיתי והזמנת שולחן ב-WhatsApp.",
+    k4: "נדל״ן", d4: "הסיפור של וילה מודרנית, קומה אחר קומה.",
+    k5: "SaaS", d5: "דף לסטארטאפ עם דמו חי של המוצר, שבאמת עובד.",
+    k6: "מספרה, ערבית, עברית ואנגלית", d6: "מספרה עם לוח תורים חי: בוחרים שירות וספר, רואים איזו שעה מתאימה, וקובעים בוואטסאפ.",
+    k7: "מרפאת שיניים, ערבית, עברית ואנגלית", d7: "אתר מרפאה רגוע: לוחצים על השן שכואבת במפת החיוך, רואים את הטיפול המשוער והמחיר, וקובעים תור.",
+    k8: "חדר כושר, ערבית, עברית ואנגלית", d8: "אתר לחדר כושר עם מערכת שעות שבועית, שעות לנשים בלבד ושיעור ניסיון חינם שנקבע בכמה לחיצות.",
+    k9: "טיפוח רכב עד הבית, ערבית, עברית ואנגלית", d9: "אתר לשטיפת רכבים ניידת עם מחשבון מחיר חי: בוחרים רכב, חבילה ותוספות, ואז שעה שבה מגיעים אליכם.",
+    k10: "בית קלייה לקפה, ערבית ואנגלית", d10: "חנות של בית קלייה שבה הקפה נמזג תוך כדי גלילה, עם דרגות קלייה, בחירת טחינה וסל הזמנה בוואטסאפ.",
+    k11: "אפליקציית שירותים לבית, ערבית ואנגלית", d11: "דף השקה לאפליקציה עם טלפון שעובד באמת: בוחרים תיקון ושעה, ורואים את בעל המקצוע נוסע אליכם על המפה.",
+    k12: "בושם, ניסוי בתלת־ממד, ערבית ואנגלית", d12: "בקבוק בושם בתלת־ממד שמסתובב עם הגלילה, וצבע הנוזל בו משתנה עם כל שכבה של הריח.",
+    k13: "מחנה מדברי, ניסוי גנרטיבי, ערבית ואנגלית", d13: "מדבר שמצויר בקוד: גוללים מהשחר עד הלילה, השמש זזה, הדיונות משנות צבע ואורות המחנה נדלקים.",
+    tagLab: "ניסוי", labStatus: "ניסוי",
+    outroTitle: "הפרויקט הבא יכול להיות שלכם.",
+    outroBody: "ספרו לי מה אתם בונים. תקבלו תשובה, תוכנית והצעת מחיר ברורה.",
+    procTitle: "איך אנחנו עובדים.",
+    p1: "תכנון", p1t: "היום הראשון", p1d: "ממפים מה המשתמשים שלכם עושים, כל פיצ'ר וכל פיצ'ר AI, ובוחרים טכנולוגיה: Flutter, Swift, Kotlin, Expo או React Native.",
+    p2: "הנדסה", p2t: "יום או פחות", p2d: "טבלאות מסד הנתונים והקשרים ביניהן, ממשק שמעוצב לפי חוקי UX, ואז צד השרת (Laravel או Django REST) שנבדק ב-Postman.",
+    p3: "פיתוח עם AI", p3t: "מ-24 שעות", p3d: "צד הלקוח בארכיטקטורה נקייה (MVVM), מחובר ל-API. דף נחיתה תוך 24 שעות, אתרים ואפליקציות ווב תוך 1 עד 3 ימים, ואפליקציות מובייל לפי הפיצ'רים.",
+    p4: "השקה", p4t: "יום ההשקה", p4d: "דומיין, אחסון, אנליטיקס ושיחת חפיפה. כל החשבונות רשומים על שמכם.",
+    navPricing: "מחירים",
+    prTitle: "חבילות פשוטות, חודשיות או שנתיות.", prIntro: "מחיר ברור, לא משנה במה העסק שלכם עוסק. משלמים כל חודש, או פעם בשנה ומקבלים חודשיים מתנה. עיצוב, פיתוח, אחסון ותחזוקה כלולים.",
+    pl1: "דף נחיתה", pl1d: "עמוד אחד למוצר, לשירות או להשקה. כולל אחסון, תיקונים קטנים ועדכונים.",
+    pl2: "אתר או אפליקציית ווב", pl2d: "אתרים מרובי עמודים ואפליקציות ווב עם שרת, מסד נתונים או דשבורד. כולל אחסון ושינויים שוטפים.",
+    pl3: "אפליקציית מובייל + ווב", pl3d: "אפליקציה ל-iOS ול-Android שנבנית יחד עם האתר או אפליקציית הווב שלה. כולל העלאה לחנויות, אחסון ועדכונים.",
+    pl4: "בהתאמה אישית", pl4d: "מובייל, ווב או שניהם, בהיקף גדול יותר: כמה אפליקציות, אינטגרציות או דרישות מיוחדות.",
+    plTalk: "בואו נדבר", perMonth: "/ לחודש", curUsd: "דולר", curIls: "שקל", curAria: "מטבע",
+    faqTitle: "תשובות ישירות.", faqIntro: "לא מצאתם כאן את השאלה שלכם? שאלו ב-WhatsApp.",
+    q1: "כמה זה עולה?", a1: "החבילות חודשיות: 99$ לדף נחיתה, 198$ לאתר או לאפליקציית ווב, ו-297$ לאפליקציית מובייל עם האתר שלה. בתשלום שנתי מקבלים חודשיים מתנה: 990$, 1,980$ או 2,970$ לשנה. אפשר לשלם את אותו סכום בשקלים לפי שער החליפין של יום התשלום. פרויקטים גדולים או משולבים מקבלים הצעת מחיר מותאמת אחרי שיחה קצרה.",
+    q2: "כמה זמן זה לוקח?", a2: "דף נחיתה מוכן תוך 24 שעות, ואתרים ואפליקציות ווב תוך 1 עד 3 ימים. אפליקציות מובייל תלויות בפיצ'רים, בערך משבוע ועד חודש וחצי. אנחנו בונים עם מודלי AI על בסיס תוכנית הנדסית מלאה, כך שהמהירות לא באה על חשבון האיכות.",
+    q3: "כמה סבבי תיקונים כלולים?", a3: "כלולים שני סבבים על העיצוב וסבב אחד על הגרסה הבנויה. שינויי כיוון גדולים מתומחרים בנפרד, לפני שמתחילים לעבוד עליהם.",
+    q4: "גם האחסון והדומיין עליכם?", a4: "כן. האחסון, הדומיין והאנליטיקס מוקמים בחשבונות שרשומים על שמכם, כך שאתם אף פעם לא תלויים בנו.",
+    q5: "האתר שלי יכול להיות בעברית, בערבית ובאנגלית?", a5: "כן. אתרים רב-לשוניים נבנים מימין לשמאל כבר מההתחלה, עם טיפוגרפיה נכונה לעברית ולערבית, ולא בהיפוך של הרגע האחרון.",
+    q6: "האתרים בגלריה הם של לקוחות אמיתיים?", a6: "Luné Lashes (מותג של לקוח), MTA,‏ Ween Balaqee ו-Baqa (המוצרים שלי) הם פרויקטים אמיתיים שכבר באוויר. שלושה־עשר האחרים הם אתרי קונספט שנבנו כדי להראות מה אפשר לעשות לכל סוג של עסק. הפרויקט שלכם יקבל את אותה תשומת לב.",
+    inqKind: "פנייה",
+    inqBody: "בחרו מה אתם צריכים והוסיפו שורה על הפרויקט. WhatsApp ייפתח עם ההודעה שלכם, כתובה ומוכנה לשליחה.",
+    inqMail: "מעדיפים מייל?",
+    inqType: "מה אתם בונים?",
+    t1: "אתר או דף נחיתה", t2: "אפליקציית ווב", t3: "אפליקציית מובייל", t4: "עוד לא ברור לי",
+    inqNote: "שורה אחת על הפרויקט (לא חובה)",
+    inqPh: "לדוגמה: אתר לקביעת תורים לקליניקה שלי, בעברית ובערבית",
+    inqSafe: "נפתח ב-WhatsApp. שום דבר לא נשלח עד שתלחצו על שליחה.",
+    footA: "© 2026 Sahl Digital. אתרים, אפליקציות ווב ואפליקציות מובייל.",
+    footB: "עבודות הגלריה הן עבודות קונספט מקוריות."
+  };
+  var MSG = {
+    en: { hi: "Hi Adham, I'd like to start a project", kinds: { website: "a website or landing page", webapp: "a web app", mobile: "a mobile app", unsure: "not sure yet which kind" } },
+    ar: { hi: "مرحباً أدهم، أودّ البدء بمشروع", kinds: { website: "موقع أو صفحة هبوط", webapp: "تطبيق ويب", mobile: "تطبيق جوال", unsure: "لست متأكداً بعد من نوعه" } },
+    he: { hi: "היי אדהם, אשמח להתחיל פרויקט", kinds: { website: "אתר או דף נחיתה", webapp: "אפליקציית ווב", mobile: "אפליקציית מובייל", unsure: "עוד לא ברור לי איזה סוג" } }
+  };
+  document.querySelectorAll('[data-plan]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var r = document.querySelector('#compose input[name="kind"][value="' + a.getAttribute('data-plan') + '"]');
+      if (r) { r.checked = true; r.dispatchEvent(new Event('change', { bubbles: true })); }
+    });
+  });
+  var EN = {};
+  document.querySelectorAll('[data-i18n]').forEach(function (el) { EN[el.getAttribute('data-i18n')] = el.textContent; });
+  document.querySelectorAll('[data-i18n-aria]').forEach(function (el) { EN[el.getAttribute('data-i18n-aria')] = el.getAttribute('aria-label'); });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function (el) { EN[el.getAttribute('data-i18n-ph')] = el.getAttribute('placeholder'); });
+
+  var DICTS = { en: EN, ar: AR, he: HE };
+  var RTL = { ar: true, he: true };
+  var TITLES = {
+    en: 'Websites, Landing Pages & Mobile Apps | Sahl Digital, Hebron',
+    ar: 'سهل | صفحات ومواقع للمحلات في الخليل وفلسطين',
+    he: 'בניית אתרים, דפי נחיתה ואפליקציות מובייל | Sahl Digital'
+  };
+  var lang = 'en';
+  function setLang(l) {
+    lang = DICTS.hasOwnProperty(l) ? l : 'en';
+    var dict = DICTS[lang];
+    root.lang = lang; root.dir = RTL[lang] ? 'rtl' : 'ltr';
+    document.querySelectorAll('[data-i18n]').forEach(function (el) { var k = el.getAttribute('data-i18n'); if (dict[k] != null) el.textContent = dict[k]; });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) { var k = el.getAttribute('data-i18n-aria'); if (dict[k] != null) el.setAttribute('aria-label', dict[k]); });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function (el) { var k = el.getAttribute('data-i18n-ph'); if (dict[k] != null) el.setAttribute('placeholder', dict[k]); });
+    document.querySelectorAll('.lang button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)); });
+    document.title = TITLES[lang];
+    try { localStorage.setItem('aaa-lang', lang); } catch (e) {}
+    updateWa();
+    if (window.ScrollCraft && ScrollCraft.instances[0]) ScrollCraft.instances[0].layout();
+  }
+  // Each language has its own URL so search engines can index it.
+  var PATHS = { en: '/', ar: '/ar/', he: '/he/' };
+  var PAGE_LANG = root.getAttribute('data-page-lang') || 'en';
+  document.querySelectorAll('.lang button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var l = b.getAttribute('data-lang');
+      try { localStorage.setItem('aaa-lang', l); } catch (e) {}
+      if (l !== PAGE_LANG) location.href = PATHS[l] + location.hash;
+    });
+  });
+
+  /* ------------------------------------------------------------ currency */
+  var curChosen = null;
+  // Shekel prices = dollar price x today's USD->ILS rate (live, with a fallback).
+  var usdIls = 3.16, curNow = 'usd';
+  try { var cr = JSON.parse(localStorage.getItem('aaa-rate') || 'null'); if (cr && Date.now() - cr.t < 864e5) usdIls = cr.r; } catch (e) {}
+  fetch('https://open.er-api.com/v6/latest/USD').then(function (r) { return r.json(); }).then(function (d) {
+    var r = d && d.rates && d.rates.ILS; if (r > 2 && r < 6) { usdIls = r; try { localStorage.setItem('aaa-rate', JSON.stringify({ r: r, t: Date.now() })); } catch (e) {} setCur(curNow, false); }
+  }).catch(function () {});
+  try { curChosen = localStorage.getItem('aaa-cur'); } catch (e) {}
+  // Yearly = monthly x 12 with two months free, so the year costs monthly x 10.
+  var YEAR_PAY = 10, billNow = 'm';
+  var BILL = {
+    en: { m: 'Monthly', y: 'Yearly', off: '2 months free', per: '/ year', was: 'instead of', save: 'save' },
+    ar: { m: 'شهري', y: 'سنوي', off: 'شهرين مجاناً', per: '/ سنوياً', was: 'بدل', save: 'وفّر' },
+    he: { m: 'חודשי', y: 'שנתי', off: 'חודשיים מתנה', per: '/ לשנה', was: 'במקום', save: 'חיסכון של' }
+  };
+  try { if (localStorage.getItem('aaa-bill') === 'y') billNow = 'y'; } catch (e) {}
+  function money(u, c) { var n = c === 'ils' ? Math.round(u * usdIls) : u; return (c === 'ils' ? '\u20AA' : '$') + n.toLocaleString('en-US'); }
+  function setCur(c, remember) {
+    curNow = c; var B = BILL[lang] || BILL.en, yr = billNow === 'y';
+    document.querySelectorAll('.plan__num[data-usd-n]').forEach(function (el) {
+      var u = +el.getAttribute('data-usd-n'), price = el.closest('.plan__price'), per = price.querySelector('.plan__per'), save = price.parentNode.querySelector('.plan__save');
+      el.textContent = money(yr ? u * YEAR_PAY : u, c);
+      per.textContent = yr ? B.per : ((DICTS[lang] || EN).perMonth || '/ month');
+      if (save) { save.hidden = !yr; if (yr) save.innerHTML = B.was + ' <s><bdi>' + money(u * 12, c) + '</bdi></s> · <b>' + B.save + ' <bdi>' + money(u * (12 - YEAR_PAY), c) + '</bdi></b>'; }
+    });
+    document.getElementById('billM').textContent = B.m; document.getElementById('billY').textContent = B.y; document.getElementById('billOff').textContent = B.off;
+    document.querySelectorAll('#bill button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-bill') === billNow)); });
+    document.querySelectorAll('.cur button[data-cur]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-cur') === c)); });
+    if (remember) { curChosen = c; try { localStorage.setItem('aaa-cur', c); } catch (e) {} }
+  }
+  document.querySelectorAll('.cur button[data-cur]').forEach(function (b) {
+    b.addEventListener('click', function () { setCur(b.getAttribute('data-cur'), true); });
+  });
+  document.querySelectorAll('#bill button').forEach(function (b) {
+    b.addEventListener('click', function () { billNow = b.getAttribute('data-bill'); try { localStorage.setItem('aaa-bill', billNow); } catch (e) {} setCur(curNow, false); });
+  });
+  var _setLang = setLang;
+  setLang = function (l) { _setLang(l); setCur(curChosen || (lang === 'he' ? 'ils' : 'usd'), false); };
+  setCur(curChosen || (lang === 'he' ? 'ils' : 'usd'), false);
+
+  /* ------------------------------------------------------------ WhatsApp */
+  var form = document.getElementById('compose');
+  function message() {
+    var m = MSG[lang];
+    var kind = (form.querySelector('input[name="kind"]:checked') || {}).value || 'website';
+    var note = (document.getElementById('note').value || '').trim();
+    return m.hi + ': ' + m.kinds[kind] + '.' + (note ? '\n\n' + note : '');
+  }
+  function waLink(text) {
+    return WHATSAPP_NUMBER ? 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(text) : '#contact';
+  }
+  function updateWa() {
+    var generic = MSG[lang].hi + '.';
+    document.querySelectorAll('[data-wa]').forEach(function (a) {
+      var href = waLink(a.id === 'compose-go' ? message() : generic);
+      a.setAttribute('href', href);
+      if (WHATSAPP_NUMBER) { a.target = '_blank'; a.rel = 'noopener'; }
+    });
+  }
+  form.addEventListener('input', updateWa);
+  form.addEventListener('change', updateWa);
+  // With no number yet, the close's own button just focuses the note field.
+  document.getElementById('compose-go').addEventListener('click', function (e) {
+    if (!WHATSAPP_NUMBER) { e.preventDefault(); document.getElementById('note').focus(); }
+  });
+
+  /* ------------------------------------------------------------ wireframes
+     Line drawings of each concept's layout. The "idea" layer of the compile. */
+  var S = 'fill="none" stroke="currentColor" stroke-width="1"';
+  var WIRES = {
+    launch: '<svg viewBox="0 0 400 300" preserveAspectRatio="none" ' + S + '><rect x="20" y="16" width="44" height="8" rx="2"/><path d="M290 20h22M320 20h22M350 20h30"/><rect x="72" y="70" width="72" height="170" rx="18"/><path d="M92 70V52h32v18"/><rect x="200" y="96" width="170" height="16" rx="3"/><rect x="200" y="120" width="120" height="16" rx="3"/><path d="M200 152h160M200 164h140M200 176h120"/><rect x="200" y="196" width="80" height="24" rx="12"/><path d="M20 262h360"/><path d="M60 40l-40 240M340 40l40 240" stroke-dasharray="3 5"/></svg>',
+    app: '<svg viewBox="0 0 400 300" preserveAspectRatio="none" ' + S + '><path d="M20 20h40M300 20h80"/><rect x="24" y="96" width="120" height="14" rx="3"/><rect x="24" y="118" width="90" height="14" rx="3"/><path d="M24 148h120M24 160h100"/><rect x="24" y="182" width="72" height="22" rx="11"/><rect x="212" y="40" width="112" height="236" rx="20"/><circle cx="268" cy="150" r="22"/><circle cx="268" cy="150" r="40"/><circle cx="268" cy="150" r="58" stroke-dasharray="3 5"/><path d="M236 232h64M236 246h40"/></svg>',
+    menu: '<svg viewBox="0 0 400 300" preserveAspectRatio="none" ' + S + '><rect x="160" y="16" width="80" height="10" rx="2"/><path d="M200 44v236" stroke-dasharray="3 5"/><path d="M188 70q8-10 0-20t0-20M212 70q8-10 0-20t0-20"/><g><path d="M24 96h90M24 126h110M24 156h80M24 186h100M24 216h90"/><path d="M130 96h40M146 126h24M120 156h50M136 186h34M126 216h44" stroke-dasharray="1 4"/></g><g><path d="M376 96h-90M376 126h-110M376 156h-80M376 186h-100M376 216h-90"/><path d="M270 96h-40M254 126h-24M280 156h-50M264 186h-34M274 216h-44" stroke-dasharray="1 4"/></g><path d="M20 256h360"/></svg>',
+    floors: '<svg viewBox="0 0 400 300" preserveAspectRatio="none" ' + S + '><path d="M20 24h50"/><path d="M110 70l100-30 100 30"/><rect x="120" y="70" width="180" height="60"/><rect x="120" y="130" width="180" height="60"/><rect x="120" y="190" width="180" height="70"/><path d="M140 86h40v28h-40zM200 86h80v28h-80zM140 146h60v28h-60zM220 146h60v28h-60zM140 206h40v54M210 206h70v34h-70z"/><path d="M20 260h360"/><path d="M24 100h70M24 160h70M24 222h70" stroke-dasharray="3 5"/><path d="M330 70v190M326 70h8M326 260h8"/></svg>',
+    saas: '<svg viewBox="0 0 400 300" preserveAspectRatio="none" ' + S + '><rect x="20" y="16" width="44" height="8" rx="2"/><path d="M280 20h24M312 20h24"/><rect x="340" y="12" width="40" height="16" rx="8"/><rect x="110" y="50" width="180" height="14" rx="3"/><path d="M140 76h120"/><rect x="50" y="102" width="300" height="176" rx="10"/><path d="M50 128h300"/><rect x="66" y="140" width="190" height="18" rx="9"/><rect x="264" y="140" width="70" height="18" rx="9"/><path d="M70 256l40-30 34 14 40-44 36 22 44-40 50 26"/><path d="M70 262h264" stroke-dasharray="3 5"/></svg>',
+    desk: '<svg viewBox="0 0 640 400" preserveAspectRatio="none" ' + S + '><rect x="32" y="22" width="60" height="10" rx="2"/><path d="M430 27h36M480 27h36M530 27h36"/><rect x="560" y="18" width="50" height="20" rx="10"/><rect x="32" y="92" width="300" height="26" rx="4"/><rect x="32" y="126" width="220" height="26" rx="4"/><path d="M32 176h260M32 190h230M32 204h200"/><rect x="32" y="232" width="110" height="32" rx="16"/><rect x="370" y="80" width="238" height="190" rx="8"/><path d="M370 80l238 190M608 80L370 270"/><rect x="32" y="304" width="178" height="70" rx="6"/><rect x="226" y="304" width="178" height="70" rx="6"/><rect x="420" y="304" width="188" height="70" rx="6"/></svg>',
+    phone: '<svg viewBox="0 0 200 420" preserveAspectRatio="none" ' + S + '><path d="M18 44h60"/><rect x="18" y="70" width="164" height="124" rx="8"/><path d="M18 70l164 124M182 70L18 194"/><rect x="18" y="214" width="150" height="16" rx="3"/><rect x="18" y="238" width="100" height="16" rx="3"/><path d="M18 272h140M18 286h120"/><rect x="18" y="360" width="96" height="30" rx="15"/></svg>'
+  };
+  document.querySelectorAll('[data-wire]').forEach(function (el) { el.innerHTML = WIRES[el.getAttribute('data-wire')] || ''; });
+  document.getElementById('baqa-link').href = BAQA_URL;
+
+  // Real thumbnail if it exists, CSS plate otherwise.
+  document.querySelectorAll('.thumb__img').forEach(function (img) {
+    var show = function () { img.hidden = false; var p = img.previousElementSibling; if (p) p.hidden = true; };
+    if (img.complete && img.naturalWidth) show();
+    else { img.addEventListener('load', show); img.addEventListener('error', function () { img.remove(); }); }
+  });
+
+  /* ------------------------------------------------------------- mount */
+  var sc = ScrollCraft.mount(document.body);
+  var saved = null; try { saved = localStorage.getItem('aaa-lang'); } catch (e) {}
+  if (false) { location.replace(PATHS[saved] + location.hash); }
+  else if (PAGE_LANG !== 'en') setLang(PAGE_LANG); else updateWa();
+
+  /* ------------------------------------------------ index: jump + marker */
+  var gallery = document.getElementById('work');
+  var rail = gallery.querySelector('.rail');
+  var works = Array.prototype.slice.call(gallery.querySelectorAll('.work'));
+  var navLinks = {};
+  document.querySelectorAll('[data-nav]').forEach(function (a) { navLinks[a.getAttribute('data-nav')] = a; });
+  var indexEl = document.querySelector('.index');
+  var toggle = document.querySelector('.index__toggle');
+
+  function docTop(el) { return el.getBoundingClientRect().top + scrollY; }
+  function scrollToWork(name, instant) {
+    var slot = document.getElementById('work-' + name);
+    if (!slot) return;
+    var over = rail.scrollWidth - innerWidth;
+    var p = 0;
+    if (over > 0) {
+      var centre = slot.offsetLeft + slot.offsetWidth / 2;
+      p = Math.min(1, Math.max(0, (centre - innerWidth / 2) / (over * 1.04)));
+    }
+    var top = docTop(gallery) + p * (gallery.offsetHeight - innerHeight);
+    if (reduce) { scrollTo({ top: Math.round(docTop(slot) - 96), behavior: 'instant' }); return; }
+    scrollTo({ top: Math.round(top), behavior: instant ? 'instant' : 'smooth' });
+  }
+  document.querySelectorAll('[data-jump]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      closeIndex();
+      scrollToWork(a.getAttribute('data-jump'));
+    });
+  });
+  // Keyboard focus inside the rail lands the card in view.
+  gallery.addEventListener('focusin', function (e) {
+    var slot = e.target.closest('.slot[id]');
+    if (slot) scrollToWork(slot.id.replace('work-', ''), true);
+  });
+
+  function closeIndex() { indexEl.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); }
+  toggle.addEventListener('click', function () {
+    var open = !indexEl.classList.contains('is-open');
+    indexEl.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  indexEl.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeIndex); });
+  addEventListener('keydown', function (e) { if (e.key === 'Escape' && indexEl.classList.contains('is-open')) { closeIndex(); toggle.focus(); } });
+  addEventListener('click', function (e) { if (!indexEl.contains(e.target)) closeIndex(); });
+
+  /* ------------------------------------------------ hero pointer drift */
+  var hero = document.getElementById('top');
+  var fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var tmx = 0, tmy = 0, mx = 0, my = 0;
+  if (fine && !reduce) {
+    hero.addEventListener('pointermove', function (e) { tmx = e.clientX / innerWidth * 2 - 1; tmy = e.clientY / innerHeight * 2 - 1; });
+    hero.addEventListener('pointerleave', function () { tmx = 0; tmy = 0; });
+  }
+
+  /* ------------------------------------------------------------------
+     SIGNATURE: the compile line. Each card's scan line is driven by where
+     the card really is on screen (rising into view, then crossing the
+     viewport). Built work completes. Coming-soon work stops at 55%, under
+     an "In build" marker, because that is the truth.
+     ------------------------------------------------------------------ */
+  var sections = ['services', 'process', 'pricing', 'faq'].map(function (id) { return document.getElementById(id); });
+  var clamp = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; };
+  var ease = function (t) { return 1 - Math.pow(1 - t, 3); };
+  function frame() {
+    var vw = innerWidth, vh = innerHeight, rtl = root.dir === 'rtl';
+
+    if (fine && !reduce) {
+      mx += (tmx - mx) * 0.08; my += (tmy - my) * 0.08;
+      hero.style.setProperty('--mx', mx.toFixed(3));
+      hero.style.setProperty('--my', my.toFixed(3));
+    }
+
+    var best = null, bestD = Infinity;
+    var gr = gallery.getBoundingClientRect();
+    var inGallery = gr.top < vh * 0.5 && gr.bottom > vh * 0.5;
+    for (var i = 0; i < works.length; i++) {
+      var w = works[i];
+      var r = w.getBoundingClientRect();
+      var cx = r.left + r.width / 2;
+      var tx = rtl ? (cx - vw * 0.1) / (vw * 0.5) : (vw * 0.9 - cx) / (vw * 0.5);
+      var tv = (vh * 0.98 - r.top) / (vh * 0.55);
+      var t = reduce ? 1 : ease(clamp(Math.min(tx, tv)));
+      var max = w.getAttribute('data-built') === '1' ? 1 : 0.55;
+      w.style.setProperty('--c', (t * max).toFixed(4));
+      w.style.setProperty('--s', reduce ? '1' : ease(clamp(Math.min(tx * 1.6, tv * 1.4))).toFixed(3));
+      var d = reduce ? Math.abs(r.top + r.height / 2 - vh / 2) : Math.abs(cx - vw / 2);
+      if (inGallery && d < bestD) { bestD = d; best = w.getAttribute('data-work'); }
+    }
+    var current = best;
+    if (!current) {
+      for (var s = 0; s < sections.length; s++) {
+        var sr = sections[s].getBoundingClientRect();
+        if (sr.top < vh * 0.5 && sr.bottom > vh * 0.5) { current = sections[s].id; break; }
+      }
+    }
+    for (var k in navLinks) {
+      var on = k === current;
+      if (on !== (navLinks[k].getAttribute('aria-current') === 'true')) {
+        if (on) navLinks[k].setAttribute('aria-current', 'true'); else navLinks[k].removeAttribute('aria-current');
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+
+
+
+
+</body></html>
