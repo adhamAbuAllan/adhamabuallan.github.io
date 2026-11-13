@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>صالون ليلك · مثال من سهل</title>
+<meta name="description" content="مثال من سهل: صفحة تجريبية لصالون نسائي، فيها الخدمات والأسعار وباكج العروس كامل وحجز الموعد عالواتساب.">
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format("woff2");font-weight:600}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-800-normal.woff2) format("woff2");font-weight:800}
+:root{--plum:#3B1D3F;--plum2:#4E2953;--lilac:#B79AD8;--lilac2:#E9DDF5;--blush:#F6E8EC;--rose:#E58FA6;--rose-d:#C2607D;--gold:#D8B46A;--cream:#FFFAF7;--ink:#2E1631;--mute:#7A6680;--wa:#1FAF54}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--ink);font-family:Plex,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.num{font-family:Inter,Plex,sans-serif;font-weight:800;letter-spacing:-.02em}
+.demo{background:var(--rose-d);color:#fff;font-size:13px;font-weight:600;text-align:center;padding:7px 16px}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px}
+h2{font-size:29px;line-height:1.25;font-weight:700}
+.sub{color:var(--mute);font-size:15.5px;margin-top:6px}
+section{padding:34px 0}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:rgba(255,250,247,.96);border-bottom:1px solid var(--lilac2)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;line-height:1.15;color:var(--plum)}
+.logo i{width:32px;height:32px;position:relative;display:block}
+.logo i::before,.logo i::after{content:"";position:absolute;width:16px;height:16px;border-radius:50% 50% 50% 0;background:var(--lilac);top:4px}
+.logo i::before{right:2px;transform:rotate(-45deg)}
+.logo i::after{left:2px;background:var(--rose);transform:rotate(45deg) scaleX(-1)}
+.logo small{display:block;font-size:11.5px;font-weight:500;color:var(--mute)}
+.btn-sm{background:var(--plum);color:#fff;font-weight:700;font-size:14px;padding:8px 16px;border-radius:999px}
+
+/* hero */
+.hero{background:linear-gradient(180deg,var(--lilac2) 0,var(--blush) 100%);padding:26px 0 36px;overflow:hidden}
+.hero h1{font-size:37px;line-height:1.22;font-weight:700;color:var(--plum)}
+.hero h1 em{font-style:normal;color:var(--rose-d)}
+.hero .lead{font-size:17px;margin-top:12px;color:var(--ink);opacity:.82}
+.mirror{position:relative;width:220px;height:240px;margin:26px auto 0}
+.mirror .frame{position:absolute;inset:0;border-radius:125px 125px 22px 22px;background:linear-gradient(140deg,#F2D79B,var(--gold) 45%,#A9843F);box-shadow:0 20px 40px rgba(59,29,63,.22)}
+.mirror .glass{position:absolute;inset:14px;border-radius:111px 111px 12px 12px;background:linear-gradient(160deg,#FFFFFF 0,#EFE6FA 40%,#D9C6EE 100%);overflow:hidden}
+.mirror .glass::before{content:"";position:absolute;top:-20px;right:34px;width:34px;height:220px;background:rgba(255,255,255,.7);transform:rotate(24deg)}
+.mirror .glass::after{content:"";position:absolute;top:24px;right:82px;width:12px;height:170px;background:rgba(255,255,255,.55);transform:rotate(24deg)}
+.mirror .bulb{position:absolute;width:12px;height:12px;border-radius:50%;background:#FFF4D6;box-shadow:0 0 12px #FFE3A0}
+.card{position:absolute;bottom:14px;left:-30px;background:#fff;color:var(--ink);border-radius:18px;padding:12px 14px;width:190px;transform:rotate(-3deg);box-shadow:0 12px 26px rgba(59,29,63,.22)}
+.card b{display:block;font-size:13px;color:var(--rose-d)}
+.card span{display:block;font-size:14px;font-weight:600;line-height:1.45}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--wa);color:#fff;font-weight:700;font-size:19px;padding:17px 20px;border-radius:16px;margin-top:28px;box-shadow:0 10px 22px rgba(31,175,84,.28)}
+.wa-i{width:24px;height:24px;border-radius:50%;border:3px solid #fff;position:relative;display:inline-block}
+.wa-i::after{content:"";position:absolute;left:-4px;bottom:-4px;width:8px;height:8px;background:#fff;clip-path:polygon(0 100%,100% 40%,40% 0)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chips span{background:#fff;color:var(--plum);font-size:13.5px;font-weight:500;padding:5px 12px;border-radius:999px}
+
+/* services */
+.cat{margin-top:24px}
+.cat h3{font-size:15px;font-weight:700;color:var(--rose-d);display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.cat h3::before{content:"";width:18px;height:2px;background:var(--rose)}
+.row{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-bottom:1px dashed #E4D6EA}
+.row span{font-size:16.5px;font-weight:600}
+.row small{font-size:13px;color:var(--mute);font-weight:400}
+.row i{flex:1}
+.row b{font-size:15px;font-weight:600;color:var(--plum);white-space:nowrap}
+.row b .num{font-size:21px}
+
+/* bride */
+.bride{background:var(--plum);color:#fff;position:relative;overflow:hidden}
+.bride::before{content:"";position:absolute;width:320px;height:320px;border-radius:50%;top:-140px;left:-120px;background:radial-gradient(circle,rgba(183,154,216,.35),transparent 70%)}
+.bride .sub{color:var(--lilac2)}
+.pack{position:relative;margin-top:22px;background:var(--plum2);border:1px solid rgba(216,180,106,.45);border-radius:26px;padding:22px 20px}
+.pack .badge{display:inline-block;background:var(--gold);color:var(--plum);font-size:12.5px;font-weight:700;padding:3px 12px;border-radius:999px}
+.pack h3{font-size:23px;font-weight:700;margin-top:10px}
+.pack ul{list-style:none;margin-top:14px;display:grid;gap:9px}
+.pack li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px}
+.pack li::before{content:"";flex:0 0 18px;height:18px;margin-top:4px;border-radius:50%;background:var(--rose);box-shadow:inset 0 0 0 5px var(--plum2)}
+.pack .price{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.15);display:flex;align-items:baseline;gap:8px}
+.pack .price .num{font-size:40px;color:var(--gold)}
+.pack .price small{font-size:14px;color:var(--lilac2)}
+.faq{margin-top:18px;display:grid;gap:10px}
+.faq div{background:rgba(255,255,255,.07);border-radius:16px;padding:13px 16px}
+.faq b{display:block;font-size:15.5px}
+.faq p{font-size:14.5px;color:var(--lilac2)}
+
+/* slots */
+.days{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:20px}
+.day{background:#fff;border:1px solid var(--lilac2);border-radius:16px;padding:10px 4px;text-align:center}
+.day small{display:block;font-size:12.5px;color:var(--mute)}
+.day .num{font-size:22px;color:var(--plum);display:block;line-height:1.2}
+.day em{display:block;font-style:normal;font-size:12px;font-weight:700;margin-top:4px;color:#1F8A47}
+.day.full{background:#F4EEF6}
+.day.full em{color:var(--rose-d)}
+.day.on{background:var(--plum);border-color:var(--plum)}
+.day.on small,.day.on .num{color:#fff}
+.day.on em{color:var(--gold)}
+.times{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.times span{font-size:15px;padding:7px 14px;border-radius:12px;background:var(--lilac2);color:var(--plum);font-weight:600}
+.times span.x{background:#F1ECF2;color:#B6A9BA;text-decoration:line-through}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.g{height:122px;border-radius:22px;position:relative;overflow:hidden}
+.g span{position:absolute;bottom:10px;right:12px;font-size:13.5px;font-weight:700;background:rgba(255,255,255,.92);color:var(--plum);padding:3px 10px;border-radius:999px}
+.g1{background:var(--blush)}
+.g1::before{content:"";position:absolute;left:50%;top:22px;width:46px;height:70px;transform:translateX(-50%);border-radius:10px 10px 16px 16px;background:linear-gradient(90deg,var(--rose-d),var(--rose) 60%,#F3B6C6)}
+.g1::after{content:"";position:absolute;left:50%;top:6px;width:20px;height:22px;transform:translateX(-50%);border-radius:4px;background:var(--plum)}
+.g2{background:repeating-linear-gradient(115deg,var(--lilac) 0 16px,#C8B0E2 16px 32px)}
+.g2::before{content:"";position:absolute;inset:26px 40px 40px;border-radius:50% 50% 45% 45%/60% 60% 40% 40%;background:radial-gradient(circle at 50% 30%,#5A3418 0 40%,#3A200F 70%)}
+.g3{grid-column:span 2;height:104px;background:var(--plum)}
+.g3::before{content:"";position:absolute;inset:30px 24px 44px;background:radial-gradient(ellipse 14px 22px at 50% 50%,var(--rose) 0 95%,transparent 100%) 0 0/44px 52px}
+.g4{background:linear-gradient(160deg,#FCEFD8,var(--gold))}
+.g4::before{content:"";position:absolute;left:40px;right:40px;top:30px;height:16px;border-radius:8px;background:var(--plum)}
+.g4::after{content:"";position:absolute;left:46px;right:46px;top:46px;height:48px;background:repeating-linear-gradient(90deg,var(--plum) 0 4px,transparent 4px 10px)}
+.g5{background:radial-gradient(circle at 50% 42%,#fff 0 30px,var(--lilac2) 31px 44px,transparent 45px),var(--rose)}
+
+/* steps */
+.steps{display:grid;gap:12px;margin-top:22px}
+.step{display:flex;gap:14px;align-items:flex-start;background:var(--blush);border-radius:18px;padding:16px}
+.step .d{flex:0 0 40px;height:40px;border-radius:50%;background:var(--plum);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px}
+.step h3{font-size:17px;font-weight:700}
+.step p{font-size:14.5px;color:var(--mute)}
+
+/* info */
+.info{background:var(--lilac2)}
+.hours{margin-top:20px;background:#fff;border-radius:20px;padding:6px 18px}
+.hours div{display:flex;justify-content:space-between;padding:12px 0;font-size:16px}
+.hours div+div{border-top:1px dashed #E4D6EA}
+.hours b{font-weight:700;color:var(--plum)}
+.area{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.area span{background:var(--plum);color:#fff;font-size:14px;font-weight:600;padding:6px 13px;border-radius:999px}
+.fee{margin-top:14px;font-size:15px;color:var(--mute)}
+
+.end{text-align:center}
+.end h2{font-size:30px;color:var(--plum)}
+.foot{text-align:center;font-size:13px;color:var(--mute);padding:26px 20px 34px}
+.foot b{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="demo">مثال من سهل · صفحة تجريبية</div>
+
+<header class="top" data-sticky>
+  <div class="wrap">
+    <a class="logo" href="#"><i></i><span>صالون ليلك<small>شعر ومكياج وعرايس</small></span></a>
+    <a class="btn-sm" href="https://adhamabuallan.github.io/sahl/wa/?c=P21">احجزي موعد</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>كل شي عن يوم <em>عرسك</em> بصفحة وحدة</h1>
+    <p class="lead">الخدمات بأسعارها، وباكج العروس بكل تفاصيله، والمواعيد الفاضية هالأسبوع. اختاري اللي بدك ياه واحجزي برسالة وحدة عالواتساب.</p>
+    <div class="mirror" aria-hidden="true">
+      <div class="frame"></div><div class="glass"></div>
+      <div class="bulb" style="top:30px;right:30px"></div><div class="bulb" style="top:30px;left:30px"></div>
+      <div class="bulb" style="top:96px;right:-2px"></div><div class="bulb" style="top:96px;left:-2px"></div>
+      <div class="card"><b>موعد بروفة العروس</b><span>الخميس، الساعة <bdi dir="ltr" class="num" style="font-size:15px">4:00</bdi></span><span>محجوز ✓</span></div>
+    </div>
+    <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P21"><span class="wa-i"></span>احجزي عالواتساب</a>
+    <div class="chips"><span>صالون نسائي بس</span><span>منتجات أصلية</span><span>رام الله والبيرة</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>الخدمات والأسعار</h2>
+    <p class="sub">الأسعار بالشيكل، وبتختلف حسب طول الشعر.</p>
+    <div class="cat">
+      <h3>شعر</h3>
+      <div class="row"><span>قص وتصفيف</span><i></i><b><span class="num">60</span> شيكل</b></div>
+      <div class="row"><span>سشوار <small>شعر وسط</small></span><i></i><b><span class="num">50</span> شيكل</b></div>
+      <div class="row"><span>صبغة كاملة</span><i></i><b>من <span class="num">180</span> شيكل</b></div>
+      <div class="row"><span>بروتين <small>مع غسلة</small></span><i></i><b>من <span class="num">350</span> شيكل</b></div>
+    </div>
+    <div class="cat">
+      <h3>مكياج ووجه</h3>
+      <div class="row"><span>مكياج سهرة</span><i></i><b><span class="num">150</span> شيكل</b></div>
+      <div class="row"><span>حواجب بالخيط</span><i></i><b><span class="num">20</span> شيكل</b></div>
+      <div class="row"><span>تنظيف بشرة</span><i></i><b><span class="num">120</span> شيكل</b></div>
+    </div>
+    <div class="cat">
+      <h3>أظافر</h3>
+      <div class="row"><span>مناكير جل</span><i></i><b><span class="num">70</span> شيكل</b></div>
+      <div class="row"><span>باديكير</span><i></i><b><span class="num">80</span> شيكل</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="bride">
+  <div class="wrap">
+    <h2>باكج العروس</h2>
+    <p class="sub">كل الأسئلة اللي بتسأليها قبل العرس، جوابها هون.</p>
+    <div class="pack">
+      <span class="badge">باكج كامل</span>
+      <h3>يوم العرس من أوله لآخره</h3>
+      <ul>
+        <li>بروفة مكياج وشعر قبل العرس بأسبوعين</li>
+        <li>مكياج العروس وتسريحة يوم العرس</li>
+        <li>مناكير وباديكير قبل العرس بيوم</li>
+        <li>تنظيف بشرة قبل العرس بأسبوع</li>
+        <li>مكياج لأم العروس أو أختها</li>
+      </ul>
+      <div class="price"><span class="num">1,400</span><small>شيكل للباكج كامل</small></div>
+    </div>
+    <div class="faq">
+      <div><b>قديش العربون؟</b><p>300 شيكل بتثبّت التاريخ، والباقي يوم العرس.</p></div>
+      <div><b>بتيجوا عالبيت؟</b><p>آه، داخل رام الله والبيرة بزيادة 150 شيكل.</p></div>
+      <div><b>قديش لازم أحجز قبل؟</b><p>بموسم الصيف قبل شهرين، وباقي السنة قبل شهر.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>مواعيد هالأسبوع</h2>
+    <p class="sub">بتشوفي الفاضي وبتحجزي من غير ما تستني رد.</p>
+    <div class="days">
+      <div class="day full"><small>السبت</small><span class="num">14</span><em>مليان</em></div>
+      <div class="day on"><small>الأحد</small><span class="num">15</span><em>3 مواعيد</em></div>
+      <div class="day"><small>الإثنين</small><span class="num">16</span><em>5 مواعيد</em></div>
+      <div class="day"><small>الثلاثاء</small><span class="num">17</span><em>4 مواعيد</em></div>
+    </div>
+    <div class="times"><span class="x"><bdi dir="ltr">10:00</bdi></span><span><bdi dir="ltr">12:30</bdi></span><span class="x"><bdi dir="ltr">2:00</bdi></span><span><bdi dir="ltr">4:00</bdi></span><span><bdi dir="ltr">6:30</bdi></span></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>من شغلنا</h2>
+    <p class="sub">ستايلات بنعملها كل أسبوع.</p>
+    <div class="gal" aria-hidden="true">
+      <div class="g g1"><span>ألوان مناكير</span></div>
+      <div class="g g2"><span>صبغة بني دافي</span></div>
+      <div class="g g3"><span>مناكير جل بألوان الموسم</span></div>
+      <div class="g g4"><span>تسريحات العرايس</span></div>
+      <div class="g g5"><span>عناية بالبشرة</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="info">
+  <div class="wrap">
+    <h2>الدوام والمكان</h2>
+    <p class="sub">بالطابق الثاني، فوق محل الورد.</p>
+    <div class="hours">
+      <div><span>السبت للخميس</span><b class="num"><bdi dir="ltr">10:00 - 20:00</bdi></b></div>
+      <div><span>الجمعة</span><b>مسكر</b></div>
+    </div>
+    <div class="area"><span>رام الله التحتا</span><span>الماصيون</span><span>الطيرة</span><span>البيرة</span><span>سردا</span></div>
+    <p class="fee">خدمة البيت للعرايس بس، داخل رام الله والبيرة.</p>
+  </div>
+</section>
+
+<section class="end">
+  <div class="wrap">
+    <h2>عرسك قريب؟ ثبّتي تاريخك هسا</h2>
+    <p class="sub">رسالة وحدة، وبنرد عليكي بالتاريخ والتفاصيل.</p>
+    <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P21"><span class="wa-i"></span>احجزي عالواتساب</a>
+  </div>
+</section>
+
+<p class="foot"><b>مثال من سهل</b> · صالون ليلك اسم تجريبي، والأسعار للتوضيح بس.</p>
+</body>
+</html>

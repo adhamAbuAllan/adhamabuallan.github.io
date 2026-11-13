@@ -53,7 +53,9 @@
    "key": "womensalon",
    "ar": "صالون نسائي",
    "brief": "women's beauty salon: services, prices, bridal package, booking",
-   "status": "todo"
+   "status": "done",
+   "date": "2026-11-14",
+   "code": "P21"
   },
   {
    "key": "lashes",
