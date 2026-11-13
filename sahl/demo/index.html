@@ -23,6 +23,12 @@
 }
 [data-t="salon"]{--accent:#1F2937;--soft:#ECEAE6;--bg:#F7F6F4}
 [data-t="shop"]{--accent:#7C3AED;--soft:#EFE9FB;--bg:#FAF9FC}
+[data-t="dental"],[data-t="clinic"]{--accent:#0E7490;--soft:#DFF3F6;--bg:#F5FAFB}
+[data-t="beauty"]{--accent:#B83280;--soft:#FBE7F1;--bg:#FDF8FA}
+[data-t="gym"]{--accent:#DC2626;--soft:#FDE6E6;--bg:#F8F7F7}
+[data-t="hall"]{--accent:#A16207;--soft:#F7EED8;--bg:#FCFAF4}
+[data-t="car"]{--accent:#1D4ED8;--soft:#E3EBFD;--bg:#F6F8FC}
+[data-t="services"]{--accent:#0F766E;--soft:#DDF3EF;--bg:#F6FAF9}
 :lang(he){--font:"IBM Plex Sans Hebrew","IBM Plex Sans Arabic",system-ui,sans-serif}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -85,28 +91,49 @@ footer{text-align:center;font-size:.8rem;color:var(--muted);padding:0 0 calc(24p
 (function(){
   var SAHL = "972595376623";
   var q = new URLSearchParams(location.search);
-  var t = ({restaurant:1,salon:1,shop:1})[q.get("t")] ? q.get("t") : "restaurant";
+  var clean = function(s){ return (s || "").replace(/[<>]/g, "").replace(/[.\u060C,;:!؟?]+$/, "").trim().slice(0, 40); };
+  var rawName = clean(q.get("n"));
+  var t = q.get("t") || "restaurant";
+  // Pick the right template from the type and the business name, so a clinic never shows a food menu.
+  var has = function(re){ return re.test(rawName); };
+  if (t === "clinic") t = has(/أسنان|اسنان|dental|dent/i) ? "dental" : "clinic";
+  if (t === "salon" && has(/بيوتي|beauty|ليزر|laser|نسائي|عروس|lash|nail|أظافر/i)) t = "beauty";
+  if (t === "services") t = has(/جيم|gym|fitness|رياضي|نادي/i) ? "gym" : has(/قاع|hall|palace|بالاس/i) ? "hall" : has(/سيار|car|rent|تأجير/i) ? "car" : "services";
+  if (!({restaurant:1,salon:1,shop:1,dental:1,clinic:1,beauty:1,gym:1,hall:1,car:1,services:1})[t]) t = "restaurant";
   var l = q.get("l") === "he" ? "he" : "ar";
-  var clean = function(s){ return (s || "").replace(/[<>]/g, "").trim().slice(0, 40); };
   var IMG = {
     restaurant:"https://images.unsplash.com/photo-1788536442471-902aa90a29d8?auto=format&fit=crop&w=1100&q=70",
     salon:"https://images.unsplash.com/photo-1792523297859-6b92444b583c?auto=format&fit=crop&w=1100&q=70",
-    shop:"https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1100&q=70"
+    shop:"https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1100&q=70",
+    dental:"https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1100&q=70",
+    clinic:"https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1100&q=70",
+    beauty:"https://images.unsplash.com/photo-1626383120723-2a941488860d?auto=format&fit=crop&w=1100&q=70",
+    gym:"https://images.unsplash.com/photo-1741156229623-da94e6d7977d?auto=format&fit=crop&w=1100&q=70",
+    hall:"https://images.unsplash.com/photo-1763553113332-800519753e40?auto=format&fit=crop&w=1100&q=70",
+    car:"https://images.unsplash.com/photo-1616363088386-31c4a8414858?auto=format&fit=crop&w=1100&q=70",
+    services:"https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1100&q=70"
   };
   var T = {
     ar:{
-      dflt:{restaurant:"اسم مطعمك",salon:"اسم صالونك",shop:"اسم محلك"},
-      kind:{restaurant:"مطعم",salon:"صالون",shop:"محل"},
+      dflt:{restaurant:"اسم مطعمك",salon:"اسم صالونك",shop:"اسم محلك",dental:"اسم عيادتك",clinic:"اسم عيادتك",beauty:"اسم صالونك",gym:"اسم ناديك",hall:"اسم القاعة",car:"اسم مكتبك",services:"اسم مصلحتك"},
+      kind:{restaurant:"مطعم",salon:"صالون",shop:"محل",dental:"عيادة أسنان",clinic:"عيادة",beauty:"صالون تجميل",gym:"نادي رياضي",hall:"قاعة مناسبات",car:"تأجير سيارات",services:"خدمات"},
       ribbon:function(n){return "نسخة تجريبية جهزتها <b>سهل</b> لـ "+n+" · الأسعار للمثال";},
-      wa:{restaurant:"اطلب عالواتساب",salon:"احجز دورك عالواتساب",shop:"اسأل عالواتساب"},
+      wa:{restaurant:"اطلب عالواتساب",salon:"احجز دورك عالواتساب",shop:"اسأل عالواتساب",dental:"احجز موعدك عالواتساب",clinic:"احجز موعدك عالواتساب",beauty:"احجزي عالواتساب",gym:"اشترك عالواتساب",hall:"اسأل عن موعدك",car:"احجز سيارتك عالواتساب",services:"اسأل عالواتساب"},
       call:"اتصل",
-      chips:{restaurant:["منيو مع الأسعار","طلب عالواتساب","توصيل"],salon:["حجز موعد عالواتساب","أسعار واضحة","مواعيد مسائية"],shop:["كل الأصناف بالأسعار","اسأل عن المقاس","توصيل"]},
-      listTitle:{restaurant:"المنيو",salon:"الخدمات والأسعار",shop:"الأصناف"},
+      chips:{restaurant:["منيو مع الأسعار","طلب عالواتساب","توصيل"],salon:["حجز موعد عالواتساب","أسعار واضحة","مواعيد مسائية"],shop:["كل الأصناف بالأسعار","اسأل عن المقاس","توصيل"],dental:["حجز موعد عالواتساب","أسعار واضحة","تقسيط مريح"],clinic:["حجز موعد عالواتساب","استشارة أولى","مواعيد مسائية"],beauty:["حجز موعد عالواتساب","أسعار واضحة","باقات عرايس"],gym:["اشتراك شهري","تجربة يوم مجاني","مدرب شخصي"],hall:["شوف المواعيد الفاضية","باقات واضحة","ضيافة"],car:["أسعار يومية","حجز عالواتساب","توصيل السيارة"],services:["أسعار واضحة","حجز عالواتساب","خدمة سريعة"]},
+      listTitle:{restaurant:"المنيو",salon:"الخدمات والأسعار",shop:"الأصناف",dental:"العلاجات والأسعار",clinic:"الخدمات والأسعار",beauty:"الخدمات والأسعار",gym:"الاشتراكات",hall:"الباقات",car:"السيارات والأسعار",services:"الخدمات والأسعار"},
       priceNote:"أسعار للمثال، بنحط أسعارك الحقيقية بالصفحة النهائية.",
       items:{
         restaurant:[["حمص بالطحينة","صحن كبير مع خبز طابون",18],["فلافل","6 حبات مع سلطة",12],["شاورما دجاج بالصاج","مع بطاطا",28],["مشاوي مشكلة","كباب، شيش طاووق، كفتة",65],["منسف لشخصين","لحمة بلدي مع جميد",90],["كنافة نابلسية","سخنة من الفرن",20]],
         salon:[["قص شعر","",50],["قص شعر مع لحية","",70],["ترتيب لحية","",30],["صبغة","حسب طول الشعر",120],["سشوار","",40],["تنظيف بشرة","",80]],
-        shop:[["قميص رجالي","مقاسات S حتى XXL",89],["بنطلون جينز","",129],["فستان","موديلات جديدة",159],["جاكيت شتوي","",199],["ملابس أطفال","",49],["شنطة يد","",99]]
+        shop:[["قميص رجالي","مقاسات S حتى XXL",89],["بنطلون جينز","",129],["فستان","موديلات جديدة",159],["جاكيت شتوي","",199],["ملابس أطفال","",49],["شنطة يد","",99]],
+        dental:[["كشفية وتصوير","",100],["تنظيف أسنان","جلسة كاملة",150],["حشوة تجميلية","للسن الواحد",200],["تبييض أسنان","جلسة بالعيادة",600],["علاج عصب","حسب السن",700],["زراعة سن","تبدأ من",2500]],
+        clinic:[["كشفية","",100],["استشارة متابعة","",60],["جلسة ليزر","منطقة صغيرة",150],["تنظيف بشرة عميق","",200],["جلسة نضارة","",250],["باقة 4 جلسات","توفير 15%",800]],
+        beauty:[["سشوار","",50],["صبغة","حسب طول الشعر",150],["مكياج سهرة","",150],["مكياج عروس","مع تسريحة",700],["جلسة ليزر","منطقة صغيرة",120],["تنظيف بشرة","",120]],
+        gym:[["اشتراك شهري","أجهزة وأوزان",150],["اشتراك 3 شهور","توفير 15%",380],["اشتراك سنوي","أفضل سعر",1300],["مدرب شخصي","12 حصة",600],["حصص كارديو","بالأسبوع 3 مرات",120],["يوم تجربة","",0]],
+        hall:[["باقة خطبة","حتى 150 شخص",3500],["باقة عرس","حتى 400 شخص",9000],["باقة عرس كاملة","مع الضيافة والكوشة",14000],["تخريج وحفلات","حتى 200 شخص",4000],["ضيافة إضافية","للشخص",25],["تصوير الحفلة","",1500]],
+        car:[["سيارة صغيرة","لليوم",150],["سيارة عائلية","لليوم",220],["جيب","لليوم",350],["فان 7 ركاب","لليوم",400],["أسبوع كامل","سيارة صغيرة",900],["توصيل السيارة","لباب البيت",50]],
+        services:[["زيارة وكشف","",100],["خدمة أساسية","",150],["خدمة كاملة","",300],["باقة شهرية","",500],["خدمة مستعجلة","نفس اليوم",200],["استشارة","",0]]
       },
       from:"من ",
       hoursLbl:"ساعات الدوام", hours:"كل يوم من 9:00 لـ 23:00",
@@ -144,7 +171,8 @@ footer{text-align:center;font-size:.8rem;color:var(--muted);padding:0 0 calc(24p
     }
   };
   var L = T[l];
-  var name = clean(q.get("n")) || L.dflt[t];
+  if (l === "he" && !L.items[t]) { l = "ar"; L = T.ar; }
+  var name = rawName || L.dflt[t];
   var town = clean(q.get("c"));
   document.documentElement.lang = l;
   document.documentElement.dir = "rtl";
@@ -168,7 +196,7 @@ footer{text-align:center;font-size:.8rem;color:var(--muted);padding:0 0 calc(24p
     var a = document.createElement("div"); a.className = "n"; a.textContent = it[0];
     if (it[1]) { var d = document.createElement("span"); d.className = "d"; d.textContent = it[1]; a.appendChild(d); }
     var p = document.createElement("div"); p.className = "price";
-    p.textContent = it[2] + " ₪";
+    p.textContent = it[2] === 0 ? (l === "he" ? "חינם" : "مجاناً") : it[2] + " ₪";
     r.appendChild(a); r.appendChild(p); $("list").appendChild(r);
   });
   $("hoursLbl").textContent = L.hoursLbl; $("hours").textContent = L.hours;
