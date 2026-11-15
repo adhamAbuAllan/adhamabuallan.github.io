@@ -61,7 +61,10 @@
    "key": "lashes",
    "ar": "لاشز وأظافر",
    "brief": "lashes and nails studio: services gallery, booking",
-   "status": "todo"
+   "status": "done",
+   "date": "2026-11-15",
+   "code": "P22",
+   "note": "not queued or posted yet: Supabase connector was disconnected on 2026-11-15"
   },
   {
    "key": "perfume",

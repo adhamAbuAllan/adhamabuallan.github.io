@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ستوديو مرجان · مثال من سهل</title>
+<meta name="description" content="مثال من سهل: صفحة تجريبية لستوديو رموش وأظافر، فيها كل تصميم برقمه وسعره وحجز الموعد عالواتساب.">
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format("woff2");font-weight:600}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-800-normal.woff2) format("woff2");font-weight:800}
+:root{--ink:#221C1D;--char:#2E2627;--coral:#E8664F;--coral-d:#C94B36;--nude:#F1DCCF;--nude2:#F8EEE7;--cream:#FFFBF8;--mint:#A8DCCB;--mute:#7C6E6A;--line:#EAD8CC;--wa:#1FAF54}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--ink);font-family:Plex,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.num{font-family:Inter,Plex,sans-serif;font-weight:800;letter-spacing:-.02em}
+.demo{background:var(--ink);color:var(--nude);font-size:13px;font-weight:600;text-align:center;padding:7px 16px}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px}
+h2{font-size:28px;line-height:1.25;font-weight:700}
+.sub{color:var(--mute);font-size:15.5px;margin-top:6px}
+section{padding:32px 0}
+
+.top{position:sticky;top:0;z-index:20;background:rgba(255,251,248,.96);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;line-height:1.15}
+.logo i{width:30px;height:30px;border-radius:50%;background:conic-gradient(var(--coral) 0 25%,var(--nude) 0 50%,var(--coral-d) 0 75%,var(--mint) 0);display:block;border:3px solid var(--ink)}
+.logo small{display:block;font-size:11.5px;font-weight:500;color:var(--mute)}
+.btn-sm{background:var(--coral);color:#fff;font-weight:700;font-size:14px;padding:8px 16px;border-radius:12px}
+
+.hero{background:var(--char);color:#fff;padding:26px 0 34px;overflow:hidden;position:relative}
+.hero::before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;top:-120px;left:-110px;background:radial-gradient(circle,rgba(232,102,79,.45),transparent 70%)}
+.hero .wrap{position:relative}
+.tag{display:inline-block;background:rgba(255,255,255,.1);color:var(--nude);font-size:13px;font-weight:600;padding:4px 12px;border-radius:999px}
+.hero h1{font-size:35px;line-height:1.25;font-weight:700;margin-top:12px}
+.hero h1 em{font-style:normal;color:var(--coral)}
+.hero .lead{font-size:16.5px;margin-top:10px;color:#E9DCD5}
+.hand{display:flex;justify-content:center;align-items:flex-end;gap:10px;height:150px;margin-top:22px}
+.nail{width:40px;border-radius:20px 20px 9px 9px;position:relative;box-shadow:0 10px 20px rgba(0,0,0,.35)}
+.nail::after{content:"";position:absolute;top:10px;right:9px;width:7px;height:42%;border-radius:6px;background:rgba(255,255,255,.45)}
+.n1{height:96px;background:linear-gradient(170deg,#F7B4A5,var(--coral))}
+.n2{height:126px;background:linear-gradient(170deg,#FCE9DE,var(--nude) 60%,#E2BBA6)}
+.n3{height:140px;background:linear-gradient(170deg,#3A3132,#151112)}
+.n3::before{content:"";position:absolute;top:30px;left:50%;width:14px;height:14px;margin-left:-7px;background:#F4D9A0;transform:rotate(45deg)}
+.n4{height:122px;background:linear-gradient(170deg,#D4F0E6,var(--mint))}
+.n5{height:90px;background:linear-gradient(180deg,#FBEDE6 0 62%,#fff 62%)}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--wa);color:#fff;font-weight:700;font-size:19px;padding:17px 20px;border-radius:16px;margin-top:26px;box-shadow:0 10px 22px rgba(31,175,84,.3)}
+.wa-i{width:24px;height:24px;border-radius:50%;border:3px solid #fff;position:relative;display:inline-block}
+.wa-i::after{content:"";position:absolute;left:-4px;bottom:-4px;width:8px;height:8px;background:#fff;clip-path:polygon(0 100%,100% 40%,40% 0)}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.d{background:#fff;border:1px solid var(--line);border-radius:18px;padding:10px;position:relative}
+.d .sw{height:96px;border-radius:12px;position:relative;overflow:hidden}
+.d .no{position:absolute;top:16px;right:16px;background:var(--ink);color:#fff;font-size:12px;font-weight:700;padding:1px 9px;border-radius:999px}
+.d p{font-size:14.5px;font-weight:600;margin-top:8px;line-height:1.35}
+.d b{display:block;color:var(--coral-d);font-size:14px;font-weight:600}
+.d b .num{font-size:19px}
+.s1{background:repeating-linear-gradient(90deg,#F6C9BA 0 22px,#F1DCCF 22px 30px)}
+.s2{background:linear-gradient(180deg,#F8EEE7 0 58%,#fff 58%),#fff}
+.s2::after{content:"";position:absolute;inset:auto 0 0 0;height:42%;background:linear-gradient(180deg,#fff,#FDF6F2)}
+.s3{background:radial-gradient(circle at 30% 40%,#F4D9A0 0 8px,transparent 9px),radial-gradient(circle at 70% 65%,#F4D9A0 0 6px,transparent 7px),linear-gradient(160deg,#3A3132,#151112)}
+.s4{background:linear-gradient(135deg,var(--coral) 0 50%,#F7B4A5 50%)}
+.s5{background:radial-gradient(circle at 50% 50%,#fff 0 7px,transparent 8px) 0 0/26px 26px,linear-gradient(160deg,#D4F0E6,var(--mint))}
+.s6{background:linear-gradient(115deg,#FCE9DE,#E9C7DF 40%,#C7D9F2 70%,#F6E2C2)}
+
+.cat{margin-top:22px}
+.cat h3{font-size:15px;font-weight:700;color:var(--coral-d);margin-bottom:6px}
+.row{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
+.row span{font-size:16px;font-weight:600}
+.row small{font-size:13px;color:var(--mute);font-weight:400}
+.row i{flex:1}
+.row b{font-size:14.5px;font-weight:600;white-space:nowrap}
+.row b .num{font-size:20px}
+
+.lash{background:var(--nude2)}
+.styles{display:flex;gap:10px;margin-top:16px}
+.st{flex:1;background:#fff;border-radius:16px;padding:12px 8px;text-align:center}
+.eye{height:34px;position:relative;margin:4px auto 8px;width:70px}
+.eye::before{content:"";position:absolute;inset:auto 0 0 0;height:22px;border-bottom:4px solid var(--ink);border-radius:0 0 50% 50%}
+.eye i{position:absolute;bottom:4px;width:2px;background:var(--ink);transform-origin:bottom center;border-radius:2px}
+.st b{display:block;font-size:14.5px}
+.st small{font-size:12.5px;color:var(--mute)}
+
+.steps{counter-reset:s;margin-top:16px}
+.step{display:flex;gap:12px;align-items:flex-start;padding:10px 0}
+.step::before{counter-increment:s;content:counter(s);font-family:Inter;font-weight:800;width:32px;height:32px;flex:none;border-radius:10px;background:var(--coral);color:#fff;display:flex;align-items:center;justify-content:center}
+.step p{font-size:15.5px;font-weight:500;line-height:1.5}
+
+.info{background:var(--char);color:#fff}
+.info .sub{color:#D8C9C1}
+.box{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.box div{background:rgba(255,255,255,.07);border-radius:14px;padding:12px}
+.box b{display:block;font-size:13px;color:var(--coral)}
+.box span{font-size:15px;font-weight:600}
+.end{text-align:center;padding:34px 0 40px}
+.end p{color:var(--mute);margin-top:6px}
+.foot{font-size:12.5px;color:var(--mute);text-align:center;padding:0 0 26px}
+</style>
+</head>
+<body>
+<div class="demo">مثال من سهل · صفحة تجريبية</div>
+
+<header class="top" data-sticky>
+  <div class="wrap">
+    <a class="logo" href="#"><i></i><span>ستوديو مرجان<small>رموش وأظافر</small></span></a>
+    <a class="btn-sm" href="https://adhamabuallan.github.io/sahl/wa/?c=P22">احجزي</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="tag">كل تصميم إله رقم وسعر</span>
+    <h1>اختاري التصميم <em>برقمه</em>، والسعر مكتوب تحته</h1>
+    <p class="lead">بدون ما تبعتي صورة وتستني الرد. شوفي الشغل، اختاري، واحجزي موعدك برسالة.</p>
+    <div class="hand"><div class="nail n5"></div><div class="nail n4"></div><div class="nail n3"></div><div class="nail n2"></div><div class="nail n1"></div></div>
+    <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P22"><span class="wa-i"></span>احجزي عالواتساب</a>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>تصاميم الأظافر</h2>
+    <p class="sub">احكيلنا رقم التصميم بالرسالة، وبنجهزلك اللون قبل ما توصلي.</p>
+    <div class="grid">
+      <div class="d"><div class="sw s1"></div><span class="no">1</span><p>خطوط نود</p><b><bdi dir="ltr"><span class="num">110</span> ₪</bdi></b></div>
+      <div class="d"><div class="sw s2"></div><span class="no">2</span><p>فرنش ناعم</p><b><bdi dir="ltr"><span class="num">120</span> ₪</bdi></b></div>
+      <div class="d"><div class="sw s3"></div><span class="no">3</span><p>أسود مع ذهبي</p><b><bdi dir="ltr"><span class="num">140</span> ₪</bdi></b></div>
+      <div class="d"><div class="sw s4"></div><span class="no">4</span><p>مرجاني لونين</p><b><bdi dir="ltr"><span class="num">120</span> ₪</bdi></b></div>
+      <div class="d"><div class="sw s5"></div><span class="no">5</span><p>نعناعي منقّط</p><b><bdi dir="ltr"><span class="num">130</span> ₪</bdi></b></div>
+      <div class="d"><div class="sw s6"></div><span class="no">6</span><p>كروم لؤلؤي</p><b><bdi dir="ltr"><span class="num">150</span> ₪</bdi></b></div>
+    </div>
+  </div>
+</section>
+
+<section class="lash">
+  <div class="wrap">
+    <h2>الرموش</h2>
+    <p class="sub">3 ستايلات، اختاري اللي بيليق على عيونك.</p>
+    <div class="styles">
+      <div class="st"><div class="eye"><i style="right:14px;height:12px;transform:rotate(25deg)"></i><i style="right:28px;height:14px;transform:rotate(8deg)"></i><i style="right:42px;height:14px;transform:rotate(-8deg)"></i><i style="right:56px;height:12px;transform:rotate(-25deg)"></i></div><b>كلاسيك</b><small><bdi dir="ltr">150 ₪</bdi></small></div>
+      <div class="st"><div class="eye"><i style="right:10px;height:14px;transform:rotate(30deg)"></i><i style="right:20px;height:17px;transform:rotate(18deg)"></i><i style="right:30px;height:19px;transform:rotate(5deg)"></i><i style="right:40px;height:19px;transform:rotate(-5deg)"></i><i style="right:50px;height:17px;transform:rotate(-18deg)"></i><i style="right:60px;height:14px;transform:rotate(-30deg)"></i></div><b>هايبرد</b><small><bdi dir="ltr">180 ₪</bdi></small></div>
+      <div class="st"><div class="eye"><i style="right:8px;height:16px;transform:rotate(34deg)"></i><i style="right:15px;height:19px;transform:rotate(24deg)"></i><i style="right:22px;height:21px;transform:rotate(14deg)"></i><i style="right:29px;height:23px;transform:rotate(5deg)"></i><i style="right:36px;height:23px;transform:rotate(-5deg)"></i><i style="right:43px;height:21px;transform:rotate(-14deg)"></i><i style="right:50px;height:19px;transform:rotate(-24deg)"></i><i style="right:57px;height:16px;transform:rotate(-34deg)"></i></div><b>فوليوم</b><small><bdi dir="ltr">220 ₪</bdi></small></div>
+    </div>
+    <div class="cat">
+      <h3>خدمات ثانية</h3>
+      <div class="row"><span>تعبئة رموش<small> خلال 3 أسابيع</small></span><i></i><b><bdi dir="ltr"><span class="num">90</span> ₪</bdi></b></div>
+      <div class="row"><span>جل عادي</span><i></i><b><bdi dir="ltr"><span class="num">80</span> ₪</bdi></b></div>
+      <div class="row"><span>تركيب أظافر</span><i></i><b><bdi dir="ltr"><span class="num">160</span> ₪</bdi></b></div>
+      <div class="row"><span>إزالة جل أو رموش</span><i></i><b><bdi dir="ltr"><span class="num">30</span> ₪</bdi></b></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>الحجز بـ 3 خطوات</h2>
+    <div class="steps">
+      <div class="step"><p>اختاري رقم التصميم أو ستايل الرموش</p></div>
+      <div class="step"><p>اضغطي الزر، والرسالة بتطلع جاهزة عالواتساب</p></div>
+      <div class="step"><p>منبعتلك أقرب موعد فاضي، وبتثبّتيه</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="info">
+  <div class="wrap">
+    <h2>الدوام والمكان</h2>
+    <p class="sub">بالمواعيد فقط، عشان ما تستني.</p>
+    <div class="box">
+      <div><b>السبت للخميس</b><span><bdi dir="ltr">10:00 - 19:00</bdi></span></div>
+      <div><b>الجمعة</b><span>عطلة</span></div>
+      <div><b>المكان</b><span>رام الله، البيرة</span></div>
+      <div><b>مدة الجلسة</b><span>ساعة لساعتين</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="end">
+  <div class="wrap">
+    <h2>شو رقم التصميم اللي عجبك؟</h2>
+    <p>ابعتيه برسالة، ومنرد عليكي بموعد.</p>
+    <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P22"><span class="wa-i"></span>احجزي عالواتساب</a>
+  </div>
+</section>
+<p class="foot">ستوديو مرجان اسم تجريبي · صفحة من سهل</p>
+</body>
+</html>
