@@ -70,7 +70,10 @@
    "key": "perfume",
    "ar": "محل عطور",
    "brief": "perfume store: scents catalogue, order on WhatsApp",
-   "status": "todo"
+   "status": "done",
+   "date": "2026-11-16",
+   "code": "P23",
+   "note": "not queued or posted yet: Supabase connector was disconnected on 2026-11-16"
   },
   {
    "key": "skincare",

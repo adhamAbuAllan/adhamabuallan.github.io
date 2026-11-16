@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>عطور نفحة · مثال من سهل</title>
+<meta name="description" content="مثال من سهل: صفحة تجريبية لمحل عطور، فيها العطور مرتبة حسب الريحة مع الأسعار والطلب عالواتساب.">
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format("woff2");font-weight:600}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-800-normal.woff2) format("woff2");font-weight:800}
+:root{--plum:#2A1630;--plum2:#3B2042;--deep:#1C0E21;--gold:#D9A649;--gold2:#F2D08A;--rose:#E7A3B3;--sage:#9CC7A8;--amber:#C8742C;--paper:#FBF6EE;--ink:#2A1630;--mute:#7A6A7C;--line:#EADFD0;--wa:#1FAF54}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:Plex,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.num{font-family:Inter,Plex,sans-serif;font-weight:800;letter-spacing:-.02em}
+.demo{background:var(--gold);color:var(--deep);font-size:13px;font-weight:700;text-align:center;padding:7px 16px}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px}
+h2{font-size:27px;line-height:1.25;font-weight:700}
+.sub{color:var(--mute);font-size:15.5px;margin-top:6px}
+section{padding:30px 0}
+
+.top{position:sticky;top:0;z-index:20;background:rgba(28,14,33,.97);color:#fff;border-bottom:1px solid rgba(217,166,73,.35)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;line-height:1.15}
+.logo i{width:22px;height:30px;border-radius:6px 6px 8px 8px;background:linear-gradient(180deg,var(--gold2),var(--amber));position:relative;display:block}
+.logo i::before{content:"";position:absolute;width:10px;height:7px;background:var(--gold);top:-7px;right:6px;border-radius:2px}
+.logo small{display:block;font-size:11.5px;font-weight:500;color:var(--gold2)}
+.btn-sm{background:var(--gold);color:var(--deep);font-weight:700;font-size:14px;padding:8px 16px;border-radius:999px}
+
+.hero{background:radial-gradient(120% 80% at 80% 0%,var(--plum2),var(--deep));color:#fff;padding:26px 0 30px;overflow:hidden;position:relative}
+.hero::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;bottom:-130px;right:-80px;background:radial-gradient(circle,rgba(217,166,73,.35),transparent 70%)}
+.hero .wrap{position:relative;z-index:1}
+.tag{display:inline-block;border:1px solid rgba(242,208,138,.5);color:var(--gold2);font-size:13px;font-weight:600;padding:4px 12px;border-radius:999px}
+.hero h1{font-size:34px;line-height:1.25;font-weight:700;margin-top:12px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero .lead{font-size:16.5px;margin-top:10px;color:#E5D7E6}
+.shelf{display:flex;justify-content:center;align-items:flex-end;gap:14px;height:160px;margin-top:20px;border-bottom:3px solid rgba(217,166,73,.5);padding-bottom:2px}
+.b{position:relative;border-radius:10px 10px 14px 14px;box-shadow:inset -8px 0 14px rgba(0,0,0,.18),inset 6px 0 10px rgba(255,255,255,.25)}
+.b::before{content:"";position:absolute;left:50%;transform:translateX(-50%);top:-18px;width:44%;height:18px;border-radius:4px 4px 0 0;background:linear-gradient(90deg,#B98835,var(--gold2),#B98835)}
+.b::after{content:"";position:absolute;left:18%;right:18%;top:38%;height:22%;border-radius:4px;background:rgba(255,255,255,.75)}
+.b1{width:52px;height:96px;background:linear-gradient(160deg,#F6C9D3,var(--rose))}
+.b2{width:70px;height:128px;background:linear-gradient(160deg,#E7A35C,#8C4519)}
+.b3{width:48px;height:84px;background:linear-gradient(160deg,#CFE8D6,var(--sage))}
+.b4{width:58px;height:108px;background:linear-gradient(160deg,#5C3A63,#2A1630);border:1px solid rgba(242,208,138,.4)}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--wa);color:#fff;font-weight:700;font-size:18px;padding:15px 20px;border-radius:16px;margin-top:22px;box-shadow:0 8px 22px rgba(31,175,84,.35)}
+.cta svg{width:24px;height:24px;fill:#fff}
+.mini{display:flex;gap:16px;justify-content:center;margin-top:12px;font-size:13.5px;color:#D8C7DA}
+
+.fam{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.f{border-radius:18px;padding:14px;color:var(--deep);min-height:122px;position:relative;overflow:hidden}
+.f b{font-size:18px;display:block}
+.f p{font-size:13.5px;line-height:1.5;margin-top:4px}
+.f span{position:absolute;left:12px;bottom:10px;font-size:12px;font-weight:700;background:rgba(255,255,255,.7);padding:2px 9px;border-radius:999px}
+.f1{background:linear-gradient(150deg,#F2C79A,var(--amber));}
+.f2{background:linear-gradient(150deg,#FBE0E6,var(--rose))}
+.f3{background:linear-gradient(150deg,#E2F2E7,var(--sage))}
+.f4{background:linear-gradient(150deg,#F7E7C3,var(--gold))}
+
+.list{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.row{display:flex;align-items:center;gap:12px;padding:13px 14px;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.dot{width:34px;height:44px;border-radius:7px 7px 10px 10px;flex:none}
+.row .t{flex:1}
+.row .t b{display:block;font-size:16.5px}
+.row .t small{color:var(--mute);font-size:13px}
+.price{font-size:13px;color:var(--mute);text-align:left;white-space:nowrap}
+.price .num{font-size:19px;color:var(--plum)}
+
+.sizes{display:flex;gap:10px;margin-top:14px}
+.sz{flex:1;background:var(--plum);color:#fff;border-radius:16px;padding:12px 8px;text-align:center}
+.sz small{display:block;color:var(--gold2);font-size:12.5px}
+.sz .num{font-size:22px}
+
+.gift{background:linear-gradient(135deg,var(--plum),var(--deep));color:#fff;border-radius:22px;padding:20px;margin-top:4px;display:flex;gap:16px;align-items:center}
+.box{width:86px;height:76px;flex:none;border-radius:10px;background:linear-gradient(160deg,#4A2A52,#2A1630);border:2px solid var(--gold);position:relative}
+.box::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:10px;transform:translateX(-50%);background:var(--gold)}
+.box::after{content:"";position:absolute;left:0;right:0;top:44%;height:10px;background:var(--gold)}
+.gift b{font-size:18px}
+.gift p{font-size:14px;color:#E5D7E6;margin-top:4px}
+.gift .num{color:var(--gold2);font-size:24px}
+
+.info{display:grid;gap:10px;margin-top:14px}
+.i{background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px 15px;display:flex;justify-content:space-between;gap:10px;font-size:15px}
+.i span{color:var(--mute)}
+.foot{background:var(--deep);color:#CDBCD0;text-align:center;font-size:13px;padding:22px 20px 28px}
+.foot .cta{margin:0 0 14px}
+</style>
+</head>
+<body>
+<div class="demo">مثال من سهل · صفحة تجريبية</div>
+
+<header class="top" data-sticky>
+  <div class="wrap">
+    <div class="logo"><i></i><div>عطور نفحة<small>عطور وعينات بالمل</small></div></div>
+    <a class="btn-sm" href="https://adhamabuallan.github.io/sahl/wa/?c=P23">اطلب</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="tag">ما بتعرف اسم العطر؟ احكيلنا الريحة</span>
+    <h1>اختار عطرك <em>بالريحة</em> مش بالاسم</h1>
+    <p class="lead">كل عطر عنا مرتب حسب نوع ريحته، مع وصف قصير وسعر كل حجم. اختار وابعتلنا رقمه عالواتساب.</p>
+    <div class="shelf"><div class="b b1"></div><div class="b b2"></div><div class="b b4"></div><div class="b b3"></div></div>
+    <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P23"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.3 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>اطلب عالواتساب</a>
+    <div class="mini"><span>عينة 5 مل قبل الزجاجة</span><span>توصيل لباب البيت</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>شو الريحة اللي بتحبها؟</h2>
+    <p class="sub">اختار العيلة الأقرب لذوقك، وبعدين شوف العطور اللي فيها.</p>
+    <div class="fam">
+      <div class="f f1"><b>عودي ودافي</b><p>عود، عنبر وخشب. للمسا والشتوية.</p><span>8 عطور</span></div>
+      <div class="f f2"><b>ورد وزهور</b><p>ورد، ياسمين وفانيلا خفيفة.</p><span>7 عطور</span></div>
+      <div class="f f3"><b>فريش ونظيف</b><p>ليمون، نعنع وريحة غسيل. للدوام والصيف.</p><span>6 عطور</span></div>
+      <div class="f f4"><b>حلو ومسكي</b><p>مسك أبيض، كراميل وعسل.</p><span>9 عطور</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:6px">
+  <div class="wrap">
+    <h2>الأكثر طلبا هالشهر</h2>
+    <p class="sub">كل عطر إله رقم. ابعت الرقم والحجم وخلص.</p>
+    <div class="list">
+      <div class="row"><div class="dot" style="background:linear-gradient(160deg,#E7A35C,#8C4519)"></div><div class="t"><b>رقم 12 · ليل العنبر</b><small>عود وعنبر وشوية زعفران</small></div><div class="price">من <span class="num">45</span> ₪</div></div>
+      <div class="row"><div class="dot" style="background:linear-gradient(160deg,#F6C9D3,#E7A3B3)"></div><div class="t"><b>رقم 07 · وردة الصبح</b><small>ورد طايفي مع مسك ناعم</small></div><div class="price">من <span class="num">40</span> ₪</div></div>
+      <div class="row"><div class="dot" style="background:linear-gradient(160deg,#CFE8D6,#9CC7A8)"></div><div class="t"><b>رقم 21 · نسمة بحر</b><small>ليمون وملح البحر</small></div><div class="price">من <span class="num">35</span> ₪</div></div>
+      <div class="row"><div class="dot" style="background:linear-gradient(160deg,#F7E7C3,#D9A649)"></div><div class="t"><b>رقم 30 · مسك وعسل</b><small>مسك أبيض وفانيلا</small></div><div class="price">من <span class="num">40</span> ₪</div></div>
+    </div>
+    <div class="sizes">
+      <div class="sz"><small>عينة</small><span class="num">5</span> مل<small>من 35 ₪</small></div>
+      <div class="sz"><small>وسط</small><span class="num">30</span> مل<small>من 95 ₪</small></div>
+      <div class="sz"><small>زجاجة</small><span class="num">50</span> مل<small>من 150 ₪</small></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:6px">
+  <div class="wrap">
+    <div class="gift"><div class="box"></div><div><b>بوكس هدية</b><p>عطرين 30 مل مع كرت باسمك وتغليف جاهز.</p><span class="num">180</span> ₪</div></div>
+  </div>
+</section>
+
+<section style="padding-top:6px">
+  <div class="wrap">
+    <h2>الدوام والتوصيل</h2>
+    <div class="info">
+      <div class="i"><b>من السبت للخميس</b><span>10 الصبح لـ 9 المسا</span></div>
+      <div class="i"><b>الجمعة</b><span>4 العصر لـ 10 المسا</span></div>
+      <div class="i"><b>توصيل</b><span>نابلس، رام الله، جنين وطولكرم</span></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P23"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.3 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>ابعت رقم العطر عالواتساب</a>
+  عطور نفحة اسم تجريبي. هاي صفحة مثال من سهل.
+</footer>
+</body>
+</html>
