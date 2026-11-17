@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>صفاء للعناية بالبشرة · مثال من سهل</title>
+<meta name="description" content="مثال من سهل: صفحة تجريبية لعيادة عناية بالبشرة، فيها الجلسات حسب نوع البشرة مع الأسعار وحجز الاستشارة عالواتساب.">
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format("woff2");font-weight:600}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-800-normal.woff2) format("woff2");font-weight:800}
+:root{--teal:#16504C;--teal2:#23716A;--mint:#D6ECE4;--mint2:#EAF5F0;--peach:#F3B49C;--coral:#E2856A;--cream:#FAF6F0;--ink:#173532;--mute:#5F7774;--line:#DCE8E3;--wa:#1FAF54}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--ink);font-family:Plex,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.num{font-family:Inter,Plex,sans-serif;font-weight:800;letter-spacing:-.02em}
+.demo{background:var(--peach);color:var(--ink);font-size:13px;font-weight:700;text-align:center;padding:7px 16px}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px}
+h2{font-size:26px;line-height:1.3;font-weight:700}
+.sub{color:var(--mute);font-size:15.5px;margin-top:6px}
+section{padding:28px 0}
+
+.top{position:sticky;top:0;z-index:20;background:rgba(250,246,240,.97);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;line-height:1.15;color:var(--teal)}
+.logo i{width:30px;height:30px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:linear-gradient(135deg,var(--teal2),var(--teal));display:block;position:relative}
+.logo i::after{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:var(--peach);top:7px;right:7px}
+.logo small{display:block;font-size:11.5px;font-weight:500;color:var(--mute)}
+.btn-sm{background:var(--teal);color:#fff;font-weight:700;font-size:14px;padding:8px 16px;border-radius:999px}
+
+.hero{background:linear-gradient(180deg,var(--mint2),var(--cream));padding:24px 0 30px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;top:-150px;left:-110px;background:radial-gradient(circle,rgba(243,180,156,.55),transparent 70%)}
+.hero .wrap{position:relative;z-index:1}
+.tag{display:inline-block;background:#fff;color:var(--teal2);font-size:13px;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid var(--line)}
+.hero h1{font-size:33px;line-height:1.28;font-weight:700;margin-top:12px;color:var(--teal)}
+.hero h1 em{font-style:normal;color:var(--coral)}
+.hero .lead{font-size:16.5px;margin-top:10px;color:var(--mute)}
+.art{position:relative;height:170px;margin-top:18px}
+.jar{position:absolute;bottom:0;border-radius:18px 18px 22px 22px;box-shadow:inset -10px 0 16px rgba(0,0,0,.08),0 10px 20px rgba(22,80,76,.12)}
+.jar::before{content:"";position:absolute;left:12%;right:12%;top:-16px;height:18px;border-radius:8px 8px 3px 3px;background:var(--teal)}
+.jar::after{content:"";position:absolute;left:16%;right:16%;top:34%;height:28%;border-radius:6px;background:rgba(255,255,255,.8)}
+.j1{width:96px;height:96px;right:24px;background:linear-gradient(160deg,#fff,var(--mint))}
+.j2{width:62px;height:140px;right:136px;border-radius:14px 14px 18px 18px;background:linear-gradient(160deg,#FBE3D9,var(--peach))}
+.j2::before{left:30%;right:30%;top:-24px;height:26px}
+.j3{width:78px;height:74px;right:214px;background:linear-gradient(160deg,#F1F8F5,#BFDDD2)}
+.drop{position:absolute;width:34px;height:34px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:linear-gradient(135deg,rgba(35,113,106,.25),rgba(35,113,106,.6))}
+.d1{top:6px;right:96px}.d2{top:40px;left:24px;width:22px;height:22px;background:linear-gradient(135deg,rgba(226,133,106,.3),rgba(226,133,106,.7))}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--wa);color:#fff;font-weight:700;font-size:18px;padding:15px 20px;border-radius:16px;margin-top:22px;box-shadow:0 8px 22px rgba(31,175,84,.35)}
+.cta svg{width:24px;height:24px;fill:#fff}
+.mini{display:flex;gap:16px;justify-content:center;margin-top:12px;font-size:13.5px;color:var(--mute)}
+
+.types{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.ty{background:#fff;border:1px solid var(--line);border-radius:18px;padding:13px 14px;position:relative}
+.ty b{font-size:17px;display:flex;align-items:center;gap:8px}
+.ty b i{width:14px;height:14px;border-radius:50%;flex:none}
+.ty p{font-size:13.5px;color:var(--mute);margin-top:4px;line-height:1.5}
+.ty span{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:700;color:var(--teal2);background:var(--mint2);padding:2px 10px;border-radius:999px}
+
+.svc{margin-top:16px;display:grid;gap:10px}
+.s{display:flex;align-items:center;gap:12px;background:#fff;border-radius:18px;padding:13px 14px;border:1px solid var(--line)}
+.s .ic{width:46px;height:46px;border-radius:14px;flex:none;position:relative;overflow:hidden}
+.s .ic::after{content:"";position:absolute;inset:12px;border-radius:50%;background:rgba(255,255,255,.75)}
+.s .t{flex:1}
+.s .t b{display:block;font-size:16.5px}
+.s .t small{color:var(--mute);font-size:13px}
+.price{text-align:left;font-size:14px;color:var(--mute);white-space:nowrap}
+.price .num{font-size:21px;color:var(--teal)}
+
+.pack{margin-top:14px;background:linear-gradient(140deg,var(--teal),var(--teal2));color:#fff;border-radius:22px;padding:18px;position:relative;overflow:hidden}
+.pack::after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;left:-50px;bottom:-60px;background:rgba(243,180,156,.35)}
+.pack b{font-size:19px}
+.pack p{font-size:14.5px;color:#D4ECE6;margin-top:4px;position:relative;z-index:1}
+.pack .row{display:flex;align-items:baseline;gap:10px;margin-top:10px;position:relative;z-index:1}
+.pack .row .num{font-size:30px}
+.pack .row s{color:#A9CFC7;font-size:15px}
+
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.g{aspect-ratio:1;border-radius:18px;position:relative;overflow:hidden}
+.g1{background:linear-gradient(150deg,var(--mint),#9FCBBE)}
+.g1::after{content:"";position:absolute;width:56%;height:56%;left:22%;top:22%;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,var(--mint))}
+.g2{background:linear-gradient(150deg,#FBE3D9,var(--peach))}
+.g2::after{content:"";position:absolute;width:30%;height:62%;left:35%;bottom:12%;border-radius:10px 10px 14px 14px;background:#fff;box-shadow:0 -10px 0 -4px var(--teal)}
+.g3{background:linear-gradient(150deg,var(--teal2),var(--teal))}
+.g3::after{content:"";position:absolute;width:40%;height:40%;left:30%;top:28%;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:rgba(255,255,255,.55)}
+.g4{background:linear-gradient(150deg,#FFF6EE,#F6D7C6)}
+.g4::after{content:"";position:absolute;inset:22%;border-radius:50%;border:6px solid rgba(226,133,106,.55)}
+.g5{background:linear-gradient(150deg,#EEF7F3,#CFE6DD)}
+.g5::after{content:"";position:absolute;width:64%;height:18%;left:18%;top:41%;border-radius:999px;background:linear-gradient(90deg,var(--peach),var(--coral))}
+.g6{background:linear-gradient(150deg,#F4B9A0,#E2856A)}
+.g6::after{content:"";position:absolute;width:44%;height:44%;left:28%;top:28%;border-radius:14px;background:rgba(255,255,255,.7);transform:rotate(12deg)}
+
+.steps{margin-top:14px;display:grid;gap:8px}
+.st{display:flex;gap:12px;align-items:flex-start;font-size:15px}
+.st .num{width:30px;height:30px;border-radius:50%;background:var(--peach);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:15px;flex:none}
+
+.info{margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.i{display:flex;justify-content:space-between;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line);font-size:15px}
+.i:last-child{border-bottom:0}
+.i span{color:var(--mute);text-align:left}
+
+.foot{background:var(--teal);color:#CFE6E0;text-align:center;font-size:13px;padding:6px 20px 26px}
+.foot .cta{margin:0 0 14px}
+</style>
+</head>
+<body>
+<div class="demo">مثال من سهل · صفحة تجريبية</div>
+
+<header class="top" data-sticky>
+  <div class="wrap">
+    <div class="logo"><i></i><div>صفاء<small>عناية بالبشرة</small></div></div>
+    <a class="btn-sm" href="https://adhamabuallan.github.io/sahl/wa/?c=P24">احجزي</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="tag">مش عارفة شو بيناسب بشرتك؟</span>
+    <h1>اختاري نوع بشرتك وشوفي <em>جلستك</em> وسعرها</h1>
+    <p class="lead">كل جلسة عنا مكتوب لأي بشرة بتنفع وقديش بتاخد وقت وقديش سعرها. احجزي استشارة وبنبلش من أول زيارة.</p>
+    <div class="art"><div class="drop d1"></div><div class="drop d2"></div><div class="jar j3"></div><div class="jar j2"></div><div class="jar j1"></div></div>
+    <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P24"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.3 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>احجزي استشارة عالواتساب</a>
+    <div class="mini"><span>استشارة بـ 50 ₪</span><span>بتنخصم من أول جلسة</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>شو نوع بشرتك؟</h2>
+    <p class="sub">اختاري الأقرب إلك، وتحت كل نوع الجلسة اللي بننصح فيها.</p>
+    <div class="types">
+      <div class="ty"><b><i style="background:#9FCBBE"></i>دهنية</b><p>لمعة وحبوب ومسامات واضحة.</p><span>تنظيف عميق</span></div>
+      <div class="ty"><b><i style="background:var(--peach)"></i>جافة</b><p>شد وقشور خفيفة بالشتا.</p><span>هيدرافيشل</span></div>
+      <div class="ty"><b><i style="background:var(--coral)"></i>حساسة</b><p>احمرار بسرعة من أي كريم.</p><span>جلسة تهدئة</span></div>
+      <div class="ty"><b><i style="background:var(--teal2)"></i>باهتة</b><p>لون مش موحد وتعب باين.</p><span>فيتامين C</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:4px">
+  <div class="wrap">
+    <h2>الجلسات والأسعار</h2>
+    <p class="sub">السعر للجلسة الوحدة، وكل جلسة مكتوب وقتها.</p>
+    <div class="svc">
+      <div class="s"><div class="ic" style="background:linear-gradient(150deg,var(--mint),#9FCBBE)"></div><div class="t"><b>تنظيف عميق</b><small>60 دقيقة · للبشرة الدهنية</small></div><div class="price"><span class="num">180</span> ₪</div></div>
+      <div class="s"><div class="ic" style="background:linear-gradient(150deg,#FBE3D9,var(--peach))"></div><div class="t"><b>هيدرافيشل</b><small>50 دقيقة · ترطيب للبشرة الجافة</small></div><div class="price"><span class="num">250</span> ₪</div></div>
+      <div class="s"><div class="ic" style="background:linear-gradient(150deg,#F7CDBD,var(--coral))"></div><div class="t"><b>جلسة تهدئة</b><small>40 دقيقة · للبشرة الحساسة</small></div><div class="price"><span class="num">150</span> ₪</div></div>
+      <div class="s"><div class="ic" style="background:linear-gradient(150deg,#7FB3A9,var(--teal))"></div><div class="t"><b>نضارة فيتامين C</b><small>45 دقيقة · للبشرة الباهتة</small></div><div class="price"><span class="num">160</span> ₪</div></div>
+    </div>
+    <div class="pack">
+      <b>باكج 4 جلسات تنظيف</b>
+      <p>جلسة كل أسبوعين، ومواعيدك الأربعة بتنحجز من أول زيارة.</p>
+      <div class="row"><span class="num">600</span> ₪ <s>720 ₪</s></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:4px">
+  <div class="wrap">
+    <h2>من جوا العيادة</h2>
+    <div class="gal"><div class="g g1"></div><div class="g g2"></div><div class="g g3"></div><div class="g g4"></div><div class="g g5"></div><div class="g g6"></div></div>
+    <div class="steps">
+      <div class="st"><span class="num">1</span><div>اختاري نوع بشرتك واضغطي الزر.</div></div>
+      <div class="st"><span class="num">2</span><div>بنرد عليكي بأقرب موعد للاستشارة.</div></div>
+      <div class="st"><span class="num">3</span><div>بالاستشارة بنحددلك الجلسة وبتبلشي بنفس اليوم.</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:4px">
+  <div class="wrap">
+    <h2>الدوام والمكان</h2>
+    <div class="info">
+      <div class="i"><b>من السبت للخميس</b><span>10 الصبح لـ 7 المسا</span></div>
+      <div class="i"><b>الجمعة</b><span>مسكر</span></div>
+      <div class="i"><b>المكان</b><span>رام الله، البيرة وبيتونيا</span></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P24"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.3 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.8.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>ابعتيلنا نوع بشرتك عالواتساب</a>
+  صفاء اسم تجريبي. هاي صفحة مثال من سهل.
+</footer>
+</body>
+</html>

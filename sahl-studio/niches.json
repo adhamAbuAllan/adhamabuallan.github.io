@@ -79,7 +79,10 @@
    "key": "skincare",
    "ar": "عناية بالبشرة",
    "brief": "skin care clinic: sessions and packages, consultation booking",
-   "status": "todo"
+   "status": "done",
+   "date": "2026-11-17",
+   "code": "P24",
+   "note": "not queued or posted yet: Supabase connector was disconnected on 2026-11-17"
   },
   {
    "key": "florist",
