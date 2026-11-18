@@ -88,7 +88,9 @@
    "key": "florist",
    "ar": "محل ورد",
    "brief": "florist: bouquets catalogue, same-day delivery",
-   "status": "todo"
+   "status": "done",
+   "date": "2026-11-18",
+   "code": "P25"
   },
   {
    "key": "photographer",
