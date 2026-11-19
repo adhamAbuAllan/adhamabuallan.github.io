@@ -96,7 +96,9 @@
    "key": "photographer",
    "ar": "مصور",
    "brief": "photographer: portfolio, wedding and event packages, booking",
-   "status": "todo"
+   "status": "done",
+   "date": "2026-11-19",
+   "code": "P26"
   },
   {
    "key": "weddinghall",

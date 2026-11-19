@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>استوديو سنبلة · مثال من سهل</title>
+<meta name="description" content="مثال من سهل: صفحة تجريبية لمصور، فيها الشغل مرتب حسب نوع المناسبة، والباقات بالأسعار، والتواريخ الفاضية.">
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format("woff2");font-weight:600}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-800-normal.woff2) format("woff2");font-weight:800}
+:root{--ink:#15130F;--ink2:#1F1C17;--ink3:#2A261F;--cream:#F4EDE1;--sand:#D9CBB3;--amber:#F2A93B;--amber2:#FFCB73;--teal:#3E7C78;--mute:#A89E8C;--line:#3A342A;--wa:#1FAF54}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ink);color:var(--cream);font-family:Plex,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.num{font-family:Inter,Plex,sans-serif;font-weight:800;letter-spacing:-.02em}
+.demo{background:var(--amber);color:var(--ink);font-size:13px;font-weight:700;text-align:center;padding:7px 16px}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px}
+h2{font-size:24px;line-height:1.3;font-weight:700}
+h2 em{font-style:normal;color:var(--amber)}
+.sub{color:var(--mute);font-size:14.5px;margin-top:4px}
+section{padding:26px 0}
+
+.top{position:sticky;top:0;z-index:20;background:rgba(21,19,15,.96);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;line-height:1.15}
+.logo i{width:32px;height:32px;border-radius:50%;border:3px solid var(--amber);position:relative;display:block}
+.logo i::after{content:"";position:absolute;inset:6px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff 0 12%,var(--teal) 14% 100%)}
+.logo small{display:block;font-size:11.5px;font-weight:500;color:var(--mute)}
+.btn-sm{background:var(--cream);color:var(--ink);font-weight:700;font-size:14px;padding:8px 16px;border-radius:999px}
+
+.hero{padding:22px 0 10px}
+.hero h1{font-size:31px;line-height:1.3;font-weight:700}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.hero .lead{font-size:15.5px;margin-top:8px;color:var(--sand)}
+.film{display:flex;gap:8px;margin-top:18px;padding:10px 8px;background:#0C0B09;border-radius:6px;position:relative}
+.film::before,.film::after{content:"";position:absolute;left:8px;right:8px;height:5px;background:repeating-linear-gradient(90deg,#3A342A 0 8px,transparent 8px 16px)}
+.film::before{top:2px}.film::after{bottom:2px}
+.film div{flex:1;height:118px;border-radius:3px;position:relative;overflow:hidden}
+.ph1{background:linear-gradient(180deg,#F7B15A 0,#E0704A 45%,#5A2E3A 46%,#2B1A22 100%)}
+.ph1::after{content:"";position:absolute;width:34px;height:34px;border-radius:50%;background:#FFE2A0;left:50%;top:24%;transform:translateX(-50%)}
+.ph2{background:linear-gradient(160deg,#E9E1D2,#BFB29A)}
+.ph2::before{content:"";position:absolute;inset:18px 14px;border:2px solid #fff;border-radius:50% 50% 6px 6px}
+.ph2::after{content:"";position:absolute;width:26px;height:26px;border-radius:50%;background:#F2A93B;left:50%;bottom:22px;transform:translateX(-50%);box-shadow:0 0 0 6px rgba(255,255,255,.5)}
+.ph3{background:linear-gradient(180deg,#9FC9C2 0,#3E7C78 60%,#28524F 100%)}
+.ph3::after{content:"";position:absolute;left:0;right:0;bottom:0;height:46px;background:radial-gradient(120% 100% at 30% 100%,#5F8F4E 0 60%,transparent 61%),radial-gradient(120% 100% at 80% 100%,#476F3A 0 60%,transparent 61%)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.stats div{background:var(--ink2);border:1px solid var(--line);border-radius:14px;padding:10px;text-align:center}
+.stats b{display:block;font-size:20px;color:var(--amber2)}
+.stats small{font-size:12.5px;color:var(--mute)}
+
+.tabs{display:flex;gap:8px;margin:14px 0 12px;overflow:hidden}
+.tabs span{padding:7px 14px;border-radius:999px;font-size:13.5px;font-weight:600;border:1px solid var(--line);color:var(--sand);white-space:nowrap}
+.tabs span.on{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:92px;gap:6px}
+.grid div{border-radius:8px;position:relative;overflow:hidden}
+.grid .tall{grid-row:span 2}
+.grid .wide{grid-column:span 2}
+.g1{background:linear-gradient(200deg,#FFCB73,#E0704A 55%,#7A3B3F)}
+.g2{background:radial-gradient(circle at 50% 40%,#fff 0 18%,#EFE6D6 19% 100%)}
+.g2::after{content:"";position:absolute;inset:auto 30% 14px;height:6px;border-radius:3px;background:#C9B48E}
+.g3{background:linear-gradient(135deg,#3E7C78,#9FC9C2)}
+.g4{background:repeating-linear-gradient(90deg,#2A261F 0 14px,#3A342A 14px 28px)}
+.g4::after{content:"";position:absolute;width:44px;height:44px;border-radius:50%;border:4px solid var(--amber2);left:50%;top:50%;transform:translate(-50%,-50%)}
+.g5{background:linear-gradient(180deg,#F4EDE1 0 55%,#D9CBB3 55%)}
+.g5::after{content:"";position:absolute;width:52%;height:40%;left:24%;top:22%;background:#fff;border-radius:50% 50% 0 0;box-shadow:0 6px 0 #E8DCC6}
+.g6{background:radial-gradient(circle at 70% 30%,#FFE2A0 0 14%,transparent 15%),linear-gradient(180deg,#2B3A55,#5A4A6A 70%,#E0704A)}
+.g7{background:linear-gradient(45deg,#E0704A,#F2A93B)}
+.g7::after{content:"";position:absolute;inset:12px;border:2px dashed rgba(255,255,255,.7);border-radius:6px}
+.cap{position:absolute;bottom:6px;right:8px;font-size:11.5px;font-weight:700;color:#fff;background:rgba(0,0,0,.45);padding:1px 8px;border-radius:999px}
+
+.pk{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.card{background:var(--ink2);border:1px solid var(--line);border-radius:18px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.card.best{border-color:var(--amber);background:linear-gradient(135deg,#2A2216,var(--ink2))}
+.card h3{font-size:17px;font-weight:700}
+.card p{font-size:13.5px;color:var(--mute);margin-top:2px}
+.price{text-align:center;flex:none}
+.price b{font-size:22px;color:var(--amber2);display:block;line-height:1.1}
+.price small{font-size:12px;color:var(--mute)}
+.tag{display:inline-block;background:var(--amber);color:var(--ink);font-size:11.5px;font-weight:700;padding:1px 9px;border-radius:999px;margin-inline-start:6px;vertical-align:middle}
+
+.cal{background:var(--cream);color:var(--ink);border-radius:20px;padding:16px;margin-top:14px}
+.cal .hd{display:flex;justify-content:space-between;font-weight:700;font-size:16px;margin-bottom:10px}
+.cal .hd span{color:#7A6C55;font-size:13.5px;font-weight:600}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center}
+.days i{font-style:normal;font-size:11.5px;color:#7A6C55;font-weight:600}
+.days b{font-family:Inter,sans-serif;font-size:13.5px;font-weight:700;padding:7px 0;border-radius:9px;background:#fff}
+.days b.x{background:#E5DCCB;color:#A3967E;text-decoration:line-through}
+.days b.f{background:#DDEFE3;color:#17663A}
+.legend{display:flex;gap:16px;margin-top:10px;font-size:13px;color:#5C5140}
+.legend span::before{content:"";display:inline-block;width:11px;height:11px;border-radius:3px;margin-inline-end:6px;vertical-align:-1px}
+.legend .lf::before{background:#DDEFE3;border:1px solid #17663A}
+.legend .lx::before{background:#E5DCCB}
+
+.info{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.info div{background:var(--ink2);border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+.info b{display:block;font-size:15px;color:var(--amber2)}
+.info p{font-size:13.5px;color:var(--sand)}
+
+.cta{padding:26px 0 34px;text-align:center}
+.wa{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--wa);color:#fff;font-size:19px;font-weight:700;padding:16px 20px;border-radius:18px;box-shadow:0 10px 26px rgba(31,175,84,.3)}
+.wa svg{width:26px;height:26px;fill:#fff}
+.cta p{color:var(--mute);font-size:13.5px;margin-top:10px}
+footer{border-top:1px solid var(--line);padding:16px 0 24px;text-align:center;font-size:12.5px;color:var(--mute)}
+</style>
+</head>
+<body>
+<div class="demo">مثال من سهل · صفحة تجريبية</div>
+<header class="top" data-sticky>
+ <div class="wrap">
+  <div class="logo"><i></i><div>استوديو سنبلة<small>تصوير أعراس ومناسبات</small></div></div>
+  <a class="btn-sm" href="https://adhamabuallan.github.io/sahl/wa/?c=P26">احجز</a>
+ </div>
+</header>
+
+<main>
+<section class="hero">
+ <div class="wrap">
+  <h1>شوف شغلنا، اختار الباقة، <em>واحجز تاريخك</em></h1>
+  <p class="lead">كل الصور مرتبة حسب المناسبة، والأسعار واضحة، والتواريخ الفاضية قدامك.</p>
+  <div class="film"><div class="ph1"></div><div class="ph2"></div><div class="ph3"></div></div>
+  <div class="stats">
+   <div><b class="num">4</b><small>أنواع تصوير</small></div>
+   <div><b class="num">14</b><small>يوم للتسليم</small></div>
+   <div><b class="num">2</b><small>مصورين بالعرس</small></div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap">
+  <h2>الشغل <em>حسب المناسبة</em></h2>
+  <p class="sub">بدل ما تدور بين البوستات، كل نوع بمكانه.</p>
+  <div class="tabs"><span class="on">أعراس</span><span>خطوبة</span><span>تخرج</span><span>منتجات</span></div>
+  <div class="grid">
+   <div class="g1 tall"><span class="cap">زفة</span></div>
+   <div class="g2"></div>
+   <div class="g3"></div>
+   <div class="g4 wide"><span class="cap">المحابس</span></div>
+   <div class="g5"><span class="cap">الكيكة</span></div>
+   <div class="g6 wide"><span class="cap">جلسة غروب</span></div>
+   <div class="g7" style="grid-column:1/-1"><span class="cap">جلسة تخرج</span></div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap">
+  <h2>الباقات <em>بالأسعار</em></h2>
+  <p class="sub">أسعار مثال، وكل باقة فيها الصور معدلة وجاهزة.</p>
+  <div class="pk">
+   <div class="card"><div><h3>جلسة تخرج</h3><p>ساعة تصوير، 30 صورة معدلة</p></div><div class="price"><b class="num">350</b><small>شيكل</small></div></div>
+   <div class="card"><div><h3>جلسة خطوبة</h3><p>ساعتين برا، 60 صورة وفيديو قصير</p></div><div class="price"><b class="num">700</b><small>شيكل</small></div></div>
+   <div class="card best"><div><h3>تغطية عرس كاملة <span class="tag">الأكثر طلبا</span></h3><p>مصورين، فيديو كامل وألبوم 30 صفحة</p></div><div class="price"><b class="num">2,800</b><small>شيكل</small></div></div>
+   <div class="card"><div><h3>تصوير منتجات</h3><p>لحد 20 منتج على خلفية نظيفة</p></div><div class="price"><b class="num">450</b><small>شيكل</small></div></div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap">
+  <h2>تاريخك <em>فاضي؟</em></h2>
+  <p class="sub">الأيام الخضرا لسا متاحة، ابعت التاريخ واحجزه بعربون.</p>
+  <div class="cal">
+   <div class="hd">كانون الأول <span>الشهر الجاي</span></div>
+   <div class="days">
+    <i>سبت</i><i>أحد</i><i>اثنين</i><i>ثلاثاء</i><i>أربعاء</i><i>خميس</i><i>جمعة</i>
+    <b class="x">5</b><b>6</b><b>7</b><b class="f">8</b><b>9</b><b class="x">10</b><b class="x">11</b>
+    <b class="x">12</b><b>13</b><b>14</b><b>15</b><b class="f">16</b><b class="x">17</b><b class="f">18</b>
+    <b class="f">19</b><b>20</b><b>21</b><b>22</b><b>23</b><b class="x">24</b><b class="x">25</b>
+   </div>
+   <div class="legend"><span class="lf">فاضي لعرس</span><span class="lx">محجوز</span></div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap">
+  <h2>المواعيد <em>والمنطقة</em></h2>
+  <div class="info">
+   <div><b>الاستوديو</b><p>السبت للخميس<br><span class="num">10:00</span> لـ <span class="num">19:00</span></p></div>
+   <div><b>بنوصلك</b><p>نابلس، جنين، طولكرم، قلقيلية</p></div>
+   <div><b>التسليم</b><p>الصور خلال <span class="num">14</span> يوم، والألبوم بعدها</p></div>
+   <div><b>العربون</b><p>بيثبت التاريخ، والباقي يوم المناسبة</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="cta">
+ <div class="wrap">
+  <a class="wa" href="https://adhamabuallan.github.io/sahl/wa/?c=P26"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>ابعت تاريخك عالواتساب</a>
+  <p>احكيلنا نوع المناسبة والتاريخ، ومنرد عليك بالباقة المناسبة.</p>
+ </div>
+</section>
+</main>
+<footer>استوديو سنبلة اسم تجريبي · صفحة مثال من سهل</footer>
+</body>
+</html>
