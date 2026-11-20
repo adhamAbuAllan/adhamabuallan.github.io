@@ -104,7 +104,9 @@
    "key": "weddinghall",
    "ar": "قاعة أفراح",
    "brief": "wedding hall: capacity, packages, check a date",
-   "status": "todo"
+   "status": "done",
+   "date": "2026-11-20",
+   "code": "P27"
   },
   {
    "key": "eventplanner",
