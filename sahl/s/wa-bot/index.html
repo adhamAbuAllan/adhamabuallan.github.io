@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>عيادة بسمة · محادثة تجريبية</title>
+<style>
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2);font-weight:400}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2);font-weight:600}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2);font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-600-normal.woff2);font-weight:600}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,Plex,sans-serif;background:#0B141A;color:#E9EDEF;width:375px}
+.strip{background:#22C55E;color:#052E16;font:600 12px Plex;text-align:center;padding:6px}
+header{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:10px;padding:10px 12px;background:#202C33}
+.back{font:600 22px Inter;color:#AEBAC1}
+.av{width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#7EE0B0,#0E8A5F);display:grid;place-items:center;font:700 18px Plex;color:#fff}
+.who b{display:block;font:700 16px Plex}
+.who span{font:400 12px Plex;color:#22C55E}
+.chat{padding:14px 12px 24px;min-height:0;background:#0B141A radial-gradient(#ffffff08 1px,transparent 1px) 0 0/18px 18px}
+.day{margin:6px auto 16px;width:max-content;background:#182229;color:#8696A0;font:600 12px Plex;padding:5px 12px;border-radius:8px}
+.m{max-width:80%;padding:8px 10px 6px;border-radius:10px;margin:0 0 10px;font:400 15px/1.55 Plex;position:relative;clear:both}
+.them{background:#202C33;float:right;border-top-right-radius:2px}
+.bot{background:#005C4B;float:left;border-top-left-radius:2px}
+.t{display:block;direction:ltr;text-align:left;font:400 11px Inter;color:#ffffff99;margin-top:2px}
+.bot .t:after{content:" ✓✓";color:#53BDEB}
+.btns{float:left;clear:both;display:flex;gap:8px;margin:-4px 0 12px}
+.btns span{background:#1F2C33;border:1px solid #22C55E66;color:#22C55E;font:600 14px Inter;padding:7px 14px;border-radius:18px}
+.card{float:left;clear:both;background:#005C4B;border-radius:10px;padding:6px;margin-bottom:10px;width:230px}
+.map{height:110px;border-radius:8px;background:linear-gradient(135deg,#2a4a3a 0 30%,#35584a 30% 34%,#2a4a3a 34% 64%,#3c6655 64% 67%,#2a4a3a 67%);position:relative}
+.map:after{content:"";position:absolute;left:46%;top:32%;width:18px;height:18px;background:#EF4444;border-radius:50% 50% 50% 0;transform:rotate(-45deg)}
+.card b{display:block;font:600 14px Plex;padding:6px 4px 0}
+.clear{clear:both}
+.tag{clear:both;margin:18px auto 10px;width:max-content;background:#22C55E22;border:1px solid #22C55E55;color:#22C55E;font:600 12px Plex;padding:6px 12px;border-radius:14px}
+.bar{position:relative;display:flex;gap:8px;padding:8px 10px;background:#0B141A}
+.bar div{flex:1;background:#202C33;border-radius:22px;padding:11px 14px;color:#8696A0;font:400 14px Plex}
+.bar i{width:44px;height:44px;border-radius:50%;background:#22C55E;display:block}
+</style></head><body>
+<div class="strip">مثال من سهل · محادثة تجريبية</div>
+<header data-sticky><span class="back">›</span><div class="av">ب</div><div class="who"><b>عيادة بسمة للأسنان</b><span>موظف ذكي · متصل هسا</span></div></header>
+<main class="chat">
+<div class="day">اليوم</div>
+<div class="m them">مرحبا، في عندكم موعد بكرا؟<span class="t">1:12 AM</span></div>
+<div class="m bot">أهلين 👋 هاي عيادة بسمة. أكيد، بكرا عنا هالمواعيد فاضيين:<span class="t">1:12 AM</span></div>
+<div class="btns"><span>10:00</span><span>12:30</span><span>4:00</span></div>
+<div class="m them">12:30 لو سمحت<span class="t">1:13 AM</span></div>
+<div class="m bot">تمام 🙌 شو الاسم الكامل؟<span class="t">1:13 AM</span></div>
+<div class="m them">محمد خليل<span class="t">1:13 AM</span></div>
+<div class="m bot">✅ تم الحجز يا محمد<br>بكرا الساعة 12:30<br>رح نبعتلك تذكير الصبح ان شاء الله<span class="t">1:13 AM</span></div>
+<div class="m them">وين مكانكم بالزبط؟<span class="t">1:14 AM</span></div>
+<div class="card"><div class="map"></div><b>📍 عيادة بسمة للأسنان</b><span class="t">1:14 AM</span></div>
+<div class="m them">شكرا كتير 🙏<span class="t">1:14 AM</span></div>
+<div class="m bot">العفو، بنستناك بكرا 🌿<span class="t">1:14 AM</span></div>
+<div class="tag">صاحب العيادة كان نايم 😴</div>
+<div class="day">الصبح</div>
+<div class="m bot">صباح الخير محمد ☀️ تذكير: موعدك اليوم الساعة 12:30<span class="t">8:00 AM</span></div>
+<div class="m them">تمام، جاي 👍<span class="t">8:04 AM</span></div>
+<div class="clear"></div>
+</main>
+<div class="bar"><div>اكتب رسالة</div><i></i></div>
+</body></html>
