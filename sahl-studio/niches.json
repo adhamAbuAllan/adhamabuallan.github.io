@@ -112,7 +112,9 @@
    "key": "eventplanner",
    "ar": "تنظيم مناسبات",
    "brief": "event planner: birthdays and engagements, packages",
-   "status": "todo"
+   "status": "done",
+   "date": "2026-11-21",
+   "code": "P28"
   },
   {
    "key": "realestate",
