@@ -120,7 +120,9 @@
    "key": "realestate",
    "ar": "مكتب عقارات",
    "brief": "real estate office: apartments for rent and sale, ask on WhatsApp",
-   "status": "todo"
+   "status": "done",
+   "date": "2026-11-22",
+   "code": "P29"
   },
   {
    "key": "drivingschool",
