@@ -128,7 +128,9 @@
    "key": "drivingschool",
    "ar": "مدرسة تعليم سواقة",
    "brief": "driving school: lessons, test prep, register",
-   "status": "todo"
+   "status": "done",
+   "date": "2026-11-23",
+   "code": "P30"
   },
   {
    "key": "tutoring",
