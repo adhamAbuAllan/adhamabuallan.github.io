@@ -136,7 +136,9 @@
    "key": "tutoring",
    "ar": "مركز دروس تقوية",
    "brief": "tutoring centre for tawjihi: subjects, schedule, register",
-   "status": "todo"
+   "status": "done",
+   "date": "2026-11-24",
+   "code": "P31"
   },
   {
    "key": "kindergarten",

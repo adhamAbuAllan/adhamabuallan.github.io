@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مركز سبورة للدروس والتقوية · مثال من سهل</title>
+<meta name="description" content="مثال من سهل: صفحة تجريبية لمركز دروس تقوية، جدول المجموعات لكل صف مع المقاعد الفاضية، الأسعار، واحجز مقعد عالواتساب.">
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format("woff2");font-weight:600}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-800-normal.woff2) format("woff2");font-weight:800}
+:root{--board:#1E3D34;--board2:#27503F;--chalk:#F3F1E7;--paper:#FBF8EF;--grid:#E3E9F2;--ink:#1D2433;--mute:#667085;--coral:#F2674A;--sun:#FFC94D;--sky:#3B82C4;--line:#E6E0CF;--wa:#1FAF54}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:Plex,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.num{font-family:Inter,Plex,sans-serif;font-weight:800;letter-spacing:-.02em}
+.demo{background:var(--sun);color:var(--ink);font-size:13px;font-weight:700;text-align:center;padding:7px 16px}
+.wrap{max-width:560px;margin:0 auto;padding:0 18px}
+h2{font-size:23px;line-height:1.3;font-weight:700}
+h2 em{font-style:normal;color:var(--coral)}
+.sub{color:var(--mute);font-size:14.5px;margin-top:2px}
+section{padding:22px 0}
+
+.top{position:sticky;top:0;z-index:20;background:rgba(251,248,239,.97);border-bottom:2px dashed var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;line-height:1.15}
+.logo small{display:block;font-size:11.5px;font-weight:500;color:var(--mute)}
+.mark{width:38px;height:38px;border-radius:10px;background:var(--board);border:3px solid #B9875A;position:relative}
+.mark:after{content:"";position:absolute;left:7px;right:7px;top:13px;height:3px;background:var(--chalk);border-radius:2px;box-shadow:0 7px 0 var(--chalk)}
+.top .ask{background:var(--wa);color:#fff;font-size:14px;font-weight:700;padding:8px 14px;border-radius:999px}
+
+.hero{background:var(--board);color:var(--chalk);padding:26px 0 24px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 10%,rgba(255,255,255,.08),transparent 55%)}
+.hero .wrap{position:relative}
+.hero h1{font-size:30px;line-height:1.3;font-weight:700}
+.hero h1 em{font-style:normal;color:var(--sun)}
+.hero p{color:#C9D6CF;font-size:15px;margin-top:8px}
+.chalk{margin-top:16px;border:2px solid rgba(243,241,231,.25);border-radius:14px;padding:12px 14px;font-family:Inter,sans-serif;font-weight:700;font-size:20px;color:var(--chalk);direction:ltr;text-align:left;line-height:1.5;background:rgba(0,0,0,.12)}
+.chalk span{color:var(--sun)}
+.chalk i{font-style:normal;color:#9FD9B9}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.badges span{font-size:13px;font-weight:600;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:4px 11px;background:rgba(255,255,255,.06)}
+.tray{height:12px;background:#B9875A;margin-top:22px;border-radius:0 0 6px 6px}
+
+.sched{background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:22px 22px}
+.groups{display:grid;gap:10px;margin-top:14px}
+.g{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center;box-shadow:0 2px 0 var(--line)}
+.g b{font-size:16px}
+.g .when{font-size:13.5px;color:var(--mute);grid-column:1}
+.g .seats{grid-row:1/3;grid-column:2;text-align:center;border-radius:12px;padding:6px 10px;min-width:76px;background:#EAF6EF;color:#16794A;font-size:12px;font-weight:700;line-height:1.3}
+.g .seats .num{display:block;font-size:22px}
+.g.low .seats{background:#FFF0EB;color:#C2412A}
+.g.full .seats{background:#EEF0F3;color:#7A8291}
+.bar{grid-column:1;height:7px;background:#EEF0F3;border-radius:9px;overflow:hidden;margin-top:4px}
+.bar i{display:block;height:100%;background:var(--sky);border-radius:9px}
+.g.low .bar i{background:var(--coral)}
+.g.full .bar i{background:#A0A7B4}
+
+.prices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.p{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;position:relative;overflow:hidden}
+.p:before{content:"";position:absolute;top:0;right:0;width:100%;height:5px;background:var(--c,var(--sky))}
+.p h3{font-size:15px;line-height:1.35}
+.p .pr{margin-top:8px;font-size:13px;color:var(--mute)}
+.p .pr .num{font-size:24px;color:var(--ink)}
+.p small{display:block;font-size:12.5px;color:var(--mute);margin-top:2px}
+.p.wide{grid-column:1/3;display:flex;justify-content:space-between;align-items:center;background:var(--ink);color:#fff;border:0}
+.p.wide .pr,.p.wide small{color:#B8C0CC}.p.wide .pr .num{color:var(--sun)}
+
+.steps{counter-reset:s;display:grid;gap:10px;margin-top:14px}
+.st{display:flex;gap:12px;align-items:flex-start;background:#fff;border-radius:14px;border:1px solid var(--line);padding:12px 14px}
+.st:before{counter-increment:s;content:counter(s);flex:0 0 34px;height:34px;border-radius:50%;background:var(--sun);font:800 16px/34px Inter;text-align:center}
+.st b{display:block;font-size:15.5px}
+.st span{font-size:13.5px;color:var(--mute)}
+
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.tile{height:104px;border-radius:14px;position:relative;overflow:hidden}
+.t1{background:var(--board)}
+.t1:before{content:"x²+y²";position:absolute;top:22px;left:0;right:0;text-align:center;font:700 19px Inter;color:var(--chalk)}
+.t1:after{content:"";position:absolute;left:22%;right:22%;bottom:30px;height:3px;background:var(--sun);border-radius:3px}
+.t2{background:linear-gradient(160deg,#FFE4A3,#FFC94D)}
+.t2 i{position:absolute;left:18%;right:18%;height:16px;border-radius:3px}
+.t2 i:nth-child(1){bottom:14px;background:var(--coral)}
+.t2 i:nth-child(2){bottom:32px;left:24%;right:12%;background:var(--sky)}
+.t2 i:nth-child(3){bottom:50px;left:14%;right:26%;background:var(--board2)}
+.t3{background:#E8F0FA}
+.t3:before{content:"";position:absolute;width:120%;height:14px;top:46px;left:-10%;background:linear-gradient(90deg,#F7C33B 0 78%,#F6D7B0 78% 92%,#333 92%);transform:rotate(-28deg);border-radius:3px}
+.t4{background:linear-gradient(135deg,var(--coral),#F79A6B)}
+.t4:before{content:"A+";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:800 40px Inter;color:#fff;direction:ltr}
+.t5{background:#fff;border:1px solid var(--line);background-image:repeating-linear-gradient(180deg,transparent 0 17px,#CFE0F2 17px 18px)}
+.t5:before{content:"";position:absolute;top:0;bottom:0;right:22px;width:2px;background:#F3A3A3}
+.t6{background:var(--sky)}
+.t6:before{content:"";position:absolute;width:60px;height:60px;border-radius:50%;border:6px solid #fff;top:22px;left:50%;margin-left:-30px}
+.t6:after{content:"";position:absolute;width:4px;height:20px;background:#fff;top:36px;left:50%;margin-left:-2px;transform-origin:bottom;transform:rotate(40deg)}
+
+.info{display:grid;gap:10px;margin-top:14px}
+.row{display:flex;gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;align-items:center}
+.row .ic{flex:0 0 40px;height:40px;border-radius:12px;background:#EAF2FB;position:relative}
+.row .ic:after{content:"";position:absolute;inset:11px;border-radius:50%;border:3px solid var(--sky)}
+.row .ic.pin:after{border-radius:50% 50% 50% 0;transform:rotate(-45deg);border-color:var(--coral)}
+.row b{display:block;font-size:15px}
+.row span{font-size:13.5px;color:var(--mute)}
+
+.cta{background:var(--board);color:var(--chalk);border-radius:22px;padding:22px 18px;text-align:center;margin:6px 0 20px}
+.cta h2{color:#fff}
+.cta p{color:#C9D6CF;font-size:14.5px;margin-top:6px}
+.wa{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--wa);color:#fff;font-size:19px;font-weight:700;border-radius:16px;padding:16px;margin-top:16px;box-shadow:0 8px 22px rgba(31,175,84,.35)}
+.wa svg{width:26px;height:26px}
+.foot{text-align:center;color:var(--mute);font-size:12.5px;padding:0 0 26px}
+</style>
+</head>
+<body>
+<div class="demo">مثال من سهل · صفحة تجريبية</div>
+
+<header class="top" data-sticky>
+  <div class="wrap">
+    <div class="logo"><span class="mark"></span><div>مركز سبورة<small>دروس تقوية وتوجيهي</small></div></div>
+    <a class="ask" href="https://adhamabuallan.github.io/sahl/wa/?c=P31">احجز مقعد</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>مجموعات صغيرة، <em>ومقعد محجوز</em> لابنك من أول الفصل</h1>
+    <p>شوف جدول كل صف والمقاعد الفاضية هسا، واحجز برسالة وحدة.</p>
+    <div class="chalk">2x + 6 = 14 &nbsp;→&nbsp; <span>x = 4</span><br><i>Tawjihi · Math · Physics</i></div>
+    <div class="badges"><span>8 طلاب بالمجموعة</span><span>من الرابع للتوجيهي</span><span>تقرير شهري للأهل</span></div>
+  </div>
+  <div class="tray"></div>
+</section>
+
+<section class="sched">
+  <div class="wrap">
+    <h2>جدول <em>المجموعات</em> هالفصل</h2>
+    <p class="sub">كل مجموعة 8 طلاب بس، والمقاعد بتخلص بسرعة قبل الامتحانات</p>
+    <div class="groups">
+      <div class="g"><b>رياضيات توجيهي علمي</b><span class="seats"><span class="num">3</span>مقاعد فاضية</span><span class="when">سبت وثلاثا · 4:00 العصر</span><div class="bar"><i style="width:62%"></i></div></div>
+      <div class="g low"><b>فيزياء توجيهي</b><span class="seats"><span class="num">1</span>مقعد واحد</span><span class="when">أحد وأربعا · 5:30 المسا</span><div class="bar"><i style="width:88%"></i></div></div>
+      <div class="g"><b>إنجليزي تاسع وعاشر</b><span class="seats"><span class="num">4</span>مقاعد فاضية</span><span class="when">اثنين وخميس · 4:00 العصر</span><div class="bar"><i style="width:50%"></i></div></div>
+      <div class="g full"><b>رياضيات سابع وثامن</b><span class="seats"><span class="num">0</span>المجموعة كاملة</span><span class="when">سبت وثلاثا · 5:30 المسا · في قائمة انتظار</span><div class="bar"><i style="width:100%"></i></div></div>
+      <div class="g"><b>عربي وقراءة رابع لسادس</b><span class="seats"><span class="num">5</span>مقاعد فاضية</span><span class="when">أحد وأربعا · 3:30 العصر</span><div class="bar"><i style="width:38%"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>الأسعار <em>بالشهر</em></h2>
+    <p class="sub">8 حصص بالشهر لكل مادة، والكتب والأوراق علينا</p>
+    <div class="prices">
+      <div class="p" style="--c:var(--sky)"><h3>ابتدائي</h3><div class="pr"><span class="num">150</span> ₪</div><small>رابع لسادس</small></div>
+      <div class="p" style="--c:var(--sun)"><h3>إعدادي</h3><div class="pr"><span class="num">200</span> ₪</div><small>سابع لعاشر</small></div>
+      <div class="p" style="--c:var(--coral)"><h3>توجيهي علمي</h3><div class="pr"><span class="num">300</span> ₪</div><small>رياضيات أو فيزياء</small></div>
+      <div class="p" style="--c:var(--board2)"><h3>توجيهي أدبي</h3><div class="pr"><span class="num">250</span> ₪</div><small>إنجليزي أو عربي</small></div>
+      <div class="p wide"><div><h3>حصة خصوصية</h3><small>بالمركز أو أونلاين، بالموعد اللي بناسبك</small></div><div class="pr"><span class="num">90</span> ₪</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:4px">
+  <div class="wrap">
+    <h2>كيف <em>بتحجز</em>؟</h2>
+    <div class="steps">
+      <div class="st"><div><b>اختار الصف والمادة</b><span>من الجدول فوق، وشوف قديش ضل مقاعد</span></div></div>
+      <div class="st"><div><b>ابعتلنا عالواتساب</b><span>اسم الطالب وصفه، ومنثبتلك المقعد بنفس اليوم</span></div></div>
+      <div class="st"><div><b>أول حصة تجربة ببلاش</b><span>بيجرب الطالب، وبعدها بتقرر تكمل الشهر</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:4px">
+  <div class="wrap">
+    <h2>جوا <em>المركز</em></h2>
+    <div class="gal">
+      <div class="tile t1"></div>
+      <div class="tile t2"><i></i><i></i><i></i></div>
+      <div class="tile t3"></div>
+      <div class="tile t4"></div>
+      <div class="tile t5"></div>
+      <div class="tile t6"></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:4px">
+  <div class="wrap">
+    <div class="info">
+      <div class="row"><span class="ic"></span><div><b>الدوام</b><span>سبت لخميس، من 3:00 العصر لـ 8:00 المسا</span></div></div>
+      <div class="row"><span class="ic pin"></span><div><b>وين؟</b><span>رفيديا، نابلس · في توصيل للطلاب من المخفية والجامعة</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="cta">
+    <h2>بدك مقعد لابنك قبل ما تمتلي المجموعة؟</h2>
+    <p>ابعت الصف والمادة، ومنرد عليك بنفس اليوم</p>
+    <a class="wa" href="https://adhamabuallan.github.io/sahl/wa/?c=P31"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>احجز عالواتساب</a>
+  </div>
+</div>
+<p class="foot">مركز سبورة اسم تجريبي · صفحة مثال من سهل</p>
+</body>
+</html>
