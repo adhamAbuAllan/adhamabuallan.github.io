@@ -144,7 +144,9 @@
    "key": "kindergarten",
    "ar": "روضة أطفال",
    "brief": "kindergarten: programme, photos, registration",
-   "status": "todo"
+   "status": "done",
+   "date": "2026-11-25",
+   "code": "P32"
   },
   {
    "key": "language",
