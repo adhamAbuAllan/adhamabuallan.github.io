@@ -152,7 +152,9 @@
    "key": "language",
    "ar": "مركز لغات",
    "brief": "language centre: English and Hebrew courses, levels, register",
-   "status": "todo"
+   "status": "done",
+   "date": "2026-11-26",
+   "code": "P33"
   },
   {
    "key": "pharmacy",

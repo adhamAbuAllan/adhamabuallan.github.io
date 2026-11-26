@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>مركز جسر للغات · مثال من سهل</title>
+<meta name="description" content="مثال من سهل: صفحة تجريبية لمركز لغات، اعرف مستواك، مواعيد المجموعات الجاية، الأسعار، وسجّل عالواتساب.">
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format("woff2");font-weight:600}
+@font-face{font-family:Plex;src:url(../../../sahl-studio/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-600-normal.woff2) format("woff2");font-weight:600}
+@font-face{font-family:Inter;src:url(../../../sahl-studio/fonts/inter-latin-800-normal.woff2) format("woff2");font-weight:800}
+:root{--teal:#0E3B43;--teal2:#155763;--paper:#F6F1E7;--card:#FFFFFF;--ink:#13262A;--mute:#5E7276;--saffron:#F3A93C;--brick:#D65A3A;--sky:#8FD3D9;--line:#E4DCCB;--wa:#1FAF54}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:Plex,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.num,.lat{font-family:Inter,Plex,sans-serif;font-weight:800;letter-spacing:-.02em}
+.demo{background:var(--saffron);color:var(--teal);font-size:13px;font-weight:700;text-align:center;padding:7px 16px}
+.wrap{max-width:560px;margin:0 auto;padding:0 18px}
+section{padding:22px 0}
+h2{font-size:23px;line-height:1.3;font-weight:700}
+h2 em{font-style:normal;color:var(--brick)}
+.sub{color:var(--mute);font-size:14.5px;margin-top:2px}
+
+.top{position:sticky;top:0;z-index:20;background:var(--teal);color:#fff}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;line-height:1.15}
+.logo small{display:block;font-size:11.5px;font-weight:500;color:var(--sky)}
+.mark{width:40px;height:40px;border-radius:12px;background:var(--saffron);position:relative;overflow:hidden}
+.mark:before{content:"";position:absolute;left:6px;right:6px;bottom:9px;height:16px;border:4px solid var(--teal);border-bottom:0;border-radius:16px 16px 0 0}
+.mark:after{content:"";position:absolute;left:4px;right:4px;bottom:6px;height:4px;background:var(--teal);border-radius:2px}
+.top .ask{background:var(--wa);color:#fff;font-size:14px;font-weight:700;padding:8px 15px;border-radius:999px}
+
+.hero{background:var(--teal);color:#fff;padding:22px 0 30px;position:relative;overflow:hidden}
+.hero .wrap{position:relative}
+.tag{display:inline-block;border:1px solid var(--teal2);background:rgba(255,255,255,.06);color:var(--sky);font-size:13px;font-weight:600;padding:4px 12px;border-radius:999px}
+.hero h1{font-size:30px;line-height:1.3;margin:12px 0 10px;font-weight:700}
+.hero h1 em{font-style:normal;color:var(--saffron)}
+.hero p{color:#CFE3E5;font-size:15.5px}
+.tiles{display:flex;gap:10px;margin-top:20px}
+.tile{flex:1;height:78px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:700}
+.t1{background:var(--saffron);color:var(--teal);transform:rotate(-4deg)}
+.t2{background:var(--brick);color:#fff;transform:rotate(3deg)}
+.t3{background:var(--sky);color:var(--teal);transform:rotate(-2deg)}
+.hero .cta{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:22px;background:var(--wa);color:#fff;font-weight:700;font-size:17px;padding:14px;border-radius:14px}
+
+.ladder{margin-top:14px;display:grid;gap:8px}
+.lv{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:11px 14px}
+.lv .code{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:17px;color:#fff;flex:none}
+.lv b{display:block;font-size:15.5px}
+.lv small{color:var(--mute);font-size:13px}
+.quiz{margin-top:12px;background:#FFF6E6;border:1px dashed var(--saffron);border-radius:14px;padding:13px 14px;font-size:14.5px}
+.quiz b{color:var(--brick)}
+
+.groups{margin-top:14px;background:var(--card);border-radius:18px;border:1px solid var(--line);overflow:hidden}
+.g{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-top:1px solid var(--line)}
+.g:first-child{border-top:0}
+.g b{font-size:15px;display:block}
+.g small{color:var(--mute);font-size:12.5px}
+.seat{font-size:12.5px;font-weight:700;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.ok{background:#E3F6EC;color:#14783F}
+.few{background:#FDEBE5;color:var(--brick)}
+
+.prices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.p{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
+.p.wide{grid-column:1 / -1;background:var(--teal);color:#fff;border:0;display:flex;justify-content:space-between;align-items:center}
+.p b{font-size:15px;display:block;line-height:1.35}
+.p small{color:var(--mute);font-size:12.5px;display:block}
+.p.wide small{color:var(--sky)}
+.p .num{font-size:26px;display:block;margin-top:6px;color:var(--brick)}
+.p.wide .num{color:var(--saffron);margin:0}
+.p .num i{font-family:Plex;font-style:normal;font-size:13px;font-weight:600}
+
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.gal div{height:96px;border-radius:14px;position:relative;overflow:hidden}
+.c1{background:linear-gradient(135deg,var(--sky),#D7F0F2)}
+.c1:before{content:"";position:absolute;right:14px;top:18px;width:56px;height:38px;background:#fff;border-radius:14px 14px 14px 2px}
+.c2{background:var(--saffron)}
+.c2:before,.c2:after{content:"";position:absolute;left:14px;right:14px;height:8px;background:var(--teal);border-radius:4px;opacity:.8}
+.c2:before{top:30px}.c2:after{top:50px;right:34px}
+.c3{background:linear-gradient(160deg,var(--brick),#F08A62)}
+.c3:before{content:"";position:absolute;width:60px;height:60px;border-radius:50%;border:8px solid rgba(255,255,255,.75);left:18px;top:18px}
+.c4{background:var(--teal)}
+.c4:before{content:"";position:absolute;inset:22px 18px;border:3px solid var(--saffron);border-radius:8px}
+.c5{background:repeating-linear-gradient(90deg,#fff 0 14px,var(--line) 14px 16px)}
+.c6{background:linear-gradient(135deg,#FFE3B0,var(--saffron))}
+.c6:before{content:"";position:absolute;left:16px;bottom:16px;width:30px;height:46px;background:var(--brick);border-radius:4px}
+.c6:after{content:"";position:absolute;left:52px;bottom:16px;width:30px;height:32px;background:var(--teal);border-radius:4px}
+
+.info{display:grid;gap:10px;margin-top:14px}
+.row{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;justify-content:space-between;font-size:14.5px}
+.row span:last-child{color:var(--mute)}
+
+.final{background:var(--teal);color:#fff;text-align:center;padding:28px 0 32px;margin-top:8px}
+.final h2{color:#fff}
+.final h2 em{color:var(--saffron)}
+.final p{color:#CFE3E5;font-size:14.5px;margin-top:4px}
+.bigwa{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:18px;background:var(--wa);color:#fff;font-weight:700;font-size:19px;padding:17px;border-radius:16px;box-shadow:0 8px 20px rgba(31,175,84,.35)}
+.bigwa svg{width:26px;height:26px}
+footer{text-align:center;font-size:12px;color:var(--mute);padding:14px 0 22px}
+</style>
+</head>
+<body>
+<div class="demo">مثال من سهل · صفحة تجريبية</div>
+
+<header class="top" data-sticky>
+  <div class="wrap">
+    <div class="logo"><span class="mark"></span><div>مركز جسر للغات<small>إنجليزي وعبري للكبار والصغار</small></div></div>
+    <a class="ask" href="https://adhamabuallan.github.io/sahl/wa/?c=P33">سجّل هسا</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="tag">مجموعات جديدة بتبلش كل شهر</span>
+    <h1>اعرف مستواك،<br>واختار <em>مجموعتك</em> بدقيقة</h1>
+    <p>كل المستويات، مواعيد المجموعات الجاية وقديش ضل مقاعد، والأسعار. كل شي هون قبل ما تتصل.</p>
+    <div class="tiles"><div class="tile t1 lat">Aa</div><div class="tile t2">ع</div><div class="tile t3 lat">Hi</div></div>
+    <a class="cta" href="https://adhamabuallan.github.io/sahl/wa/?c=P33">احجز اختبار مستوى مجاني</a>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>أنا بأي <em>مستوى؟</em></h2>
+    <p class="sub">لاقي حالك بهاي الدرجات</p>
+    <div class="ladder">
+      <div class="lv"><span class="code lat" style="background:var(--sky);color:var(--teal)">A1</span><div><b>مبتدئ</b><small>بتعرف الحروف وكم كلمة بس</small></div></div>
+      <div class="lv"><span class="code lat" style="background:var(--saffron);color:var(--teal)">A2</span><div><b>أساسي</b><small>بتفهم جمل قصيرة وبترد ببطء</small></div></div>
+      <div class="lv"><span class="code lat" style="background:var(--brick)">B1</span><div><b>متوسط</b><small>بتحكي عن شغلك ويومك بدون ترجمة</small></div></div>
+      <div class="lv"><span class="code lat" style="background:var(--teal)">B2</span><div><b>متقدم</b><small>اجتماعات وإيميلات ومقابلات شغل</small></div></div>
+    </div>
+    <div class="quiz">مش متأكد؟ <b>اختبار المستوى مجاني</b> وبياخد 15 دقيقة، بالمركز أو أونلاين.</div>
+  </div>
+</section>
+
+<section style="padding-top:6px">
+  <div class="wrap">
+    <h2>المجموعات <em>الجاية</em></h2>
+    <p class="sub">كل مجموعة 8 طلاب بالكتير</p>
+    <div class="groups">
+      <div class="g"><div><b>إنجليزي A2</b><small>أحد وثلاثاء · 5:00 مسا · بتبلش 1/12</small></div><span class="seat few">ضل 2</span></div>
+      <div class="g"><div><b>إنجليزي B1 محادثة</b><small>اثنين وأربعاء · 6:30 مسا · بتبلش 3/12</small></div><span class="seat ok">ضل 5</span></div>
+      <div class="g"><div><b>عبري للمبتدئين</b><small>سبت وثلاثاء · 4:00 العصر · بتبلش 6/12</small></div><span class="seat ok">ضل 4</span></div>
+      <div class="g"><div><b>عبري للشغل</b><small>أحد وخميس · 7:00 مسا · بتبلش 7/12</small></div><span class="seat few">ضل 1</span></div>
+      <div class="g"><div><b>إنجليزي للأطفال</b><small>سبت · 10:00 الصبح · من 8 لـ 12 سنة</small></div><span class="seat ok">ضل 6</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:6px">
+  <div class="wrap">
+    <h2>الأسعار <em>بوضوح</em></h2>
+    <p class="sub">الكتاب والمواد داخلين بالسعر</p>
+    <div class="prices">
+      <div class="p wide"><div><b>دورة مجموعة</b><small>8 أسابيع، حصتين بالأسبوع</small></div><span class="num"><bdi dir="ltr">450</bdi> <i>شيكل</i></span></div>
+      <div class="p"><b>درس خاص</b><small>ساعة وحدة</small><span class="num"><bdi dir="ltr">90</bdi> <i>شيكل</i></span></div>
+      <div class="p"><b>أطفال</b><small>8 أسابيع، حصة بالأسبوع</small><span class="num"><bdi dir="ltr">280</bdi> <i>شيكل</i></span></div>
+      <div class="p"><b>أونلاين</b><small>نفس الدورة بالزوم</small><span class="num"><bdi dir="ltr">380</bdi> <i>شيكل</i></span></div>
+      <div class="p"><b>اختبار مستوى</b><small>15 دقيقة</small><span class="num">مجاني</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:6px">
+  <div class="wrap">
+    <h2>جوا <em>المركز</em></h2>
+    <p class="sub">صفوف صغيرة، لوح، ومكتبة كتب للاستعارة</p>
+    <div class="gal"><div class="c1"></div><div class="c2"></div><div class="c3"></div><div class="c4"></div><div class="c5"></div><div class="c6"></div></div>
+  </div>
+</section>
+
+<section style="padding-top:6px">
+  <div class="wrap">
+    <h2>المواعيد <em>والمكان</em></h2>
+    <div class="info">
+      <div class="row"><span>السبت لـ الخميس</span><span>من 10 الصبح لـ 9 المسا</span></div>
+      <div class="row"><span>الجمعة</span><span>مسكّر</span></div>
+      <div class="row"><span>المكان</span><span>نابلس، رفيديا، طابق 2</span></div>
+      <div class="row"><span>أونلاين</span><span>من أي مكان بالضفة والداخل</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>احجز <em>مقعدك</em> قبل ما تتعبى المجموعة</h2>
+    <p>ابعتلنا اللغة والمستوى، ومنرد عليك بالمجموعة المناسبة</p>
+    <a class="bigwa" href="https://adhamabuallan.github.io/sahl/wa/?c=P33"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>سجّل عالواتساب</a>
+  </div>
+</section>
+<footer>مثال من سهل · صفحة تجريبية لمركز غير حقيقي</footer>
+</body>
+</html>
